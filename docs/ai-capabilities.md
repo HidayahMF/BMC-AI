@@ -33,3 +33,10 @@
 - Internal confidence metadata is attached to Sales customer/order/quantity/delivery results for developer diagnostics.
 - TTL cache abstraction is enabled for customer search and Sales detail only; errors are not cached.
 - Bounded mock-provider load harness is available through `npm run load:test`; it bypasses SQL Server and HTTP rate limiting by design.
+- Bounded real SQL customer-search load test is available through `npm run load:test:sql <concurrency> <durationMs>`; it is read-only and intentionally light.
+
+## Production Discovery Boundary
+
+- `Transaksi_Stok_Fg` is not exposed as a production tool. `JenisTransaksi=D` is only a PROBABLE FG receipt candidate; `K` is a PROBABLE outgoing stock/event candidate.
+- No Good Production Quantity, FG receipt API, order-level production progress, reject rate, or ETA is implemented.
+- Current production capability is LEVEL 0 because source writer, production-completion event, reject separation, and order allocation are not confirmed.

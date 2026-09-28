@@ -2,69 +2,77 @@
 
 Dynamic read-only discovery of production-like tables/views. No production metric or formula is enabled.
 
+## FG Candidate Decision
+
+- `dbo.Transaksi_Stok_Fg` has two observed `JenisTransaksi` values: `D` and `K`.
+- `D` is a PROBABLE incoming FG transaction candidate: five rows, positive `Qty`, `Satuan=PCS`, `LineProduksi=MP L`, warehouse `3`, and bounded descriptions previously observed as `Masuk dari LineMP L`.
+- `K` is a PROBABLE outgoing stock/event candidate: dominant value, no production line, and bounded descriptions previously observed as `Keluar ke`.
+- No production receipt is promoted to `CONFIRMED_BY_DATA`; writer/source event and good-vs-reject semantics remain unproven.
+- Safe term: `FG Receipt Quantity` only after `D` semantics are independently confirmed. Do not call it Good Production Quantity.
+
 ## Objects
 
 | Object | Type | Rows | Domain columns |
 |---|---|---:|---|
 | dbo.FINV_MONITOR_LISTINVOICE | VIEW | 600077 | IS_POSTING (int), CustomerName (nvarchar), Invoice_date (date), Received_date (date), CustomerId (int), Due_date (date), PONo (varchar), BTNo (varchar), ProductDescription (nvarchar), Qty (decimal) |
-| dbo.WMS_QTY_TRANSAKSI | VIEW | 440174 | TANGGAL (datetime), DepartID (char), NamaDepartemen (char), MaterialName (varchar), UoM (char) |
+| dbo.WMS_QTY_TRANSAKSI | VIEW | 440204 | TANGGAL (datetime), DepartID (char), NamaDepartemen (char), MaterialName (varchar), UoM (char) |
 | dbo.PODetail | TABLE | 271738 | PODetailID (int), PONo (nvarchar), POQty (float), Unit Price (money), Unit Price-old (money), POId (int), POType (nvarchar) |
-| dbo.inc_rm | TABLE | 241885 | no_po (varchar), qty_po (int), qty_awal (int), qty_dtg (int), qty_sply (int), qty_akhir (int), qty_rtr (int) |
-| dbo.TRANS1 | TABLE | 230373 | TANGGAL (datetime), ORDERS (nchar), TGL_UPDATE (datetime), UPDATE_BY (char), BATCH_DATE (datetime), IS_POSTING (int), User_posting (varchar), Date_posting (datetime), leaderApprovedDate (datetime) |
+| dbo.inc_rm | TABLE | 241886 | no_po (varchar), qty_po (int), qty_awal (int), qty_dtg (int), qty_sply (int), qty_akhir (int), qty_rtr (int) |
+| dbo.TRANS1 | TABLE | 230409 | TANGGAL (datetime), ORDERS (nchar), TGL_UPDATE (datetime), UPDATE_BY (char), BATCH_DATE (datetime), IS_POSTING (int), User_posting (varchar), Date_posting (datetime), leaderApprovedDate (datetime) |
 | dbo.belicst | TABLE | 211286 | NO_PO (varchar), QTY_AWAL (int), QTY_BL (float), qty_sply (int), QTY_AKHIR (int), POSTING_CST (tinyint), NoPOL (varchar), QTY_KIRIM (int) |
 | dbo.DTRANS_CLOSING | TABLE | 207073 | voucher_date (datetime), po_no (nvarchar) |
-| dbo.WMSV_MIS | VIEW | 205856 | TANGGAL (datetime) |
+| dbo.WMSV_MIS | VIEW | 205886 | TANGGAL (datetime) |
 | dbo.PRDetail | TABLE | 194291 | MaterialID (int), Material Description (nvarchar), NRUnit (nvarchar), PRQty (int), ProductID (int), MaterialIDP4 (nvarchar) |
 | dbo.DTRANS_BA_R1 | TABLE | 191201 | voucher_date (datetime), po_no (nvarchar) |
 | dbo.belicst2 | TABLE | 190548 | NO_PO (varchar), QTY_AWAL (float), QTY_BL (real), qty_sply (int), QTY_AKHIR (float), POSTING_CST (tinyint), NoPOL (varchar), QTY_KIRIM (int) |
-| dbo.MATERIAL_PESAN | TABLE | 190476 | TANGGAL (datetime), IDMATERIAL (char), QTY (decimal), UNIT (char), CUSTOMER (char) |
+| dbo.MATERIAL_PESAN | TABLE | 190506 | TANGGAL (datetime), IDMATERIAL (char), QTY (decimal), UNIT (char), CUSTOMER (char) |
 | dbo.belicst4 | TABLE | 190021 | NO_PO (varchar), QTY_AWAL (int), QTY_BL (float), qty_sply (int), QTY_AKHIR (int), POSTING_CST (tinyint), NoPOL (varchar), QTY_KIRIM (int) |
 | dbo.inc_rm_backup2 | TABLE | 185084 | no_po (varchar), qty_po (int), qty_awal (int), qty_dtg (int), qty_sply (int), qty_akhir (int), qty_rtr (int) |
 | dbo.inc_rm_backup | TABLE | 184106 | no_po (varchar), qty_po (int), qty_awal (int), qty_dtg (int), qty_sply (int), qty_akhir (int), qty_rtr (int) |
 | dbo.SupplyFng | TABLE | 175288 | QTY_FNG (float), POSTING_FNG (tinyint), qty_isi_palet (float) |
 | dbo.trial_ba_detail | VIEW | 156638 | Date (datetime) |
-| dbo.WMSV_SCUnion | VIEW | 150928 | TANGGAL (datetime) |
-| dbo.WMSV_SC3 | VIEW | 126458 | TANGGAL (datetime) |
-| dbo.FINV_MONITOR_LISTDELIVERY | VIEW | 119199 | CustId (int), CustomerName (nvarchar), Tanggal (date), TerimaDate (datetime), NoPO (varchar), ProductID (varchar), Part_Description (varchar), Part_Number (nvarchar), UnitPrice (numeric), Qty (int) |
+| dbo.WMSV_SCUnion | VIEW | 150963 | TANGGAL (datetime) |
+| dbo.WMSV_SC3 | VIEW | 126488 | TANGGAL (datetime) |
+| dbo.FINV_MONITOR_LISTDELIVERY | VIEW | 119212 | CustId (int), CustomerName (nvarchar), Tanggal (date), TerimaDate (datetime), NoPO (varchar), ProductID (varchar), Part_Description (varchar), Part_Number (nvarchar), UnitPrice (numeric), Qty (int) |
 | dbo.dataDetailCheckSheet | TABLE | 115464 | date (datetime) |
 | dbo.belicst3 | TABLE | 106718 | NO_PO (nvarchar), QTY_AWAL (float), QTY_BL (float), qty_sply (int), QTY_AKHIR (float), POSTING_CST (tinyint), NoPOL (nvarchar), QTY_KIRIM (int) |
 | dbo.WMS_AMOUNT_TRANSAKSI | VIEW | 102867 | TANGGAL (datetime), MaterialId (char), MaterialGroup (char), MaterialName (varchar), UoM (char), DepartID (char), NamaDepartemen (char), UnitPrice (decimal) |
-| dbo.Transaksi_Stok | TABLE | 96645 | Tanggal (date), MaterialId (varchar), Qty (decimal), Satuan (varchar), CreatedDate (datetime), IS_POSTING (int), qty_rmc (int), qty_rcs (int) |
-| dbo.PURCV_RFBID | VIEW | 94526 | BidDate (datetime), MaterialId (char), Quantity (numeric), UoM (char), UnitPrice (numeric) |
-| dbo.PURCV_POSTS | VIEW | 68743 | PONo (char), PODate (datetime), ETADate (datetime), MaterialId (char), MaterialName (varchar), UoM (char), UnitPrice (numeric), POQTY (numeric), POStatus (varchar) |
+| dbo.Transaksi_Stok | TABLE | 96646 | Tanggal (date), MaterialId (varchar), Qty (decimal), Satuan (varchar), CreatedDate (datetime), IS_POSTING (int), qty_rmc (int), qty_rcs (int) |
+| dbo.PURCV_RFBID | VIEW | 94532 | BidDate (datetime), MaterialId (char), Quantity (numeric), UoM (char), UnitPrice (numeric) |
+| dbo.PURCV_POSTS | VIEW | 68755 | PONo (char), PODate (datetime), ETADate (datetime), MaterialId (char), MaterialName (varchar), UoM (char), UnitPrice (numeric), POQTY (numeric), POStatus (varchar) |
 | dbo.selisih_inventory | VIEW | 58700 | DepartID (char), NamaDepartemen (char), MaterialId (char), MaterialName (varchar), STATUSQTY (numeric) |
 | dbo.HTRANS_BA_R1 | TABLE | 50529 | voucher_date (datetime), User_posting (varchar), Date_posting (datetime) |
 | dbo.PR | TABLE | 50508 | PRDate (date), PRforCustTypeId (int), Appdate (date) |
-| dbo.ACCV_JurnalPembelian | VIEW | 48940 | Posisi (int), PO (varchar), MaterialId (char), IS_POSTING (int) |
+| dbo.ACCV_JurnalPembelian | VIEW | 48950 | Posisi (int), PO (varchar), MaterialId (char), IS_POSTING (int) |
 | dbo.ClaimRjk | TABLE | 47011 | POSTING_CST (varchar), KODE_CUST (varchar), QTY_SBLAST (float), QTY_GYG (int), QTY_MCH (int), QTY_trial (int), qty_retur (int), NO_PO (varchar) |
 | dbo.DTRANS_BA_R1_B | TABLE | 43929 | voucher_date (datetime), po_no (nvarchar) |
 | dbo.PURCH_MRP | TABLE | 37917 | DepartId (varchar), MRPDate (varchar), MaterialId (nchar), Qty (numeric), UoM (char), Status_Date (datetime), Inp_date (datetime), Approval_Date (datetime), ApprovalMgr_Date (datetime), ApprovalGhFa_Date (datetime), ApprovalIc_Date (datetime), ApprovalProc_Date (datetime), ApprovalDirektur_Date (datetime), ApprovalCfo_Date (datetime), ApprovalPresdir_Date (datetime), MRPDateAkhir (varchar), Upd_date (datetime), Approval_ghDate (datetime), Approval_dhDate (datetime), Approval_shDate (datetime) |
 | dbo.PURCV_BP_PR | VIEW | 35663 | MaterialId (nvarchar), MaterialName (varchar), UoM (char), QTYBP (numeric), DepartId (varchar), MonthDate (varchar), PRReceivedDate (datetime), QtyPr (numeric) |
-| dbo.PURCV_TRANS_UNION | VIEW | 35265 | TANGGAL (datetime) |
-| dbo.Transaksi_Stok_Fg | TABLE | 35060 | Tanggal (date), ProductId (varchar), Qty (decimal), Satuan (varchar), CreatedDate (datetime) |
-| dbo.WMSV_StoGdLkOwKt | VIEW | 34979 | Materialid (char), BeginQty (numeric) |
-| dbo.WMSV_SGLOK_SUM | VIEW | 33850 | Materialid (char) |
+| dbo.PURCV_TRANS_UNION | VIEW | 35277 | TANGGAL (datetime) |
+| dbo.Transaksi_Stok_Fg | TABLE | 35081 | Tanggal (date), ProductId (varchar), Qty (decimal), Satuan (varchar), CreatedDate (datetime) |
+| dbo.WMSV_StoGdLkOwKt | VIEW | 34980 | Materialid (char), BeginQty (numeric) |
+| dbo.WMSV_SGLOK_SUM | VIEW | 33851 | Materialid (char) |
 | dbo.FIN_INVOICE | TABLE | 32768 | ProductId (int), Qty (decimal), PONo (varchar), TanggalTerima (date), Satuan (varchar) |
-| dbo.FINV_DETAIL_DO | VIEW | 32656 | Part_Description (varchar), Part_Number (nvarchar), Qty (int) |
-| dbo.SLS_DELIVERYORDER_NEW | TABLE | 32656 | NoPO (varchar), ProductID (varchar), Qty (int), IdDetailPO (int), QtyCheck (int) |
+| dbo.SLS_DELIVERYORDER_NEW | TABLE | 32669 | NoPO (varchar), ProductID (varchar), Qty (int), IdDetailPO (int), QtyCheck (int) |
+| dbo.FINV_DETAIL_DO | VIEW | 32668 | Part_Description (varchar), Part_Number (nvarchar), Qty (int) |
 | dbo.WMSV_RAW_UNION | VIEW | 30573 | Materialid (varchar), LastMonDate (datetime) |
 | dbo.FINV_AR_SALES | VIEW | 30495 | invoice_date (date), po_no (nvarchar), IS_POSTING (int), btno (varchar), productDescription (nvarchar) |
-| dbo.FINV_APBILL2 | VIEW | 28866 | tanggal (date), IS_POSTING (int) |
+| dbo.FINV_APBILL2 | VIEW | 28873 | tanggal (date), IS_POSTING (int) |
 | dbo.vw_sls_order | VIEW | 28766 | CustomerId (int), Invoice_date (date), Due_date (date), CustID (nvarchar), CustomerName (nvarchar), po_no (nvarchar), IS_POSTING (int), btno (varchar), Part_Description (varchar), productDescription (varchar), Qty (decimal) |
-| dbo.SLS_SALESORDER_NEW | TABLE | 28594 | ProductID (varchar), Qty (int), UnitPrice (decimal), PartNumber (varchar), PODelFrom (date), PODelTo (date) |
-| dbo.SumMatStock2 | VIEW | 28522 | Materialid (char), MaterialName (varchar), Quantity (numeric), UoM (char) |
+| dbo.SLS_SALESORDER_NEW | TABLE | 28603 | ProductID (varchar), Qty (int), UnitPrice (decimal), PartNumber (varchar), PODelFrom (date), PODelTo (date) |
+| dbo.SumMatStock2 | VIEW | 28523 | Materialid (char), MaterialName (varchar), Quantity (numeric), UoM (char) |
 | dbo.acc_movement_stock | TABLE | 28320 | saldo_awal_qty (decimal), beli_qty (decimal), pakai_qty (decimal), retur_qty (decimal), adj_qty (decimal), saldo_akhir_qty (decimal), date_by (datetime) |
 | dbo.WMS_MatStockBMC | TABLE | 27995 | Materialid (varchar), LastMonDate (datetime), LastBeginQty (numeric), LastReceiveQty (numeric), LastIssueQty (numeric), LastReturnQty (numeric), LastAdjustQty (numeric), LastMutationQty (numeric), LastRealocQty (numeric), LastWriteOffQty (numeric), LastSubconQty (numeric), LastMonQty (numeric), kelompok (int) |
 | dbo.vw_sls_order1 | VIEW | 27793 | CustomerId (int), Invoice_date (date), Due_date (date), CustID (nvarchar), CustomerName (nvarchar), po_no (nvarchar), IS_POSTING (int), btno (varchar), Part_Description (varchar), productDescription (varchar), Qty (decimal) |
-| dbo.PURCV_DETRECEIVE | VIEW | 24683 | PONo (char), TANGGAL (datetime), MaterialName (varchar), Materialid (char), duedate (datetime) |
+| dbo.PURCV_DETRECEIVE | VIEW | 24688 | PONo (char), TANGGAL (datetime), MaterialName (varchar), Materialid (char), duedate (datetime) |
 | dbo.PURC_MATCATALOG | TABLE | 24550 | Materialid (char), MaterialJasa (char), MaterialType (char), MaterialGroup (char), MaterialSubGroup (char), UoM (char), MaterialName (varchar), OrderLevel (numeric), inp_date (datetime), upd_date (datetime), kelompok (int) |
-| dbo.vw_trans1_Debet_gabungan | VIEW | 24496 | UoM (char), TANGGAL (datetime), Quantity (numeric), unitprice (numeric) |
-| dbo.ACCV_MRSAtPeriod | VIEW | 24472 | IS_POSTING (int) |
-| dbo.ACCV_JurnBeliDebet | VIEW | 24470 | PO (char) |
-| dbo.ACCV_JurnBeliKredit | VIEW | 24470 | PO (char) |
-| dbo.ACCV_MRSAPSrcJurnal | VIEW | 24470 | IS_POSTING (int) |
-| dbo.PURC_RFQMATERIAL | TABLE | 23312 | MaterialId (char), Qty (numeric) |
-| dbo.WMSV_MRS | VIEW | 23293 | TANGGAL (datetime), MaterialName (varchar), UoM (char), NamaDepartemen (char) |
+| dbo.vw_trans1_Debet_gabungan | VIEW | 24501 | UoM (char), TANGGAL (datetime), Quantity (numeric), unitprice (numeric) |
+| dbo.ACCV_MRSAtPeriod | VIEW | 24477 | IS_POSTING (int) |
+| dbo.ACCV_JurnBeliDebet | VIEW | 24475 | PO (char) |
+| dbo.ACCV_JurnBeliKredit | VIEW | 24475 | PO (char) |
+| dbo.ACCV_MRSAPSrcJurnal | VIEW | 24475 | IS_POSTING (int) |
+| dbo.PURC_RFQMATERIAL | TABLE | 23320 | MaterialId (char), Qty (numeric) |
+| dbo.WMSV_MRS | VIEW | 23298 | TANGGAL (datetime), MaterialName (varchar), UoM (char), NamaDepartemen (char) |
 | dbo.PreRawAttendance | TABLE | 22086 | eventDate (varchar), tr_date (datetime) |
 | dbo.DCARBURIZIG | TABLE | 21618 | POSTING_CST (bit), QTY (float), NO_PO (varchar) |
 | dbo.WMS_FIFO_RM | TABLE | 21068 | po (varchar), qty (int), QtySply (int) |
@@ -72,45 +80,44 @@ Dynamic read-only discovery of production-like tables/views. No production metri
 | dbo.WMSV_StockMaterial | VIEW | 20406 | Materialid (char), MaterialName (varchar), BeginQty (numeric), UoM (char) |
 | dbo.WMS_MatStockLawas | TABLE | 20373 | Materialid (char), LastMonDate (smalldatetime), LastBeginQty (decimal), LastReceiveQty (decimal), LastIssueQty (decimal), LastReturnQty (decimal), LastAdjustQty (decimal), LastMutationQty (decimal), LastRealocQty (decimal), LastWriteOffQty (decimal), LastMonQty (decimal) |
 | dbo.StockPerLocation | VIEW | 20091 | Materialid (char), MaterialName (varchar), BeginQty (decimal), UoM (char) |
-| dbo.WMS_INCOMING_BRAKEASSY_MAT | TABLE | 19750 | PART_NUMBER (varchar), MATERIAL_ID (varchar), QTY_MSK (decimal), QTY_VERIFIED (decimal), UPDATE_AT (datetime), UPDATE_BY (varchar), VERIFDATE (datetime) |
-| dbo.FINV_APBILL | VIEW | 18952 | tanggal (date), IS_POSTING (int), materialName (nvarchar), UoM (varchar), NoPO (varchar), TanggalFakturPajak (date) |
+| dbo.WMS_INCOMING_BRAKEASSY_MAT | TABLE | 19798 | PART_NUMBER (varchar), MATERIAL_ID (varchar), QTY_MSK (decimal), QTY_VERIFIED (decimal), UPDATE_AT (datetime), UPDATE_BY (varchar), VERIFDATE (datetime) |
+| dbo.FINV_APBILL | VIEW | 18955 | tanggal (date), IS_POSTING (int), materialName (nvarchar), UoM (varchar), NoPO (varchar), TanggalFakturPajak (date) |
 | dbo.POV | TABLE | 18779 | POId (int), PONo (nvarchar), Date (datetime), POTypeId (tinyint), CreateDate (datetime), ApproveDate (datetime) |
 | dbo.ACCV_MRSAtPeriod2 | VIEW | 18765 | IS_POSTING (int) |
-| dbo.PURC_BIDCOMPARE | TABLE | 18321 | MaterialId (char), Quantity (numeric), UoM (char), UnitPrice (numeric), UoMTime (char) |
-| dbo.PURCV_BID_COMPARE | VIEW | 18321 | MaterialId (char), Quantity (numeric), UoM (char), UoMTime (char), UnitPrice_undisc (numeric), UnitPrice (numeric) |
-| dbo.WMSV_SC2 | VIEW | 17905 | TANGGAL (datetime) |
+| dbo.PURC_BIDCOMPARE | TABLE | 18320 | MaterialId (char), Quantity (numeric), UoM (char), UnitPrice (numeric), UoMTime (char) |
+| dbo.PURCV_BID_COMPARE | VIEW | 18320 | MaterialId (char), Quantity (numeric), UoM (char), UoMTime (char), UnitPrice_undisc (numeric), UnitPrice (numeric) |
+| dbo.WMSV_SC2 | VIEW | 17910 | TANGGAL (datetime) |
 | dbo.dataHeaderCheckSheet | TABLE | 17156 | part_number (text) |
-| dbo.PURC_QUOTATION | TABLE | 16327 | MaterialId (char), Quantity (numeric), UoM (char), UnitPrice (numeric), UoMTime (char), inp_date (datetime), upd_date (datetime) |
-| dbo.PURC_PURCHREQUEST_TEMP | TABLE | 15631 | MaterialId (nchar), MaterialName (varchar), Qty (numeric), UoM (char), Purpose (varchar), DepartAloc (char), Approval_Date (nchar), AppDate (datetime), CDate (datetime), Purpose_Date (datetime), Approval_ghdate (nchar), Approval_Dhdate (nchar), Approval_Icdate (nchar), Approval_ProcDate (datetime) |
-| dbo.BPI_MR | TABLE | 15542 | TGL_PO (datetime), SATUAN (char), QTY (numeric), ORDERS (char), PO_INDUK (char) |
-| dbo.PURCV_UNION_HIST_PO | VIEW | 14712 | PONo (varchar), PODate (datetime), MaterialId (varchar), MaterialName (varchar), Quantity (varchar), UoM (varchar) |
+| dbo.PURC_QUOTATION | TABLE | 16331 | MaterialId (char), Quantity (numeric), UoM (char), UnitPrice (numeric), UoMTime (char), inp_date (datetime), upd_date (datetime) |
+| dbo.PURC_PURCHREQUEST_TEMP | TABLE | 15645 | MaterialId (nchar), MaterialName (varchar), Qty (numeric), UoM (char), Purpose (varchar), DepartAloc (char), Approval_Date (nchar), AppDate (datetime), CDate (datetime), Purpose_Date (datetime), Approval_ghdate (nchar), Approval_Dhdate (nchar), Approval_Icdate (nchar), Approval_ProcDate (datetime) |
+| dbo.BPI_MR | TABLE | 15558 | TGL_PO (datetime), SATUAN (char), QTY (numeric), ORDERS (char), PO_INDUK (char) |
+| dbo.PURCV_UNION_HIST_PO | VIEW | 14714 | PONo (varchar), PODate (datetime), MaterialId (varchar), MaterialName (varchar), Quantity (varchar), UoM (varchar) |
 | dbo.MATERIAL_NAME | TABLE | 14410 | MaterialID (int), Material Name (nvarchar), Material Group (nvarchar), Unit (nvarchar) |
-| dbo.SLS_DELIVERYORDER_HED_NEW | TABLE | 13695 | Tanggal (date), CustomerID (int), inp_date (datetime2), Approve_date (datetime2), StsPO (int), TerimaDate (datetime), PONo (varchar), ApproveDateAR (datetime), RejectDate (datetime) |
-| dbo.PURC_PURCHASE_REQUEST | TABLE | 13256 | MaterialId (char), ImportLocal (char), Purpose (varchar), Qty (numeric), UoM (char), EstUnitPrice (numeric), ExpDeliveryDate (datetime), HoldDate (datetime), CancelDate (datetime), PRReceivedDate (datetime), inp_date (datetime), upd_date (datetime) |
-| dbo.PURCV_DETIL | VIEW | 13101 | PRDate (datetime), MaterialName (varchar), MaterialId (char), ImportLocal (char), Purpose (varchar), Qty (numeric), UoM (char), EstUnitPrice (numeric), ExpDeliveryDate (datetime), CancelDate (datetime), PRReceivedDate (datetime), NamaDepartemen (char) |
-| dbo.WMSV_STO0110 | VIEW | 12990 | Materialid (varchar), BeginQty (numeric) |
-| dbo.PO_JOIN_ACCESS | VIEW | 12838 | PRReceivedDate (datetime), BidDate (datetime), PONo (nvarchar), PODate (datetime), MaterialId (nvarchar), MaterialName (nvarchar), PoQty (float) |
-| dbo.PURCV_VENDOR_SUPPLIES | VIEW | 12833 | MaterialId (char) |
-| dbo.PURC_PURCHASE_ORDER | TABLE | 12818 | PONo (char), MaterialId (char), Quantity (numeric), UoM (char), UnitPrice (numeric), HoldDate (datetime), CancelDate (datetime), PO_Delivery_Actual_Qty (numeric), PO_Delivery_Status (int), PO_Delivery_Note (nvarchar), Senddate (datetime), inp_date (datetime), upd_date (datetime) |
-| dbo.PURCV_HARGAPO | VIEW | 12818 | PONo (char), MaterialId (char), AmountPO (numeric), Quantity (numeric), TOTALPO (numeric) |
-| dbo.WMS_PO_MATERIAL | VIEW | 12794 | PONo (char), TOTAL_QTY (numeric), MaterialId (char), LAST_DATE_MRS (datetime) |
-| dbo.PURC_BIDPR | TABLE | 12789 | MaterialId (char), Quantity (numeric), UoM (char), PO_Status (int) |
+| dbo.SLS_DELIVERYORDER_HED_NEW | TABLE | 13708 | Tanggal (date), CustomerID (int), inp_date (datetime2), Approve_date (datetime2), StsPO (int), TerimaDate (datetime), PONo (varchar), ApproveDateAR (datetime), RejectDate (datetime) |
+| dbo.PURC_PURCHASE_REQUEST | TABLE | 13273 | MaterialId (char), ImportLocal (char), Purpose (varchar), Qty (numeric), UoM (char), EstUnitPrice (numeric), ExpDeliveryDate (datetime), HoldDate (datetime), CancelDate (datetime), PRReceivedDate (datetime), inp_date (datetime), upd_date (datetime) |
+| dbo.PURCV_DETIL | VIEW | 13118 | PRDate (datetime), MaterialName (varchar), MaterialId (char), ImportLocal (char), Purpose (varchar), Qty (numeric), UoM (char), EstUnitPrice (numeric), ExpDeliveryDate (datetime), CancelDate (datetime), PRReceivedDate (datetime), NamaDepartemen (char) |
+| dbo.WMSV_STO0110 | VIEW | 12991 | Materialid (varchar), BeginQty (numeric) |
+| dbo.PO_JOIN_ACCESS | VIEW | 12840 | PRReceivedDate (datetime), BidDate (datetime), PONo (nvarchar), PODate (datetime), MaterialId (nvarchar), MaterialName (nvarchar), PoQty (float) |
+| dbo.PURCV_VENDOR_SUPPLIES | VIEW | 12835 | MaterialId (char) |
+| dbo.PURC_PURCHASE_ORDER | TABLE | 12820 | PONo (char), MaterialId (char), Quantity (numeric), UoM (char), UnitPrice (numeric), HoldDate (datetime), CancelDate (datetime), PO_Delivery_Actual_Qty (numeric), PO_Delivery_Status (int), PO_Delivery_Note (nvarchar), Senddate (datetime), inp_date (datetime), upd_date (datetime) |
+| dbo.PURCV_HARGAPO | VIEW | 12820 | PONo (char), MaterialId (char), AmountPO (numeric), Quantity (numeric), TOTALPO (numeric) |
+| dbo.WMS_PO_MATERIAL | VIEW | 12796 | PONo (char), TOTAL_QTY (numeric), MaterialId (char), LAST_DATE_MRS (datetime) |
+| dbo.PURC_BIDPR | TABLE | 12791 | MaterialId (char), Quantity (numeric), UoM (char), PO_Status (int) |
 | dbo.PURCV_DASH_ACT | VIEW | 11774 | ImportLocal (numeric), BidDate (datetime), AppDate (nvarchar), TGL_PO (datetime), POKIRIM (datetime), SATUAN (char), QTY (numeric) |
 | dbo.PURCV_PO_BARANG | VIEW | 11774 | BidDate (datetime), AppDate (nvarchar), TGL_PO (datetime), POKIRIM (datetime), ETADate (datetime), SATUAN (char), QTY (numeric) |
-| dbo.WMSV_MRS_0821Up | VIEW | 11270 | TANGGAL (datetime) |
+| dbo.WMSV_MRS_0821Up | VIEW | 11275 | TANGGAL (datetime) |
 | dbo.mst_pallet_standard_history | TABLE | 10369 | MaterialId (varchar), StandardQty (int), SnapshotDate (date), ApprovedDate (datetime), CreatedDate (datetime), ModifiedDate (datetime) |
 | dbo.SLS_DELIVERYORDER | TABLE | 10153 | NoPO (varchar), ProductID (varchar), Qty (int) |
-| dbo.FINV_GETSelisihInventory | VIEW | 9786 | DepartID (char), NamaDepartemen (char), MaterialId (char), MaterialName (varchar), STATUSQTY (numeric), Qty (numeric) |
 | dbo.SLS_SALESORDER_HED_NEW_BACKUP_ORPHAN | TABLE | 9758 | PONo (varchar), PODate (date), CustomerID (int), inp_date (datetime2), approval_date (datetime), StsPono (int), approvalppic_date (datetime) |
 | dbo.hris_Leave_Prop_Detail | TABLE | 9295 | ProposeDate (datetime), ActualDate (datetime), UpdDate (datetime) |
 | dbo.PURCV_HIST_LASTPO | VIEW | 8695 | POId (int), PONo (varchar), Date (datetime), MaterialId (int), MaterialName (varchar), UnitPrice (varchar), Unit (varchar), POQty (varchar) |
 | dbo.acc_movement_stock-a | TABLE | 8499 | saldo_awal_qty (decimal), beli_qty (decimal), pakai_qty (decimal), retur_qty (decimal), adj_qty (decimal), saldo_akhir_qty (decimal), date_by (datetime) |
-| dbo.PURC_RFQUOTAION | TABLE | 8410 | RFQDate (datetime), DueDate (datetime) |
-| dbo.SLS_SALESORDER_HED_NEW | TABLE | 8092 | PONo (varchar), PODate (date), CustomerID (int), inp_date (datetime2), approval_date (datetime), StsPono (int), approvalppic_date (datetime) |
+| dbo.PURC_RFQUOTAION | TABLE | 8412 | RFQDate (datetime), DueDate (datetime) |
+| dbo.SLS_SALESORDER_HED_NEW | TABLE | 8093 | PONo (varchar), PODate (date), CustomerID (int), inp_date (datetime2), approval_date (datetime), StsPono (int), approvalppic_date (datetime) |
 | dbo.MAS_MAPPINGMATERIAL | TABLE | 7858 | DepartId (varchar), MaterialId (varchar) |
 | dbo.DTRANS_BA_R1_1 | TABLE | 7598 | voucher_date (datetime), po_no (nvarchar) |
 | dbo.hris_Leave_Prop | TABLE | 7277 | InpDate (datetime) |
-| dbo.PURC_QUOTATIONHED | TABLE | 7050 | QuotationDate (datetime), UoMTime (char), ValidUntilDate (datetime) |
+| dbo.PURC_QUOTATIONHED | TABLE | 7051 | QuotationDate (datetime), UoMTime (char), ValidUntilDate (datetime) |
 | dbo.PURCV_PO_MAT | VIEW | 6861 | Point (int), duedate (datetime), PO_Delivery_Note (nvarchar), PONo (char), PODate (datetime), TANGGAL (datetime), UoMTime (char), Materialid (char), MaterialName (varchar), Quantity (numeric), UoM (char) |
 | dbo.FINV_INVOICE_PRICE_CUST | VIEW | 6335 | Invoice_date (date), CustomerName (nvarchar), Part_Description (varchar), QTY (decimal) |
 | dbo.WMSV_STO0110Sum | VIEW | 5889 | Materialid (varchar) |
@@ -119,49 +126,49 @@ Dynamic read-only discovery of production-like tables/views. No production metri
 | dbo.WMSV_STOEndingInfo | VIEW | 5885 | Materialid (char), NamaDepartemen (char), UoM (char), MaterialName (varchar) |
 | dbo.SLS_DELIVERYORDER_HED | TABLE | 5839 | Tanggal (date), CustomerID (int), inp_date (datetime), approval_date (datetime), StsPO (char) |
 | dbo.hris_Approval | TABLE | 5746 | UpdDate (datetime) |
-| dbo.FINV_LBH | VIEW | 5563 | Tanggal (date) |
+| dbo.FINV_LBH | VIEW | 5567 | Tanggal (date) |
 | dbo.SumMatStock | VIEW | 5544 | Materialid (char), MaterialName (varchar), Quantity (numeric), UoM (char) |
 | dbo.WMSV_STO0110_INFO | VIEW | 5544 | NamaDepartemen (char), UoM (char), MaterialName (varchar), Materialid (char), BeginQty (decimal) |
-| dbo.FINV_VATIn | VIEW | 5427 | Tanggal (date) |
-| dbo.FIN_PEMBAYARAN | TABLE | 5419 | NoPO (varchar), Tanggal (date), Update_by (varchar), Update_date (datetime) |
-| dbo.FINV_PAYMENT_DETAIL_UNION | VIEW | 5414 | NoPO (varchar), NamaDepartemen (varchar) |
+| dbo.FINV_VATIn | VIEW | 5430 | Tanggal (date) |
+| dbo.FIN_PEMBAYARAN | TABLE | 5425 | NoPO (varchar), Tanggal (date), Update_by (varchar), Update_date (datetime) |
+| dbo.FINV_PAYMENT_DETAIL_UNION | VIEW | 5420 | NoPO (varchar), NamaDepartemen (varchar) |
 | dbo.e_skk_answer | TABLE | 5407 | date (datetime2) |
-| dbo.FINV_LISTAPPROVE_TT | VIEW | 5231 | IsVendorPO (int), Tanggal (date), DepartId (varchar), IS_POSTING (int) |
-| dbo.FIN_TANDATERIMA_DOC | TABLE | 5230 | Tanggal (date), IsVendorPO (int), DueDate (date), ApproveDate (datetime), IS_POSTING (int), USer_posting (varchar), Date_posting (datetime), DepartId (varchar) |
-| dbo.FIN_TANDATERIMA_HED | TABLE | 5225 | TanggalFakturPajak (date), NoPO (varchar), POSPK (varchar), inp_date (datetime), ReleaseDate (datetime), IS_POSTING (int), USer_posting (varchar), Date_posting (datetime) |
-| dbo.FINV_FAKTUR_LIST | VIEW | 5221 | NomorTandaTerima (varchar), NoPO (varchar) |
-| dbo.PURC_PO_JENIS | TABLE | 5042 | PONo (varchar) |
-| dbo.FIN_PEMBAYARAN_BDV | TABLE | 5004 | NoPO (varchar), Tanggal (date), Update_by (varchar), Update_date (datetime) |
-| dbo.FINV_BDV_PAYMENT_OPEN | VIEW | 4946 | NoPO (varchar), Tanggal (date), TandaTerimaPPN (int), TandaTerimaPPH (int), NamaDepartemen (char), IDDepartemen (varchar), NomorTandaTerima (nvarchar) |
-| dbo.FINV_BDV_PAYMENT_OPEN2 | VIEW | 4946 | NoPO (varchar), Tanggal (date), TandaTerimaPPN (int), TandaTerimaPPH (int), NamaDepartemen (char), IDDepartemen (varchar), NomorTandaTerima (nvarchar) |
-| dbo.FINV_BDV_PAYMENT_OPEN4 | VIEW | 4946 | NoPO (varchar), Tanggal (date), TandaTerimaPPN (int), TandaTerimaPPH (int), NamaDepartemen (char), IDDepartemen (varchar), NomorTandaTerima (nvarchar) |
-| dbo.FIN_PEMBAYARAN_BDV_HED | TABLE | 4937 | inp_date (datetime) |
-| dbo.AP_FAKTUR | VIEW | 4911 | Tanggal (date), DueDate (date) |
-| dbo.PURCV_OUT_MR | VIEW | 4860 | MaterialId (char), MaterialName (varchar), MaterialType (char), MaterialGroup (char), MaterialSubGroup (char) |
+| dbo.FINV_LISTAPPROVE_TT | VIEW | 5234 | IsVendorPO (int), Tanggal (date), DepartId (varchar), IS_POSTING (int) |
+| dbo.FIN_TANDATERIMA_DOC | TABLE | 5233 | Tanggal (date), IsVendorPO (int), DueDate (date), ApproveDate (datetime), IS_POSTING (int), USer_posting (varchar), Date_posting (datetime), DepartId (varchar) |
+| dbo.FIN_TANDATERIMA_HED | TABLE | 5228 | TanggalFakturPajak (date), NoPO (varchar), POSPK (varchar), inp_date (datetime), ReleaseDate (datetime), IS_POSTING (int), USer_posting (varchar), Date_posting (datetime) |
+| dbo.FINV_FAKTUR_LIST | VIEW | 5224 | NomorTandaTerima (varchar), NoPO (varchar) |
+| dbo.PURC_PO_JENIS | TABLE | 5043 | PONo (varchar) |
+| dbo.FIN_PEMBAYARAN_BDV | TABLE | 5009 | NoPO (varchar), Tanggal (date), Update_by (varchar), Update_date (datetime) |
+| dbo.FINV_BDV_PAYMENT_OPEN | VIEW | 4951 | NoPO (varchar), Tanggal (date), TandaTerimaPPN (int), TandaTerimaPPH (int), NamaDepartemen (char), IDDepartemen (varchar), NomorTandaTerima (nvarchar) |
+| dbo.FINV_BDV_PAYMENT_OPEN2 | VIEW | 4951 | NoPO (varchar), Tanggal (date), TandaTerimaPPN (int), TandaTerimaPPH (int), NamaDepartemen (char), IDDepartemen (varchar), NomorTandaTerima (nvarchar) |
+| dbo.FINV_BDV_PAYMENT_OPEN4 | VIEW | 4951 | NoPO (varchar), Tanggal (date), TandaTerimaPPN (int), TandaTerimaPPH (int), NamaDepartemen (char), IDDepartemen (varchar), NomorTandaTerima (nvarchar) |
+| dbo.FIN_PEMBAYARAN_BDV_HED | TABLE | 4942 | inp_date (datetime) |
+| dbo.AP_FAKTUR | VIEW | 4912 | Tanggal (date), DueDate (date) |
+| dbo.PURCV_OUT_MR | VIEW | 4862 | MaterialId (char), MaterialName (varchar), MaterialType (char), MaterialGroup (char), MaterialSubGroup (char) |
 | dbo.Operator_Melting | TABLE | 4790 | Id_ProduksiMesin (varchar), ProductId_BT (varchar), Tanggal (datetime), CreatedDate (datetime), UpdateBy (varchar), UpdateDate (datetime) |
 | dbo.PURC_PURCH_ORDER_HED | TABLE | 4700 | PONo (char), ImportLocal (numeric), PODate (datetime), ETADate (datetime), UoMTime (char), PoStatus (int), PO_Delivery_Status (nchar), UpdDate (datetime) |
 | dbo.PURC_BIDCOMPAREHED | TABLE | 4681 | BidDate (datetime), AppDate (nvarchar), DocSupport (nvarchar) |
-| dbo.PURCV_BANK_PRICE | VIEW | 4590 | MaterialId (char), MaterialName (varchar) |
+| dbo.PURCV_BANK_PRICE | VIEW | 4593 | MaterialId (char), MaterialName (varchar) |
 | dbo.WMS_MatStock2026 | TABLE | 4536 | Materialid (char), LastMonDate (smalldatetime), LastBeginQty (decimal), LastReceiveQty (decimal), LastIssueQty (decimal), LastReturnQty (decimal), LastAdjustQty (decimal), LastMutationQty (decimal), LastRealocQty (decimal), LastWriteOffQty (decimal), LastMonQty (decimal) |
-| dbo.APAGING_PEMB_D01_ListPemb | VIEW | 4512 | Tanggal (date), IS_POSTING (int) |
-| dbo.APAGING_PEMB_D02_D01_SumBayar | VIEW | 4500 | Posted (int) |
+| dbo.APAGING_PEMB_D01_ListPemb | VIEW | 4516 | Tanggal (date), IS_POSTING (int) |
+| dbo.APAGING_PEMB_D02_D01_SumBayar | VIEW | 4504 | Posted (int) |
 | dbo.PURCV_HEAD | VIEW | 4290 | PRDate (datetime), NamaDepartemen (char), PRReceivedDate (datetime) |
 | dbo.WMS_MatStockBAP | TABLE | 4261 | Materialid (varchar), LastMonDate (datetime), LastBeginQty (numeric), LastReceiveQty (numeric), LastIssueQty (numeric), LastReturnQty (numeric), LastAdjustQty (numeric), LastMutationQty (numeric), LastRealocQty (numeric), LastWriteOffQty (numeric), LastSubconQty (numeric), LastMonQty (numeric) |
 | dbo.WMSV_SC1 | VIEW | 4261 | Materialid (varchar), LastMonDate (datetime), LastMonQty (numeric) |
 | dbo.PROJ_WorkDay | TABLE | 4108 | ProjDate (datetime) |
 | dbo.WMSV_SC7 | VIEW | 4076 | Tanggal (date) |
-| dbo.PURC_PURCHREQUEST_HED | TABLE | 4072 | PRDate (datetime), DepartAloc (char) |
+| dbo.PURC_PURCHREQUEST_HED | TABLE | 4074 | PRDate (datetime), DepartAloc (char) |
 | dbo.BDVV_ListDtlTdTrmPO | VIEW | 3665 | IsVendorPO (int), NoPO (varchar) |
 | dbo.ACC_MapDivCatAccountBiaya | TABLE | 3629 | MaterialId (nvarchar), Update_Date (datetime), UpdateBy (varchar) |
 | dbo.TABEL_BANTU2 | TABLE | 3571 | MaterialId (varchar) |
-| dbo.FIN_PEMBAYARAN_HED | TABLE | 3132 | Tanggal (date), inp_date (datetime), ApproveDate (datetime), DateClose (datetime), IS_POSTING (int), User_posting (varchar), Date_posting (datetime) |
-| dbo.FINV_PAYMENT | VIEW | 3130 | Tanggal (date) |
+| dbo.FIN_PEMBAYARAN_HED | TABLE | 3135 | Tanggal (date), inp_date (datetime), ApproveDate (datetime), DateClose (datetime), IS_POSTING (int), User_posting (varchar), Date_posting (datetime) |
+| dbo.FINV_PAYMENT | VIEW | 3133 | Tanggal (date) |
 | dbo.vw_hris_Leave_Transaction | VIEW | 2994 | InpDate (date), DateProp (nvarchar) |
 | dbo.PURCH_MRP_TOTAL_GROUPNAME | TABLE | 2929 | DepartID (varchar) |
 | dbo.asset_2018 | TABLE | 2852 | Nama_actual (varchar), NO_PO (varchar), tgl_disposal (varchar), alasan_disposal (varchar), tgl_update (varchar) |
 | dbo.AP_LIST_FAKTUR | VIEW | 2836 | NoPO (varchar), Tanggal (date), DueDate (date) |
 | dbo.ACC_MapDivCatAccountBiaya__ | TABLE | 2670 | MaterialId (nvarchar), Update_Date (datetime), UpdateBy (varchar) |
-| dbo.FIN_PEMBAYARAN_BDV_DOC | TABLE | 2527 | Tanggal (date), inp_date (datetime), checked_date (datetime), reviewed_date (datetime), approved_date (datetime) |
+| dbo.FIN_PEMBAYARAN_BDV_DOC | TABLE | 2529 | Tanggal (date), inp_date (datetime), checked_date (datetime), reviewed_date (datetime), approved_date (datetime) |
 | dbo.FIN_PEMBV_PO_ADVANCE | VIEW | 2278 | NoPO (char), AmountPO (numeric) |
 | dbo.casting1 | TABLE | 2205 | PART_NUMBER (varchar), KODE_PARTNAME (varchar), KODE_CUST (varchar), lastUpdate (varchar) |
 | dbo.FINV_INVOICELIST | VIEW | 2107 | CustId (int), PO_No (varchar) |
@@ -173,10 +180,10 @@ Dynamic read-only discovery of production-like tables/views. No production metri
 | dbo.hris_EmployeeTraining | TABLE | 1749 | StartDate (datetime), EndDate (datetime) |
 | dbo.WMSV_STO_RAWMAT | VIEW | 1710 | Materialid (varchar), BeginQty (decimal) |
 | dbo.Product Main Data | TABLE | 1671 | Product ID (int), Product Description (nvarchar), Product No (nvarchar), Machined Weight (real), Machined Weightold (real) |
-| dbo.PURC_BIDCOMPARE_HISTORY | TABLE | 1654 | MaterialId (char), Quantity (numeric), UoM (char), UnitPrice (numeric), UoMTime (char) |
+| dbo.PURC_BIDCOMPARE_HISTORY | TABLE | 1659 | MaterialId (char), Quantity (numeric), UoM (char), UnitPrice (numeric), UoMTime (char) |
 | dbo.hris_Leave_Day | TABLE | 1598 | CalcDate (datetime), InpDate (datetime), UpdDate (datetime) |
 | dbo.HTRANS_BA_R1_1 | TABLE | 1585 | voucher_date (datetime), User_posting (varchar), Date_posting (datetime) |
-| dbo.FINV_FAKTUR_RP | VIEW | 1516 | NomorTandaTerima (varchar) |
+| dbo.FINV_FAKTUR_RP | VIEW | 1519 | NomorTandaTerima (varchar) |
 | dbo.hris_EmployeeCareerPath | TABLE | 1425 | StartDate (datetime), EndDate (datetime), InputDate (datetime) |
 | dbo.FIN_INVOICE_HED | TABLE | 1420 | Invoice_date (date), CustomerId (int), Payable_date (date), Received_date (date), Ack_date (date), Due_date (date), PO_No (nvarchar), PortForm (nvarchar), inp_date (datetime), IS_POSTING (int), User_posting (varchar), Date_posting (datetime), CustId (int), IS_POSTINGREV (int), ApproveDate (datetime) |
 | dbo.SLS_SALESORDER_HED_NEW_BACKUP2 | TABLE | 1379 | PONo (varchar), PODate (date), CustomerID (int), inp_date (datetime2), approval_date (datetime), StsPono (int), approvalppic_date (datetime) |
@@ -191,7 +198,7 @@ Dynamic read-only discovery of production-like tables/views. No production metri
 | dbo.vw_bpionline_Absensi_Area | VIEW | 1302 | TANGGAL (date) |
 | dbo.FINV_VATOut | VIEW | 1286 | Invoice_date (date), po_no (nvarchar), IS_POSTING (int), CustomerName (nvarchar) |
 | dbo.WMSV_SC6 | VIEW | 1251 | TANGGAL (datetime) |
-| dbo.FIN_PEMBAYARAN_LANGSUNG_HED | TABLE | 1233 | Tanggal (date), DepartID (varchar), inp_date (datetime), DueDate (date) |
+| dbo.FIN_PEMBAYARAN_LANGSUNG_HED | TABLE | 1234 | Tanggal (date), DepartID (varchar), inp_date (datetime), DueDate (date) |
 | dbo.FINV_GETNOINVOICE | VIEW | 1162 | CustId (int) |
 | dbo.WMSV_MIS_okt | VIEW | 1108 | DepartID (char), NamaDepartemen (char), MaterialName (varchar), UoM (char) |
 | dbo.SLS_SALESORDER_HED_NEW2 | TABLE | 1097 | PONo (varchar), PODate (date), CustomerID (int), inp_date (datetime2), approval_date (datetime), StsPono (int), approvalppic_date (datetime) |
@@ -199,8 +206,8 @@ Dynamic read-only discovery of production-like tables/views. No production metri
 | dbo.SLS_SALESORDER_HED_NEW_BACKUP | TABLE | 1090 | PONo (varchar), PODate (date), CustomerID (int), inp_date (datetime2), approval_date (datetime), StsPono (int), approvalppic_date (datetime) |
 | dbo.hris_FamGathAbsent | TABLE | 1061 | BirthDate (date) |
 | dbo.FINV_INVOICE_STATUS | VIEW | 1036 | DueDate (date), CustId (int), CustomerName (nvarchar) |
-| dbo.PURC_PURCHASE_ORDER_HISTORY | TABLE | 1004 | PONo (char), MaterialId (char), Quantity (numeric), UoM (char), UnitPrice (numeric), HoldDate (datetime), CancelDate (datetime), PO_Delivery_Actual_Qty (numeric), PO_Delivery_Status (int), PO_Delivery_Note (nvarchar), Senddate (datetime), inp_date (datetime), upd_date (datetime) |
-| dbo.PURC_BIDPR_HISTORY | TABLE | 977 | MaterialId (char), Quantity (numeric), UoM (char), PO_Status (int) |
+| dbo.PURC_PURCHASE_ORDER_HISTORY | TABLE | 1006 | PONo (char), MaterialId (char), Quantity (numeric), UoM (char), UnitPrice (numeric), HoldDate (datetime), CancelDate (datetime), PO_Delivery_Actual_Qty (numeric), PO_Delivery_Status (int), PO_Delivery_Note (nvarchar), Senddate (datetime), inp_date (datetime), upd_date (datetime) |
+| dbo.PURC_BIDPR_HISTORY | TABLE | 979 | MaterialId (char), Quantity (numeric), UoM (char), PO_Status (int) |
 | dbo.WMSV_SC8 | VIEW | 872 | Tanggal (date) |
 | dbo.FIN_MEMORIAL_JURNAL_HED | TABLE | 865 | Tanggal (date), inp_date (datetime), IS_POSTING (int), User_posting (varchar), Date_posting (datetime) |
 | dbo.FINV_PENERIMAAN_BANK | VIEW | 805 | Invoice_date (date), Due_date (date), CustomerName (nvarchar) |
@@ -218,13 +225,13 @@ Dynamic read-only discovery of production-like tables/views. No production metri
 | dbo.Assessments | TABLE | 598 | assessment_date (datetime) |
 | dbo.FIN_PEMBAYARAN_PTC | TABLE | 584 | NoPO (varchar) |
 | dbo.FIN_PEMBAYARAN_PTC_HED | TABLE | 583 | inp_date (datetime), DepartID (varchar), Tanggal (date) |
-| dbo.FINV_PEM_CASH | VIEW | 568 | Tanggal (date), inp_date (datetime), ApproveDate (datetime), DateClose (datetime), IS_POSTING (int), User_posting (varchar), Date_posting (datetime) |
-| dbo.PCV_CashOut | VIEW | 567 | IS_POSTING (int) |
+| dbo.FINV_PEM_CASH | VIEW | 570 | Tanggal (date), inp_date (datetime), ApproveDate (datetime), DateClose (datetime), IS_POSTING (int), User_posting (varchar), Date_posting (datetime) |
+| dbo.PCV_CashOut | VIEW | 569 | IS_POSTING (int) |
 | dbo.CR_users | VIEW | 564 | department_id (varchar) |
 | dbo.hris_Employee | TABLE | 564 | DepartID (char), BirthDate (datetime), WorkingDate (datetime), FirstWorkingDate (datetime), PostalCode (varchar), InactiveDate (datetime), ResignDate (datetime), HireDate (datetime), ConstaDate (datetime) |
 | dbo.HRISV_EMP_EKS | VIEW | 564 | DepartID (char), BirthDate (datetime), WorkingDate (datetime), FirstWorkingDate (datetime), PostalCode (varchar), InactiveDate (datetime), ResignDate (datetime), HireDate (datetime), ConstaDate (datetime) |
+| dbo.FINV_IN_OUT_CASH | VIEW | 553 | NamaDepartemen (char), tanggal (date), inp_date (datetime), IS_POSTING (int) |
 | dbo.WMS_MatStockCasting | TABLE | 553 | Materialid (char), LastMonDate (smalldatetime), LastBeginQty (decimal), LastReceiveQty (decimal), LastIssueQty (decimal), LastReturnQty (decimal), LastAdjustQty (decimal), LastMutationQty (decimal), LastRealocQty (decimal), LastWriteOffQty (decimal), LastMonQty (decimal) |
-| dbo.FINV_IN_OUT_CASH | VIEW | 551 | NamaDepartemen (char), tanggal (date), inp_date (datetime), IS_POSTING (int) |
 | dbo.BDVV_ListTdTrmPO | VIEW | 539 | IsVendorPO (int) |
 | dbo.vw_bpionline_Employees | VIEW | 539 | DepartID (char) |
 | dbo.CR_user_credentials | TABLE | 516 | updated_at (datetime) |
@@ -324,6 +331,7 @@ Dynamic read-only discovery of production-like tables/views. No production metri
 | dbo.Printers | TABLE | 40 | FirstPrintDate (date), LastCheckDate (datetime) |
 | dbo.WMSV_SLOWSTOCK | VIEW | 40 | Materialid (char), BeginQty (decimal) |
 | dbo.MAS_CUSTOMER | TABLE | 39 | CustId (int), CustomerName (nvarchar), IdOldCust (nvarchar), DateAppIC (datetime), DateAppFN (datetime), IdOldCustI (varchar), IdOldCustII (varchar), ProductionPrimary (varchar), ProductionSecondary (varchar), ProductionCapacity (varchar), PurchasingExport (varchar) |
+| dbo.training_qr_access | TABLE | 39 | purpose (varchar) |
 | dbo.IT_DEVICE_MONITORING | TABLE | 37 | PosX (char), PosY (char), Port_Width (char), Port_Height (char) |
 | dbo.IT_VW_MONITORING | VIEW | 37 | PosX (char), PosY (char), Port_Width (char), Port_Height (char) |
 | dbo.IT_DEVICE_MON_LINK | TABLE | 36 | From_Spot (char), To_Spot (char) |
@@ -384,11 +392,11 @@ Dynamic read-only discovery of production-like tables/views. No production metri
 | dbo.PURCH_MRP_OVERTIMEHEAD | TABLE | 8 | PLANBUDGET (decimal) |
 | dbo.ReplacementReject_Det | TABLE | 8 | MaterialId (varchar), qty_reject (int), qty_replace (int) |
 | dbo.training_answer_pg | TABLE | 8 | legacy_point (decimal) |
-| dbo.training_qr_access | TABLE | 8 | purpose (varchar) |
 | dbo.EF_FOLDERS | TABLE | 7 | DEPARTMENT_ID (varchar) |
 | dbo.PRODUKSI_FURNACE | TABLE | 7 | Id_ProduksiMesin (int) |
 | dbo.PRODUKSI_MESIN | TABLE | 7 | Id_ProduksiMesin (int), Produksi_Nama_Mesin (char), Produksi_UraianMesin (char) |
 | dbo.Tasks | TABLE | 7 | plan_start (date), plan_due (date), actual_start (date), actual_due (date) |
+| dbo.training_peserta_acara | TABLE | 7 | participant_nip (nvarchar), participant_name (nvarchar), department_code (nvarchar), department_name (nvarchar), updated_at (datetime2) |
 | dbo.activity_log | TABLE | 6 | CreatedDate (datetime) |
 | dbo.message_jobs | TABLE | 6 | idempotency_key (nvarchar) |
 | dbo.p2k3_nearmiss_finish | TABLE | 6 | report_id (int), tanggal_selesai (date), updated_at (datetime) |
@@ -440,7 +448,6 @@ Dynamic read-only discovery of production-like tables/views. No production metri
 | dbo.ReplacementReject_Hed | TABLE | 3 | tanggal_replacement (date), createdDate (datetime) |
 | dbo.SRT_USER | TABLE | 3 | updated_at (datetime), updated_by (varchar) |
 | dbo.SRT_USERGROUP | TABLE | 3 | updated_at (datetime), updated_by (varchar) |
-| dbo.training_peserta_acara | TABLE | 3 | participant_nip (nvarchar), participant_name (nvarchar), department_code (nvarchar), department_name (nvarchar), updated_at (datetime2) |
 | dbo.hris_Category | TABLE | 2 | Ca_orders (char) |
 | dbo.MAS_BOM | TABLE | 2 | MATERIALID (varchar), PART_NUMBER (varchar), SATUAN (varchar) |
 | dbo.MAS_GD_COA | TABLE | 2 | dt_inp_date (datetime), dt_upd_date (datetime) |
@@ -517,6 +524,7 @@ Dynamic read-only discovery of production-like tables/views. No production metri
 | dbo.FIN_SUMMARY_PAYMENT | TABLE | 0 | CreateDate (datetime) |
 | dbo.FINV_ALIRANDATA | VIEW | 0 | Tanggal (datetime) |
 | dbo.FINV_BDVListCheck | VIEW | 0 | Tanggal (date), NoPO (varchar) |
+| dbo.FINV_GETSelisihInventory | VIEW | 0 | DepartID (char), NamaDepartemen (char), MaterialId (char), MaterialName (varchar), STATUSQTY (numeric), Qty (numeric) |
 | dbo.FINV_INV_ACC | VIEW | 0 | CustId (int), PO_No (varchar) |
 | dbo.FINV_RETURPENJUALAN | VIEW | 0 | Tanggal (date), Qty (int), IS_POSTING (int), CustomerName (nvarchar) |
 | dbo.FINV_SLS_DELIVERY | VIEW | 0 | CustId (int), CustomerName (nvarchar), Tanggal (date), NoPO (varchar), Model_Part (varchar), Part_Description (nvarchar), Part_Number (nvarchar), Qty (int) |
@@ -641,35 +649,35 @@ Dynamic read-only discovery of production-like tables/views. No production metri
 ## Populated Candidates
 
 - dbo.FINV_MONITOR_LISTINVOICE: 600077 rows; status PROBABLE_CANDIDATE until exact Sales part/material bridge is validated.
-- dbo.WMS_QTY_TRANSAKSI: 440174 rows; status PROBABLE_CANDIDATE until exact Sales part/material bridge is validated.
+- dbo.WMS_QTY_TRANSAKSI: 440204 rows; status PROBABLE_CANDIDATE until exact Sales part/material bridge is validated.
 - dbo.PODetail: 271738 rows; status PROBABLE_CANDIDATE until exact Sales part/material bridge is validated.
-- dbo.inc_rm: 241885 rows; status PROBABLE_CANDIDATE until exact Sales part/material bridge is validated.
-- dbo.TRANS1: 230373 rows; status PROBABLE_CANDIDATE until exact Sales part/material bridge is validated.
+- dbo.inc_rm: 241886 rows; status PROBABLE_CANDIDATE until exact Sales part/material bridge is validated.
+- dbo.TRANS1: 230409 rows; status PROBABLE_CANDIDATE until exact Sales part/material bridge is validated.
 - dbo.belicst: 211286 rows; status PROBABLE_CANDIDATE until exact Sales part/material bridge is validated.
 - dbo.DTRANS_CLOSING: 207073 rows; status PROBABLE_CANDIDATE until exact Sales part/material bridge is validated.
-- dbo.WMSV_MIS: 205856 rows; status PROBABLE_CANDIDATE until exact Sales part/material bridge is validated.
+- dbo.WMSV_MIS: 205886 rows; status PROBABLE_CANDIDATE until exact Sales part/material bridge is validated.
 - dbo.PRDetail: 194291 rows; status PROBABLE_CANDIDATE until exact Sales part/material bridge is validated.
 - dbo.DTRANS_BA_R1: 191201 rows; status PROBABLE_CANDIDATE until exact Sales part/material bridge is validated.
 - dbo.belicst2: 190548 rows; status PROBABLE_CANDIDATE until exact Sales part/material bridge is validated.
-- dbo.MATERIAL_PESAN: 190476 rows; status PROBABLE_CANDIDATE until exact Sales part/material bridge is validated.
+- dbo.MATERIAL_PESAN: 190506 rows; status PROBABLE_CANDIDATE until exact Sales part/material bridge is validated.
 - dbo.belicst4: 190021 rows; status PROBABLE_CANDIDATE until exact Sales part/material bridge is validated.
 - dbo.inc_rm_backup2: 185084 rows; status PROBABLE_CANDIDATE until exact Sales part/material bridge is validated.
 - dbo.inc_rm_backup: 184106 rows; status PROBABLE_CANDIDATE until exact Sales part/material bridge is validated.
 - dbo.SupplyFng: 175288 rows; status PROBABLE_CANDIDATE until exact Sales part/material bridge is validated.
 - dbo.trial_ba_detail: 156638 rows; status PROBABLE_CANDIDATE until exact Sales part/material bridge is validated.
-- dbo.WMSV_SCUnion: 150928 rows; status PROBABLE_CANDIDATE until exact Sales part/material bridge is validated.
-- dbo.WMSV_SC3: 126458 rows; status PROBABLE_CANDIDATE until exact Sales part/material bridge is validated.
-- dbo.FINV_MONITOR_LISTDELIVERY: 119199 rows; status PROBABLE_CANDIDATE until exact Sales part/material bridge is validated.
+- dbo.WMSV_SCUnion: 150963 rows; status PROBABLE_CANDIDATE until exact Sales part/material bridge is validated.
+- dbo.WMSV_SC3: 126488 rows; status PROBABLE_CANDIDATE until exact Sales part/material bridge is validated.
+- dbo.FINV_MONITOR_LISTDELIVERY: 119212 rows; status PROBABLE_CANDIDATE until exact Sales part/material bridge is validated.
 - dbo.dataDetailCheckSheet: 115464 rows; status PROBABLE_CANDIDATE until exact Sales part/material bridge is validated.
 - dbo.belicst3: 106718 rows; status PROBABLE_CANDIDATE until exact Sales part/material bridge is validated.
 - dbo.WMS_AMOUNT_TRANSAKSI: 102867 rows; status PROBABLE_CANDIDATE until exact Sales part/material bridge is validated.
-- dbo.Transaksi_Stok: 96645 rows; status PROBABLE_CANDIDATE until exact Sales part/material bridge is validated.
-- dbo.PURCV_RFBID: 94526 rows; status PROBABLE_CANDIDATE until exact Sales part/material bridge is validated.
-- dbo.PURCV_POSTS: 68743 rows; status PROBABLE_CANDIDATE until exact Sales part/material bridge is validated.
+- dbo.Transaksi_Stok: 96646 rows; status PROBABLE_CANDIDATE until exact Sales part/material bridge is validated.
+- dbo.PURCV_RFBID: 94532 rows; status PROBABLE_CANDIDATE until exact Sales part/material bridge is validated.
+- dbo.PURCV_POSTS: 68755 rows; status PROBABLE_CANDIDATE until exact Sales part/material bridge is validated.
 - dbo.selisih_inventory: 58700 rows; status PROBABLE_CANDIDATE until exact Sales part/material bridge is validated.
 - dbo.HTRANS_BA_R1: 50529 rows; status PROBABLE_CANDIDATE until exact Sales part/material bridge is validated.
 - dbo.PR: 50508 rows; status PROBABLE_CANDIDATE until exact Sales part/material bridge is validated.
-- dbo.ACCV_JurnalPembelian: 48940 rows; status PROBABLE_CANDIDATE until exact Sales part/material bridge is validated.
+- dbo.ACCV_JurnalPembelian: 48950 rows; status PROBABLE_CANDIDATE until exact Sales part/material bridge is validated.
 
 ## Conclusion
 

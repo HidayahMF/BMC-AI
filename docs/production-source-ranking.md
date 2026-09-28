@@ -65,3 +65,10 @@ Discovery uses a bounded real Sales reference set from MAS_CUSTOMER.CustId=5. Va
 - `JenisTransaksi=K` has bounded evidence `Keluar ke` and null LineProduksi; status is PROBABLE outgoing movement candidate.
 - No production progress, remaining, achievement, ETA, or output formula implemented.
 - Next strongest candidates require targeted sample/definition validation, not row-count promotion.
+
+## Current Capability Boundary
+
+- Production receipt found: **NO CONFIRMED SOURCE**. `D` remains PROBABLE only.
+- Product-level output: blocked until the transaction writer and production-completion event are confirmed.
+- Order-level allocation: not found. `RefNo` has not been proven to equal a Sales PO, Sales number, planning number, or production order.
+- Current production capability: **LEVEL 0**. No production progress or ETA formula is allowed.

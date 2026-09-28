@@ -34,3 +34,9 @@ The 50-line cumulative comparison found: exact equal `1`, delivery lower `0`, de
 ## Empty Legacy View
 
 `dbo.SLSV_PO_DO_DELIVERY` has 0 rows and references the old Sales objects. It is not used as the active Delivery repository source.
+
+## Exception Classification Status
+
+The 208 Sales-line exceptions are not promoted to a definitive classification yet. Keep `NO_DELIVERY_YET`, alternate-PO, revision/cancel, ambiguous, true-unmatched, and unknown as separate investigation outcomes. Delivery higher than Sales in the bounded 50-line comparison is an anomaly signal, not permission to clamp progress or infer revision semantics.
+
+Sales-to-Delivery remains **PROBABLE**, not `CONFIRMED_BY_DATA`, until the broader exception set, repeated deliveries, UOM compatibility, and cumulative quantity behavior are validated.

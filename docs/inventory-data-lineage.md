@@ -17,3 +17,7 @@
 - `Stockid`: stock/storage dimension, exact warehouse/location meaning **UNKNOWN**
 
 `WMSV_STOEndSumOwner` computes `SUM(E) AS Ending` from `WMSV_STOEndTotal`, grouped by `OwnerId` and `Materialid`. The repository returns positions grouped by material, owner, stock, and UOM. It does not label the value `availableStock`, and it does not aggregate across dimensions.
+
+## FG Transaction Cross-check
+
+`Transaksi_Stok_Fg` is not substituted for `SumMatStock`. Its `Qty` values are transaction movements and must be classified by `JenisTransaksi` before any stock or production aggregation. Current evidence does not prove that `D` contributes directly to the `SumMatStock` ending-balance chain.

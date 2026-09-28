@@ -26,13 +26,33 @@ try {
   const dependency = await pool.request().query<{ referencingType: string; referencingObject: string; definition: string | null }>(`SELECT o.type_desc AS referencingType,o.name AS referencingObject,OBJECT_DEFINITION(o.object_id) AS definition FROM sys.sql_expression_dependencies d JOIN sys.objects o ON o.object_id=d.referencing_id WHERE d.referenced_id=OBJECT_ID(N'dbo.Transaksi_Stok_Fg')`);
   lines.push('## Database Writers/References', '', `- Referencing modules: ${dependency.recordset.length}`);
   for (const row of dependency.recordset) lines.push(`- ${row.referencingType} ${row.referencingObject}: definition available=${row.definition ? 'yes' : 'no'}`);
+  const textReferences = await pool.request().query<{ referencingType: string; referencingObject: string; definition: string | null }>(`SELECT CASE WHEN o.type='P' THEN 'PROCEDURE' WHEN o.type='TR' THEN 'TRIGGER' WHEN o.type='V' THEN 'VIEW' WHEN o.type='FN' THEN 'FUNCTION' ELSE o.type_desc END AS referencingType,o.name AS referencingObject,OBJECT_DEFINITION(o.object_id) AS definition FROM sys.objects o JOIN sys.sql_modules m ON m.object_id=o.object_id WHERE m.definition LIKE '%Transaksi_Stok_Fg%'`);
+  lines.push(`- Text/module references (including dynamic SQL candidates): ${textReferences.recordset.length}`);
+  for (const row of textReferences.recordset) lines.push(`- ${row.referencingType} ${row.referencingObject}: definition available=${row.definition ? 'yes' : 'no'}`);
   lines.push('- No procedure was executed; definitions were metadata-only.', '');
 
-  const products = await pool.request().query<{ productId: string }>(`SELECT DISTINCT TOP (5) d.ProductID AS productId FROM dbo.SLS_SALESORDER_HED_NEW h JOIN dbo.SLS_SALESORDER_NEW d ON d.IDheader=CONVERT(varchar(50),h.Id) WHERE h.CustomerID=5 AND d.ProductID IS NOT NULL ORDER BY d.ProductID`);
+  const master = await pool.request().query<{ code: string | null; name: string | null }>(`SELECT CONVERT(varchar(100),KD_TRANS) AS code,CONVERT(varchar(255),NM_TRANS) AS name FROM dbo.BPI_JENISTRANS WHERE CONVERT(varchar(100),KD_TRANS) IN (SELECT DISTINCT CONVERT(varchar(100),JenisTransaksi) FROM dbo.Transaksi_Stok_Fg)`);
+  lines.push('## JenisTransaksi Master Probe', '', `- Matching BPI_JENISTRANS rows: ${master.recordset.length}`);
+  for (const row of master.recordset) lines.push(`- ${row.code ?? 'NULL'}: ${row.name ?? 'NULL'}`);
+  if (master.recordset.length === 0) lines.push('- No matching master definition found in BPI_JENISTRANS.');
+  lines.push('');
+
+  const refPatterns = await pool.request().query<{ type: string | null; prefix: string | null; length: number | null; rows: number }>(`SELECT JenisTransaksi AS type,LEFT(NULLIF(LTRIM(RTRIM(CONVERT(varchar(255),RefNo))),''),4) AS prefix,MAX(LEN(NULLIF(LTRIM(RTRIM(CONVERT(varchar(255),RefNo))),''))) AS length,COUNT_BIG(*) AS rows FROM dbo.Transaksi_Stok_Fg GROUP BY JenisTransaksi,LEFT(NULLIF(LTRIM(RTRIM(CONVERT(varchar(255),RefNo))),''),4) ORDER BY rows DESC`);
+  lines.push('## RefNo Pattern Summary', '', '| Type | Prefix | Max length | Rows |', '|---|---|---:|---:|');
+  for (const row of refPatterns.recordset.slice(0, 30)) lines.push(`| ${row.type ?? 'NULL'} | ${row.prefix ?? 'NULL'} | ${row.length ?? 'null'} | ${row.rows} |`);
+  lines.push('', 'RefNo values are intentionally summarized; full document values are not persisted.', '');
+
+  const stockMovement = await pool.request().query<{ type: string | null; warehouse: string | null; location: string | null; line: string | null; rows: number; qty: number | null }>(`SELECT JenisTransaksi AS type,CONVERT(varchar(100),Warehouse) AS warehouse,CONVERT(varchar(100),Location) AS location,CONVERT(varchar(100),LineProduksi) AS line,COUNT_BIG(*) AS rows,SUM(Qty) AS qty FROM dbo.Transaksi_Stok_Fg GROUP BY JenisTransaksi,Warehouse,Location,LineProduksi ORDER BY rows DESC`);
+  lines.push('## Warehouse / Location / Line', '', '| Type | Warehouse | Location | Line | Rows | Qty sum |', '|---|---|---|---|---:|---:|');
+  for (const row of stockMovement.recordset.slice(0, 30)) lines.push(`| ${row.type ?? 'NULL'} | ${row.warehouse ?? 'NULL'} | ${row.location ?? 'NULL'} | ${row.line ?? 'NULL'} | ${row.rows} | ${row.qty ?? 'null'} |`);
+  lines.push('');
+
+  const products = await pool.request().query<{ productId: string }>(`SELECT DISTINCT TOP (5) d.ProductID AS productId FROM dbo.SLS_SALESORDER_HED_NEW h JOIN dbo.SLS_SALESORDER_NEW d ON d.IDheader=CONVERT(varchar(50),h.Id) WHERE h.CustomerID=5 AND d.ProductID IS NOT NULL AND EXISTS (SELECT 1 FROM dbo.Transaksi_Stok_Fg f WHERE CONVERT(varchar(100),f.ProductId)=CONVERT(varchar(100),d.ProductID)) ORDER BY d.ProductID`);
   lines.push('## Hino Product Traces', '');
   for (const product of products.recordset) {
-    const result = await pool.request().input('productId', sql.NVarChar(100), product.productId).query<{ transactionType: string | null; rows: number; earliest: string | null; latest: string | null; qty: number | null; units: number }>(`SELECT JenisTransaksi AS transactionType,COUNT_BIG(*) AS rows,MIN(Tanggal) AS earliest,MAX(Tanggal) AS latest,SUM(Qty) AS qty,COUNT(DISTINCT Satuan) AS units FROM dbo.Transaksi_Stok_Fg WHERE CONVERT(varchar(100),ProductId)=@productId GROUP BY JenisTransaksi`);
-    lines.push(`- ProductID ${product.productId}: ${result.recordset.map((row) => `${row.transactionType ?? 'NULL'}=${row.rows} rows, qty=${row.qty ?? 'null'}, ${row.earliest ?? 'null'}..${row.latest ?? 'null'}, units=${row.units}`).join('; ') || 'no FG transactions'}`);
+    const result = await pool.request().input('productId', sql.NVarChar(100), product.productId).query<{ date: string | null; transactionType: string | null; qty: number | null; unit: string | null; line: string | null; refNo: string | null; warehouse: string | null; location: string | null }>(`SELECT TOP (20) Tanggal AS date,JenisTransaksi AS transactionType,Qty AS qty,Satuan AS unit,LineProduksi AS line,RefNo AS refNo,Warehouse AS warehouse,Location AS location FROM dbo.Transaksi_Stok_Fg WHERE CONVERT(varchar(100),ProductId)=@productId ORDER BY Tanggal,CreatedDate,IdTransaksi`);
+    lines.push(`- ProductID ${product.productId}: ${result.recordset.length} bounded rows`);
+    for (const row of result.recordset) lines.push(`  - ${row.date ?? 'null'} | ${row.transactionType ?? 'NULL'} | qty=${row.qty ?? 'null'} | unit=${row.unit ?? 'null'} | line=${row.line ?? 'null'} | ref=${safePattern(row.refNo)} | warehouse=${row.warehouse ?? 'null'} | location=${row.location ?? 'null'}`);
   }
   lines.push('');
 

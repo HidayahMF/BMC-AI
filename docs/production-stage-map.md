@@ -17,3 +17,12 @@ No production stage is promoted to a confirmed business flow yet.
 - `Transaksi_Stok_Fg` must not be called actual production output without transaction-type and business-purpose validation.
 - Current capability level: **LEVEL 0**. `JenisTransaksi=D` is a PROBABLE FG receipt candidate, but actual production and Good/Reject semantics are not confirmed.
 - No production progress, remaining, achievement, or ETA formula is implemented.
+
+## Safe Capability Levels
+
+- LEVEL 0: current state. FG transaction candidate exists, but production output semantics are not confirmed.
+- LEVEL 1: not reached. Product-level output requires confirmed production receipt semantics.
+- LEVEL 2: not reached. Product/date/line output requires confirmed date and line meaning.
+- LEVEL 3: not reached. Production-order allocation requires a proven `RefNo` bridge.
+- LEVEL 4: not reached. Sales-order production progress requires allocation logic.
+- LEVEL 5: not reached. ETA requires validated production rate and allocation history.
