@@ -1,0 +1,26 @@
+{
+  "name": "bmc-ai",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": ["backend", "frontend"],
+  "scripts": {
+    "dev": "concurrently \"npm run dev --workspace backend\" \"npm run dev --workspace frontend\"",
+    "build": "npm run build --workspace backend && npm run build --workspace frontend",
+    "typecheck": "npm run typecheck --workspace backend && npm run typecheck --workspace frontend",
+    "test": "npm run test --workspace backend",
+    "discover:mysql": "npm run discover:mysql --workspace backend",
+    "discover:sqlserver": "npm run discover:sqlserver --workspace backend",
+    "discover:production": "npm run discover:production --workspace backend",
+    "discover:sales": "npm run discover:sales --workspace backend",
+    "inspect:sales": "npm run inspect:sales --workspace backend",
+    "validate:links": "npm run validate:links --workspace backend",
+    "discover:anchor": "npm run discover:anchor --workspace backend",
+    "inspect:downstream": "npm run inspect:downstream --workspace backend",
+    "validate:fg": "npm run validate:fg --workspace backend",
+    "classify:fg": "npm run classify:fg --workspace backend",
+    "load:test:sql": "npm run load:test:sql --workspace backend",
+    "load:test": "npm run load:test --workspace backend",
+    "validate:sales": "npm run validate:sales --workspace backend"
+  },
+  "devDependencies": { "concurrently": "^9.1.2" }
+}
