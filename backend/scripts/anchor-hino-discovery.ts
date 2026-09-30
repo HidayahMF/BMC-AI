@@ -1,6 +1,7 @@
 import { mkdir, writeFile } from 'node:fs/promises';
 import sql from 'mssql';
 import { closeSqlServer, getSqlServerPool } from '../src/config/sqlserver.js';
+import { env } from '../src/config/env.js';
 
 const quote = (v: string) => `[${v.replace(/]/g, ']]')}]`;
 const qualified = (schema: string, name: string) => `${quote(schema)}.${quote(name)}`;
@@ -20,7 +21,11 @@ async function main() {
   const meta = await pool.request().query<Column>(`SELECT s.name AS schemaName,o.name AS objectName,CASE WHEN o.type='V' THEN 'VIEW' ELSE 'TABLE' END AS objectType,c.name AS columnName,t.name AS dataType FROM sys.objects o JOIN sys.schemas s ON s.schema_id=o.schema_id JOIN sys.columns c ON c.object_id=o.object_id JOIN sys.types t ON t.user_type_id=c.user_type_id WHERE o.type IN ('U','V') AND (c.name LIKE '%Product%' OR c.name LIKE '%Part%' OR c.name LIKE '%ProdID%' OR c.name LIKE '%MATERIAL%' OR c.name LIKE '%BTNO%' OR c.name LIKE '%Qty%' OR c.name LIKE '%Output%' OR c.name LIKE '%Actual%' OR c.name LIKE '%Finish%' OR c.name LIKE '%Good%') ORDER BY o.name,c.column_id`);
   const grouped = new Map<string, Column[]>(); for (const column of meta.recordset) { const key = `${column.schemaName}.${column.objectName}`; grouped.set(key, [...(grouped.get(key) ?? []), column]); }
   const candidates: Candidate[] = [];
+  let processed = 0;
   for (const [key, columns] of grouped) {
+    if (process.memoryUsage().rss / 1024 / 1024 > env.DISCOVERY_MAX_RSS_MB) { console.warn(`Discovery stopped at RSS threshold (${env.DISCOVERY_MAX_RSS_MB} MB).`); break; }
+    if (processed % env.DISCOVERY_BATCH_SIZE === 0) { const memory = process.memoryUsage(); console.log(`Discovery batch ${processed}: rss=${Math.round(memory.rss / 1024 / 1024)}MB heapUsed=${Math.round(memory.heapUsed / 1024 / 1024)}MB heapTotal=${Math.round(memory.heapTotal / 1024 / 1024)}MB`); }
+    processed += 1;
     const [schemaName, objectName] = key.split('.', 2); if (schemaName !== 'dbo') continue;
     const productColumn = columns.find((c) => idNames.test(c.columnName))?.columnName ?? null;
     const partColumn = columns.find((c) => partNames.test(c.columnName))?.columnName ?? null;
@@ -49,7 +54,7 @@ async function main() {
   lines.push('', '## Classification', '', '- Exact ProductID or normalized PartNumber match is discovery evidence only.', '- PRDetail is not treated as production until PR/PRDetail business purpose is classified.', '- Finance, invoice, purchase-request, inventory-balance, master, backup, and temporary objects are not actual-production evidence by row count alone.', '- Actual output requires validated output/good/finished semantics plus date and identifier evidence.', '');
   const prColumns = [...new Set(['PR', 'PRDetail'].flatMap((name) => meta.recordset.filter((column) => column.objectName === name).map((column) => column.columnName)))];
   const pr = await pool.request().query<Record<string, unknown>>(`SELECT TOP (5) * FROM dbo.PR ORDER BY 1 DESC`);
-  lines.push('## PR / PRDetail Classification', '', `- PR columns: ${JSON.stringify(pr.recordset)}`, '- Preliminary domain classification: Purchase Request candidate because parent is `PR`, fields include PR date and requested quantity/material references. Not production actual.', '');
+  lines.push('## PR / PRDetail Classification', '', `- Bounded sample rows inspected: ${pr.recordset.length}`, `- PR columns: ${Object.keys(pr.recordset[0] ?? {}).join(', ') || 'unknown'}`, '- Preliminary domain classification: Purchase Request candidate because parent is `PR`, fields include PR date and requested quantity/material references. Not production actual.', '');
   const mapping = await pool.request().query<Record<string, unknown>>(`SELECT TOP (20) * FROM dbo.WMS_MAPPING_PART_DELIVERY_PRD`);
   lines.push('## WMS_MAPPING_PART_DELIVERY_PRD', '', `- Sample row count: ${mapping.recordset.length}`, `- Columns: ${Object.keys(mapping.recordset[0] ?? {}).join(', ') || 'unknown'}`, '- ProductID matches from prior bounded validation: 8.', '- Role remains bridge candidate until its business purpose and exact target semantics are validated.', '');
   const castingObjects = ['casting1', 'WMS_CASTING', 'WMS_MatStockCasting', 'PPC_TonProductTonFinish'];

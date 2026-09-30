@@ -10,7 +10,7 @@ export const searchCustomer = async (query: string) => {
   const request = pool.request()
   request.input('query', sql.NVarChar(255), `%${query.trim()}%`)
   const result = await request.query<Customer>(`SELECT TOP (${env.DB_MAX_ROWS}) CustomerID AS id, CustomerName AS name, Alias AS alias
-    FROM dbo.SLS_CUSTOMER
+    FROM dbo.MAS_CUSTOMER
     WHERE CustomerName LIKE @query OR Alias LIKE @query
     ORDER BY CustomerName`)
   return {

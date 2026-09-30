@@ -1,61 +1,36 @@
-import { FormEvent, useState } from 'react'
-import { ArrowUp, BarChart3, ChevronRight, Database, Menu, Plus, Search, Sparkles } from 'lucide-react'
+import { FormEvent, useEffect, useMemo, useState } from 'react'
+import { ArrowUp, BarChart3, ChevronRight, Database, FileText, Menu, PackageSearch, Plus, Search, ShieldCheck, Sparkles, Truck } from 'lucide-react'
 
 type Customer = { code: string; name: string | null; alias: string | null }
-type Message = { role: 'user' | 'assistant'; text: string; data?: { items?: Customer[]; matches?: Customer[]; customers?: Customer[]; orders?: Array<{ orderNo: string | null; poNo: string | null; poDate: string | null; lines: Array<{ productCode: string | null; productDescription: string | null; quantity: number | null }> }> } }
+type OrderItem = { productCode?: string | null; productDescription?: string | null; quantity?: number | null; unit?: string | null }
+type Order = { id?: number; orderNumber?: string | null; customerPoNumber?: string | null; orderDate?: string | null; customer?: Customer; items?: OrderItem[]; lines?: OrderItem[] }
+type Stock = { materialCode: string; materialName: string; quantity: number; uom: string | null; ownerId: string | null; stockId: string | null }
+type Data = { items?: Customer[]; matches?: Customer[]; customers?: Customer[]; orders?: Order[]; deliveries?: Array<{ deliveryNumber: string | null; deliveryDate: string | null; quantity: number | null; productId: string | null }>; stock?: Stock[]; capability?: string; available?: boolean }
+type Message = { role: 'user' | 'assistant'; text: string; data?: Data }
 
-const suggestions = ['Cari customer Hino', 'Order Hino bulan ini', 'Cari SO', 'Cek stock part', 'Delivery hari ini']
+const safeSuggestions = ['Order terakhir Hino apa?', 'Order Hino bulan ini apa saja?', 'PO Hino terbaru apa?', 'SO SLS.09.2026.0001 isinya apa?', 'Part apa saja di order Hino terbaru?', 'Delivery Hino terbaru', 'Cek saldo stok material']
+
+function formatDate(value?: string | null) {
+  if (!value) return '-'
+  const date = new Date(value)
+  return Number.isNaN(date.getTime()) ? value : date.toLocaleDateString('id-ID')
+}
+
+function orderItems(order: Order) { return Array.isArray(order.items) ? order.items : Array.isArray(order.lines) ? order.lines : [] }
 
 export function App() {
-  const [messages, setMessages] = useState<Message[]>([])
-  const [input, setInput] = useState('')
-  const [loading, setLoading] = useState(false)
-  const [sessionId, setSessionId] = useState(() => crypto.randomUUID())
-
-  const ask = async (message: string) => {
-    const value = message.trim()
-    if (!value || loading) return
-    setMessages((items) => [...items, { role: 'user', text: value }])
-    setInput('')
-    setLoading(true)
-    try {
-      const response = await fetch('http://localhost:4000/api/ai/ask', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ message: value, sessionId }) })
-      const result = await response.json()
-      setMessages((items) => [...items, { role: 'assistant', text: result.answer ?? 'Tidak ada jawaban.', data: result.data }])
-    } catch { setMessages((items) => [...items, { role: 'assistant', text: 'Backend belum dapat dihubungi. Periksa service BMC AI.' }]) }
-    finally { setLoading(false) }
-  }
-
-  const selectCustomer = async (customerCode: string) => {
-    if (loading) return
-    setLoading(true)
-    try {
-      const response = await fetch('http://localhost:4000/api/ai/select-customer', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ sessionId, customerCode }) })
-      const result = await response.json()
-      setMessages((items) => [...items, { role: 'assistant', text: result.answer ?? 'Data tidak tersedia.', data: result.data }])
-    } catch { setMessages((items) => [...items, { role: 'assistant', text: 'Customer berhasil dipilih, tetapi data order belum dapat diambil.' }]) }
-    finally { setLoading(false) }
-  }
-
+  const [messages, setMessages] = useState<Message[]>([]); const [input, setInput] = useState(''); const [loading, setLoading] = useState(false); const [sessionId, setSessionId] = useState(() => crypto.randomUUID()); const [capabilities, setCapabilities] = useState<{ sales: boolean; deliveryLookup: boolean; inventory: boolean } | null>(null)
+  useEffect(() => { fetch('http://localhost:4000/api/ai/capabilities').then((response) => response.json()).then(setCapabilities).catch(() => setCapabilities(null)) }, [])
+  const suggestions = useMemo(() => capabilities ? safeSuggestions.filter((item) => capabilities.sales || !/Order|PO|SO|Part/.test(item)).filter((item) => capabilities.deliveryLookup || !/Delivery/.test(item)).filter((item) => capabilities.inventory || !/stok/i.test(item)) : [], [capabilities])
+  const ask = async (message: string) => { const value = message.trim(); if (!value || loading) return; setMessages((items) => [...items, { role: 'user', text: value }]); setInput(''); setLoading(true); try { const response = await fetch('http://localhost:4000/api/ai/ask', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ message: value, sessionId }) }); const result = await response.json(); setMessages((items) => [...items, { role: 'assistant', text: result.answer ?? (response.ok ? 'Tidak ada jawaban.' : result.error ?? `Request gagal (${response.status}).`), data: result.data }]); } catch { setMessages((items) => [...items, { role: 'assistant', text: 'Backend belum dapat dihubungi.' }]) } finally { setLoading(false) } }
+  const selectCustomer = async (customerCode: string) => { if (loading) return; setLoading(true); try { const response = await fetch('http://localhost:4000/api/ai/select-customer', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ sessionId, customerCode }) }); const result = await response.json(); setMessages((items) => [...items, { role: 'assistant', text: result.answer ?? (response.ok ? 'Data tidak tersedia.' : result.error ?? `Request gagal (${response.status}).`), data: result.data }]); } catch { setMessages((items) => [...items, { role: 'assistant', text: 'Backend belum dapat dihubungi.' }]) } finally { setLoading(false) } }
   const submit = (event: FormEvent) => { event.preventDefault(); void ask(input) }
-  return <div className="app-shell">
-    <aside className="sidebar">
-      <div className="brand"><div className="brand-mark"><Sparkles size={17} /></div><span>BMC <b>AI</b></span></div>
-       <button className="new-chat" onClick={() => { setMessages([]); setSessionId(crypto.randomUUID()) }}><Plus size={17} /> New chat</button>
-      <div className="side-label">Workspace</div>
-      <div className="nav-item active"><BarChart3 size={17} /> Business Intelligence</div>
-      <div className="nav-item"><Database size={17} /> Data sources <span className="soon">Soon</span></div>
-      <div className="side-label history-label">History</div>
-      <div className="empty-history">Your conversations<br />will appear here.</div>
-      <div className="sidebar-footer"><div className="status-dot" /> Read-only intelligence</div>
-    </aside>
-    <main className="main-content">
-      <header className="topbar"><button className="mobile-menu"><Menu size={21} /></button><span className="eyebrow">BMC / Intelligence workspace</span><div className="top-actions"><span className="live"><i /> Systems online</span><div className="avatar">BM</div></div></header>
-      <section className={`chat-area ${messages.length ? 'has-messages' : ''}`}>
-         {!messages.length ? <div className="welcome"><div className="welcome-icon"><Sparkles size={23} /></div><p className="kicker">BUSINESS & FACTORY INTELLIGENCE</p><h1>What can I help<br /><em>you analyze?</em></h1><p className="welcome-copy">Ask questions about your business data. I will find the right source, keep the facts clear, and show where they came from.</p></div> : <div className="messages">{messages.map((message, index) => <div className={`message-row ${message.role}`} key={`${message.role}-${index}`}><div className="message-avatar">{message.role === 'assistant' ? <Sparkles size={15} /> : 'You'}</div><div className="message-body"><p>{message.text}</p>{(message.data?.items?.length || message.data?.matches?.length) ? <div className="result-card"><div className="result-title"><Search size={14} /> Customer matches</div>{(message.data.matches || message.data.items || []).map((item, itemIndex) => <div className="result-item" key={itemIndex}><strong>{item.name}</strong><span>{item.alias || `Customer code ${item.code}`}</span></div>)}</div> : null}{message.data?.customers?.length ? <div className="candidate-list"><div className="result-title"><Search size={14} /> Select a customer to continue</div>{message.data.customers.map((customer) => <button className="candidate" key={customer.code} onClick={() => void selectCustomer(customer.code)} disabled={loading}><strong>{customer.name}</strong><span>{customer.alias || `Customer code ${customer.code}`}</span><ChevronRight size={15} /></button>)}</div> : null}{message.data?.orders?.length ? <div className="result-card"><div className="result-title"><Database size={14} /> Sales orders</div>{message.data.orders.map((order, orderIndex) => <div className="result-item" key={orderIndex}><strong>{order.orderNo || order.poNo || 'Order without number'}</strong><span>{order.poDate || 'Date unavailable'} · {order.lines.length} line(s)</span></div>)}</div> : null}</div></div>)}{loading && <div className="message-row assistant"><div className="message-avatar"><Sparkles size={15} /></div><div className="typing">Reading approved sources<span>...</span></div></div>}</div>}
-        {!messages.length && <div className="prompt-zone"><p className="prompt-label">Try asking</p><div className="suggestions">{suggestions.map((suggestion) => <button key={suggestion} onClick={() => void ask(suggestion)}>{suggestion}<ChevronRight size={14} /></button>)}</div></div>}
-        <form className="composer" onSubmit={submit}><div className="composer-inner"><input value={input} onChange={(event) => setInput(event.target.value)} placeholder="Ask about customers, orders, stock, delivery..." /><button type="submit" aria-label="Send" disabled={!input.trim() || loading}><ArrowUp size={18} /></button></div><p className="composer-note">BMC AI uses approved internal tools only · Database access is read-only</p></form>
-      </section>
-    </main>
-  </div>
+  const suggestionIcon = (suggestion: string) => /Delivery/.test(suggestion) ? <Truck size={18} /> : /stok/i.test(suggestion) ? <PackageSearch size={18} /> : /PO|SO/.test(suggestion) ? <FileText size={18} /> : <BarChart3 size={18} />
+  const renderData = (data?: Data) => <>
+    {((data?.matches?.length ?? 0) > 0 || (data?.items?.length ?? 0) > 0) ? <div className="result-card"><div className="result-title"><Search size={14} /> Customer matches</div>{(data?.matches ?? data?.items ?? []).map((item, itemIndex) => <div className="result-item" key={itemIndex}><strong>{item.name || '-'}</strong><span>{item.alias || `Customer code ${item.code}`}</span></div>)}</div> : null}
+    {(data?.customers?.length ?? 0) > 0 ? <div className="candidate-list"><div className="result-title"><Search size={14} /> Pilih customer</div>{data?.customers?.map((item) => <button className="candidate" key={item.code} onClick={() => void selectCustomer(item.code)} disabled={loading}><strong>{item.name || '-'}</strong><span>{item.alias || item.code}</span><ChevronRight size={16} /></button>)}</div> : null}
+    {(data?.orders?.length ?? 0) > 0 ? <div className="result-card"><div className="result-title"><FileText size={14} /> Detail order</div>{data?.orders?.map((order, orderIndex) => <div className="order-card" key={`${order.id ?? order.orderNumber ?? orderIndex}`}><div className="order-heading"><strong>{order.orderNumber || order.customerPoNumber || 'Nomor order tidak tersedia'}</strong><span>{formatDate(order.orderDate)}</span></div>{order.customerPoNumber && order.customerPoNumber !== order.orderNumber ? <div className="order-meta">PO customer: {order.customerPoNumber}</div> : null}{orderItems(order).length ? <div className="order-lines">{orderItems(order).map((item, itemIndex) => <div className="order-line" key={itemIndex}><span>{item.productCode || item.productDescription || 'Item tidak tersedia'}</span><strong>{item.quantity ?? '-'}{item.unit ? ` ${item.unit}` : ''}</strong></div>)}</div> : <div className="order-meta">Tidak ada detail item pada order ini.</div>}</div>)}</div> : null}
+    {(data?.stock?.length ?? 0) > 0 ? <div className="result-card"><div className="result-title"><PackageSearch size={14} /> Stock</div>{data?.stock?.map((item) => <div className="result-item" key={`${item.materialCode}-${item.stockId ?? ''}`}><strong>{item.materialName || item.materialCode}</strong><span>{item.quantity} {item.uom || ''}</span></div>)}</div> : null}
+  </>
+  return <div className="app-shell"><aside className="sidebar"><div className="brand"><div className="brand-mark">BMC</div><div><strong>BMC AI</strong><small>Business Intelligence</small></div></div><button className="new-chat" onClick={() => { setMessages([]); setSessionId(crypto.randomUUID()) }}><Plus size={18} /> New Chat</button><div className="side-label">RECENT</div><div className="empty-history">No conversations yet</div><div className="sidebar-footer"><ShieldCheck size={17} /><div><strong>Read-only Intelligence</strong><span>Database access is read-only</span></div></div></aside><main className="main-content"><header className="topbar"><div className="header-title"><button className="mobile-menu"><Menu size={21} /></button><div><strong>BMC AI</strong><span>AI Business Intelligence</span></div></div><div className="read-only-badge"><i /> Read-only</div></header><section className={`chat-area ${messages.length ? 'has-messages' : ''}`}>{!messages.length ? <div className="welcome"><div className="welcome-icon">BMC</div><p className="kicker">BMC AI</p><h1>Business intelligence,<br /><em>kept clear.</em></h1><p className="welcome-copy">Tanyakan informasi Sales, Delivery, stok, dan data internal BMC.</p></div> : <div className="messages">{messages.map((message, index) => <div className={`message-row ${message.role}`} key={`${message.role}-${index}`}><div className="message-avatar">{message.role === 'assistant' ? <Sparkles size={15} /> : null}</div><div className="message-body"><p>{message.text}</p>{renderData(message.data)}</div></div>)}{loading ? <div className="typing">Sedang mencari data...</div> : null}</div>}<div className="prompt-zone">{!messages.length ? <><p className="prompt-label">Coba tanyakan</p><div className="suggestions">{suggestions.map((suggestion) => <button key={suggestion} onClick={() => void ask(suggestion)}>{suggestionIcon(suggestion)}<span><strong>{suggestion}</strong><small>Approved data lookup</small></span><ChevronRight size={16} /></button>)}</div></> : null}<form className="composer" onSubmit={submit}><div className="composer-inner"><input value={input} onChange={(event) => setInput(event.target.value)} placeholder="Tanyakan data bisnis..." disabled={loading} /><button type="submit" disabled={loading || !input.trim()} aria-label="Kirim"><ArrowUp size={19} /></button></div><p className="composer-note"><Database size={12} /> Jawaban berdasarkan data internal yang tersedia</p></form></div></section></main></div>
 }

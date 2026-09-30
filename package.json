@@ -8,6 +8,8 @@
     "build": "npm run build --workspace backend && npm run build --workspace frontend",
     "typecheck": "npm run typecheck --workspace backend && npm run typecheck --workspace frontend",
     "test": "npm run test --workspace backend",
+    "compile:discovery": "npm run compile:discovery --workspace backend",
+    "discover:anchor:node": "npm run discover:anchor:node --workspace backend",
     "discover:mysql": "npm run discover:mysql --workspace backend",
     "discover:sqlserver": "npm run discover:sqlserver --workspace backend",
     "discover:production": "npm run discover:production --workspace backend",
@@ -21,6 +23,7 @@
     "load:test:sql": "npm run load:test:sql --workspace backend",
     "load:test": "npm run load:test --workspace backend",
     "validate:sales": "npm run validate:sales --workspace backend"
+    ,"validate:delivery-grouping": "npm run validate:delivery-grouping --workspace backend"
   },
   "devDependencies": { "concurrently": "^9.1.2" }
 }
