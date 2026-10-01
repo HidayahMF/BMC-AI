@@ -1,0 +1,4705 @@
+{
+  "generatedAt": "2026-09-30T08:04:34.094Z",
+  "persisted": "metadata-and-derived-statistics-only",
+  "security": {
+    "rawValuesPersisted": false,
+    "geminiInvolved": false,
+    "databaseMutation": false
+  },
+  "headerCandidates": [
+    {
+      "object": "dbo.IT_SYSTEM_REQUEST",
+      "primaryKey": [
+        "id"
+      ],
+      "columns": [
+        {
+          "schemaName": "dbo",
+          "objectName": "IT_SYSTEM_REQUEST",
+          "columnName": "id",
+          "datatype": "int",
+          "maxLength": null,
+          "precision": 10,
+          "scale": 0,
+          "nullable": "NO",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "IT_SYSTEM_REQUEST",
+          "columnName": "nama_peminta",
+          "datatype": "varchar",
+          "maxLength": 100,
+          "precision": null,
+          "scale": null,
+          "nullable": "NO",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "IT_SYSTEM_REQUEST",
+          "columnName": "departemen_peminta",
+          "datatype": "varchar",
+          "maxLength": 100,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "IT_SYSTEM_REQUEST",
+          "columnName": "kontak_peminta",
+          "datatype": "varchar",
+          "maxLength": 100,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "IT_SYSTEM_REQUEST",
+          "columnName": "masalah",
+          "datatype": "varchar",
+          "maxLength": -1,
+          "precision": null,
+          "scale": null,
+          "nullable": "NO",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "IT_SYSTEM_REQUEST",
+          "columnName": "solusi",
+          "datatype": "varchar",
+          "maxLength": -1,
+          "precision": null,
+          "scale": null,
+          "nullable": "NO",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "IT_SYSTEM_REQUEST",
+          "columnName": "kondisi_before",
+          "datatype": "varchar",
+          "maxLength": -1,
+          "precision": null,
+          "scale": null,
+          "nullable": "NO",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "IT_SYSTEM_REQUEST",
+          "columnName": "kondisi_after",
+          "datatype": "varchar",
+          "maxLength": -1,
+          "precision": null,
+          "scale": null,
+          "nullable": "NO",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "IT_SYSTEM_REQUEST",
+          "columnName": "preferensi_ui",
+          "datatype": "varchar",
+          "maxLength": -1,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "IT_SYSTEM_REQUEST",
+          "columnName": "kebutuhan_data_output",
+          "datatype": "varchar",
+          "maxLength": -1,
+          "precision": null,
+          "scale": null,
+          "nullable": "NO",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "IT_SYSTEM_REQUEST",
+          "columnName": "status",
+          "datatype": "varchar",
+          "maxLength": 50,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "IT_SYSTEM_REQUEST",
+          "columnName": "tanggal_permintaan",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "IT_SYSTEM_REQUEST",
+          "columnName": "ditangani_oleh",
+          "datatype": "varchar",
+          "maxLength": 100,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "IT_SYSTEM_REQUEST",
+          "columnName": "tanggal_diproses",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "IT_SYSTEM_REQUEST",
+          "columnName": "tanggal_selesai",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "IT_SYSTEM_REQUEST",
+          "columnName": "nip_peminta",
+          "datatype": "varchar",
+          "maxLength": 20,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        }
+      ],
+      "profile": [
+        {
+          "schema": "dbo",
+          "object": "IT_SYSTEM_REQUEST",
+          "column": "id",
+          "datatype": "int",
+          "status": "PROFILED",
+          "nullRatio": 0,
+          "nonNullCount": 22,
+          "distinctCount": 22,
+          "numericRange": {
+            "min": 9,
+            "max": 33
+          }
+        },
+        {
+          "schema": "dbo",
+          "object": "IT_SYSTEM_REQUEST",
+          "column": "nama_peminta",
+          "datatype": "varchar",
+          "status": "PROFILED",
+          "nullRatio": 0,
+          "nonNullCount": 22,
+          "distinctCount": 10,
+          "minLength": 13,
+          "maxLength": 22,
+          "averageLength": 15.772727272727273
+        },
+        {
+          "schema": "dbo",
+          "object": "IT_SYSTEM_REQUEST",
+          "column": "departemen_peminta",
+          "datatype": "varchar",
+          "status": "PROFILED",
+          "nullRatio": 0,
+          "nonNullCount": 22,
+          "distinctCount": 8,
+          "minLength": 4,
+          "maxLength": 30,
+          "averageLength": 10.272727272727273
+        },
+        {
+          "schema": "dbo",
+          "object": "IT_SYSTEM_REQUEST",
+          "column": "kontak_peminta",
+          "datatype": "varchar",
+          "status": "PROFILED",
+          "nullRatio": 0,
+          "nonNullCount": 22,
+          "distinctCount": 12,
+          "minLength": 1,
+          "maxLength": 25,
+          "averageLength": 18.636363636363637
+        },
+        {
+          "schema": "dbo",
+          "object": "IT_SYSTEM_REQUEST",
+          "column": "masalah",
+          "datatype": "varchar",
+          "status": "PROFILED",
+          "nullRatio": 0,
+          "nonNullCount": 22,
+          "distinctCount": 22,
+          "minLength": 28,
+          "maxLength": 242,
+          "averageLength": 89.45454545454545
+        },
+        {
+          "schema": "dbo",
+          "object": "IT_SYSTEM_REQUEST",
+          "column": "solusi",
+          "datatype": "varchar",
+          "status": "PROFILED",
+          "nullRatio": 0,
+          "nonNullCount": 22,
+          "distinctCount": 21,
+          "minLength": 1,
+          "maxLength": 911,
+          "averageLength": 182.54545454545453
+        },
+        {
+          "schema": "dbo",
+          "object": "IT_SYSTEM_REQUEST",
+          "column": "kondisi_before",
+          "datatype": "varchar",
+          "status": "PROFILED",
+          "nullRatio": 0,
+          "nonNullCount": 22,
+          "distinctCount": 19,
+          "minLength": 1,
+          "maxLength": 687,
+          "averageLength": 59.18181818181818
+        },
+        {
+          "schema": "dbo",
+          "object": "IT_SYSTEM_REQUEST",
+          "column": "kondisi_after",
+          "datatype": "varchar",
+          "status": "PROFILED",
+          "nullRatio": 0,
+          "nonNullCount": 22,
+          "distinctCount": 19,
+          "minLength": 1,
+          "maxLength": 768,
+          "averageLength": 71
+        },
+        {
+          "schema": "dbo",
+          "object": "IT_SYSTEM_REQUEST",
+          "column": "preferensi_ui",
+          "datatype": "varchar",
+          "status": "PROFILED",
+          "nullRatio": 0,
+          "nonNullCount": 22,
+          "distinctCount": 14,
+          "minLength": 0,
+          "maxLength": 23,
+          "averageLength": 7.818181818181818
+        },
+        {
+          "schema": "dbo",
+          "object": "IT_SYSTEM_REQUEST",
+          "column": "kebutuhan_data_output",
+          "datatype": "varchar",
+          "status": "PROFILED",
+          "nullRatio": 0,
+          "nonNullCount": 22,
+          "distinctCount": 17,
+          "minLength": 1,
+          "maxLength": 616,
+          "averageLength": 51.09090909090909
+        },
+        {
+          "schema": "dbo",
+          "object": "IT_SYSTEM_REQUEST",
+          "column": "status",
+          "datatype": "varchar",
+          "status": "PROFILED",
+          "nullRatio": 0,
+          "nonNullCount": 22,
+          "distinctCount": 2,
+          "minLength": 7,
+          "maxLength": 7,
+          "averageLength": 7
+        },
+        {
+          "schema": "dbo",
+          "object": "IT_SYSTEM_REQUEST",
+          "column": "tanggal_permintaan",
+          "datatype": "datetime",
+          "status": "PROFILED",
+          "nullRatio": 0,
+          "nonNullCount": 22,
+          "dateRange": {
+            "min": "2026-05-01T00:00:00.000Z",
+            "max": "2026-09-22T14:28:19.990Z"
+          }
+        },
+        {
+          "schema": "dbo",
+          "object": "IT_SYSTEM_REQUEST",
+          "column": "ditangani_oleh",
+          "datatype": "varchar",
+          "status": "PROFILED",
+          "nullRatio": 0.045454545454545456,
+          "nonNullCount": 21,
+          "distinctCount": 3,
+          "minLength": 4,
+          "maxLength": 4,
+          "averageLength": 4
+        },
+        {
+          "schema": "dbo",
+          "object": "IT_SYSTEM_REQUEST",
+          "column": "tanggal_diproses",
+          "datatype": "datetime",
+          "status": "PROFILED",
+          "nullRatio": 0.045454545454545456,
+          "nonNullCount": 21,
+          "dateRange": {
+            "min": "2026-05-01T00:00:00.000Z",
+            "max": "2026-09-18T15:29:49.000Z"
+          }
+        },
+        {
+          "schema": "dbo",
+          "object": "IT_SYSTEM_REQUEST",
+          "column": "tanggal_selesai",
+          "datatype": "datetime",
+          "status": "PROFILED",
+          "nullRatio": 0.045454545454545456,
+          "nonNullCount": 21,
+          "dateRange": {
+            "min": "2026-07-06T14:16:23.000Z",
+            "max": "2026-09-18T15:29:56.000Z"
+          }
+        },
+        {
+          "schema": "dbo",
+          "object": "IT_SYSTEM_REQUEST",
+          "column": "nip_peminta",
+          "datatype": "varchar",
+          "status": "PROFILED",
+          "nullRatio": 0.09090909090909091,
+          "nonNullCount": 20,
+          "distinctCount": 8,
+          "minLength": 4,
+          "maxLength": 4,
+          "averageLength": 4
+        }
+      ]
+    },
+    {
+      "object": "dbo.PR",
+      "primaryKey": [],
+      "columns": [
+        {
+          "schemaName": "dbo",
+          "objectName": "PR",
+          "columnName": "PRID",
+          "datatype": "int",
+          "maxLength": null,
+          "precision": 10,
+          "scale": 0,
+          "nullable": "NO",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PR",
+          "columnName": "PRType",
+          "datatype": "int",
+          "maxLength": null,
+          "precision": 10,
+          "scale": 0,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PR",
+          "columnName": "PRNo",
+          "datatype": "nvarchar",
+          "maxLength": 50,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PR",
+          "columnName": "PRDate",
+          "datatype": "date",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PR",
+          "columnName": "SecID",
+          "datatype": "nvarchar",
+          "maxLength": 2,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PR",
+          "columnName": "ETA",
+          "datatype": "date",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PR",
+          "columnName": "Note",
+          "datatype": "nvarchar",
+          "maxLength": -1,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PR",
+          "columnName": "PIC",
+          "datatype": "nvarchar",
+          "maxLength": 25,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PR",
+          "columnName": "Toyota",
+          "datatype": "bit",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "NO",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PR",
+          "columnName": "PRMachType",
+          "datatype": "int",
+          "maxLength": null,
+          "precision": 10,
+          "scale": 0,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PR",
+          "columnName": "MachVendorId",
+          "datatype": "int",
+          "maxLength": null,
+          "precision": 10,
+          "scale": 0,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PR",
+          "columnName": "PRforCustTypeId",
+          "datatype": "int",
+          "maxLength": null,
+          "precision": 10,
+          "scale": 0,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PR",
+          "columnName": "Urgent",
+          "datatype": "bit",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "NO",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PR",
+          "columnName": "Appdate",
+          "datatype": "date",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PR",
+          "columnName": "Appby",
+          "datatype": "nvarchar",
+          "maxLength": 50,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PR",
+          "columnName": "IDLama",
+          "datatype": "int",
+          "maxLength": null,
+          "precision": 10,
+          "scale": 0,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PR",
+          "columnName": "JenisPR",
+          "datatype": "int",
+          "maxLength": null,
+          "precision": 10,
+          "scale": 0,
+          "nullable": "YES",
+          "computed": 0
+        }
+      ],
+      "profile": [
+        {
+          "schema": "dbo",
+          "object": "PR",
+          "column": "PRID",
+          "datatype": "int",
+          "status": "PROFILED",
+          "nullRatio": 0,
+          "nonNullCount": 50508,
+          "distinctCount": 50504,
+          "numericRange": {
+            "min": 2,
+            "max": 113097
+          }
+        },
+        {
+          "schema": "dbo",
+          "object": "PR",
+          "column": "PRType",
+          "datatype": "int",
+          "status": "PROFILED",
+          "nullRatio": 0,
+          "nonNullCount": 50508,
+          "distinctCount": 4,
+          "numericRange": {
+            "min": 0,
+            "max": 3
+          }
+        },
+        {
+          "schema": "dbo",
+          "object": "PR",
+          "column": "PRNo",
+          "datatype": "nvarchar",
+          "status": "PROFILED",
+          "nullRatio": 0,
+          "nonNullCount": 50508,
+          "distinctCount": 50508,
+          "minLength": 1,
+          "maxLength": 37,
+          "averageLength": 9.564425437554446
+        },
+        {
+          "schema": "dbo",
+          "object": "PR",
+          "column": "PRDate",
+          "datatype": "date",
+          "status": "PROFILED",
+          "nullRatio": 0.0001781895937277263,
+          "nonNullCount": 50499,
+          "dateRange": {
+            "min": "2000-12-14T00:00:00.000Z",
+            "max": "2019-12-11T00:00:00.000Z"
+          }
+        },
+        {
+          "schema": "dbo",
+          "object": "PR",
+          "column": "SecID",
+          "datatype": "nvarchar",
+          "status": "PROFILED",
+          "nullRatio": 0,
+          "nonNullCount": 50508,
+          "distinctCount": 80,
+          "minLength": 0,
+          "maxLength": 2,
+          "averageLength": 1.9845767007206778
+        },
+        {
+          "schema": "dbo",
+          "object": "PR",
+          "column": "ETA",
+          "datatype": "date",
+          "status": "PROFILED",
+          "nullRatio": 0.09717272511285341,
+          "nonNullCount": 45600,
+          "dateRange": {
+            "min": "1004-04-18T00:00:00.000Z",
+            "max": "2994-09-16T00:00:00.000Z"
+          }
+        },
+        {
+          "schema": "dbo",
+          "object": "PR",
+          "column": "Note",
+          "datatype": "nvarchar",
+          "status": "PROFILED",
+          "nullRatio": 0,
+          "nonNullCount": 50508,
+          "distinctCount": 2204,
+          "minLength": 0,
+          "maxLength": 255,
+          "averageLength": 13.286489269026688
+        },
+        {
+          "schema": "dbo",
+          "object": "PR",
+          "column": "PIC",
+          "datatype": "nvarchar",
+          "status": "PROFILED",
+          "nullRatio": 0,
+          "nonNullCount": 50508,
+          "distinctCount": 113,
+          "minLength": 0,
+          "maxLength": 18,
+          "averageLength": 1.1813178110398352
+        },
+        {
+          "schema": "dbo",
+          "object": "PR",
+          "column": "Toyota",
+          "datatype": "bit",
+          "status": "PROFILED",
+          "nullRatio": 0,
+          "nonNullCount": 50508,
+          "distinctCount": 2
+        },
+        {
+          "schema": "dbo",
+          "object": "PR",
+          "column": "PRMachType",
+          "datatype": "int",
+          "status": "PROFILED",
+          "nullRatio": 0.3884533143264433,
+          "nonNullCount": 30888,
+          "distinctCount": 8,
+          "numericRange": {
+            "min": 0,
+            "max": 7
+          }
+        },
+        {
+          "schema": "dbo",
+          "object": "PR",
+          "column": "MachVendorId",
+          "datatype": "int",
+          "status": "PROFILED",
+          "nullRatio": 0.3884533143264433,
+          "nonNullCount": 30888,
+          "distinctCount": 27,
+          "numericRange": {
+            "min": 0,
+            "max": 37
+          }
+        },
+        {
+          "schema": "dbo",
+          "object": "PR",
+          "column": "PRforCustTypeId",
+          "datatype": "int",
+          "status": "PROFILED",
+          "nullRatio": 0.3958976795755128,
+          "nonNullCount": 30512,
+          "distinctCount": 4,
+          "numericRange": {
+            "min": 0,
+            "max": 3
+          }
+        },
+        {
+          "schema": "dbo",
+          "object": "PR",
+          "column": "Urgent",
+          "datatype": "bit",
+          "status": "PROFILED",
+          "nullRatio": 0,
+          "nonNullCount": 50508,
+          "distinctCount": 2
+        },
+        {
+          "schema": "dbo",
+          "object": "PR",
+          "column": "Appdate",
+          "datatype": "date",
+          "status": "PROFILED",
+          "nullRatio": 1,
+          "nonNullCount": 0,
+          "dateRange": {
+            "min": null,
+            "max": null
+          }
+        },
+        {
+          "schema": "dbo",
+          "object": "PR",
+          "column": "Appby",
+          "datatype": "nvarchar",
+          "status": "PROFILED",
+          "nullRatio": 0,
+          "nonNullCount": 50508,
+          "distinctCount": 1,
+          "minLength": 0,
+          "maxLength": 0,
+          "averageLength": 0
+        },
+        {
+          "schema": "dbo",
+          "object": "PR",
+          "column": "IDLama",
+          "datatype": "int",
+          "status": "PROFILED",
+          "nullRatio": 1,
+          "nonNullCount": 0,
+          "distinctCount": 0,
+          "numericRange": {
+            "min": null,
+            "max": null
+          }
+        },
+        {
+          "schema": "dbo",
+          "object": "PR",
+          "column": "JenisPR",
+          "datatype": "int",
+          "status": "PROFILED",
+          "nullRatio": 1,
+          "nonNullCount": 0,
+          "distinctCount": 0,
+          "numericRange": {
+            "min": null,
+            "max": null
+          }
+        }
+      ]
+    },
+    {
+      "object": "dbo.PURC_PURCHASE_REQUEST",
+      "primaryKey": [],
+      "columns": [
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHASE_REQUEST",
+          "columnName": "CompCode",
+          "datatype": "char",
+          "maxLength": 3,
+          "precision": null,
+          "scale": null,
+          "nullable": "NO",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHASE_REQUEST",
+          "columnName": "PRNo",
+          "datatype": "char",
+          "maxLength": 20,
+          "precision": null,
+          "scale": null,
+          "nullable": "NO",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHASE_REQUEST",
+          "columnName": "PRItemNo",
+          "datatype": "int",
+          "maxLength": null,
+          "precision": 10,
+          "scale": 0,
+          "nullable": "NO",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHASE_REQUEST",
+          "columnName": "MaterialId",
+          "datatype": "char",
+          "maxLength": 15,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHASE_REQUEST",
+          "columnName": "Specification",
+          "datatype": "varchar",
+          "maxLength": 120,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHASE_REQUEST",
+          "columnName": "MatTypeModel",
+          "datatype": "char",
+          "maxLength": 30,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHASE_REQUEST",
+          "columnName": "Brand",
+          "datatype": "varchar",
+          "maxLength": 20,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHASE_REQUEST",
+          "columnName": "ImportLocal",
+          "datatype": "char",
+          "maxLength": 1,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHASE_REQUEST",
+          "columnName": "Purpose",
+          "datatype": "varchar",
+          "maxLength": 200,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHASE_REQUEST",
+          "columnName": "Qty",
+          "datatype": "numeric",
+          "maxLength": null,
+          "precision": 10,
+          "scale": 2,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHASE_REQUEST",
+          "columnName": "UoM",
+          "datatype": "char",
+          "maxLength": 10,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHASE_REQUEST",
+          "columnName": "EstUnitPrice",
+          "datatype": "numeric",
+          "maxLength": null,
+          "precision": 17,
+          "scale": 2,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHASE_REQUEST",
+          "columnName": "CurrCode",
+          "datatype": "char",
+          "maxLength": 3,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHASE_REQUEST",
+          "columnName": "ExpDeliveryDate",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHASE_REQUEST",
+          "columnName": "HoldFlag",
+          "datatype": "char",
+          "maxLength": 1,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHASE_REQUEST",
+          "columnName": "CancelFlag",
+          "datatype": "char",
+          "maxLength": 1,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHASE_REQUEST",
+          "columnName": "HoldDate",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHASE_REQUEST",
+          "columnName": "CancelDate",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHASE_REQUEST",
+          "columnName": "HoldCancelBy",
+          "datatype": "varchar",
+          "maxLength": 30,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHASE_REQUEST",
+          "columnName": "Capexno",
+          "datatype": "char",
+          "maxLength": 15,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHASE_REQUEST",
+          "columnName": "PRReceivedDate",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHASE_REQUEST",
+          "columnName": "inp_date",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHASE_REQUEST",
+          "columnName": "inp_by",
+          "datatype": "char",
+          "maxLength": 10,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHASE_REQUEST",
+          "columnName": "upd_date",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHASE_REQUEST",
+          "columnName": "upd_by",
+          "datatype": "char",
+          "maxLength": 10,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHASE_REQUEST",
+          "columnName": "status",
+          "datatype": "int",
+          "maxLength": null,
+          "precision": 10,
+          "scale": 0,
+          "nullable": "YES",
+          "computed": 0
+        }
+      ],
+      "profile": [
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHASE_REQUEST",
+          "column": "CompCode",
+          "datatype": "char",
+          "status": "PROFILED",
+          "nullRatio": 0,
+          "nonNullCount": 13525,
+          "distinctCount": 1,
+          "minLength": 3,
+          "maxLength": 3,
+          "averageLength": 3
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHASE_REQUEST",
+          "column": "PRNo",
+          "datatype": "char",
+          "status": "PROFILED",
+          "nullRatio": 0,
+          "nonNullCount": 13525,
+          "distinctCount": 4205,
+          "minLength": 2,
+          "maxLength": 15,
+          "averageLength": 12.608946395563772
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHASE_REQUEST",
+          "column": "PRItemNo",
+          "datatype": "int",
+          "status": "PROFILED",
+          "nullRatio": 0,
+          "nonNullCount": 13525,
+          "distinctCount": 54,
+          "numericRange": {
+            "min": 1,
+            "max": 54
+          }
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHASE_REQUEST",
+          "column": "MaterialId",
+          "datatype": "char",
+          "status": "PROFILED",
+          "nullRatio": 0.0004436229205175601,
+          "nonNullCount": 13519,
+          "distinctCount": 4888,
+          "minLength": 9,
+          "maxLength": 11,
+          "averageLength": 9.111990531844071
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHASE_REQUEST",
+          "column": "Specification",
+          "datatype": "varchar",
+          "status": "PROFILED",
+          "nullRatio": 0.9988170055452865,
+          "nonNullCount": 16,
+          "distinctCount": 1,
+          "minLength": 0,
+          "maxLength": 0,
+          "averageLength": 0
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHASE_REQUEST",
+          "column": "MatTypeModel",
+          "datatype": "char",
+          "status": "PROFILED",
+          "nullRatio": 0.9988170055452865,
+          "nonNullCount": 16,
+          "distinctCount": 1,
+          "minLength": 0,
+          "maxLength": 0,
+          "averageLength": 0
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHASE_REQUEST",
+          "column": "Brand",
+          "datatype": "varchar",
+          "status": "PROFILED",
+          "nullRatio": 0.9988170055452865,
+          "nonNullCount": 16,
+          "distinctCount": 1,
+          "minLength": 0,
+          "maxLength": 0,
+          "averageLength": 0
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHASE_REQUEST",
+          "column": "ImportLocal",
+          "datatype": "char",
+          "status": "PROFILED",
+          "nullRatio": 1,
+          "nonNullCount": 0,
+          "distinctCount": 0,
+          "minLength": null,
+          "maxLength": null,
+          "averageLength": null
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHASE_REQUEST",
+          "column": "Purpose",
+          "datatype": "varchar",
+          "status": "PROFILED",
+          "nullRatio": 0.0002957486136783734,
+          "nonNullCount": 13521,
+          "distinctCount": 3115,
+          "minLength": 0,
+          "maxLength": 150,
+          "averageLength": 39.40278085940389
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHASE_REQUEST",
+          "column": "Qty",
+          "datatype": "numeric",
+          "status": "PROFILED",
+          "nullRatio": 0.0003696857670979667,
+          "nonNullCount": 13520,
+          "distinctCount": 858,
+          "numericRange": {
+            "min": -400,
+            "max": 165080
+          }
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHASE_REQUEST",
+          "column": "UoM",
+          "datatype": "char",
+          "status": "PROFILED",
+          "nullRatio": 0.016266173752310535,
+          "nonNullCount": 13305,
+          "distinctCount": 64,
+          "minLength": 0,
+          "maxLength": 10,
+          "averageLength": 3.0169109357384443
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHASE_REQUEST",
+          "column": "EstUnitPrice",
+          "datatype": "numeric",
+          "status": "PROFILED",
+          "nullRatio": 1,
+          "nonNullCount": 0,
+          "distinctCount": 0,
+          "numericRange": {
+            "min": null,
+            "max": null
+          }
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHASE_REQUEST",
+          "column": "CurrCode",
+          "datatype": "char",
+          "status": "PROFILED",
+          "nullRatio": 1,
+          "nonNullCount": 0,
+          "distinctCount": 0,
+          "minLength": null,
+          "maxLength": null,
+          "averageLength": null
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHASE_REQUEST",
+          "column": "ExpDeliveryDate",
+          "datatype": "datetime",
+          "status": "PROFILED",
+          "nullRatio": 1,
+          "nonNullCount": 0,
+          "dateRange": {
+            "min": null,
+            "max": null
+          }
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHASE_REQUEST",
+          "column": "HoldFlag",
+          "datatype": "char",
+          "status": "PROFILED",
+          "nullRatio": 1,
+          "nonNullCount": 0,
+          "distinctCount": 0,
+          "minLength": null,
+          "maxLength": null,
+          "averageLength": null
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHASE_REQUEST",
+          "column": "CancelFlag",
+          "datatype": "char",
+          "status": "PROFILED",
+          "nullRatio": 1,
+          "nonNullCount": 0,
+          "distinctCount": 0,
+          "minLength": null,
+          "maxLength": null,
+          "averageLength": null
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHASE_REQUEST",
+          "column": "HoldDate",
+          "datatype": "datetime",
+          "status": "PROFILED",
+          "nullRatio": 1,
+          "nonNullCount": 0,
+          "dateRange": {
+            "min": null,
+            "max": null
+          }
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHASE_REQUEST",
+          "column": "CancelDate",
+          "datatype": "datetime",
+          "status": "PROFILED",
+          "nullRatio": 1,
+          "nonNullCount": 0,
+          "dateRange": {
+            "min": null,
+            "max": null
+          }
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHASE_REQUEST",
+          "column": "HoldCancelBy",
+          "datatype": "varchar",
+          "status": "PROFILED",
+          "nullRatio": 1,
+          "nonNullCount": 0,
+          "distinctCount": 0,
+          "minLength": null,
+          "maxLength": null,
+          "averageLength": null
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHASE_REQUEST",
+          "column": "Capexno",
+          "datatype": "char",
+          "status": "PROFILED",
+          "nullRatio": 0.01656192236598891,
+          "nonNullCount": 13301,
+          "distinctCount": 1,
+          "minLength": 0,
+          "maxLength": 0,
+          "averageLength": 0
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHASE_REQUEST",
+          "column": "PRReceivedDate",
+          "datatype": "datetime",
+          "status": "PROFILED",
+          "nullRatio": 0.0002957486136783734,
+          "nonNullCount": 13521,
+          "dateRange": {
+            "min": "2025-04-01T00:00:00.000Z",
+            "max": "2026-09-30T14:30:42.397Z"
+          }
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHASE_REQUEST",
+          "column": "inp_date",
+          "datatype": "datetime",
+          "status": "PROFILED",
+          "nullRatio": 0.0002957486136783734,
+          "nonNullCount": 13521,
+          "dateRange": {
+            "min": "2025-04-01T00:00:00.000Z",
+            "max": "2026-09-30T14:30:42.397Z"
+          }
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHASE_REQUEST",
+          "column": "inp_by",
+          "datatype": "char",
+          "status": "PROFILED",
+          "nullRatio": 0,
+          "nonNullCount": 13525,
+          "distinctCount": 4,
+          "minLength": 1,
+          "maxLength": 1,
+          "averageLength": 1
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHASE_REQUEST",
+          "column": "upd_date",
+          "datatype": "datetime",
+          "status": "PROFILED",
+          "nullRatio": 0.9998521256931608,
+          "nonNullCount": 2,
+          "dateRange": {
+            "min": "2026-06-05T09:45:49.130Z",
+            "max": "2026-06-05T09:47:31.370Z"
+          }
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHASE_REQUEST",
+          "column": "upd_by",
+          "datatype": "char",
+          "status": "PROFILED",
+          "nullRatio": 1,
+          "nonNullCount": 0,
+          "distinctCount": 0,
+          "minLength": null,
+          "maxLength": null,
+          "averageLength": null
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHASE_REQUEST",
+          "column": "status",
+          "datatype": "int",
+          "status": "PROFILED",
+          "nullRatio": 0.0004436229205175601,
+          "nonNullCount": 13519,
+          "distinctCount": 5,
+          "numericRange": {
+            "min": 0,
+            "max": 11
+          }
+        }
+      ]
+    },
+    {
+      "object": "dbo.PURC_PURCHREQUEST_HED",
+      "primaryKey": [
+        "CompCode",
+        "PRNo"
+      ],
+      "columns": [
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_HED",
+          "columnName": "CompCode",
+          "datatype": "char",
+          "maxLength": 3,
+          "precision": null,
+          "scale": null,
+          "nullable": "NO",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_HED",
+          "columnName": "PRNo",
+          "datatype": "char",
+          "maxLength": 20,
+          "precision": null,
+          "scale": null,
+          "nullable": "NO",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_HED",
+          "columnName": "PRDate",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_HED",
+          "columnName": "DeptId",
+          "datatype": "char",
+          "maxLength": 6,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_HED",
+          "columnName": "Requestor",
+          "datatype": "char",
+          "maxLength": 30,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_HED",
+          "columnName": "Remark",
+          "datatype": "varchar",
+          "maxLength": 400,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_HED",
+          "columnName": "Req_No",
+          "datatype": "nvarchar",
+          "maxLength": 50,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_HED",
+          "columnName": "Project",
+          "datatype": "nvarchar",
+          "maxLength": 50,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_HED",
+          "columnName": "JobId",
+          "datatype": "int",
+          "maxLength": null,
+          "precision": 10,
+          "scale": 0,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_HED",
+          "columnName": "TaskId",
+          "datatype": "int",
+          "maxLength": null,
+          "precision": 10,
+          "scale": 0,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_HED",
+          "columnName": "DepartAloc",
+          "datatype": "char",
+          "maxLength": 6,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_HED",
+          "columnName": "WONo",
+          "datatype": "char",
+          "maxLength": 20,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_HED",
+          "columnName": "CapexNo",
+          "datatype": "char",
+          "maxLength": 20,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        }
+      ],
+      "profile": [
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHREQUEST_HED",
+          "column": "CompCode",
+          "datatype": "char",
+          "status": "PROFILED",
+          "nullRatio": 0,
+          "nonNullCount": 4122,
+          "distinctCount": 1,
+          "minLength": 3,
+          "maxLength": 3,
+          "averageLength": 3
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHREQUEST_HED",
+          "column": "PRNo",
+          "datatype": "char",
+          "status": "PROFILED",
+          "nullRatio": 0,
+          "nonNullCount": 4122,
+          "distinctCount": 4122,
+          "minLength": 10,
+          "maxLength": 15,
+          "averageLength": 12.569141193595343
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHREQUEST_HED",
+          "column": "PRDate",
+          "datatype": "datetime",
+          "status": "PROFILED",
+          "nullRatio": 0,
+          "nonNullCount": 4122,
+          "dateRange": {
+            "min": "2025-02-11T00:00:00.000Z",
+            "max": "2026-09-30T10:31:11.783Z"
+          }
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHREQUEST_HED",
+          "column": "DeptId",
+          "datatype": "char",
+          "status": "PROFILED",
+          "nullRatio": 0,
+          "nonNullCount": 4122,
+          "distinctCount": 12,
+          "minLength": 4,
+          "maxLength": 4,
+          "averageLength": 4
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHREQUEST_HED",
+          "column": "Requestor",
+          "datatype": "char",
+          "status": "PROFILED",
+          "nullRatio": 0,
+          "nonNullCount": 4122,
+          "distinctCount": 27,
+          "minLength": 1,
+          "maxLength": 4,
+          "averageLength": 3.988355167394469
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHREQUEST_HED",
+          "column": "Remark",
+          "datatype": "varchar",
+          "status": "PROFILED",
+          "nullRatio": 0.0012130033964095099,
+          "nonNullCount": 4117,
+          "distinctCount": 3112,
+          "minLength": 2,
+          "maxLength": 150,
+          "averageLength": 41.82147194559145
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHREQUEST_HED",
+          "column": "Req_No",
+          "datatype": "nvarchar",
+          "status": "PROFILED",
+          "nullRatio": 0.9995147986414362,
+          "nonNullCount": 2,
+          "distinctCount": 2,
+          "minLength": 32,
+          "maxLength": 32,
+          "averageLength": 32
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHREQUEST_HED",
+          "column": "Project",
+          "datatype": "nvarchar",
+          "status": "PROFILED",
+          "nullRatio": 0.9995147986414362,
+          "nonNullCount": 2,
+          "distinctCount": 1,
+          "minLength": 0,
+          "maxLength": 0,
+          "averageLength": 0
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHREQUEST_HED",
+          "column": "JobId",
+          "datatype": "int",
+          "status": "PROFILED",
+          "nullRatio": 0.9995147986414362,
+          "nonNullCount": 2,
+          "distinctCount": 1,
+          "numericRange": {
+            "min": 0,
+            "max": 0
+          }
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHREQUEST_HED",
+          "column": "TaskId",
+          "datatype": "int",
+          "status": "PROFILED",
+          "nullRatio": 0.9995147986414362,
+          "nonNullCount": 2,
+          "distinctCount": 1,
+          "numericRange": {
+            "min": 0,
+            "max": 0
+          }
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHREQUEST_HED",
+          "column": "DepartAloc",
+          "datatype": "char",
+          "status": "PROFILED",
+          "nullRatio": 0.000727802037845706,
+          "nonNullCount": 4119,
+          "distinctCount": 23,
+          "minLength": 0,
+          "maxLength": 5,
+          "averageLength": 3.63510560815732
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHREQUEST_HED",
+          "column": "WONo",
+          "datatype": "char",
+          "status": "PROFILED",
+          "nullRatio": 1,
+          "nonNullCount": 0,
+          "distinctCount": 0,
+          "minLength": null,
+          "maxLength": null,
+          "averageLength": null
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHREQUEST_HED",
+          "column": "CapexNo",
+          "datatype": "char",
+          "status": "PROFILED",
+          "nullRatio": 1,
+          "nonNullCount": 0,
+          "distinctCount": 0,
+          "minLength": null,
+          "maxLength": null,
+          "averageLength": null
+        }
+      ]
+    },
+    {
+      "object": "dbo.PURC_PURCHREQUEST_TEMP",
+      "primaryKey": [],
+      "columns": [
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Id",
+          "datatype": "int",
+          "maxLength": null,
+          "precision": 10,
+          "scale": 0,
+          "nullable": "NO",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Req_No",
+          "datatype": "nvarchar",
+          "maxLength": 50,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "CompCode",
+          "datatype": "nchar",
+          "maxLength": 10,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "ItemNo",
+          "datatype": "int",
+          "maxLength": null,
+          "precision": 10,
+          "scale": 0,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "MaterialId",
+          "datatype": "nchar",
+          "maxLength": 15,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "MaterialName",
+          "datatype": "varchar",
+          "maxLength": -1,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Qty",
+          "datatype": "numeric",
+          "maxLength": null,
+          "precision": 10,
+          "scale": 2,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "UoM",
+          "datatype": "char",
+          "maxLength": 7,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Purpose",
+          "datatype": "varchar",
+          "maxLength": 200,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "ProjectNo",
+          "datatype": "nchar",
+          "maxLength": 20,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "JobId",
+          "datatype": "int",
+          "maxLength": null,
+          "precision": 10,
+          "scale": 0,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "TaskId",
+          "datatype": "int",
+          "maxLength": null,
+          "precision": 10,
+          "scale": 0,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "DepartAloc",
+          "datatype": "char",
+          "maxLength": 6,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "WONo",
+          "datatype": "char",
+          "maxLength": 20,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "CapexNo",
+          "datatype": "char",
+          "maxLength": 20,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Requestor",
+          "datatype": "nchar",
+          "maxLength": 10,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Dept",
+          "datatype": "nchar",
+          "maxLength": 10,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Approval",
+          "datatype": "nchar",
+          "maxLength": 10,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Approval_Info",
+          "datatype": "varchar",
+          "maxLength": 100,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Approval_Date",
+          "datatype": "nchar",
+          "maxLength": 30,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Status",
+          "datatype": "int",
+          "maxLength": null,
+          "precision": 10,
+          "scale": 0,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Status_Info",
+          "datatype": "nchar",
+          "maxLength": 30,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "AppDate",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Reason",
+          "datatype": "varchar",
+          "maxLength": 500,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "CDate",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Purpose_Date",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "PRNo",
+          "datatype": "varchar",
+          "maxLength": 50,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Need",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Upload",
+          "datatype": "nvarchar",
+          "maxLength": 50,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Info",
+          "datatype": "nvarchar",
+          "maxLength": -1,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Is_Service",
+          "datatype": "int",
+          "maxLength": null,
+          "precision": 10,
+          "scale": 0,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "MRPNo",
+          "datatype": "varchar",
+          "maxLength": 50,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Approval_gh",
+          "datatype": "nchar",
+          "maxLength": 10,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Approval_ghinfo",
+          "datatype": "varchar",
+          "maxLength": 50,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Approval_ghdate",
+          "datatype": "nchar",
+          "maxLength": 30,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Approval_Dh",
+          "datatype": "nchar",
+          "maxLength": 10,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Approval_Dhinfo",
+          "datatype": "varchar",
+          "maxLength": 50,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Approval_Dhdate",
+          "datatype": "nchar",
+          "maxLength": 30,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Approval_Ic",
+          "datatype": "nchar",
+          "maxLength": 10,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Approval_Icinfo",
+          "datatype": "varchar",
+          "maxLength": 50,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Approval_Icdate",
+          "datatype": "nchar",
+          "maxLength": 30,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Approval_Proc",
+          "datatype": "nchar",
+          "maxLength": 10,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Approval_ProcDate",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Approval_ProcNIP",
+          "datatype": "varchar",
+          "maxLength": 4,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        }
+      ],
+      "profile": [
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHREQUEST_TEMP",
+          "column": "Id",
+          "datatype": "int",
+          "status": "PROFILED",
+          "nullRatio": 0,
+          "nonNullCount": 15993,
+          "distinctCount": 15993,
+          "numericRange": {
+            "min": 1,
+            "max": 17842
+          }
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHREQUEST_TEMP",
+          "column": "Req_No",
+          "datatype": "nvarchar",
+          "status": "PROFILED",
+          "nullRatio": 0.01713249546676671,
+          "nonNullCount": 15719,
+          "distinctCount": 4833,
+          "minLength": 0,
+          "maxLength": 33,
+          "averageLength": 31.945670844201285
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHREQUEST_TEMP",
+          "column": "CompCode",
+          "datatype": "nchar",
+          "status": "PROFILED",
+          "nullRatio": 0.9974363784155568,
+          "nonNullCount": 41,
+          "distinctCount": 2,
+          "minLength": 0,
+          "maxLength": 3,
+          "averageLength": 2.7804878048780486
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHREQUEST_TEMP",
+          "column": "ItemNo",
+          "datatype": "int",
+          "status": "PROFILED",
+          "nullRatio": 1,
+          "nonNullCount": 0,
+          "distinctCount": 0,
+          "numericRange": {
+            "min": null,
+            "max": null
+          }
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHREQUEST_TEMP",
+          "column": "MaterialId",
+          "datatype": "nchar",
+          "status": "PROFILED",
+          "nullRatio": 0.00006252735571812669,
+          "nonNullCount": 15992,
+          "distinctCount": 5988,
+          "minLength": 7,
+          "maxLength": 11,
+          "averageLength": 9.122498749374687
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHREQUEST_TEMP",
+          "column": "MaterialName",
+          "datatype": "varchar",
+          "status": "PROFILED",
+          "nullRatio": 0.0003126367785906334,
+          "nonNullCount": 15988,
+          "distinctCount": 6119,
+          "minLength": 0,
+          "maxLength": 202,
+          "averageLength": 48.89110582937203
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHREQUEST_TEMP",
+          "column": "Qty",
+          "datatype": "numeric",
+          "status": "PROFILED",
+          "nullRatio": 0.00006252735571812669,
+          "nonNullCount": 15992,
+          "distinctCount": 883,
+          "numericRange": {
+            "min": 0,
+            "max": 165080
+          }
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHREQUEST_TEMP",
+          "column": "UoM",
+          "datatype": "char",
+          "status": "PROFILED",
+          "nullRatio": 0.00006252735571812669,
+          "nonNullCount": 15992,
+          "distinctCount": 68,
+          "minLength": 0,
+          "maxLength": 7,
+          "averageLength": 3.0399574787393697
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHREQUEST_TEMP",
+          "column": "Purpose",
+          "datatype": "varchar",
+          "status": "PROFILED",
+          "nullRatio": 0.01750765960107547,
+          "nonNullCount": 15713,
+          "distinctCount": 3692,
+          "minLength": 0,
+          "maxLength": 150,
+          "averageLength": 40.79201934703749
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHREQUEST_TEMP",
+          "column": "ProjectNo",
+          "datatype": "nchar",
+          "status": "PROFILED",
+          "nullRatio": 0.01750765960107547,
+          "nonNullCount": 15713,
+          "distinctCount": 1,
+          "minLength": 0,
+          "maxLength": 0,
+          "averageLength": 0
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHREQUEST_TEMP",
+          "column": "JobId",
+          "datatype": "int",
+          "status": "PROFILED",
+          "nullRatio": 0.019821171762646157,
+          "nonNullCount": 15676,
+          "distinctCount": 1,
+          "numericRange": {
+            "min": 0,
+            "max": 0
+          }
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHREQUEST_TEMP",
+          "column": "TaskId",
+          "datatype": "int",
+          "status": "PROFILED",
+          "nullRatio": 0.019821171762646157,
+          "nonNullCount": 15676,
+          "distinctCount": 1,
+          "numericRange": {
+            "min": 0,
+            "max": 0
+          }
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHREQUEST_TEMP",
+          "column": "DepartAloc",
+          "datatype": "char",
+          "status": "PROFILED",
+          "nullRatio": 0.11236165822547364,
+          "nonNullCount": 14196,
+          "distinctCount": 28,
+          "minLength": 0,
+          "maxLength": 6,
+          "averageLength": 4.00570583262891
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHREQUEST_TEMP",
+          "column": "WONo",
+          "datatype": "char",
+          "status": "PROFILED",
+          "nullRatio": 0.9973738510598387,
+          "nonNullCount": 42,
+          "distinctCount": 1,
+          "minLength": 0,
+          "maxLength": 0,
+          "averageLength": 0
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHREQUEST_TEMP",
+          "column": "CapexNo",
+          "datatype": "char",
+          "status": "PROFILED",
+          "nullRatio": 0.9973738510598387,
+          "nonNullCount": 42,
+          "distinctCount": 1,
+          "minLength": 0,
+          "maxLength": 0,
+          "averageLength": 0
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHREQUEST_TEMP",
+          "column": "Requestor",
+          "datatype": "nchar",
+          "status": "PROFILED",
+          "nullRatio": 0.017257550178202963,
+          "nonNullCount": 15717,
+          "distinctCount": 26,
+          "minLength": 4,
+          "maxLength": 10,
+          "averageLength": 4.001908761213972
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHREQUEST_TEMP",
+          "column": "Dept",
+          "datatype": "nchar",
+          "status": "PROFILED",
+          "nullRatio": 0.017257550178202963,
+          "nonNullCount": 15717,
+          "distinctCount": 14,
+          "minLength": 3,
+          "maxLength": 10,
+          "averageLength": 4.001845135840173
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHREQUEST_TEMP",
+          "column": "Approval",
+          "datatype": "nchar",
+          "status": "PROFILED",
+          "nullRatio": 0.017257550178202963,
+          "nonNullCount": 15717,
+          "distinctCount": 52,
+          "minLength": 3,
+          "maxLength": 10,
+          "averageLength": 4.002926767194757
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHREQUEST_TEMP",
+          "column": "Approval_Info",
+          "datatype": "varchar",
+          "status": "PROFILED",
+          "nullRatio": 0.0485212280372663,
+          "nonNullCount": 15217,
+          "distinctCount": 3,
+          "minLength": 7,
+          "maxLength": 16,
+          "averageLength": 9.001905763291056
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHREQUEST_TEMP",
+          "column": "Approval_Date",
+          "datatype": "nchar",
+          "status": "PROFILED",
+          "nullRatio": 0.04839617332583005,
+          "nonNullCount": 15219,
+          "distinctCount": 364,
+          "minLength": 9,
+          "maxLength": 10,
+          "averageLength": 9.99973717064196
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHREQUEST_TEMP",
+          "column": "Status",
+          "datatype": "int",
+          "status": "PROFILED",
+          "nullRatio": 0.017257550178202963,
+          "nonNullCount": 15717,
+          "distinctCount": 5,
+          "numericRange": {
+            "min": 0,
+            "max": 4
+          }
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHREQUEST_TEMP",
+          "column": "Status_Info",
+          "datatype": "nchar",
+          "status": "PROFILED",
+          "nullRatio": 0.017382604889639216,
+          "nonNullCount": 15715,
+          "distinctCount": 9,
+          "minLength": 6,
+          "maxLength": 30,
+          "averageLength": 26.446261533566656
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHREQUEST_TEMP",
+          "column": "AppDate",
+          "datatype": "datetime",
+          "status": "PROFILED",
+          "nullRatio": 0.9999374726442819,
+          "nonNullCount": 1,
+          "dateRange": {
+            "min": "2025-05-19T00:00:00.000Z",
+            "max": "2025-05-19T00:00:00.000Z"
+          }
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHREQUEST_TEMP",
+          "column": "Reason",
+          "datatype": "varchar",
+          "status": "PROFILED",
+          "nullRatio": 0.9975614331269931,
+          "nonNullCount": 39,
+          "distinctCount": 2,
+          "minLength": 0,
+          "maxLength": 24,
+          "averageLength": 0.6153846153846154
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHREQUEST_TEMP",
+          "column": "CDate",
+          "datatype": "datetime",
+          "status": "PROFILED",
+          "nullRatio": 0.0005627462014631402,
+          "nonNullCount": 15984,
+          "dateRange": {
+            "min": "2025-02-04T00:00:00.000Z",
+            "max": "2026-09-30T00:00:00.000Z"
+          }
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHREQUEST_TEMP",
+          "column": "Purpose_Date",
+          "datatype": "datetime",
+          "status": "PROFILED",
+          "nullRatio": 0.020071281185518663,
+          "nonNullCount": 15672,
+          "dateRange": {
+            "min": "2025-02-04T01:38:53.000Z",
+            "max": "2026-09-30T11:42:11.000Z"
+          }
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHREQUEST_TEMP",
+          "column": "PRNo",
+          "datatype": "varchar",
+          "status": "PROFILED",
+          "nullRatio": 0.00012505471143625337,
+          "nonNullCount": 15991,
+          "distinctCount": 4822,
+          "minLength": 10,
+          "maxLength": 15,
+          "averageLength": 12.494152961040585
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHREQUEST_TEMP",
+          "column": "Need",
+          "datatype": "datetime",
+          "status": "PROFILED",
+          "nullRatio": 0.020071281185518663,
+          "nonNullCount": 15672,
+          "dateRange": {
+            "min": "2025-01-06T00:00:00.000Z",
+            "max": "2026-12-01T00:00:00.000Z"
+          }
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHREQUEST_TEMP",
+          "column": "Upload",
+          "datatype": "nvarchar",
+          "status": "PROFILED",
+          "nullRatio": 0.01750765960107547,
+          "nonNullCount": 15713,
+          "distinctCount": 469,
+          "minLength": 0,
+          "maxLength": 46,
+          "averageLength": 2.5776745370075735
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHREQUEST_TEMP",
+          "column": "Info",
+          "datatype": "nvarchar",
+          "status": "PROFILED",
+          "nullRatio": 0,
+          "nonNullCount": 15993,
+          "distinctCount": 31,
+          "minLength": 0,
+          "maxLength": 806,
+          "averageLength": 1.3789157756518478
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHREQUEST_TEMP",
+          "column": "Is_Service",
+          "datatype": "int",
+          "status": "PROFILED",
+          "nullRatio": 0.002751203651597574,
+          "nonNullCount": 15949,
+          "distinctCount": 1,
+          "numericRange": {
+            "min": 0,
+            "max": 0
+          }
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHREQUEST_TEMP",
+          "column": "MRPNo",
+          "datatype": "varchar",
+          "status": "PROFILED",
+          "nullRatio": 0.00037516413430876007,
+          "nonNullCount": 15987,
+          "distinctCount": 320,
+          "minLength": 0,
+          "maxLength": 15,
+          "averageLength": 14.963470319634704
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHREQUEST_TEMP",
+          "column": "Approval_gh",
+          "datatype": "nchar",
+          "status": "PROFILED",
+          "nullRatio": 0.021696992434189957,
+          "nonNullCount": 15646,
+          "distinctCount": 12,
+          "minLength": 2,
+          "maxLength": 10,
+          "averageLength": 3.3440495973411735
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHREQUEST_TEMP",
+          "column": "Approval_ghinfo",
+          "datatype": "varchar",
+          "status": "PROFILED",
+          "nullRatio": 0.6934283749140249,
+          "nonNullCount": 4903,
+          "distinctCount": 2,
+          "minLength": 0,
+          "maxLength": 9,
+          "averageLength": 8.930246787681012
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHREQUEST_TEMP",
+          "column": "Approval_ghdate",
+          "datatype": "nchar",
+          "status": "PROFILED",
+          "nullRatio": 0.6934283749140249,
+          "nonNullCount": 4903,
+          "distinctCount": 216,
+          "minLength": 9,
+          "maxLength": 10,
+          "averageLength": 9.999184172955333
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHREQUEST_TEMP",
+          "column": "Approval_Dh",
+          "datatype": "nchar",
+          "status": "PROFILED",
+          "nullRatio": 0.022572375414243732,
+          "nonNullCount": 15632,
+          "distinctCount": 8,
+          "minLength": 0,
+          "maxLength": 10,
+          "averageLength": 3.9994882292732856
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHREQUEST_TEMP",
+          "column": "Approval_Dhinfo",
+          "datatype": "varchar",
+          "status": "PROFILED",
+          "nullRatio": 0.023197648971424997,
+          "nonNullCount": 15622,
+          "distinctCount": 3,
+          "minLength": 7,
+          "maxLength": 13,
+          "averageLength": 8.996159262578415
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHREQUEST_TEMP",
+          "column": "Approval_Dhdate",
+          "datatype": "nchar",
+          "status": "PROFILED",
+          "nullRatio": 0.023197648971424997,
+          "nonNullCount": 15622,
+          "distinctCount": 320,
+          "minLength": 9,
+          "maxLength": 10,
+          "averageLength": 9.99974395083856
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHREQUEST_TEMP",
+          "column": "Approval_Ic",
+          "datatype": "nchar",
+          "status": "PROFILED",
+          "nullRatio": 0.022822484837116238,
+          "nonNullCount": 15628,
+          "distinctCount": 4,
+          "minLength": 0,
+          "maxLength": 10,
+          "averageLength": 3.9985922702841052
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHREQUEST_TEMP",
+          "column": "Approval_Icinfo",
+          "datatype": "varchar",
+          "status": "PROFILED",
+          "nullRatio": 0.8026636653535922,
+          "nonNullCount": 3156,
+          "distinctCount": 2,
+          "minLength": 7,
+          "maxLength": 9,
+          "averageLength": 8.975918884664132
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHREQUEST_TEMP",
+          "column": "Approval_Icdate",
+          "datatype": "nchar",
+          "status": "PROFILED",
+          "nullRatio": 0.021884574501344338,
+          "nonNullCount": 15643,
+          "distinctCount": 312,
+          "minLength": 9,
+          "maxLength": 10,
+          "averageLength": 9.999744294572652
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHREQUEST_TEMP",
+          "column": "Approval_Proc",
+          "datatype": "nchar",
+          "status": "PROFILED",
+          "nullRatio": 0.9170887263177641,
+          "nonNullCount": 1326,
+          "distinctCount": 3,
+          "minLength": 0,
+          "maxLength": 1,
+          "averageLength": 0.971342383107089
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHREQUEST_TEMP",
+          "column": "Approval_ProcDate",
+          "datatype": "datetime",
+          "status": "PROFILED",
+          "nullRatio": 0.8042893766022635,
+          "nonNullCount": 3130,
+          "dateRange": {
+            "min": "2026-07-07T10:44:02.000Z",
+            "max": "2026-09-30T14:30:28.000Z"
+          }
+        },
+        {
+          "schema": "dbo",
+          "object": "PURC_PURCHREQUEST_TEMP",
+          "column": "Approval_ProcNIP",
+          "datatype": "varchar",
+          "status": "PROFILED",
+          "nullRatio": 0.8048521228037266,
+          "nonNullCount": 3121,
+          "distinctCount": 5,
+          "minLength": 0,
+          "maxLength": 4,
+          "averageLength": 3.9154117270105737
+        }
+      ]
+    }
+  ],
+  "detail": {
+    "object": "dbo.PRDetail",
+    "columns": [
+      {
+        "schemaName": "dbo",
+        "objectName": "PRDetail",
+        "columnName": "PRDetailID",
+        "datatype": "int",
+        "maxLength": null,
+        "precision": 10,
+        "scale": 0,
+        "nullable": "YES",
+        "computed": 0
+      },
+      {
+        "schemaName": "dbo",
+        "objectName": "PRDetail",
+        "columnName": "PRID",
+        "datatype": "int",
+        "maxLength": null,
+        "precision": 10,
+        "scale": 0,
+        "nullable": "YES",
+        "computed": 0
+      },
+      {
+        "schemaName": "dbo",
+        "objectName": "PRDetail",
+        "columnName": "PRNo",
+        "datatype": "nvarchar",
+        "maxLength": 255,
+        "precision": null,
+        "scale": null,
+        "nullable": "YES",
+        "computed": 0
+      },
+      {
+        "schemaName": "dbo",
+        "objectName": "PRDetail",
+        "columnName": "MaterialID",
+        "datatype": "int",
+        "maxLength": null,
+        "precision": 10,
+        "scale": 0,
+        "nullable": "YES",
+        "computed": 0
+      },
+      {
+        "schemaName": "dbo",
+        "objectName": "PRDetail",
+        "columnName": "Material Description",
+        "datatype": "nvarchar",
+        "maxLength": 255,
+        "precision": null,
+        "scale": null,
+        "nullable": "YES",
+        "computed": 0
+      },
+      {
+        "schemaName": "dbo",
+        "objectName": "PRDetail",
+        "columnName": "NRUnit",
+        "datatype": "nvarchar",
+        "maxLength": 255,
+        "precision": null,
+        "scale": null,
+        "nullable": "YES",
+        "computed": 0
+      },
+      {
+        "schemaName": "dbo",
+        "objectName": "PRDetail",
+        "columnName": "PRQty",
+        "datatype": "int",
+        "maxLength": null,
+        "precision": 10,
+        "scale": 0,
+        "nullable": "YES",
+        "computed": 0
+      },
+      {
+        "schemaName": "dbo",
+        "objectName": "PRDetail",
+        "columnName": "Utilisation",
+        "datatype": "nvarchar",
+        "maxLength": 255,
+        "precision": null,
+        "scale": null,
+        "nullable": "YES",
+        "computed": 0
+      },
+      {
+        "schemaName": "dbo",
+        "objectName": "PRDetail",
+        "columnName": "Cancel?",
+        "datatype": "bit",
+        "maxLength": null,
+        "precision": null,
+        "scale": null,
+        "nullable": "NO",
+        "computed": 0
+      },
+      {
+        "schemaName": "dbo",
+        "objectName": "PRDetail",
+        "columnName": "PettyCash",
+        "datatype": "bit",
+        "maxLength": null,
+        "precision": null,
+        "scale": null,
+        "nullable": "NO",
+        "computed": 0
+      },
+      {
+        "schemaName": "dbo",
+        "objectName": "PRDetail",
+        "columnName": "Status",
+        "datatype": "bit",
+        "maxLength": null,
+        "precision": null,
+        "scale": null,
+        "nullable": "NO",
+        "computed": 0
+      },
+      {
+        "schemaName": "dbo",
+        "objectName": "PRDetail",
+        "columnName": "ProductID",
+        "datatype": "int",
+        "maxLength": null,
+        "precision": 10,
+        "scale": 0,
+        "nullable": "YES",
+        "computed": 0
+      },
+      {
+        "schemaName": "dbo",
+        "objectName": "PRDetail",
+        "columnName": "BudgetCode",
+        "datatype": "nvarchar",
+        "maxLength": 255,
+        "precision": null,
+        "scale": null,
+        "nullable": "YES",
+        "computed": 0
+      },
+      {
+        "schemaName": "dbo",
+        "objectName": "PRDetail",
+        "columnName": "SSPID",
+        "datatype": "nvarchar",
+        "maxLength": 255,
+        "precision": null,
+        "scale": null,
+        "nullable": "YES",
+        "computed": 0
+      },
+      {
+        "schemaName": "dbo",
+        "objectName": "PRDetail",
+        "columnName": "MaterialIDP4",
+        "datatype": "nvarchar",
+        "maxLength": 255,
+        "precision": null,
+        "scale": null,
+        "nullable": "YES",
+        "computed": 0
+      },
+      {
+        "schemaName": "dbo",
+        "objectName": "PRDetail",
+        "columnName": "TglStatus",
+        "datatype": "nvarchar",
+        "maxLength": 255,
+        "precision": null,
+        "scale": null,
+        "nullable": "YES",
+        "computed": 0
+      },
+      {
+        "schemaName": "dbo",
+        "objectName": "PRDetail",
+        "columnName": "Status_PR",
+        "datatype": "nvarchar",
+        "maxLength": 255,
+        "precision": null,
+        "scale": null,
+        "nullable": "YES",
+        "computed": 0
+      },
+      {
+        "schemaName": "dbo",
+        "objectName": "PRDetail",
+        "columnName": "Note",
+        "datatype": "nvarchar",
+        "maxLength": 255,
+        "precision": null,
+        "scale": null,
+        "nullable": "YES",
+        "computed": 0
+      },
+      {
+        "schemaName": "dbo",
+        "objectName": "PRDetail",
+        "columnName": "No",
+        "datatype": "nvarchar",
+        "maxLength": 255,
+        "precision": null,
+        "scale": null,
+        "nullable": "YES",
+        "computed": 0
+      },
+      {
+        "schemaName": "dbo",
+        "objectName": "PRDetail",
+        "columnName": "Description",
+        "datatype": "nvarchar",
+        "maxLength": 255,
+        "precision": null,
+        "scale": null,
+        "nullable": "YES",
+        "computed": 0
+      },
+      {
+        "schemaName": "dbo",
+        "objectName": "PRDetail",
+        "columnName": "Pemutihan",
+        "datatype": "bit",
+        "maxLength": null,
+        "precision": null,
+        "scale": null,
+        "nullable": "NO",
+        "computed": 0
+      }
+    ],
+    "primaryKey": [],
+    "profile": [
+      {
+        "schema": "dbo",
+        "object": "PRDetail",
+        "column": "PRDetailID",
+        "datatype": "int",
+        "status": "PROFILED",
+        "nullRatio": 0,
+        "nonNullCount": 194291,
+        "distinctCount": 194291,
+        "numericRange": {
+          "min": 14,
+          "max": 236252
+        }
+      },
+      {
+        "schema": "dbo",
+        "object": "PRDetail",
+        "column": "PRID",
+        "datatype": "int",
+        "status": "PROFILED",
+        "nullRatio": 1,
+        "nonNullCount": 0,
+        "distinctCount": 0,
+        "numericRange": {
+          "min": null,
+          "max": null
+        }
+      },
+      {
+        "schema": "dbo",
+        "object": "PRDetail",
+        "column": "PRNo",
+        "datatype": "nvarchar",
+        "status": "PROFILED",
+        "nullRatio": 0,
+        "nonNullCount": 194291,
+        "distinctCount": 50754,
+        "minLength": 0,
+        "maxLength": 44,
+        "averageLength": 9.386276255719514
+      },
+      {
+        "schema": "dbo",
+        "object": "PRDetail",
+        "column": "MaterialID",
+        "datatype": "int",
+        "status": "PROFILED",
+        "nullRatio": 0.561163409524888,
+        "nonNullCount": 85262,
+        "distinctCount": 10715,
+        "numericRange": {
+          "min": 2,
+          "max": 26460
+        }
+      },
+      {
+        "schema": "dbo",
+        "object": "PRDetail",
+        "column": "Material Description",
+        "datatype": "nvarchar",
+        "status": "PROFILED",
+        "nullRatio": 0,
+        "nonNullCount": 194291,
+        "distinctCount": 72314,
+        "minLength": 0,
+        "maxLength": 255,
+        "averageLength": 22.801714953343183
+      },
+      {
+        "schema": "dbo",
+        "object": "PRDetail",
+        "column": "NRUnit",
+        "datatype": "nvarchar",
+        "status": "PROFILED",
+        "nullRatio": 0,
+        "nonNullCount": 194291,
+        "distinctCount": 388,
+        "minLength": 0,
+        "maxLength": 21,
+        "averageLength": 1.7400394253979854
+      },
+      {
+        "schema": "dbo",
+        "object": "PRDetail",
+        "column": "PRQty",
+        "datatype": "int",
+        "status": "PROFILED",
+        "nullRatio": 0.047655321141998344,
+        "nonNullCount": 185032,
+        "distinctCount": 3186,
+        "numericRange": {
+          "min": 0,
+          "max": 5488560
+        }
+      },
+      {
+        "schema": "dbo",
+        "object": "PRDetail",
+        "column": "Utilisation",
+        "datatype": "nvarchar",
+        "status": "PROFILED",
+        "nullRatio": 0,
+        "nonNullCount": 194291,
+        "distinctCount": 35466,
+        "minLength": 0,
+        "maxLength": 50,
+        "averageLength": 15.850482008945345
+      },
+      {
+        "schema": "dbo",
+        "object": "PRDetail",
+        "column": "Cancel?",
+        "datatype": "bit",
+        "status": "PROFILED",
+        "nullRatio": 0,
+        "nonNullCount": 194291,
+        "distinctCount": 2
+      },
+      {
+        "schema": "dbo",
+        "object": "PRDetail",
+        "column": "PettyCash",
+        "datatype": "bit",
+        "status": "PROFILED",
+        "nullRatio": 0,
+        "nonNullCount": 194291,
+        "distinctCount": 2
+      },
+      {
+        "schema": "dbo",
+        "object": "PRDetail",
+        "column": "Status",
+        "datatype": "bit",
+        "status": "PROFILED",
+        "nullRatio": 0,
+        "nonNullCount": 194291,
+        "distinctCount": 2
+      },
+      {
+        "schema": "dbo",
+        "object": "PRDetail",
+        "column": "ProductID",
+        "datatype": "int",
+        "status": "PROFILED",
+        "nullRatio": 0.417461436710913,
+        "nonNullCount": 113182,
+        "distinctCount": 483,
+        "numericRange": {
+          "min": 0,
+          "max": 14824
+        }
+      },
+      {
+        "schema": "dbo",
+        "object": "PRDetail",
+        "column": "BudgetCode",
+        "datatype": "nvarchar",
+        "status": "PROFILED",
+        "nullRatio": 0,
+        "nonNullCount": 194291,
+        "distinctCount": 60,
+        "minLength": 0,
+        "maxLength": 12,
+        "averageLength": 0.046790638784091905
+      },
+      {
+        "schema": "dbo",
+        "object": "PRDetail",
+        "column": "SSPID",
+        "datatype": "nvarchar",
+        "status": "PROFILED",
+        "nullRatio": 0.9819085804283266,
+        "nonNullCount": 3515,
+        "distinctCount": 53,
+        "minLength": 1,
+        "maxLength": 5,
+        "averageLength": 4.841536273115221
+      },
+      {
+        "schema": "dbo",
+        "object": "PRDetail",
+        "column": "MaterialIDP4",
+        "datatype": "nvarchar",
+        "status": "PROFILED",
+        "nullRatio": 0.9701221363830543,
+        "nonNullCount": 5805,
+        "distinctCount": 2354,
+        "minLength": 2,
+        "maxLength": 5,
+        "averageLength": 4.833074935400517
+      },
+      {
+        "schema": "dbo",
+        "object": "PRDetail",
+        "column": "TglStatus",
+        "datatype": "nvarchar",
+        "status": "PROFILED",
+        "nullRatio": 0.999835298598494,
+        "nonNullCount": 32,
+        "distinctCount": 3,
+        "minLength": 9,
+        "maxLength": 9,
+        "averageLength": 9
+      },
+      {
+        "schema": "dbo",
+        "object": "PRDetail",
+        "column": "Status_PR",
+        "datatype": "nvarchar",
+        "status": "PROFILED",
+        "nullRatio": 0.7528964285530467,
+        "nonNullCount": 48010,
+        "distinctCount": 3,
+        "minLength": 1,
+        "maxLength": 1,
+        "averageLength": 1
+      },
+      {
+        "schema": "dbo",
+        "object": "PRDetail",
+        "column": "Note",
+        "datatype": "nvarchar",
+        "status": "PROFILED",
+        "nullRatio": 0,
+        "nonNullCount": 194291,
+        "distinctCount": 3,
+        "minLength": 0,
+        "maxLength": 41,
+        "averageLength": 0.00027278669624429335
+      },
+      {
+        "schema": "dbo",
+        "object": "PRDetail",
+        "column": "No",
+        "datatype": "nvarchar",
+        "status": "PROFILED",
+        "nullRatio": 0.9999588246496235,
+        "nonNullCount": 8,
+        "distinctCount": 1,
+        "minLength": 1,
+        "maxLength": 1,
+        "averageLength": 1
+      },
+      {
+        "schema": "dbo",
+        "object": "PRDetail",
+        "column": "Description",
+        "datatype": "nvarchar",
+        "status": "PROFILED",
+        "nullRatio": 0,
+        "nonNullCount": 194291,
+        "distinctCount": 8,
+        "minLength": 0,
+        "maxLength": 255,
+        "averageLength": 0.0075608237128842815
+      },
+      {
+        "schema": "dbo",
+        "object": "PRDetail",
+        "column": "Pemutihan",
+        "datatype": "bit",
+        "status": "PROFILED",
+        "nullRatio": 0,
+        "nonNullCount": 194291,
+        "distinctCount": 1
+      }
+    ]
+  },
+  "legacyHeader": {
+    "object": "dbo.PURC_PURCHREQUEST_HED",
+    "keys": [
+      {
+        "schemaName": "dbo",
+        "objectName": "PURC_PURCHREQUEST_HED",
+        "columnName": "CompCode",
+        "constraintType": "PRIMARY KEY"
+      },
+      {
+        "schemaName": "dbo",
+        "objectName": "PURC_PURCHREQUEST_HED",
+        "columnName": "PRNo",
+        "constraintType": "PRIMARY KEY"
+      }
+    ]
+  },
+  "population": {
+    "pr": [
+      {
+        "total": "50508",
+        "nonNullPrNo": 50508,
+        "distinctPrNo": 50508,
+        "minDate": "2000-12-14T00:00:00.000Z",
+        "maxDate": "2019-12-11T00:00:00.000Z"
+      }
+    ],
+    "detail": [
+      {
+        "total": "194291",
+        "nonNullPrNo": 194291,
+        "nonNullPrId": 0,
+        "distinctPrNo": 50754,
+        "distinctPrId": 0,
+        "nonNullQty": 185032,
+        "nonNullStatus": 194291
+      }
+    ]
+  },
+  "dateBuckets": [
+    {
+      "year": null,
+      "headerCount": "9",
+      "unmatched": 9
+    },
+    {
+      "year": 2000,
+      "headerCount": "8",
+      "unmatched": 0
+    },
+    {
+      "year": 2001,
+      "headerCount": "1419",
+      "unmatched": 24
+    },
+    {
+      "year": 2002,
+      "headerCount": "1710",
+      "unmatched": 22
+    },
+    {
+      "year": 2003,
+      "headerCount": "1701",
+      "unmatched": 13
+    },
+    {
+      "year": 2004,
+      "headerCount": "2088",
+      "unmatched": 15
+    },
+    {
+      "year": 2005,
+      "headerCount": "1890",
+      "unmatched": 9
+    },
+    {
+      "year": 2006,
+      "headerCount": "1704",
+      "unmatched": 12
+    },
+    {
+      "year": 2007,
+      "headerCount": "2501",
+      "unmatched": 25
+    },
+    {
+      "year": 2008,
+      "headerCount": "2979",
+      "unmatched": 20
+    },
+    {
+      "year": 2009,
+      "headerCount": "2600",
+      "unmatched": 22
+    },
+    {
+      "year": 2010,
+      "headerCount": "3060",
+      "unmatched": 55
+    },
+    {
+      "year": 2011,
+      "headerCount": "4010",
+      "unmatched": 73
+    },
+    {
+      "year": 2012,
+      "headerCount": "4699",
+      "unmatched": 155
+    },
+    {
+      "year": 2013,
+      "headerCount": "4335",
+      "unmatched": 137
+    },
+    {
+      "year": 2014,
+      "headerCount": "3945",
+      "unmatched": 96
+    },
+    {
+      "year": 2015,
+      "headerCount": "2793",
+      "unmatched": 59
+    },
+    {
+      "year": 2016,
+      "headerCount": "2632",
+      "unmatched": 30
+    },
+    {
+      "year": 2017,
+      "headerCount": "2548",
+      "unmatched": 35
+    },
+    {
+      "year": 2018,
+      "headerCount": "2273",
+      "unmatched": 53
+    },
+    {
+      "year": 2019,
+      "headerCount": "1617",
+      "unmatched": 50
+    }
+  ],
+  "dependencies": [
+    {
+      "fromSchema": "dbo",
+      "fromObject": "PURCV_DASH_VEND",
+      "toSchema": null,
+      "toObject": "PURC_PURCHREQUEST_HED"
+    },
+    {
+      "fromSchema": "dbo",
+      "fromObject": "PURCV_DETIL",
+      "toSchema": null,
+      "toObject": "PURC_PURCHREQUEST_HED"
+    },
+    {
+      "fromSchema": "dbo",
+      "fromObject": "PURCV_HEAD",
+      "toSchema": null,
+      "toObject": "PURC_PURCHREQUEST_HED"
+    }
+  ],
+  "storedProcedureReferences": [],
+  "checks": [
+    {
+      "from": "dbo.PRDetail.PRID",
+      "to": "dbo.PR.PRID",
+      "datatype": "int->int",
+      "sampleSize": 0,
+      "matched": 0,
+      "unmatched": 0,
+      "matchRate": 0,
+      "normalization": "EXACT_MATCH",
+      "confidence": "UNKNOWN",
+      "evidence": "SCHEMA_KEY_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.PRNo",
+      "to": "dbo.PR.PRNo",
+      "datatype": "nvarchar->nvarchar",
+      "sampleSize": 10004,
+      "matched": 9862,
+      "unmatched": 142,
+      "matchRate": 0.9858056777289085,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "PROBABLE",
+      "evidence": "BUSINESS_NUMBER_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialID",
+      "to": "dbo.ACC_MapDivCatAccountBiaya.MaterialId",
+      "datatype": "int->nvarchar",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialID",
+      "to": "dbo.ACC_MapDivCatAccountBiaya__.MaterialId",
+      "datatype": "int->nvarchar",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialID",
+      "to": "dbo.ACC_MapDivJasaAccountBiaya.MaterialId",
+      "datatype": "int->nvarchar",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialID",
+      "to": "dbo.BANTU.MaterialId",
+      "datatype": "int->varchar",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialID",
+      "to": "dbo.bill_of_material.partnumber",
+      "datatype": "int->varchar",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialID",
+      "to": "dbo.ClaimRjkTmp.MaterialId",
+      "datatype": "int->varchar",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialID",
+      "to": "dbo.DeliveryClaimRjk.MaterialId",
+      "datatype": "int->varchar",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialID",
+      "to": "dbo.FIN_ADJUSTMENT_INVENTORY_ACC.MaterialId",
+      "datatype": "int->varchar",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialID",
+      "to": "dbo.FIN_INVOICE.ProductId",
+      "datatype": "int->int",
+      "sampleSize": 45991,
+      "matched": 36475,
+      "unmatched": 9516,
+      "matchRate": 0.7930899523819878,
+      "normalization": "EXACT_MATCH",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialID",
+      "to": "dbo.FIN_INVOICE_OLD.ProductId",
+      "datatype": "int->int",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "normalization": "EXACT_MATCH",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialID",
+      "to": "dbo.FIN_INVOICE_TMP.ProductId",
+      "datatype": "int->int",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "normalization": "EXACT_MATCH",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialID",
+      "to": "dbo.FIN_RETUR_PENJUALAN.ProductId",
+      "datatype": "int->int",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "normalization": "EXACT_MATCH",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialID",
+      "to": "dbo.FNAT_PROJECTEXPENSES.MaterialID",
+      "datatype": "int->int",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "normalization": "EXACT_MATCH",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialID",
+      "to": "dbo.inventory_barang.material_id",
+      "datatype": "int->nchar",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialID",
+      "to": "dbo.MAS_BOM.MATERIALID",
+      "datatype": "int->varchar",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialID",
+      "to": "dbo.MAS_MAPPINGMATERIAL.MaterialId",
+      "datatype": "int->varchar",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialID",
+      "to": "dbo.MATERIAL_NAME.MaterialID",
+      "datatype": "int->int",
+      "sampleSize": 10000,
+      "matched": 9917,
+      "unmatched": 83,
+      "matchRate": 0.9917,
+      "normalization": "EXACT_MATCH",
+      "confidence": "CONFIRMED_BY_DATA",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialID",
+      "to": "dbo.MRP.MaterialId",
+      "datatype": "int->nchar",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialID",
+      "to": "dbo.MRP_TMP.MaterialId",
+      "datatype": "int->nchar",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialID",
+      "to": "dbo.mst_pallet_standard_history.MaterialId",
+      "datatype": "int->varchar",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialID",
+      "to": "dbo.PURC_BIDCOMPARE.MaterialId",
+      "datatype": "int->char",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialID",
+      "to": "dbo.PURC_BIDCOMPARE_HISTORY.MaterialId",
+      "datatype": "int->char",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialID",
+      "to": "dbo.PURC_BIDPR.MaterialId",
+      "datatype": "int->char",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialID",
+      "to": "dbo.PURC_BIDPR_HISTORY.MaterialId",
+      "datatype": "int->char",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialID",
+      "to": "dbo.PURC_CART.MaterialId",
+      "datatype": "int->char",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialID",
+      "to": "dbo.PURC_HISTORY_BID.MaterialId",
+      "datatype": "int->char",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialID",
+      "to": "dbo.PURC_MATCATALOG.Materialid",
+      "datatype": "int->char",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialID",
+      "to": "dbo.PURC_MATCATALOG_TEMP.Materialid",
+      "datatype": "int->char",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialID",
+      "to": "dbo.PURC_MATCATALOGSUBCON.MaterialId",
+      "datatype": "int->varchar",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialID",
+      "to": "dbo.PURC_PO_ACCESS.MaterialID",
+      "datatype": "int->nvarchar",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.ProductID",
+      "to": "dbo.ACC_MapDivCatAccountBiaya.MaterialId",
+      "datatype": "int->nvarchar",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.ProductID",
+      "to": "dbo.ACC_MapDivCatAccountBiaya__.MaterialId",
+      "datatype": "int->nvarchar",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.ProductID",
+      "to": "dbo.ACC_MapDivJasaAccountBiaya.MaterialId",
+      "datatype": "int->nvarchar",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.ProductID",
+      "to": "dbo.BANTU.MaterialId",
+      "datatype": "int->varchar",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.ProductID",
+      "to": "dbo.bill_of_material.partnumber",
+      "datatype": "int->varchar",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.ProductID",
+      "to": "dbo.ClaimRjkTmp.MaterialId",
+      "datatype": "int->varchar",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.ProductID",
+      "to": "dbo.DeliveryClaimRjk.MaterialId",
+      "datatype": "int->varchar",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.ProductID",
+      "to": "dbo.FIN_ADJUSTMENT_INVENTORY_ACC.MaterialId",
+      "datatype": "int->varchar",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.ProductID",
+      "to": "dbo.FIN_INVOICE.ProductId",
+      "datatype": "int->int",
+      "sampleSize": 32202,
+      "matched": 22672,
+      "unmatched": 9530,
+      "matchRate": 0.704055648717471,
+      "normalization": "EXACT_MATCH",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.ProductID",
+      "to": "dbo.FIN_INVOICE_OLD.ProductId",
+      "datatype": "int->int",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "normalization": "EXACT_MATCH",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.ProductID",
+      "to": "dbo.FIN_INVOICE_TMP.ProductId",
+      "datatype": "int->int",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "normalization": "EXACT_MATCH",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.ProductID",
+      "to": "dbo.FIN_RETUR_PENJUALAN.ProductId",
+      "datatype": "int->int",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "normalization": "EXACT_MATCH",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.ProductID",
+      "to": "dbo.FNAT_PROJECTEXPENSES.MaterialID",
+      "datatype": "int->int",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "normalization": "EXACT_MATCH",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.ProductID",
+      "to": "dbo.inventory_barang.material_id",
+      "datatype": "int->nchar",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.ProductID",
+      "to": "dbo.MAS_BOM.MATERIALID",
+      "datatype": "int->varchar",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.ProductID",
+      "to": "dbo.MAS_MAPPINGMATERIAL.MaterialId",
+      "datatype": "int->varchar",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.ProductID",
+      "to": "dbo.MATERIAL_NAME.MaterialID",
+      "datatype": "int->int",
+      "sampleSize": 10000,
+      "matched": 1482,
+      "unmatched": 8518,
+      "matchRate": 0.1482,
+      "normalization": "EXACT_MATCH",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.ProductID",
+      "to": "dbo.MRP.MaterialId",
+      "datatype": "int->nchar",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.ProductID",
+      "to": "dbo.MRP_TMP.MaterialId",
+      "datatype": "int->nchar",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.ProductID",
+      "to": "dbo.mst_pallet_standard_history.MaterialId",
+      "datatype": "int->varchar",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.ProductID",
+      "to": "dbo.PURC_BIDCOMPARE.MaterialId",
+      "datatype": "int->char",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.ProductID",
+      "to": "dbo.PURC_BIDCOMPARE_HISTORY.MaterialId",
+      "datatype": "int->char",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.ProductID",
+      "to": "dbo.PURC_BIDPR.MaterialId",
+      "datatype": "int->char",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.ProductID",
+      "to": "dbo.PURC_BIDPR_HISTORY.MaterialId",
+      "datatype": "int->char",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.ProductID",
+      "to": "dbo.PURC_CART.MaterialId",
+      "datatype": "int->char",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.ProductID",
+      "to": "dbo.PURC_HISTORY_BID.MaterialId",
+      "datatype": "int->char",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.ProductID",
+      "to": "dbo.PURC_MATCATALOG.Materialid",
+      "datatype": "int->char",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.ProductID",
+      "to": "dbo.PURC_MATCATALOG_TEMP.Materialid",
+      "datatype": "int->char",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.ProductID",
+      "to": "dbo.PURC_MATCATALOGSUBCON.MaterialId",
+      "datatype": "int->varchar",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.ProductID",
+      "to": "dbo.PURC_PO_ACCESS.MaterialID",
+      "datatype": "int->nvarchar",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialIDP4",
+      "to": "dbo.ACC_MapDivCatAccountBiaya.MaterialId",
+      "datatype": "nvarchar->nvarchar",
+      "sampleSize": 5805,
+      "matched": 0,
+      "unmatched": 5805,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialIDP4",
+      "to": "dbo.ACC_MapDivCatAccountBiaya__.MaterialId",
+      "datatype": "nvarchar->nvarchar",
+      "sampleSize": 5805,
+      "matched": 0,
+      "unmatched": 5805,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialIDP4",
+      "to": "dbo.ACC_MapDivJasaAccountBiaya.MaterialId",
+      "datatype": "nvarchar->nvarchar",
+      "sampleSize": 5805,
+      "matched": 0,
+      "unmatched": 5805,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialIDP4",
+      "to": "dbo.BANTU.MaterialId",
+      "datatype": "nvarchar->varchar",
+      "sampleSize": 5805,
+      "matched": 0,
+      "unmatched": 5805,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialIDP4",
+      "to": "dbo.bill_of_material.partnumber",
+      "datatype": "nvarchar->varchar",
+      "sampleSize": 5805,
+      "matched": 0,
+      "unmatched": 5805,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialIDP4",
+      "to": "dbo.ClaimRjkTmp.MaterialId",
+      "datatype": "nvarchar->varchar",
+      "sampleSize": 5805,
+      "matched": 0,
+      "unmatched": 5805,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialIDP4",
+      "to": "dbo.DeliveryClaimRjk.MaterialId",
+      "datatype": "nvarchar->varchar",
+      "sampleSize": 5805,
+      "matched": 0,
+      "unmatched": 5805,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialIDP4",
+      "to": "dbo.FIN_ADJUSTMENT_INVENTORY_ACC.MaterialId",
+      "datatype": "nvarchar->varchar",
+      "sampleSize": 5805,
+      "matched": 0,
+      "unmatched": 5805,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialIDP4",
+      "to": "dbo.FIN_INVOICE.ProductId",
+      "datatype": "nvarchar->int",
+      "sampleSize": 11389,
+      "matched": 5628,
+      "unmatched": 5761,
+      "matchRate": 0.4941610325752919,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialIDP4",
+      "to": "dbo.FIN_INVOICE_OLD.ProductId",
+      "datatype": "nvarchar->int",
+      "sampleSize": 5805,
+      "matched": 0,
+      "unmatched": 5805,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialIDP4",
+      "to": "dbo.FIN_INVOICE_TMP.ProductId",
+      "datatype": "nvarchar->int",
+      "sampleSize": 5805,
+      "matched": 0,
+      "unmatched": 5805,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialIDP4",
+      "to": "dbo.FIN_RETUR_PENJUALAN.ProductId",
+      "datatype": "nvarchar->int",
+      "sampleSize": 5805,
+      "matched": 0,
+      "unmatched": 5805,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialIDP4",
+      "to": "dbo.FNAT_PROJECTEXPENSES.MaterialID",
+      "datatype": "nvarchar->int",
+      "sampleSize": 5805,
+      "matched": 0,
+      "unmatched": 5805,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialIDP4",
+      "to": "dbo.inventory_barang.material_id",
+      "datatype": "nvarchar->nchar",
+      "sampleSize": 5805,
+      "matched": 0,
+      "unmatched": 5805,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialIDP4",
+      "to": "dbo.MAS_BOM.MATERIALID",
+      "datatype": "nvarchar->varchar",
+      "sampleSize": 5805,
+      "matched": 0,
+      "unmatched": 5805,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialIDP4",
+      "to": "dbo.MAS_MAPPINGMATERIAL.MaterialId",
+      "datatype": "nvarchar->varchar",
+      "sampleSize": 5805,
+      "matched": 0,
+      "unmatched": 5805,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialIDP4",
+      "to": "dbo.MATERIAL_NAME.MaterialID",
+      "datatype": "nvarchar->int",
+      "sampleSize": 5805,
+      "matched": 4199,
+      "unmatched": 1606,
+      "matchRate": 0.7233419465977605,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialIDP4",
+      "to": "dbo.MRP.MaterialId",
+      "datatype": "nvarchar->nchar",
+      "sampleSize": 5805,
+      "matched": 0,
+      "unmatched": 5805,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialIDP4",
+      "to": "dbo.MRP_TMP.MaterialId",
+      "datatype": "nvarchar->nchar",
+      "sampleSize": 5805,
+      "matched": 0,
+      "unmatched": 5805,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialIDP4",
+      "to": "dbo.mst_pallet_standard_history.MaterialId",
+      "datatype": "nvarchar->varchar",
+      "sampleSize": 5805,
+      "matched": 0,
+      "unmatched": 5805,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialIDP4",
+      "to": "dbo.PURC_BIDCOMPARE.MaterialId",
+      "datatype": "nvarchar->char",
+      "sampleSize": 5805,
+      "matched": 0,
+      "unmatched": 5805,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialIDP4",
+      "to": "dbo.PURC_BIDCOMPARE_HISTORY.MaterialId",
+      "datatype": "nvarchar->char",
+      "sampleSize": 5805,
+      "matched": 0,
+      "unmatched": 5805,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialIDP4",
+      "to": "dbo.PURC_BIDPR.MaterialId",
+      "datatype": "nvarchar->char",
+      "sampleSize": 5805,
+      "matched": 0,
+      "unmatched": 5805,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialIDP4",
+      "to": "dbo.PURC_BIDPR_HISTORY.MaterialId",
+      "datatype": "nvarchar->char",
+      "sampleSize": 5805,
+      "matched": 0,
+      "unmatched": 5805,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialIDP4",
+      "to": "dbo.PURC_CART.MaterialId",
+      "datatype": "nvarchar->char",
+      "sampleSize": 5805,
+      "matched": 0,
+      "unmatched": 5805,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialIDP4",
+      "to": "dbo.PURC_HISTORY_BID.MaterialId",
+      "datatype": "nvarchar->char",
+      "sampleSize": 5805,
+      "matched": 0,
+      "unmatched": 5805,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialIDP4",
+      "to": "dbo.PURC_MATCATALOG.Materialid",
+      "datatype": "nvarchar->char",
+      "sampleSize": 5805,
+      "matched": 0,
+      "unmatched": 5805,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialIDP4",
+      "to": "dbo.PURC_MATCATALOG_TEMP.Materialid",
+      "datatype": "nvarchar->char",
+      "sampleSize": 5805,
+      "matched": 0,
+      "unmatched": 5805,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialIDP4",
+      "to": "dbo.PURC_MATCATALOGSUBCON.MaterialId",
+      "datatype": "nvarchar->varchar",
+      "sampleSize": 5805,
+      "matched": 0,
+      "unmatched": 5805,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialIDP4",
+      "to": "dbo.PURC_PO_ACCESS.MaterialID",
+      "datatype": "nvarchar->nvarchar",
+      "sampleSize": 5805,
+      "matched": 0,
+      "unmatched": 5805,
+      "matchRate": 0,
+      "normalization": "LTRIM_RTRIM_CONVERT_NVARCHAR",
+      "confidence": "UNKNOWN",
+      "evidence": "MATERIAL_PRODUCT_TARGET_CANDIDATE_BOUNDED_DATA"
+    }
+  ],
+  "relationshipSummary": {
+    "semanticConfidence": "PROBABLE",
+    "dataIntegrity": 0.9858056777289085
+  },
+  "businessFields": {
+    "prNumber": {
+      "physicalField": "dbo.PR.PRNo",
+      "confidence": "PROBABLE"
+    },
+    "requestDate": {
+      "physicalField": "dbo.PR.PRDate",
+      "confidence": "PROBABLE"
+    },
+    "material": {
+      "candidates": [
+        "dbo.PRDetail.MaterialID",
+        "dbo.PRDetail.ProductID",
+        "dbo.PRDetail.MaterialIDP4"
+      ],
+      "resolvedTarget": "dbo.MATERIAL_NAME.MaterialID",
+      "confidence": "CONFIRMED_BY_DATA",
+      "matchRate": 0.9917
+    },
+    "materialDescription": {
+      "physicalField": "dbo.PRDetail.Material Description",
+      "confidence": "PROBABLE",
+      "evidence": "stored directly in detail schema"
+    },
+    "quantity": {
+      "physicalField": "dbo.PRDetail.PRQty",
+      "confidence": "PROBABLE"
+    },
+    "status": {
+      "physicalField": "dbo.PRDetail.Status / Status_PR",
+      "confidence": "PROBABLE"
+    },
+    "requester": {
+      "candidates": [
+        "dbo.PR.PIC",
+        "dbo.PURC_PURCHREQUEST_HED.Requestor"
+      ],
+      "confidence": "UNKNOWN"
+    },
+    "department": {
+      "candidates": [
+        "dbo.PR.SecID",
+        "dbo.PURC_PURCHREQUEST_HED.DeptId"
+      ],
+      "confidence": "UNKNOWN"
+    }
+  },
+  "outcome": {
+    "queryable": false,
+    "status": "MAPPING_REVIEW_REQUIRED",
+    "queryableFields": [],
+    "nonQueryableFields": [
+      "pr_number",
+      "request_date",
+      "material_description",
+      "material_code",
+      "quantity",
+      "status",
+      "requester",
+      "department"
+    ],
+    "blockers": [
+      "PRDetail.PRNo -> PR.PRNo is PROBABLE, not CONFIRMED_BY_CODE",
+      "PRDetail.PRID sample is empty/unknown",
+      "Material target is confirmed but material-description semantics and application evidence remain incomplete",
+      "Quantity/date/status semantics remain unconfirmed"
+    ]
+  }
+}

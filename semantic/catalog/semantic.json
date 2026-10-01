@@ -1,0 +1,2150 @@
+{
+  "version": 18,
+  "entities": [
+    {
+      "entity": "customer",
+      "aliases": [
+        "customer",
+        "pelanggan"
+      ],
+      "domain": "master-data",
+      "confidence": "CONFIRMED_BY_CODE",
+      "queryable": true,
+      "fields": {
+        "customer_code": {
+          "physicalObject": "dbo.MAS_CUSTOMER",
+          "physicalColumn": "CustId",
+          "datatype": "varchar",
+          "aliases": [
+            "kode customer",
+            "customer id"
+          ],
+          "confidence": "CONFIRMED_BY_CODE",
+          "classification": "PUBLIC_INTERNAL"
+        },
+        "customer_name": {
+          "physicalObject": "dbo.MAS_CUSTOMER",
+          "physicalColumn": "CustomerName",
+          "datatype": "nvarchar",
+          "aliases": [
+            "nama customer",
+            "customer"
+          ],
+          "confidence": "CONFIRMED_BY_CODE",
+          "classification": "PUBLIC_INTERNAL"
+        }
+      }
+    },
+    {
+      "entity": "sales_order",
+      "aliases": [
+        "sales order",
+        "order",
+        "SO",
+        "PO"
+      ],
+      "domain": "sales",
+      "confidence": "CONFIRMED_BY_DATA",
+      "queryable": true,
+      "baseObject": "dbo.SLS_SALESORDER_HED_NEW",
+      "fields": {
+        "order_number": {
+          "physicalObject": "dbo.SLS_SALESORDER_HED_NEW",
+          "physicalColumn": "Nomor",
+          "datatype": "varchar",
+          "aliases": [
+            "nomor order",
+            "nomor SO"
+          ],
+          "confidence": "CONFIRMED_BY_DATA",
+          "classification": "PUBLIC_INTERNAL"
+        },
+        "customer_po_number": {
+          "physicalObject": "dbo.SLS_SALESORDER_HED_NEW",
+          "physicalColumn": "PONo",
+          "datatype": "varchar",
+          "aliases": [
+            "nomor PO",
+            "customer PO"
+          ],
+          "confidence": "CONFIRMED_BY_DATA",
+          "classification": "PUBLIC_INTERNAL"
+        },
+        "order_date": {
+          "physicalObject": "dbo.SLS_SALESORDER_HED_NEW",
+          "physicalColumn": "PODate",
+          "datatype": "date",
+          "aliases": [
+            "tanggal order",
+            "tanggal PO"
+          ],
+          "confidence": "PROBABLE",
+          "classification": "PUBLIC_INTERNAL"
+        },
+        "customer_code": {
+          "physicalObject": "dbo.SLS_SALESORDER_HED_NEW",
+          "physicalColumn": "CustomerID",
+          "datatype": "int",
+          "aliases": [
+            "customer"
+          ],
+          "confidence": "CONFIRMED_BY_DATA",
+          "classification": "PUBLIC_INTERNAL"
+        },
+        "quantity": {
+          "physicalObject": "dbo.SLS_SALESORDER_NEW",
+          "physicalColumn": "Qty",
+          "datatype": "numeric",
+          "aliases": [
+            "qty",
+            "jumlah"
+          ],
+          "confidence": "PROBABLE",
+          "classification": "INTERNAL"
+        },
+        "part_number": {
+          "physicalObject": "dbo.SLS_SALESORDER_NEW",
+          "physicalColumn": "PartNumber",
+          "datatype": "varchar",
+          "aliases": [
+            "part",
+            "part number"
+          ],
+          "confidence": "CONFIRMED_BY_DATA",
+          "classification": "PUBLIC_INTERNAL"
+        }
+      },
+      "joins": [
+        {
+          "from": "dbo.SLS_SALESORDER_HED_NEW.Id",
+          "to": "dbo.SLS_SALESORDER_NEW.IDheader",
+          "confidence": "CONFIRMED_BY_DATA"
+        }
+      ]
+    },
+    {
+      "entity": "inventory",
+      "aliases": [
+        "stock",
+        "stok",
+        "persediaan",
+        "saldo stok"
+      ],
+      "domain": "inventory",
+      "confidence": "CONFIRMED_BY_CODE",
+      "queryable": true,
+      "baseObject": "dbo.SumMatStock",
+      "fields": {
+        "material_code": {
+          "physicalObject": "dbo.SumMatStock",
+          "physicalColumn": "Materialid",
+          "datatype": "varchar",
+          "aliases": [
+            "kode material"
+          ],
+          "confidence": "CONFIRMED_BY_CODE",
+          "classification": "PUBLIC_INTERNAL"
+        },
+        "material_name": {
+          "physicalObject": "dbo.PURC_MATCATALOG",
+          "physicalColumn": "MaterialName",
+          "datatype": "varchar",
+          "aliases": [
+            "nama material"
+          ],
+          "confidence": "CONFIRMED_BY_HUMAN",
+          "classification": "INTERNAL"
+        },
+        "quantity": {
+          "physicalObject": "dbo.SumMatStock",
+          "physicalColumn": "Quantity",
+          "datatype": "numeric",
+          "aliases": [
+            "qty",
+            "saldo",
+            "stok"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        }
+      }
+    },
+    {
+      "entity": "purchase_request",
+      "aliases": [
+        "PR",
+        "purchase request",
+        "permintaan pembelian"
+      ],
+      "domain": "purchasing",
+      "confidence": "CONFIRMED_BY_DATA",
+      "queryable": true,
+      "fields": {
+        "pr_number": {
+          "physicalObject": "dbo.PURC_PURCHREQUEST_TEMP",
+          "physicalColumn": "PRNo",
+          "datatype": "varchar",
+          "aliases": [
+            "pr_number"
+          ],
+          "classification": "INTERNAL",
+          "confidence": "CONFIRMED_BY_DATA",
+          "queryable": true,
+          "evidence": [
+            "PRNo populated on 99.98%+ of rows",
+            "repeated PRNo groups multiple line items",
+            "document-number pattern and Purchase Request table context",
+            "CONFIRMED_BY_DATA",
+            "source role remains AUTHORITATIVE_WORKFLOW candidate / PROBABLE"
+          ],
+          "physicalSources": [
+            {
+              "physicalObject": "dbo.PURC_PURCHREQUEST_TEMP",
+              "physicalColumn": "PRNo",
+              "confidence": "CONFIRMED_BY_DATA",
+              "evidence": [
+                "PRNo populated on 99.98%+ of rows",
+                "repeated PRNo groups multiple line items",
+                "document-number pattern and Purchase Request table context",
+                "CONFIRMED_BY_DATA",
+                "source role remains AUTHORITATIVE_WORKFLOW candidate / PROBABLE"
+              ]
+            }
+          ],
+          "sourceStatus": "UNKNOWN",
+          "sourceRole": "AUTHORITATIVE_WORKFLOW",
+          "sourceConfidence": "PROBABLE"
+        },
+        "request_date": {
+          "physicalObject": "dbo.PR",
+          "physicalColumn": "PRDate",
+          "datatype": "date",
+          "aliases": [
+            "request_date"
+          ],
+          "classification": "INTERNAL",
+          "confidence": "CONFIRMED_BY_HUMAN",
+          "queryable": false,
+          "evidence": [
+            "HUMAN_APPROVAL",
+            "PR header date context",
+            "date profile available",
+            "Dikonfirmasi bahwa dbo.PR.PRDate merupakan tanggal Purchase Request / tanggal dokumen PR.",
+            "PR header date context",
+            "date profile available",
+            "HUMAN_APPROVAL",
+            "Dikonfirmasi bahwa dbo.PR.PRDate merupakan tanggal Purchase Request / tanggal dokumen PR.",
+            "PR header date context",
+            "date profile available",
+            "HUMAN_APPROVAL",
+            "Dikonfirmasi bahwa dbo.PR.PRDate merupakan tanggal Purchase Request / tanggal dokumen PR.",
+            "PR header date context",
+            "date profile available",
+            "HUMAN_APPROVAL",
+            "Dikonfirmasi bahwa dbo.PR.PRDate merupakan tanggal Purchase Request / tanggal dokumen PR.",
+            "PR header date context",
+            "date profile available",
+            "HUMAN_APPROVAL",
+            "Dikonfirmasi bahwa dbo.PR.PRDate merupakan tanggal Purchase Request / tanggal dokumen PR.",
+            "PR header date context",
+            "date profile available",
+            "HUMAN_APPROVAL",
+            "Dikonfirmasi bahwa dbo.PR.PRDate merupakan tanggal Purchase Request / tanggal dokumen PR.",
+            "PR header date context",
+            "date profile available",
+            "HUMAN_APPROVAL",
+            "Dikonfirmasi bahwa dbo.PR.PRDate merupakan tanggal Purchase Request / tanggal dokumen PR.",
+            "PR header date context",
+            "date profile available",
+            "HUMAN_APPROVAL",
+            "Dikonfirmasi bahwa dbo.PR.PRDate merupakan tanggal Purchase Request / tanggal dokumen PR.",
+            "PR header date context",
+            "date profile available",
+            "HUMAN_APPROVAL",
+            "Dikonfirmasi bahwa dbo.PR.PRDate merupakan tanggal Purchase Request / tanggal dokumen PR."
+          ],
+          "physicalSources": [
+            {
+              "physicalObject": "dbo.PR",
+              "physicalColumn": "PRDate",
+              "confidence": "CONFIRMED_BY_HUMAN",
+              "evidence": [
+                "PR header date context",
+                "date profile available",
+                "HUMAN_APPROVAL"
+              ]
+            }
+          ],
+          "sourceStatus": "LEGACY_OR_ALTERNATE"
+        },
+        "quantity": {
+          "physicalObject": "dbo.PURC_PURCHREQUEST_TEMP",
+          "physicalColumn": "Qty",
+          "datatype": "numeric",
+          "aliases": [
+            "quantity"
+          ],
+          "classification": "INTERNAL",
+          "confidence": "CONFIRMED_BY_DATA",
+          "queryable": true,
+          "evidence": [
+            "numeric field populated on virtually all rows",
+            "stored per material line",
+            "repeated line-item structure under PRNo",
+            "CONFIRMED_BY_DATA",
+            "source role remains AUTHORITATIVE_WORKFLOW candidate / PROBABLE"
+          ],
+          "physicalSources": [
+            {
+              "physicalObject": "dbo.PURC_PURCHREQUEST_TEMP",
+              "physicalColumn": "Qty",
+              "confidence": "CONFIRMED_BY_DATA",
+              "evidence": [
+                "numeric field populated on virtually all rows",
+                "stored per material line",
+                "repeated line-item structure under PRNo",
+                "CONFIRMED_BY_DATA",
+                "source role remains AUTHORITATIVE_WORKFLOW candidate / PROBABLE"
+              ]
+            }
+          ],
+          "sourceStatus": "UNKNOWN",
+          "sourceRole": "AUTHORITATIVE_WORKFLOW",
+          "sourceConfidence": "PROBABLE"
+        },
+        "material_description": {
+          "physicalObject": "dbo.PURC_PURCHREQUEST_TEMP",
+          "physicalColumn": "MaterialName",
+          "datatype": "varchar",
+          "aliases": [
+            "material_description"
+          ],
+          "classification": "INTERNAL",
+          "confidence": "CONFIRMED_BY_DATA",
+          "queryable": true,
+          "displayTransform": {
+            "type": "LAST_SEGMENT",
+            "delimiter": ";"
+          },
+          "evidence": [
+            "MaterialName populated on ~99.95% of rows",
+            "stored alongside MaterialId and Qty in PR workflow line context",
+            "direct text field supports simple search without a material-master join",
+            "CONFIRMED_BY_DATA",
+            "source role remains AUTHORITATIVE_WORKFLOW candidate / PROBABLE"
+          ],
+          "physicalSources": [
+            {
+              "physicalObject": "dbo.PURC_PURCHREQUEST_TEMP",
+              "physicalColumn": "MaterialName",
+              "confidence": "CONFIRMED_BY_DATA",
+              "evidence": [
+                "MaterialName populated on ~99.95% of rows",
+                "stored alongside MaterialId and Qty in PR workflow line context",
+                "direct text field supports simple search without a material-master join",
+                "CONFIRMED_BY_DATA",
+                "source role remains AUTHORITATIVE_WORKFLOW candidate / PROBABLE"
+              ]
+            }
+          ],
+          "sourceStatus": "UNKNOWN",
+          "sourceRole": "AUTHORITATIVE_WORKFLOW",
+          "sourceConfidence": "PROBABLE"
+        },
+        "material_code": {
+          "physicalObject": "dbo.PURC_PURCHREQUEST_TEMP",
+          "physicalColumn": "MaterialId",
+          "datatype": "nchar",
+          "aliases": [
+            "material_code"
+          ],
+          "confidence": "CONFIRMED_BY_DATA",
+          "classification": "INTERNAL",
+          "queryable": true,
+          "sourceStatus": "UNKNOWN",
+          "sourceRole": "AUTHORITATIVE_WORKFLOW",
+          "sourceConfidence": "PROBABLE",
+          "evidence": [
+            "material identifier stored per PR line",
+            "same-table line context supports material-code filtering",
+            "CONFIRMED_BY_DATA",
+            "source role remains AUTHORITATIVE_WORKFLOW candidate / PROBABLE"
+          ],
+          "physicalSources": [
+            {
+              "physicalObject": "dbo.PURC_PURCHREQUEST_TEMP",
+              "physicalColumn": "MaterialId",
+              "confidence": "CONFIRMED_BY_DATA",
+              "evidence": [
+                "material identifier stored per PR line",
+                "same-table line context supports material-code filtering",
+                "CONFIRMED_BY_DATA",
+                "source role remains AUTHORITATIVE_WORKFLOW candidate / PROBABLE"
+              ]
+            }
+          ]
+        }
+      },
+      "promotion": {
+        "header": "dbo.PURC_PURCHREQUEST_HED",
+        "detail": "dbo.PRDetail",
+        "profileEvidence": 34,
+        "relationshipEvidence": 2,
+        "blockers": [
+          "quantity semantics require approved evidence",
+          "date semantics require approved evidence",
+          "status semantics require approved evidence",
+          "header/detail relationship not CONFIRMED_BY_DATA",
+          "material relationship not CONFIRMED_BY_DATA"
+        ]
+      },
+      "fieldQueryability": {
+        "pr_number": true,
+        "request_date": false,
+        "quantity": true,
+        "material_description": true,
+        "specification": false,
+        "brand": false,
+        "material_code": true
+      },
+      "baseObject": "dbo.PURC_PURCHREQUEST_TEMP"
+    },
+    {
+      "entity": "material_requirement",
+      "aliases": [
+        "MRP",
+        "material requirement",
+        "kebutuhan material",
+        "material planning"
+      ],
+      "domain": "planning",
+      "confidence": "CONFIRMED_BY_DATA",
+      "queryable": true,
+      "baseObject": "dbo.PURCH_MRP",
+      "fields": {
+        "mrp_number": {
+          "physicalObject": "dbo.PURCH_MRP",
+          "physicalColumn": "MRPNo",
+          "datatype": "varchar",
+          "aliases": [
+            "mrp number",
+            "nomor MRP"
+          ],
+          "classification": "INTERNAL",
+          "confidence": "CONFIRMED_BY_HUMAN",
+          "queryable": true,
+          "evidence": [
+            "PURCV_BP_PR uses MRPNo in MRP reporting/grouping context",
+            "37947 source rows and 456 distinct MRPNo values",
+            "BUSINESS_OWNER_CONFIRMATION",
+            "Nomor MRP dari tabel PURCH_MRP; nomor dokumen MRP yang digunakan untuk mengelompokkan material."
+          ]
+        },
+        "material_code": {
+          "physicalObject": "dbo.PURCH_MRP",
+          "physicalColumn": "MaterialId",
+          "datatype": "nchar",
+          "aliases": [
+            "material code",
+            "kode material"
+          ],
+          "classification": "INTERNAL",
+          "confidence": "CONFIRMED_BY_DATA",
+          "queryable": true,
+          "evidence": [
+            "37947 non-null source rows",
+            "9995/10000 normalized matches to dbo.PURC_MATCATALOG.Materialid",
+            "technical identifier relationship only"
+          ]
+        },
+        "material_description": {
+          "physicalObject": "dbo.PURC_MATCATALOG",
+          "physicalColumn": "MaterialName",
+          "datatype": "varchar",
+          "aliases": [
+            "material description",
+            "material name",
+            "nama material"
+          ],
+          "classification": "INTERNAL",
+          "confidence": "CONFIRMED_BY_CODE",
+          "queryable": true,
+          "evidence": [
+            "PURCV_BP_PR projects LEFT(pm.MaterialName, 50) AS MaterialName alongside MRP MaterialId",
+            "description is resolved through the confirmed MaterialId relationship"
+          ]
+        },
+        "required_quantity": {
+          "physicalObject": "dbo.PURCH_MRP",
+          "physicalColumn": "Qty",
+          "datatype": "numeric",
+          "aliases": [
+            "required quantity",
+            "requirement qty"
+          ],
+          "classification": "INTERNAL",
+          "confidence": "UNKNOWN",
+          "queryable": false,
+          "evidence": [
+            "numeric source field; business quantity meaning unresolved"
+          ]
+        },
+        "planned_purchase_quantity": {
+          "physicalObject": "dbo.PURCH_MRP",
+          "physicalColumn": "Qty",
+          "datatype": "numeric",
+          "aliases": [
+            "planning qty",
+            "planned purchase quantity"
+          ],
+          "classification": "INTERNAL",
+          "confidence": "CONFIRMED_BY_HUMAN",
+          "queryable": true,
+          "evidence": [
+            "BUSINESS_OWNER_CONFIRMATION: quantity planned to be purchased for the following month",
+            "aggregate use remains blocked by duplicate/composite grain",
+            "BUSINESS_OWNER_CONFIRMATION",
+            "QTY pada MRP menunjukkan quantity planning material yang akan dibeli pada bulan berikutnya."
+          ]
+        },
+        "mrp_created_date": {
+          "physicalObject": "dbo.PURCH_MRP",
+          "physicalColumn": "MRPDate",
+          "datatype": "varchar",
+          "aliases": [
+            "MRP date",
+            "MRP created date"
+          ],
+          "classification": "INTERNAL",
+          "confidence": "CONFIRMED_BY_HUMAN",
+          "queryable": true,
+          "temporalPrecision": "MIXED",
+          "temporalCapabilities": { "yearFilter": true, "monthFilter": true, "dayFilter": false, "exactDateFilter": false },
+          "evidence": [
+            "BUSINESS_OWNER_CONFIRMATION: date on which the MRP record/document was created",
+            "physical varchar format normalization pending",
+            "BUSINESS_OWNER_CONFIRMATION",
+            "MRP Date / Month Date adalah tanggal MRP dibuat."
+          ]
+        },
+        "pr_created_quantity": {
+          "physicalObject": "dbo.PURCV_BP_PR",
+          "physicalColumn": "QtyPr",
+          "datatype": "numeric",
+          "aliases": [
+            "PR created quantity"
+          ],
+          "classification": "INTERNAL",
+          "confidence": "CONFIRMED_BY_HUMAN",
+          "queryable": false,
+          "evidence": [
+            "BUSINESS_OWNER_CONFIRMATION: quantity from MRP planning already made into Purchase Request",
+            "MRP-to-PR grain and duplicate behavior pending validation",
+            "BUSINESS_OWNER_CONFIRMATION",
+            "Quantity yang sudah dibuat PR based on Planning / MRP."
+          ]
+        },
+        "requirement_date": {
+          "physicalObject": "dbo.PURCH_MRP",
+          "physicalColumn": "MRPDate",
+          "datatype": "varchar",
+          "aliases": [
+            "requirement date",
+            "MRP date"
+          ],
+          "classification": "INTERNAL",
+          "confidence": "UNKNOWN",
+          "queryable": false,
+          "evidence": [
+            "view aliases MRPDate as MonthDate; requirement-date semantics unresolved"
+          ]
+        },
+        "status": {
+          "physicalObject": "dbo.PURCH_MRP",
+          "physicalColumn": "Status",
+          "datatype": "int",
+          "aliases": [
+            "status"
+          ],
+          "classification": "INTERNAL",
+          "confidence": "CONFIRMED_BY_HUMAN",
+          "queryable": true,
+          "evidence": [
+            "partial BUSINESS_OWNER_CONFIRMATION for codes 0 and 3",
+            "BUSINESS_OWNER_CONFIRMATION",
+            "Hanya status 0 dan 3 yang dikonfirmasi; status lain tetap UNKNOWN."
+          ],
+          "enumMapping": {
+            "0": {
+              "key": "NEW",
+              "label": "Baru dibuat"
+            },
+            "3": {
+              "key": "APPROVED_BY_MANAGER",
+              "label": "Sudah di-approved oleh manager"
+            }
+          }
+        },
+        "pr_creation_status": {
+          "physicalObject": "dbo.PURC_PURCHREQUEST_TEMP",
+          "physicalColumn": "PRNo",
+          "datatype": "enum",
+          "aliases": ["PR creation status", "status PR"],
+          "classification": "INTERNAL",
+          "confidence": "CONFIRMED_BY_HUMAN",
+          "queryable": true,
+          "evidence": ["APPLICATION_DEVELOPER_CONFIRMATION: TEMP PRNo + MaterialId to FINAL PRNo + MaterialId", "BUSINESS_OWNER_CONFIRMATION: three-state lifecycle at MRPNo + MaterialId grain"],
+          "enumMapping": {
+            "BELUM_DIBUAT_PR": { "key": "BELUM_DIBUAT_PR", "label": "Belum Dibuat PR" },
+            "SEBAGIAN_DIBUAT_PR": { "key": "SEBAGIAN_DIBUAT_PR", "label": "Sebagian Dibuat PR" },
+            "SUDAH_DIBUAT_PR": { "key": "SUDAH_DIBUAT_PR", "label": "Sudah Dibuat PR" }
+          }
+        }
+      },
+      "joins": [
+        {
+          "from": "dbo.PURCH_MRP.MaterialId",
+          "to": "dbo.PURC_MATCATALOG.Materialid",
+          "confidence": "CONFIRMED_BY_DATA",
+          "dataIntegrity": 0.9995
+        }
+      ],
+      "fieldQueryability": {
+        "mrp_number": true,
+        "material_code": true,
+        "material_description": true,
+        "required_quantity": false,
+        "planned_purchase_quantity": true,
+        "mrp_created_date": true,
+        "pr_created_quantity": false,
+        "requirement_date": false,
+        "status": true,
+        "pr_creation_status": true
+      }
+    },
+    {
+      "entity": "material",
+      "aliases": [
+        "material",
+        "part",
+        "barang"
+      ],
+      "domain": "material",
+      "confidence": "UNKNOWN",
+      "queryable": false,
+      "physicalObjects": [
+        "dbo.ACC_MapDivCatAccountBiaya",
+        "dbo.ACC_MapDivCatAccountBiaya__",
+        "dbo.ACC_MapDivJasaAccountBiaya",
+        "dbo.acc_source03rtn",
+        "dbo.ACC_SourceJ04",
+        "dbo.BANTU",
+        "dbo.calculation_labour_final",
+        "dbo.FINV_DETAIL_DO",
+        "dbo.FNAT_KEBIJAKSANAAN",
+        "dbo.FNAT_PROJECTEXPENSES",
+        "dbo.MAS_BOM",
+        "dbo.MAS_GROUPINGMATERIAL",
+        "dbo.MAS_KATALOG_BT",
+        "dbo.MAS_MAPPINGMATERIAL",
+        "dbo.MAS_MATERIAL",
+        "dbo.MAS_PART_NUMBER",
+        "dbo.MAS_PART_NUMBER_OLD",
+        "dbo.masterCheckSheet",
+        "dbo.MATERIAL_NAME",
+        "dbo.MRP"
+      ],
+      "fields": {
+        "id": {
+          "physicalObject": "dbo.ACC_MapDivJasaAccountBiaya",
+          "physicalColumn": "Id",
+          "datatype": "int",
+          "aliases": [
+            "Id"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "divisiid": {
+          "physicalObject": "dbo.ACC_MapDivJasaAccountBiaya",
+          "physicalColumn": "DivisiId",
+          "datatype": "char",
+          "aliases": [
+            "DivisiId"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "materialid": {
+          "physicalObject": "dbo.ACC_MapDivJasaAccountBiaya",
+          "physicalColumn": "MaterialId",
+          "datatype": "nvarchar",
+          "aliases": [
+            "MaterialId"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "account": {
+          "physicalObject": "dbo.ACC_MapDivJasaAccountBiaya",
+          "physicalColumn": "Account",
+          "datatype": "nvarchar",
+          "aliases": [
+            "Account"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "update_date": {
+          "physicalObject": "dbo.ACC_MapDivJasaAccountBiaya",
+          "physicalColumn": "Update_Date",
+          "datatype": "datetime",
+          "aliases": [
+            "Update_Date"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "updateby": {
+          "physicalObject": "dbo.ACC_MapDivJasaAccountBiaya",
+          "physicalColumn": "UpdateBy",
+          "datatype": "varchar",
+          "aliases": [
+            "UpdateBy"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "create_date": {
+          "physicalObject": "dbo.ACC_MapDivJasaAccountBiaya",
+          "physicalColumn": "Create_Date",
+          "datatype": "datetime",
+          "aliases": [
+            "Create_Date"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        }
+      }
+    },
+    {
+      "entity": "purchase_order",
+      "aliases": [
+        "PO",
+        "purchase order"
+      ],
+      "domain": "purchase_order",
+      "confidence": "UNKNOWN",
+      "queryable": false,
+      "physicalObjects": [
+        "dbo.Account_Payable",
+        "dbo.ACCV_JurnalPembelian",
+        "dbo.ACCV_JurnBeliDebet",
+        "dbo.ACCV_JurnBeliKredit",
+        "dbo.ACCV_MRSAPSrcJurnal",
+        "dbo.ACCV_MRSAtPeriod",
+        "dbo.ACCV_MRSAtPeriod2",
+        "dbo.ACCV_TandaTerimaJasa",
+        "dbo.AP_AccountDeptBill",
+        "dbo.AP_AccountVendorUnbillDanBill",
+        "dbo.AP_FAKTUR",
+        "dbo.AP_LIST_FAKTUR",
+        "dbo.AP_LIST_FAKTUR_DEBT_OLD",
+        "dbo.AP_MappingVendor",
+        "dbo.AP_SaldoAPDes2021",
+        "dbo.AP_supplier",
+        "dbo.AP_UNBILL_31_12_25",
+        "dbo.APAGING_PEMB_D01_ListPemb",
+        "dbo.APAGING_PEMB_D02_D01_SumBayar",
+        "dbo.APAGING_TDTRM_C01_ListAP_DocHed"
+      ],
+      "fields": {
+        "vendorname": {
+          "physicalObject": "dbo.Account_Payable",
+          "physicalColumn": "VendorName",
+          "datatype": "varchar",
+          "aliases": [
+            "VendorName"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "nopi": {
+          "physicalObject": "dbo.Account_Payable",
+          "physicalColumn": "NOPI",
+          "datatype": "char",
+          "aliases": [
+            "NOPI"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "tglpi": {
+          "physicalObject": "dbo.Account_Payable",
+          "physicalColumn": "TGLPI",
+          "datatype": "datetime",
+          "aliases": [
+            "TGLPI"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "notr": {
+          "physicalObject": "dbo.Account_Payable",
+          "physicalColumn": "NOTR",
+          "datatype": "char",
+          "aliases": [
+            "NOTR"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "tglinput": {
+          "physicalObject": "dbo.Account_Payable",
+          "physicalColumn": "TGLINPUT",
+          "datatype": "datetime",
+          "aliases": [
+            "TGLINPUT"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "beli": {
+          "physicalObject": "dbo.Account_Payable",
+          "physicalColumn": "BELI",
+          "datatype": "decimal",
+          "aliases": [
+            "BELI"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "bayar": {
+          "physicalObject": "dbo.Account_Payable",
+          "physicalColumn": "BAYAR",
+          "datatype": "numeric",
+          "aliases": [
+            "BAYAR"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "posisi": {
+          "physicalObject": "dbo.ACCV_JurnalPembelian",
+          "physicalColumn": "Posisi",
+          "datatype": "int",
+          "aliases": [
+            "Posisi"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "tgl": {
+          "physicalObject": "dbo.ACCV_JurnBeliDebet",
+          "physicalColumn": "TGL",
+          "datatype": "datetime",
+          "aliases": [
+            "TGL"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "po": {
+          "physicalObject": "dbo.ACCV_JurnBeliDebet",
+          "physicalColumn": "PO",
+          "datatype": "char",
+          "aliases": [
+            "PO"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "mrs": {
+          "physicalObject": "dbo.ACCV_JurnBeliDebet",
+          "physicalColumn": "MRS",
+          "datatype": "varchar",
+          "aliases": [
+            "MRS"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "materialid": {
+          "physicalObject": "dbo.ACCV_JurnalPembelian",
+          "physicalColumn": "MaterialId",
+          "datatype": "char",
+          "aliases": [
+            "MaterialId"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "account": {
+          "physicalObject": "dbo.ACCV_JurnBeliDebet",
+          "physicalColumn": "Account",
+          "datatype": "nvarchar",
+          "aliases": [
+            "Account"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "is_posting": {
+          "physicalObject": "dbo.ACCV_JurnalPembelian",
+          "physicalColumn": "IS_POSTING",
+          "datatype": "int",
+          "aliases": [
+            "IS_POSTING"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "account_new": {
+          "physicalObject": "dbo.ACCV_JurnalPembelian",
+          "physicalColumn": "Account_New",
+          "datatype": "varchar",
+          "aliases": [
+            "Account_New"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "description": {
+          "physicalObject": "dbo.ACCV_JurnBeliDebet",
+          "physicalColumn": "Description",
+          "datatype": "varchar",
+          "aliases": [
+            "Description"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "debet": {
+          "physicalObject": "dbo.ACCV_JurnBeliDebet",
+          "physicalColumn": "Debet",
+          "datatype": "numeric",
+          "aliases": [
+            "Debet"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "kredit": {
+          "physicalObject": "dbo.ACCV_JurnBeliDebet",
+          "physicalColumn": "Kredit",
+          "datatype": "int",
+          "aliases": [
+            "Kredit"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "jumlah": {
+          "physicalObject": "dbo.ACCV_JurnBeliDebet",
+          "physicalColumn": "JUMLAH",
+          "datatype": "numeric",
+          "aliases": [
+            "JUMLAH"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "harga": {
+          "physicalObject": "dbo.ACCV_JurnBeliDebet",
+          "physicalColumn": "HARGA",
+          "datatype": "numeric",
+          "aliases": [
+            "HARGA"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        }
+      }
+    },
+    {
+      "entity": "delivery",
+      "aliases": [
+        "delivery",
+        "pengiriman",
+        "DO"
+      ],
+      "domain": "delivery",
+      "confidence": "UNKNOWN",
+      "queryable": false,
+      "physicalObjects": [
+        "dbo.acc_movement_stock",
+        "dbo.acc_movement_stock-a",
+        "dbo.FIN_SALDO_PETTYCASH",
+        "dbo.inc_rm",
+        "dbo.inc_rm_backup",
+        "dbo.inc_rm_backup2",
+        "dbo.MAS_KODE_DELIVERY",
+        "dbo.message_deliveries",
+        "dbo.NearmissDetailsJenis",
+        "dbo.pfa_delivery",
+        "dbo.total_laba",
+        "dbo.WMS_BRAKEASSY_INCOMING_MMO_DETAIL",
+        "dbo.WMS_INCOMING_BRAKEASSY",
+        "dbo.WMSV_STO_RAWMAT"
+      ],
+      "fields": {
+        "bulan": {
+          "physicalObject": "dbo.acc_movement_stock-a",
+          "physicalColumn": "bulan",
+          "datatype": "int",
+          "aliases": [
+            "bulan"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "tahun": {
+          "physicalObject": "dbo.acc_movement_stock-a",
+          "physicalColumn": "tahun",
+          "datatype": "int",
+          "aliases": [
+            "tahun"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "nobar": {
+          "physicalObject": "dbo.acc_movement_stock-a",
+          "physicalColumn": "nobar",
+          "datatype": "char",
+          "aliases": [
+            "nobar"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "saldo_awal_qty": {
+          "physicalObject": "dbo.acc_movement_stock-a",
+          "physicalColumn": "saldo_awal_qty",
+          "datatype": "decimal",
+          "aliases": [
+            "saldo_awal_qty"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "saldo_awal_harga": {
+          "physicalObject": "dbo.acc_movement_stock-a",
+          "physicalColumn": "saldo_awal_harga",
+          "datatype": "decimal",
+          "aliases": [
+            "saldo_awal_harga"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "beli_qty": {
+          "physicalObject": "dbo.acc_movement_stock-a",
+          "physicalColumn": "beli_qty",
+          "datatype": "decimal",
+          "aliases": [
+            "beli_qty"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "beli_harga": {
+          "physicalObject": "dbo.acc_movement_stock-a",
+          "physicalColumn": "beli_harga",
+          "datatype": "decimal",
+          "aliases": [
+            "beli_harga"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "harga_rata": {
+          "physicalObject": "dbo.acc_movement_stock-a",
+          "physicalColumn": "harga_rata",
+          "datatype": "decimal",
+          "aliases": [
+            "harga_rata"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "pakai_qty": {
+          "physicalObject": "dbo.acc_movement_stock-a",
+          "physicalColumn": "pakai_qty",
+          "datatype": "decimal",
+          "aliases": [
+            "pakai_qty"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "pakai_harga": {
+          "physicalObject": "dbo.acc_movement_stock-a",
+          "physicalColumn": "pakai_harga",
+          "datatype": "decimal",
+          "aliases": [
+            "pakai_harga"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "retur_qty": {
+          "physicalObject": "dbo.acc_movement_stock-a",
+          "physicalColumn": "retur_qty",
+          "datatype": "decimal",
+          "aliases": [
+            "retur_qty"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "retur_harga": {
+          "physicalObject": "dbo.acc_movement_stock-a",
+          "physicalColumn": "retur_harga",
+          "datatype": "decimal",
+          "aliases": [
+            "retur_harga"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "adj_qty": {
+          "physicalObject": "dbo.acc_movement_stock-a",
+          "physicalColumn": "adj_qty",
+          "datatype": "decimal",
+          "aliases": [
+            "adj_qty"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "adj_harga": {
+          "physicalObject": "dbo.acc_movement_stock-a",
+          "physicalColumn": "adj_harga",
+          "datatype": "decimal",
+          "aliases": [
+            "adj_harga"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "adj_harga_r1": {
+          "physicalObject": "dbo.acc_movement_stock-a",
+          "physicalColumn": "adj_harga_r1",
+          "datatype": "decimal",
+          "aliases": [
+            "adj_harga_r1"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "saldo_akhir_qty": {
+          "physicalObject": "dbo.acc_movement_stock-a",
+          "physicalColumn": "saldo_akhir_qty",
+          "datatype": "decimal",
+          "aliases": [
+            "saldo_akhir_qty"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "saldo_akhir_harga": {
+          "physicalObject": "dbo.acc_movement_stock-a",
+          "physicalColumn": "saldo_akhir_harga",
+          "datatype": "decimal",
+          "aliases": [
+            "saldo_akhir_harga"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "msid": {
+          "physicalObject": "dbo.acc_movement_stock-a",
+          "physicalColumn": "msId",
+          "datatype": "int",
+          "aliases": [
+            "msId"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "tgl1": {
+          "physicalObject": "dbo.acc_movement_stock-a",
+          "physicalColumn": "tgl1",
+          "datatype": "date",
+          "aliases": [
+            "tgl1"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "tgl2": {
+          "physicalObject": "dbo.acc_movement_stock-a",
+          "physicalColumn": "tgl2",
+          "datatype": "date",
+          "aliases": [
+            "tgl2"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "user_by": {
+          "physicalObject": "dbo.acc_movement_stock-a",
+          "physicalColumn": "user_by",
+          "datatype": "varchar",
+          "aliases": [
+            "user_by"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "date_by": {
+          "physicalObject": "dbo.acc_movement_stock-a",
+          "physicalColumn": "date_by",
+          "datatype": "datetime",
+          "aliases": [
+            "date_by"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "id": {
+          "physicalObject": "dbo.FIN_SALDO_PETTYCASH",
+          "physicalColumn": "Id",
+          "datatype": "int",
+          "aliases": [
+            "Id"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "tgl": {
+          "physicalObject": "dbo.FIN_SALDO_PETTYCASH",
+          "physicalColumn": "Tgl",
+          "datatype": "datetime",
+          "aliases": [
+            "Tgl"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "saldo": {
+          "physicalObject": "dbo.FIN_SALDO_PETTYCASH",
+          "physicalColumn": "Saldo",
+          "datatype": "numeric",
+          "aliases": [
+            "Saldo"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "inp_by": {
+          "physicalObject": "dbo.FIN_SALDO_PETTYCASH",
+          "physicalColumn": "inp_by",
+          "datatype": "varchar",
+          "aliases": [
+            "inp_by"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "inp_date": {
+          "physicalObject": "dbo.FIN_SALDO_PETTYCASH",
+          "physicalColumn": "inp_date",
+          "datatype": "datetime",
+          "aliases": [
+            "inp_date"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        }
+      }
+    },
+    {
+      "entity": "machine",
+      "aliases": [
+        "machine",
+        "mesin"
+      ],
+      "domain": "machine",
+      "confidence": "UNKNOWN",
+      "queryable": false,
+      "physicalObjects": [
+        "dbo.acc_aset_ba",
+        "dbo.asset_2018",
+        "dbo.Kategori_aset",
+        "dbo.MESIN",
+        "dbo.pfa_lubricant",
+        "dbo.pfa_lubricant_master",
+        "dbo.serah_terima"
+      ],
+      "fields": {
+        "saldoawal": {
+          "physicalObject": "dbo.acc_aset_ba",
+          "physicalColumn": "SALDOAWAL",
+          "datatype": "numeric",
+          "aliases": [
+            "SALDOAWAL"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "rl_jan": {
+          "physicalObject": "dbo.acc_aset_ba",
+          "physicalColumn": "RL_JAN",
+          "datatype": "float",
+          "aliases": [
+            "RL_JAN"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "rl_feb": {
+          "physicalObject": "dbo.acc_aset_ba",
+          "physicalColumn": "RL_FEB",
+          "datatype": "float",
+          "aliases": [
+            "RL_FEB"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "rl_mar": {
+          "physicalObject": "dbo.acc_aset_ba",
+          "physicalColumn": "RL_MAR",
+          "datatype": "float",
+          "aliases": [
+            "RL_MAR"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "rl_apr": {
+          "physicalObject": "dbo.acc_aset_ba",
+          "physicalColumn": "RL_APR",
+          "datatype": "float",
+          "aliases": [
+            "RL_APR"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "rl_mei": {
+          "physicalObject": "dbo.acc_aset_ba",
+          "physicalColumn": "RL_MEI",
+          "datatype": "float",
+          "aliases": [
+            "RL_MEI"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "rl_jun": {
+          "physicalObject": "dbo.acc_aset_ba",
+          "physicalColumn": "RL_JUN",
+          "datatype": "float",
+          "aliases": [
+            "RL_JUN"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "rl_jul": {
+          "physicalObject": "dbo.acc_aset_ba",
+          "physicalColumn": "RL_JUL",
+          "datatype": "float",
+          "aliases": [
+            "RL_JUL"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "rl_agu": {
+          "physicalObject": "dbo.acc_aset_ba",
+          "physicalColumn": "RL_AGU",
+          "datatype": "float",
+          "aliases": [
+            "RL_AGU"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "rl_sep": {
+          "physicalObject": "dbo.acc_aset_ba",
+          "physicalColumn": "RL_SEP",
+          "datatype": "float",
+          "aliases": [
+            "RL_SEP"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "rl_okt": {
+          "physicalObject": "dbo.acc_aset_ba",
+          "physicalColumn": "RL_OKT",
+          "datatype": "float",
+          "aliases": [
+            "RL_OKT"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "rl_nov": {
+          "physicalObject": "dbo.acc_aset_ba",
+          "physicalColumn": "RL_NOV",
+          "datatype": "float",
+          "aliases": [
+            "RL_NOV"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "rl_des": {
+          "physicalObject": "dbo.acc_aset_ba",
+          "physicalColumn": "RL_DES",
+          "datatype": "float",
+          "aliases": [
+            "RL_DES"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "INTERNAL"
+        },
+        "nomor": {
+          "physicalObject": "dbo.asset_2018",
+          "physicalColumn": "nomor",
+          "datatype": "varchar",
+          "aliases": [
+            "nomor"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "nama": {
+          "physicalObject": "dbo.asset_2018",
+          "physicalColumn": "nama",
+          "datatype": "varchar",
+          "aliases": [
+            "nama"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "thn": {
+          "physicalObject": "dbo.asset_2018",
+          "physicalColumn": "thn",
+          "datatype": "varchar",
+          "aliases": [
+            "thn"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "idr": {
+          "physicalObject": "dbo.asset_2018",
+          "physicalColumn": "idr",
+          "datatype": "int",
+          "aliases": [
+            "idr"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "lokasi2017": {
+          "physicalObject": "dbo.asset_2018",
+          "physicalColumn": "lokasi2017",
+          "datatype": "varchar",
+          "aliases": [
+            "lokasi2017"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "kva": {
+          "physicalObject": "dbo.asset_2018",
+          "physicalColumn": "kva",
+          "datatype": "varchar",
+          "aliases": [
+            "kva"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "weight": {
+          "physicalObject": "dbo.asset_2018",
+          "physicalColumn": "weight",
+          "datatype": "int",
+          "aliases": [
+            "weight"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "sn": {
+          "physicalObject": "dbo.asset_2018",
+          "physicalColumn": "sn",
+          "datatype": "varchar",
+          "aliases": [
+            "sn"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "sn2": {
+          "physicalObject": "dbo.asset_2018",
+          "physicalColumn": "sn2",
+          "datatype": "varchar",
+          "aliases": [
+            "sn2"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "coolant": {
+          "physicalObject": "dbo.asset_2018",
+          "physicalColumn": "coolant",
+          "datatype": "varchar",
+          "aliases": [
+            "coolant"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "control": {
+          "physicalObject": "dbo.asset_2018",
+          "physicalColumn": "control",
+          "datatype": "varchar",
+          "aliases": [
+            "control"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "maker": {
+          "physicalObject": "dbo.asset_2018",
+          "physicalColumn": "maker",
+          "datatype": "varchar",
+          "aliases": [
+            "maker"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "op": {
+          "physicalObject": "dbo.asset_2018",
+          "physicalColumn": "op",
+          "datatype": "varchar",
+          "aliases": [
+            "op"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "model": {
+          "physicalObject": "dbo.asset_2018",
+          "physicalColumn": "model",
+          "datatype": "varchar",
+          "aliases": [
+            "model"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "nama_actual": {
+          "physicalObject": "dbo.asset_2018",
+          "physicalColumn": "Nama_actual",
+          "datatype": "varchar",
+          "aliases": [
+            "Nama_actual"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "lokasi2018": {
+          "physicalObject": "dbo.asset_2018",
+          "physicalColumn": "lokasi2018",
+          "datatype": "varchar",
+          "aliases": [
+            "lokasi2018"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "foto": {
+          "physicalObject": "dbo.asset_2018",
+          "physicalColumn": "foto",
+          "datatype": "varchar",
+          "aliases": [
+            "foto"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "no_bcra2": {
+          "physicalObject": "dbo.asset_2018",
+          "physicalColumn": "NO_BCRA2",
+          "datatype": "varchar",
+          "aliases": [
+            "NO_BCRA2"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "no_po": {
+          "physicalObject": "dbo.asset_2018",
+          "physicalColumn": "NO_PO",
+          "datatype": "varchar",
+          "aliases": [
+            "NO_PO"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "kodef": {
+          "physicalObject": "dbo.asset_2018",
+          "physicalColumn": "kodef",
+          "datatype": "varchar",
+          "aliases": [
+            "kodef"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "user_inpt": {
+          "physicalObject": "dbo.asset_2018",
+          "physicalColumn": "user_inpt",
+          "datatype": "varchar",
+          "aliases": [
+            "user_inpt"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "tgl_receiv": {
+          "physicalObject": "dbo.asset_2018",
+          "physicalColumn": "tgl_receiv",
+          "datatype": "datetime",
+          "aliases": [
+            "tgl_receiv"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "urut": {
+          "physicalObject": "dbo.asset_2018",
+          "physicalColumn": "urut",
+          "datatype": "int",
+          "aliases": [
+            "urut"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "tgl_disposal": {
+          "physicalObject": "dbo.asset_2018",
+          "physicalColumn": "tgl_disposal",
+          "datatype": "varchar",
+          "aliases": [
+            "tgl_disposal"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "alasan_disposal": {
+          "physicalObject": "dbo.asset_2018",
+          "physicalColumn": "alasan_disposal",
+          "datatype": "varchar",
+          "aliases": [
+            "alasan_disposal"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "pic": {
+          "physicalObject": "dbo.asset_2018",
+          "physicalColumn": "PIC",
+          "datatype": "varchar",
+          "aliases": [
+            "PIC"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "tgl_update": {
+          "physicalObject": "dbo.asset_2018",
+          "physicalColumn": "tgl_update",
+          "datatype": "varchar",
+          "aliases": [
+            "tgl_update"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "id_kategori": {
+          "physicalObject": "dbo.Kategori_aset",
+          "physicalColumn": "id_kategori",
+          "datatype": "int",
+          "aliases": [
+            "id_kategori"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "nama_kategori": {
+          "physicalObject": "dbo.Kategori_aset",
+          "physicalColumn": "nama_kategori",
+          "datatype": "nchar",
+          "aliases": [
+            "nama_kategori"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        }
+      }
+    },
+    {
+      "entity": "production",
+      "aliases": [
+        "production",
+        "produksi"
+      ],
+      "domain": "production",
+      "confidence": "UNKNOWN",
+      "queryable": false,
+      "physicalObjects": [
+        "dbo.Operator_Melting",
+        "dbo.Product Main Data",
+        "dbo.PRODUKSI_CORE",
+        "dbo.PRODUKSI_FURNACE",
+        "dbo.PRODUKSI_GROUP",
+        "dbo.Produksi_Keputusan",
+        "dbo.PRODUKSI_LOKASI",
+        "dbo.PRODUKSI_MESIN",
+        "dbo.PRODUKSI_MOULDING",
+        "dbo.PRODUKSI_PLANING",
+        "dbo.PRODUKSI_SHOOTBLAST",
+        "dbo.PRODUKSI_SHOOTBLASTGROUP",
+        "dbo.PRODUKSI_SHOOTBLASTMESIN",
+        "dbo.PRODUKSI_TRIMING",
+        "dbo.PRODUKSI_USER_MAS_ROLE",
+        "dbo.PRODUKSI_USER_ROLE",
+        "dbo.PRODUKSI_USERMENU_DETIL",
+        "dbo.PRODUKSI_USERMENU_HEAD",
+        "dbo.SupplyFng"
+      ],
+      "fields": {
+        "nodokumen": {
+          "physicalObject": "dbo.Operator_Melting",
+          "physicalColumn": "NoDokumen",
+          "datatype": "varchar",
+          "aliases": [
+            "NoDokumen"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "id_produksimesin": {
+          "physicalObject": "dbo.Operator_Melting",
+          "physicalColumn": "Id_ProduksiMesin",
+          "datatype": "varchar",
+          "aliases": [
+            "Id_ProduksiMesin"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "furnace": {
+          "physicalObject": "dbo.Operator_Melting",
+          "physicalColumn": "Furnace",
+          "datatype": "varchar",
+          "aliases": [
+            "Furnace"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "shift": {
+          "physicalObject": "dbo.PRODUKSI_CORE",
+          "physicalColumn": "Shift",
+          "datatype": "int",
+          "aliases": [
+            "Shift"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "id_produksigroup": {
+          "physicalObject": "dbo.Operator_Melting",
+          "physicalColumn": "Id_ProduksiGroup",
+          "datatype": "varchar",
+          "aliases": [
+            "Id_ProduksiGroup"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "productid_bt": {
+          "physicalObject": "dbo.Operator_Melting",
+          "physicalColumn": "ProductId_BT",
+          "datatype": "varchar",
+          "aliases": [
+            "ProductId_BT"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "volume": {
+          "physicalObject": "dbo.Operator_Melting",
+          "physicalColumn": "Volume",
+          "datatype": "varchar",
+          "aliases": [
+            "Volume"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "grade": {
+          "physicalObject": "dbo.Operator_Melting",
+          "physicalColumn": "Grade",
+          "datatype": "varchar",
+          "aliases": [
+            "Grade"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "tanggal": {
+          "physicalObject": "dbo.Operator_Melting",
+          "physicalColumn": "Tanggal",
+          "datatype": "datetime",
+          "aliases": [
+            "Tanggal"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "createdby": {
+          "physicalObject": "dbo.Operator_Melting",
+          "physicalColumn": "CreatedBy",
+          "datatype": "varchar",
+          "aliases": [
+            "CreatedBy"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "createddate": {
+          "physicalObject": "dbo.Operator_Melting",
+          "physicalColumn": "CreatedDate",
+          "datatype": "datetime",
+          "aliases": [
+            "CreatedDate"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "updateby": {
+          "physicalObject": "dbo.Operator_Melting",
+          "physicalColumn": "UpdateBy",
+          "datatype": "varchar",
+          "aliases": [
+            "UpdateBy"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "updatedate": {
+          "physicalObject": "dbo.Operator_Melting",
+          "physicalColumn": "UpdateDate",
+          "datatype": "datetime",
+          "aliases": [
+            "UpdateDate"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "approval_foremanmelt": {
+          "physicalObject": "dbo.Operator_Melting",
+          "physicalColumn": "Approval_Foremanmelt",
+          "datatype": "varchar",
+          "aliases": [
+            "Approval_Foremanmelt"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "id": {
+          "physicalObject": "dbo.Operator_Melting",
+          "physicalColumn": "Id",
+          "datatype": "int",
+          "aliases": [
+            "Id"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "approval_analistb": {
+          "physicalObject": "dbo.Operator_Melting",
+          "physicalColumn": "Approval_Analistb",
+          "datatype": "varchar",
+          "aliases": [
+            "Approval_Analistb"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "approval_analistl": {
+          "physicalObject": "dbo.Operator_Melting",
+          "physicalColumn": "Approval_Analistl",
+          "datatype": "varchar",
+          "aliases": [
+            "Approval_Analistl"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "approval_formanb": {
+          "physicalObject": "dbo.Operator_Melting",
+          "physicalColumn": "Approval_Formanb",
+          "datatype": "varchar",
+          "aliases": [
+            "Approval_Formanb"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "approval_formanl": {
+          "physicalObject": "dbo.Operator_Melting",
+          "physicalColumn": "Approval_Formanl",
+          "datatype": "varchar",
+          "aliases": [
+            "Approval_Formanl"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "product id": {
+          "physicalObject": "dbo.Product Main Data",
+          "physicalColumn": "Product ID",
+          "datatype": "int",
+          "aliases": [
+            "Product ID"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "product description": {
+          "physicalObject": "dbo.Product Main Data",
+          "physicalColumn": "Product Description",
+          "datatype": "nvarchar",
+          "aliases": [
+            "Product Description"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "product no": {
+          "physicalObject": "dbo.Product Main Data",
+          "physicalColumn": "Product No",
+          "datatype": "nvarchar",
+          "aliases": [
+            "Product No"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "bt no": {
+          "physicalObject": "dbo.Product Main Data",
+          "physicalColumn": "BT No",
+          "datatype": "nvarchar",
+          "aliases": [
+            "BT No"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "casting weight": {
+          "physicalObject": "dbo.Product Main Data",
+          "physicalColumn": "Casting Weight",
+          "datatype": "real",
+          "aliases": [
+            "Casting Weight"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "machined weight": {
+          "physicalObject": "dbo.Product Main Data",
+          "physicalColumn": "Machined Weight",
+          "datatype": "real",
+          "aliases": [
+            "Machined Weight"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "machined weightold": {
+          "physicalObject": "dbo.Product Main Data",
+          "physicalColumn": "Machined Weightold",
+          "datatype": "real",
+          "aliases": [
+            "Machined Weightold"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "status": {
+          "physicalObject": "dbo.Product Main Data",
+          "physicalColumn": "Status",
+          "datatype": "bit",
+          "aliases": [
+            "Status"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "id_produksicore": {
+          "physicalObject": "dbo.PRODUKSI_CORE",
+          "physicalColumn": "Id_ProduksiCore",
+          "datatype": "int",
+          "aliases": [
+            "Id_ProduksiCore"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "btno": {
+          "physicalObject": "dbo.PRODUKSI_CORE",
+          "physicalColumn": "BTNo",
+          "datatype": "char",
+          "aliases": [
+            "BTNo"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "beratpcs": {
+          "physicalObject": "dbo.PRODUKSI_CORE",
+          "physicalColumn": "BeratPcs",
+          "datatype": "float",
+          "aliases": [
+            "BeratPcs"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "accept_core": {
+          "physicalObject": "dbo.PRODUKSI_CORE",
+          "physicalColumn": "accept_core",
+          "datatype": "int",
+          "aliases": [
+            "accept_core"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        },
+        "reject_core": {
+          "physicalObject": "dbo.PRODUKSI_CORE",
+          "physicalColumn": "Reject_Core",
+          "datatype": "int",
+          "aliases": [
+            "Reject_Core"
+          ],
+          "confidence": "UNKNOWN",
+          "classification": "UNCLASSIFIED"
+        }
+      }
+    }
+  ],
+  "generatedAt": "2026-10-01T04:51:14.210Z",
+  "profileEvidence": {
+    "objectsAttempted": 882,
+    "columnsAttempted": 10119,
+    "columnsProfiled": 7384,
+    "columnsSkipped": 2735,
+    "columnsFailed": 0
+  },
+  "relationshipEvidence": [
+    {
+      "from": "dbo.PRDetail.PRNo",
+      "to": "dbo.PURC_PURCHREQUEST_HED.PRNo",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "nullCount": 0,
+      "matchRate": 0,
+      "confidence": "UNKNOWN",
+      "evidence": "BOUNDED_DATA_MATCH"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialID",
+      "to": "dbo.PURC_MATCATALOG.Materialid",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "nullCount": 0,
+      "matchRate": 0,
+      "confidence": "UNKNOWN",
+      "evidence": "BOUNDED_DATA_MATCH_WITH_NORMALIZED_TEXT"
+    }
+  ],
+  "humanApprovals": [
+    {
+      "reviewId": "pr-number-v1",
+      "entity": "purchase_request",
+      "semanticField": "pr_number",
+      "confidence": "CONFIRMED_BY_HUMAN",
+      "approvedAt": "2026-09-30T08:41:53.930Z"
+    },
+    {
+      "reviewId": "pr-date-v1",
+      "entity": "purchase_request",
+      "semanticField": "request_date",
+      "confidence": "CONFIRMED_BY_HUMAN",
+      "approvedAt": "2026-09-30T08:42:14.603Z"
+    },
+    {
+      "reviewId": "pr-quantity-v1",
+      "entity": "purchase_request",
+      "semanticField": "quantity",
+      "confidence": "CONFIRMED_BY_HUMAN",
+      "approvedAt": "2026-09-30T08:42:33.750Z"
+    },
+    {
+      "reviewId": "pr-description-v1",
+      "entity": "purchase_request",
+      "semanticField": "material_description",
+      "confidence": "CONFIRMED_BY_HUMAN",
+      "approvedAt": "2026-09-30T08:42:51.307Z"
+    },
+    {
+      "entity": "material_requirement",
+      "semanticField": "mrp_number",
+      "confidence": "CONFIRMED_BY_HUMAN",
+      "approvedAt": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "entity": "material_requirement",
+      "semanticField": "planned_purchase_quantity",
+      "confidence": "CONFIRMED_BY_HUMAN",
+      "approvedAt": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "entity": "material_requirement",
+      "semanticField": "mrp_created_date",
+      "confidence": "CONFIRMED_BY_HUMAN",
+      "approvedAt": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "entity": "material_requirement",
+      "semanticField": "pr_created_quantity",
+      "confidence": "CONFIRMED_BY_HUMAN",
+      "approvedAt": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "entity": "material_requirement",
+      "semanticField": "status",
+      "confidence": "CONFIRMED_BY_HUMAN",
+      "approvedAt": "2026-10-01T00:00:00.000Z"
+    }
+  ]
+}

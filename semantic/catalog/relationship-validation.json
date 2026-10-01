@@ -1,0 +1,28 @@
+{
+  "generatedAt": "2026-09-30T07:47:57.798Z",
+  "persisted": "derived-statistics-only",
+  "checks": [
+    {
+      "from": "dbo.PRDetail.PRNo",
+      "to": "dbo.PURC_PURCHREQUEST_HED.PRNo",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "nullCount": 0,
+      "matchRate": 0,
+      "confidence": "UNKNOWN",
+      "evidence": "BOUNDED_DATA_MATCH"
+    },
+    {
+      "from": "dbo.PRDetail.MaterialID",
+      "to": "dbo.PURC_MATCATALOG.Materialid",
+      "sampleSize": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "nullCount": 0,
+      "matchRate": 0,
+      "confidence": "UNKNOWN",
+      "evidence": "BOUNDED_DATA_MATCH_WITH_NORMALIZED_TEXT"
+    }
+  ]
+}

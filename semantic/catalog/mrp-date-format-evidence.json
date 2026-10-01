@@ -1,0 +1,51 @@
+{
+  "generatedAt": "2026-10-01T05:00:58.934Z",
+  "source": "dbo.PURCH_MRP.MRPDate",
+  "totalRows": 37947,
+  "nullRows": 0,
+  "patterns": [
+    {
+      "pattern": "YYYY-MM",
+      "count": 36206
+    },
+    {
+      "pattern": "YYYY-MM-DD",
+      "count": 1689
+    },
+    {
+      "pattern": "NULL",
+      "count": 47
+    },
+    {
+      "pattern": "OTHER",
+      "count": 5
+    }
+  ],
+  "hiddenCharacterIssue": false,
+  "parsing": {
+    "parsedBefore": 1689,
+    "coverageBefore": 0.044509447387145226,
+    "parsedAfter": 1689,
+    "coverageAfter": 0.044509447387145226,
+    "unparsedCount": 36258,
+    "strategies": [
+      "TRY_CONVERT(style 23) after normalized separators",
+      "TRY_CONVERT(style 103)",
+      "TRY_CONVERT(style 112)"
+    ],
+    "minDate": "2025-01-01T00:00:00.000Z",
+    "maxDate": "2026-04-27T00:00:00.000Z",
+    "queryable": false
+  },
+  "semantics": {
+    "meaning": "Tanggal MRP dibuat",
+    "confidence": "CONFIRMED_BY_HUMAN",
+    "physicalParserValidated": false,
+    "queryable": false
+  },
+  "security": {
+    "rawRowsPersisted": false,
+    "databaseMutation": false,
+    "geminiInvolved": false
+  }
+}

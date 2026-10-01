@@ -1,0 +1,112 @@
+{
+  "generatedAt": "2026-10-01T05:50:02.398Z",
+  "source": "dbo.PURCV_BP_PR",
+  "definitionInspected": true,
+  "lineage": {
+    "qtyPr": [
+      "EW dbo.PURCV_BP_PR AS SELECT DISTINCT x.MRPNo, x.MaterialId, LEFT(pm.MaterialName, 50) AS MaterialName, pm.UoM, x.QTYBP, x.DepartId, x.MonthDate, y.status, y.prsts, y.PRReceivedDate, y.TERIMA, y.PRNo, y.NO_MR, y.TGL, y.KET, y.MINTA, y.TGL_BUTUH, y.DIVISI, y.QtyPr, CASE WHEN LEN(x.MonthDate) = 6 THEN RIGHT(x.MonthDate, 1) ELSE RIGHT(x.MonthDate, 2) END AS BULAN, LEFT(x.MonthDate, 4) AS TAHUN, prtemp.Reason FROM (SELECT b.MRPNo, b.MaterialId, b.Qty AS QTYBP, b.DepartId, b.MRPDate AS MonthDate FROM dbo.PURCH_MRP_TOTAL_GROUPNAME AS a LEFT OUTER JOIN dbo.PURCH_MRP AS b ON a.MRPNo = b.MRPNo AND a.DepartID = b.DepartId WHERE (b.Jenis = 'Reguler') GROUP BY b.MRPNo, b.DepartId, b.MRPDate, b.MaterialId, b.Qty UNION ALL SELECT c.MRPNo, a.MaterialId, c.Qty AS QTYBP, c.DepartId, c.MRPDate",
+      "Nomor, c_1.DepartID, a.MaterialId, c_1.Qty) AS x LEFT OUTER JOIN (SELECT B_1.status, A_1.Status AS prsts, B_1.PRReceivedDate, A_1.TERIMA, B_1.PRNo, A_1.NO_MR, A_1.TGL, A_1.KET, A_1.MINTA, A_1.TGL_BUTUH, A_1.DIVISI, A_1.MRPNo, A_1.MaterialId, A_1.QtyPr FROM (SELECT bb.MRPNo, aa.NO_MR, aa.KD_BARANG AS MaterialId, aa.QTY AS QtyPr, aa.TERIMA, aa.TGL, aa.KET, aa.MINTA, aa.TGL_BUTUH, aa.DIVISI, bb.Status FROM dbo.BPI_MR AS aa LEFT OUTER JOIN dbo.PURC_PURCHREQUEST_TEMP AS bb ON aa.NO_MR = bb.PRNo AND aa.KD_BARANG = bb.MaterialId WHERE (bb.Status <> '2') AND (bb.Status <> '3') AND (bb.MRPNo IS NOT NULL)) AS A_1 LEFT OUTER JOIN (SELECT status, PRReceivedDate, PRNo, MaterialId FROM dbo.PURC_PURCHASE_REQUES",
+      "tatus, A_1.Status AS prsts, B_1.PRReceivedDate, A_1.TERIMA, B_1.PRNo, A_1.NO_MR, A_1.TGL, A_1.KET, A_1.MINTA, A_1.TGL_BUTUH, A_1.DIVISI, A_1.MRPNo, A_1.MaterialId, A_1.QtyPr FROM (SELECT bb.MRPNo, aa.NO_MR, aa.KD_BARANG AS MaterialId, aa.QTY AS QtyPr, aa.TERIMA, aa.TGL, aa.KET, aa.MINTA, aa.TGL_BUTUH, aa.DIVISI, bb.Status FROM dbo.BPI_MR AS aa LEFT OUTER JOIN dbo.PURC_PURCHREQUEST_TEMP AS bb ON aa.NO_MR = bb.PRNo AND aa.KD_BARANG = bb.MaterialId WHERE (bb.Status <> '2') AND (bb.Status <> '3') AND (bb.MRPNo IS NOT NULL)) AS A_1 LEFT OUTER JOIN (SELECT status, PRReceivedDate, PRNo, MaterialId FROM dbo.PURC_PURCHASE_REQUEST GROUP BY PRNo, status, PRReceivedDate, MaterialId) AS B_1 ON A_1.N",
+      "A_1.MaterialId = B_1.MaterialId WHERE (A_1.MRPNo IS NOT NULL) GROUP BY B_1.PRNo, A_1.NO_MR, A_1.TGL, A_1.KET, A_1.MINTA, A_1.TGL_BUTUH, A_1.DIVISI, A_1.TERIMA, B_1.status, A_1.Status, B_1.PRReceivedDate, A_1.MRPNo, A_1.MaterialId, A_1.QtyPr) AS y ON x.MRPNo = y.MRPNo AND x.MaterialId = y.MaterialId LEFT OUTER JOIN dbo.PURC_MATCATALOG AS pm ON pm.Materialid = x.MaterialId LEFT OUTER JOIN dbo.PURC_PURCHREQUEST_TEMP AS prtemp ON prtemp.MRPNo = x.MRPNo AND prtemp.MaterialId = x.MaterialId"
+    ],
+    "prNo": [
+      "CREATE VIEW dbo.PURCV_BP_PR AS SELECT DISTINCT x.MRPNo, x.MaterialId, LEFT(pm.MaterialName, 50) AS MaterialName, pm.UoM, x.QTYBP, x.DepartId, x.MonthDate, y.status, y.prsts, y.PRReceivedDate, y.TERIMA, y.PRNo, y.NO_MR, y.TGL, y.KET, y.MINTA, y.TGL_BUTUH, y.DIVISI, y.QtyPr, CASE WHEN LEN(x.MonthDate) = 6 THEN RIGHT(x.MonthDate, 1) ELSE RIGHT(x.MonthDate, 2) END AS BULAN, LEFT(x.MonthDate, 4) AS TAHUN, prtemp.Reason FROM (SELECT b.MRPNo, b.MaterialId, b.Qty AS QTYBP, b.DepartId, b.MRPDate AS MonthDate FROM dbo.PURCH_MRP_TOTAL_GROUPNAME AS a LEFT OUTER JOIN dbo.PURCH_MRP AS b ON a.MRPNo = b.MRPNo AND a.DepartID = b.DepartId WHERE (b.Jenis = 'Reguler') GROUP BY b.MRPNo, b.DepartId, b.MRPDate, b.MaterialId, b.Qty UNION ALL SELEC",
+      "a.DepartId WHERE (c_1.Nomor IS NOT NULL) GROUP BY b.NamaGrouping, c_1.MRPDate, c_1.Nomor, c_1.DepartID, a.MaterialId, c_1.Qty) AS x LEFT OUTER JOIN (SELECT B_1.status, A_1.Status AS prsts, B_1.PRReceivedDate, A_1.TERIMA, B_1.PRNo, A_1.NO_MR, A_1.TGL, A_1.KET, A_1.MINTA, A_1.TGL_BUTUH, A_1.DIVISI, A_1.MRPNo, A_1.MaterialId, A_1.QtyPr FROM (SELECT bb.MRPNo, aa.NO_MR, aa.KD_BARANG AS MaterialId, aa.QTY AS QtyPr, aa.TERIMA, aa.TGL, aa.KET, aa.MINTA, aa.TGL_BUTUH, aa.DIVISI, bb.Status FROM dbo.BPI_MR AS aa LEFT OUTER JOIN dbo.PURC_PURCHREQUEST_TEMP AS bb ON aa.NO_MR = bb.PRNo AND aa.KD_BARANG = bb.MaterialId WHERE (bb.Status <> '2') AND (bb.Status <> '3') AND (bb.MRPNo IS NOT NULL)) AS A_1 LEFT OUTER JOIN",
+      "aa.KD_BARANG AS MaterialId, aa.QTY AS QtyPr, aa.TERIMA, aa.TGL, aa.KET, aa.MINTA, aa.TGL_BUTUH, aa.DIVISI, bb.Status FROM dbo.BPI_MR AS aa LEFT OUTER JOIN dbo.PURC_PURCHREQUEST_TEMP AS bb ON aa.NO_MR = bb.PRNo AND aa.KD_BARANG = bb.MaterialId WHERE (bb.Status <> '2') AND (bb.Status <> '3') AND (bb.MRPNo IS NOT NULL)) AS A_1 LEFT OUTER JOIN (SELECT status, PRReceivedDate, PRNo, MaterialId FROM dbo.PURC_PURCHASE_REQUEST GROUP BY PRNo, status, PRReceivedDate, MaterialId) AS B_1 ON A_1.NO_MR = B_1.PRNo AND A_1.MaterialId = B_1.MaterialId WHERE (A_1.MRPNo IS NOT NULL) GROUP BY B_1.PRNo, A_1.NO_MR, A_1.TGL, A_1.KET, A_1.MINTA, A_1.TGL_BUTUH, A_1.DIVISI, A_1.TERIMA, B_1.status, A_1.",
+      "_PURCHREQUEST_TEMP AS bb ON aa.NO_MR = bb.PRNo AND aa.KD_BARANG = bb.MaterialId WHERE (bb.Status <> '2') AND (bb.Status <> '3') AND (bb.MRPNo IS NOT NULL)) AS A_1 LEFT OUTER JOIN (SELECT status, PRReceivedDate, PRNo, MaterialId FROM dbo.PURC_PURCHASE_REQUEST GROUP BY PRNo, status, PRReceivedDate, MaterialId) AS B_1 ON A_1.NO_MR = B_1.PRNo AND A_1.MaterialId = B_1.MaterialId WHERE (A_1.MRPNo IS NOT NULL) GROUP BY B_1.PRNo, A_1.NO_MR, A_1.TGL, A_1.KET, A_1.MINTA, A_1.TGL_BUTUH, A_1.DIVISI, A_1.TERIMA, B_1.status, A_1.Status, B_1.PRReceivedDate, A_1.MRPNo, A_1.MaterialId, A_1.QtyPr) AS y ON x.MRPNo = y.MRPNo AND x.MaterialId = y.MaterialId LEFT OUTER JOIN dbo.PURC_MATCATALOG AS pm ON pm.Materialid = x.MaterialId LEFT OUTER",
+      "(bb.Status <> '2') AND (bb.Status <> '3') AND (bb.MRPNo IS NOT NULL)) AS A_1 LEFT OUTER JOIN (SELECT status, PRReceivedDate, PRNo, MaterialId FROM dbo.PURC_PURCHASE_REQUEST GROUP BY PRNo, status, PRReceivedDate, MaterialId) AS B_1 ON A_1.NO_MR = B_1.PRNo AND A_1.MaterialId = B_1.MaterialId WHERE (A_1.MRPNo IS NOT NULL) GROUP BY B_1.PRNo, A_1.NO_MR, A_1.TGL, A_1.KET, A_1.MINTA, A_1.TGL_BUTUH, A_1.DIVISI, A_1.TERIMA, B_1.status, A_1.Status, B_1.PRReceivedDate, A_1.MRPNo, A_1.MaterialId, A_1.QtyPr) AS y ON x.MRPNo = y.MRPNo AND x.MaterialId = y.MaterialId LEFT OUTER JOIN dbo.PURC_MATCATALOG AS pm ON pm.Materialid = x.MaterialId LEFT OUTER JOIN dbo.PURC_PURCHREQUEST_TEMP AS prtemp ON prtemp.MRPNo = x.MRPNo AND prtemp.MaterialId = x.Mat",
+      ")) AS A_1 LEFT OUTER JOIN (SELECT status, PRReceivedDate, PRNo, MaterialId FROM dbo.PURC_PURCHASE_REQUEST GROUP BY PRNo, status, PRReceivedDate, MaterialId) AS B_1 ON A_1.NO_MR = B_1.PRNo AND A_1.MaterialId = B_1.MaterialId WHERE (A_1.MRPNo IS NOT NULL) GROUP BY B_1.PRNo, A_1.NO_MR, A_1.TGL, A_1.KET, A_1.MINTA, A_1.TGL_BUTUH, A_1.DIVISI, A_1.TERIMA, B_1.status, A_1.Status, B_1.PRReceivedDate, A_1.MRPNo, A_1.MaterialId, A_1.QtyPr) AS y ON x.MRPNo = y.MRPNo AND x.MaterialId = y.MaterialId LEFT OUTER JOIN dbo.PURC_MATCATALOG AS pm ON pm.Materialid = x.MaterialId LEFT OUTER JOIN dbo.PURC_PURCHREQUEST_TEMP AS prtemp ON prtemp.MRPNo = x.MRPNo AND prtemp.MaterialId = x.MaterialId",
+      "FROM dbo.PURC_PURCHASE_REQUEST GROUP BY PRNo, status, PRReceivedDate, MaterialId) AS B_1 ON A_1.NO_MR = B_1.PRNo AND A_1.MaterialId = B_1.MaterialId WHERE (A_1.MRPNo IS NOT NULL) GROUP BY B_1.PRNo, A_1.NO_MR, A_1.TGL, A_1.KET, A_1.MINTA, A_1.TGL_BUTUH, A_1.DIVISI, A_1.TERIMA, B_1.status, A_1.Status, B_1.PRReceivedDate, A_1.MRPNo, A_1.MaterialId, A_1.QtyPr) AS y ON x.MRPNo = y.MRPNo AND x.MaterialId = y.MaterialId LEFT OUTER JOIN dbo.PURC_MATCATALOG AS pm ON pm.Materialid = x.MaterialId LEFT OUTER JOIN dbo.PURC_PURCHREQUEST_TEMP AS prtemp ON prtemp.MRPNo = x.MRPNo AND prtemp.MaterialId = x.MaterialId"
+    ],
+    "noMr": [
+      "CREATE VIEW dbo.PURCV_BP_PR AS SELECT DISTINCT x.MRPNo, x.MaterialId, LEFT(pm.MaterialName, 50) AS MaterialName, pm.UoM, x.QTYBP, x.DepartId, x.MonthDate, y.status, y.prsts, y.PRReceivedDate, y.TERIMA, y.PRNo, y.NO_MR, y.TGL, y.KET, y.MINTA, y.TGL_BUTUH, y.DIVISI, y.QtyPr, CASE WHEN LEN(x.MonthDate) = 6 THEN RIGHT(x.MonthDate, 1) ELSE RIGHT(x.MonthDate, 2) END AS BULAN, LEFT(x.MonthDate, 4) AS TAHUN, prtemp.Reason FROM (SELECT b.MRPNo, b.MaterialId, b.Qty AS QTYBP, b.DepartId, b.MRPDate AS MonthDate FROM dbo.PURCH_MRP_TOTAL_GROUPNAME AS a LEFT OUTER JOIN dbo.PURCH_MRP AS b ON a.MRPNo = b.MRPNo AND a.DepartID = b.DepartId WHERE (b.Jenis = 'Reguler') GROUP BY b.MRPNo, b.DepartId, b.MRPDate, b.MaterialId, b.Qty UNION ALL SELECT c.MRPNo",
+      "d WHERE (c_1.Nomor IS NOT NULL) GROUP BY b.NamaGrouping, c_1.MRPDate, c_1.Nomor, c_1.DepartID, a.MaterialId, c_1.Qty) AS x LEFT OUTER JOIN (SELECT B_1.status, A_1.Status AS prsts, B_1.PRReceivedDate, A_1.TERIMA, B_1.PRNo, A_1.NO_MR, A_1.TGL, A_1.KET, A_1.MINTA, A_1.TGL_BUTUH, A_1.DIVISI, A_1.MRPNo, A_1.MaterialId, A_1.QtyPr FROM (SELECT bb.MRPNo, aa.NO_MR, aa.KD_BARANG AS MaterialId, aa.QTY AS QtyPr, aa.TERIMA, aa.TGL, aa.KET, aa.MINTA, aa.TGL_BUTUH, aa.DIVISI, bb.Status FROM dbo.BPI_MR AS aa LEFT OUTER JOIN dbo.PURC_PURCHREQUEST_TEMP AS bb ON aa.NO_MR = bb.PRNo AND aa.KD_BARANG = bb.MaterialId WHERE (bb.Status <> '2') AND (bb.Status <> '3') AND (bb.MRPNo IS NOT NULL)) AS A_1 LEFT OUTER JOIN (SELECT sta",
+      "x LEFT OUTER JOIN (SELECT B_1.status, A_1.Status AS prsts, B_1.PRReceivedDate, A_1.TERIMA, B_1.PRNo, A_1.NO_MR, A_1.TGL, A_1.KET, A_1.MINTA, A_1.TGL_BUTUH, A_1.DIVISI, A_1.MRPNo, A_1.MaterialId, A_1.QtyPr FROM (SELECT bb.MRPNo, aa.NO_MR, aa.KD_BARANG AS MaterialId, aa.QTY AS QtyPr, aa.TERIMA, aa.TGL, aa.KET, aa.MINTA, aa.TGL_BUTUH, aa.DIVISI, bb.Status FROM dbo.BPI_MR AS aa LEFT OUTER JOIN dbo.PURC_PURCHREQUEST_TEMP AS bb ON aa.NO_MR = bb.PRNo AND aa.KD_BARANG = bb.MaterialId WHERE (bb.Status <> '2') AND (bb.Status <> '3') AND (bb.MRPNo IS NOT NULL)) AS A_1 LEFT OUTER JOIN (SELECT status, PRReceivedDate, PRNo, MaterialId FROM dbo.PURC_PURCHASE_REQUEST GROUP BY PRNo, status",
+      "aa.NO_MR, aa.KD_BARANG AS MaterialId, aa.QTY AS QtyPr, aa.TERIMA, aa.TGL, aa.KET, aa.MINTA, aa.TGL_BUTUH, aa.DIVISI, bb.Status FROM dbo.BPI_MR AS aa LEFT OUTER JOIN dbo.PURC_PURCHREQUEST_TEMP AS bb ON aa.NO_MR = bb.PRNo AND aa.KD_BARANG = bb.MaterialId WHERE (bb.Status <> '2') AND (bb.Status <> '3') AND (bb.MRPNo IS NOT NULL)) AS A_1 LEFT OUTER JOIN (SELECT status, PRReceivedDate, PRNo, MaterialId FROM dbo.PURC_PURCHASE_REQUEST GROUP BY PRNo, status, PRReceivedDate, MaterialId) AS B_1 ON A_1.NO_MR = B_1.PRNo AND A_1.MaterialId = B_1.MaterialId WHERE (A_1.MRPNo IS NOT NULL) GROUP BY B_1.PRNo, A_1.NO_MR, A_1.TGL, A_1.KET, A_1.MINTA, A_1.TGL_BUTUH, A_1.DIVISI, A_1.TERIMA, B_1.st",
+      "IS NOT NULL)) AS A_1 LEFT OUTER JOIN (SELECT status, PRReceivedDate, PRNo, MaterialId FROM dbo.PURC_PURCHASE_REQUEST GROUP BY PRNo, status, PRReceivedDate, MaterialId) AS B_1 ON A_1.NO_MR = B_1.PRNo AND A_1.MaterialId = B_1.MaterialId WHERE (A_1.MRPNo IS NOT NULL) GROUP BY B_1.PRNo, A_1.NO_MR, A_1.TGL, A_1.KET, A_1.MINTA, A_1.TGL_BUTUH, A_1.DIVISI, A_1.TERIMA, B_1.status, A_1.Status, B_1.PRReceivedDate, A_1.MRPNo, A_1.MaterialId, A_1.QtyPr) AS y ON x.MRPNo = y.MRPNo AND x.MaterialId = y.MaterialId LEFT OUTER JOIN dbo.PURC_MATCATALOG AS pm ON pm.Materialid = x.MaterialId LEFT OUTER JOIN dbo.PURC_PURCHREQUEST_TEMP AS prtemp ON prtemp.MRPNo = x.MRPNo AND prtemp.MaterialId = x.MaterialId",
+      "FROM dbo.PURC_PURCHASE_REQUEST GROUP BY PRNo, status, PRReceivedDate, MaterialId) AS B_1 ON A_1.NO_MR = B_1.PRNo AND A_1.MaterialId = B_1.MaterialId WHERE (A_1.MRPNo IS NOT NULL) GROUP BY B_1.PRNo, A_1.NO_MR, A_1.TGL, A_1.KET, A_1.MINTA, A_1.TGL_BUTUH, A_1.DIVISI, A_1.TERIMA, B_1.status, A_1.Status, B_1.PRReceivedDate, A_1.MRPNo, A_1.MaterialId, A_1.QtyPr) AS y ON x.MRPNo = y.MRPNo AND x.MaterialId = y.MaterialId LEFT OUTER JOIN dbo.PURC_MATCATALOG AS pm ON pm.Materialid = x.MaterialId LEFT OUTER JOIN dbo.PURC_PURCHREQUEST_TEMP AS prtemp ON prtemp.MRPNo = x.MRPNo AND prtemp.MaterialId = x.MaterialId"
+    ],
+    "materialId": [],
+    "aliases": []
+  },
+  "aggregates": {
+    "view": {
+      "view_rows": "35680",
+      "distinct_mrp_material": 35302,
+      "distinct_mrp_material_pr": 35617,
+      "distinct_with_qtypr": 35620,
+      "null_both": 21281,
+      "null_qtypr_pr_present": 0,
+      "qtypr_present_pr_null": 1640,
+      "both_present": 12759
+    },
+    "mrpFanout": {
+      "groups": "35302",
+      "min_n": "1",
+      "max_n": "4",
+      "avg_n": 1.0107076086340718,
+      "one": 34935,
+      "many": 367
+    },
+    "prFanout": {
+      "groups": "12743",
+      "max_n": "2",
+      "duplicate_groups": 16
+    },
+    "mrpGrain": {
+      "rows": "37947",
+      "mrp_material": 37812,
+      "mrp_material_depart": 37814,
+      "mrp_material_depart_tipe": 37814
+    }
+  },
+  "units": [
+    {
+      "schema": "dbo",
+      "object": "PURC_PURCHASE_REQUEST",
+      "column": "UoM"
+    },
+    {
+      "schema": "dbo",
+      "object": "PURC_PURCHASE_REQUEST",
+      "column": "EstUnitPrice"
+    },
+    {
+      "schema": "dbo",
+      "object": "PURC_PURCHREQUEST_TEMP",
+      "column": "UoM"
+    },
+    {
+      "schema": "dbo",
+      "object": "PURCH_MRP",
+      "column": "UoM"
+    },
+    {
+      "schema": "dbo",
+      "object": "PURCV_BP_PR",
+      "column": "UoM"
+    }
+  ],
+  "decisions": {
+    "prCreatedQuantity": {
+      "meaning": "Quantity planning MRP yang sudah dibuat Purchase Request",
+      "confidence": "CONFIRMED_BY_HUMAN",
+      "lineageValidated": true,
+      "grainValidated": false,
+      "rowLevelSafe": false,
+      "aggregatePerMrpLineSafe": false,
+      "queryable": false,
+      "runtimeJoinAllowed": false
+    },
+    "nullAsZeroSafe": false,
+    "plannedQtyDuplicated": true,
+    "prQtyDuplicated": true,
+    "preAggregationRequired": true,
+    "remainingQuantitySafe": false
+  },
+  "security": {
+    "rawRowsPersisted": false,
+    "databaseMutation": false,
+    "geminiInvolved": false
+  }
+}

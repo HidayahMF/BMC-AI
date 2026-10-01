@@ -1,0 +1,111 @@
+{
+  "generatedAt": "2026-10-01T04:51:15.894Z",
+  "candidates": [
+    {
+      "reviewId": "pr-header-detail-v1",
+      "entity": "purchase_request",
+      "semanticField": "header_detail_relationship",
+      "physicalSource": "dbo.PR.PRNo -> dbo.PRDetail.PRNo",
+      "suggestedMeaning": "PR header to detail relationship",
+      "currentConfidence": "PROBABLE",
+      "evidence": [
+        "bounded normalized match rate 98.58%",
+        "PR header/detail dependency"
+      ],
+      "kind": "RELATIONSHIP",
+      "dataIntegrity": 0.9858056777
+    },
+    {
+      "reviewId": "pr-source-final-v1",
+      "entity": "purchase_request",
+      "semanticField": "source_role",
+      "physicalSource": "dbo.PURC_PURCHASE_REQUEST",
+      "suggestedMeaning": "Authoritative/final Purchase Request line-item source",
+      "currentConfidence": "PROBABLE",
+      "evidence": [
+        "PRNo and PRItemNo line identity",
+        "MaterialId and Qty line fields",
+        "inp_date and upd_date lifecycle fields"
+      ],
+      "kind": "SOURCE_ROLE",
+      "suggestedSourceRole": "AUTHORITATIVE_FINAL"
+    },
+    {
+      "reviewId": "pr-source-workflow-v1",
+      "entity": "purchase_request",
+      "semanticField": "source_role",
+      "physicalSource": "dbo.PURC_PURCHREQUEST_TEMP",
+      "suggestedMeaning": "Purchase Request workflow/request/approval source",
+      "currentConfidence": "PROBABLE",
+      "evidence": [
+        "Requestor and Dept fields",
+        "Approval workflow fields",
+        "AppDate and CDate workflow dates"
+      ],
+      "kind": "SOURCE_ROLE",
+      "suggestedSourceRole": "AUTHORITATIVE_WORKFLOW"
+    },
+    {
+      "reviewId": "pr-final-number-v1",
+      "entity": "purchase_request",
+      "semanticField": "pr_number",
+      "physicalSource": "dbo.PURC_PURCHASE_REQUEST.PRNo",
+      "suggestedMeaning": "Purchase Request business number on final line source",
+      "currentConfidence": "PROBABLE",
+      "evidence": [
+        "final line-item context",
+        "PRItemNo companion field",
+        "not inferred from name alone"
+      ]
+    },
+    {
+      "reviewId": "pr-final-quantity-v1",
+      "entity": "purchase_request",
+      "semanticField": "quantity",
+      "physicalSource": "dbo.PURC_PURCHASE_REQUEST.Qty",
+      "suggestedMeaning": "requested quantity on final line source",
+      "currentConfidence": "PROBABLE",
+      "evidence": [
+        "final line-item context",
+        "numeric Qty datatype",
+        "PRItemNo companion field"
+      ]
+    },
+    {
+      "reviewId": "pr-final-specification-v1",
+      "entity": "purchase_request",
+      "semanticField": "specification",
+      "physicalSource": "dbo.PURC_PURCHASE_REQUEST.Specification",
+      "suggestedMeaning": "Purchase Request item specification",
+      "currentConfidence": "PROBABLE",
+      "evidence": [
+        "final line item context",
+        "item description candidate requires explicit approval"
+      ]
+    },
+    {
+      "reviewId": "pr-final-brand-v1",
+      "entity": "purchase_request",
+      "semanticField": "brand",
+      "physicalSource": "dbo.PURC_PURCHASE_REQUEST.Brand",
+      "suggestedMeaning": "Purchase Request item brand",
+      "currentConfidence": "PROBABLE",
+      "evidence": [
+        "final line item context",
+        "brand field candidate requires explicit approval"
+      ]
+    },
+    {
+      "reviewId": "pr-final-material-code-v1",
+      "entity": "purchase_request",
+      "semanticField": "material_code",
+      "physicalSource": "dbo.PURC_PURCHASE_REQUEST.MaterialId",
+      "suggestedMeaning": "Purchase Request material code",
+      "currentConfidence": "PROBABLE",
+      "evidence": [
+        "final line item context",
+        "material domain target validation required"
+      ]
+    }
+  ]
+}

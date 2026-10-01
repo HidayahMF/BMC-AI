@@ -1,0 +1,1439 @@
+{
+  "generatedAt": "2026-10-01T04:51:14.210Z",
+  "status": "MAPPING_REVIEW_REQUIRED",
+  "headerCandidates": [
+    {
+      "objectName": "dbo.dataHeaderCheckSheet",
+      "objectType": "TABLE",
+      "columns": [
+        "part_number"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PURC_BIDCOMPAREHED",
+      "objectType": "TABLE",
+      "columns": [
+        "BidNo",
+        "BidDate",
+        "Bid_Status",
+        "AppStatus",
+        "AppDate"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PURC_PURCHREQUEST_HED",
+      "objectType": "TABLE",
+      "columns": [
+        "PRNo",
+        "PRDate",
+        "Requestor",
+        "Req_No",
+        "DepartAloc",
+        "WONo",
+        "CapexNo"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PURC_REG_MATCATALOG_HED",
+      "objectType": "TABLE",
+      "columns": [
+        "Nomor",
+        "Tanggal",
+        "NamaUser",
+        "NoKryn",
+        "DepartID",
+        "StatusApprov",
+        "ApproveBy",
+        "TglApprove",
+        "KetApprove",
+        "JenisMaterial",
+        "Inp_date"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    }
+  ],
+  "detailCandidates": [
+    {
+      "objectName": "dbo.FINV_ADV_DETAIL",
+      "objectType": "VIEW",
+      "columns": [
+        "NoPO",
+        "Nomor",
+        "NominalAdvance",
+        "Tanggal",
+        "NoPembayaran",
+        "Nominal",
+        "NamaDepartemen"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PODetail",
+      "objectType": "TABLE",
+      "columns": [
+        "PONo",
+        "POQty"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchase-request-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PRDetail",
+      "objectType": "TABLE",
+      "columns": [
+        "PRNo",
+        "MaterialID",
+        "Material Description",
+        "PRQty",
+        "Status",
+        "MaterialIDP4",
+        "TglStatus",
+        "Status_PR",
+        "Note",
+        "No"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchase-request-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PURC_REG_MATCATALOG_DETAIL",
+      "objectType": "TABLE",
+      "columns": [
+        "MaterialName",
+        "AccountMaterial",
+        "MaterialId",
+        "TypeMaterial",
+        "TypeMaterialUser",
+        "StatusGudang",
+        "StatusBuyer"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PURCV_DETIL",
+      "objectType": "VIEW",
+      "columns": [
+        "Requestor",
+        "PRNo",
+        "PRDate",
+        "MaterialName",
+        "PRItemNo",
+        "MaterialId",
+        "Qty",
+        "ExpDeliveryDate",
+        "CancelDate",
+        "Capexno",
+        "PRReceivedDate",
+        "status",
+        "NamaDepartemen",
+        "UserId"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PURCV_DETRECEIVE",
+      "objectType": "VIEW",
+      "columns": [
+        "PONo",
+        "PRNo",
+        "TANGGAL",
+        "NOBAR",
+        "MaterialName",
+        "Materialid",
+        "duedate",
+        "status"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "objectName": "dbo.AP_LIST_FAKTUR_DEBT_OLD",
+      "objectType": "VIEW",
+      "columns": [
+        "Tanggal",
+        "DueDate",
+        "FakturNo",
+        "NomorPayment",
+        "statusPosting"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.APAGINGV_01TDTRM",
+      "objectType": "VIEW",
+      "columns": [
+        "Tanggal",
+        "Nomor",
+        "FakturNo",
+        "Nominal_PPH",
+        "Nominal_PPN",
+        "QTY",
+        "NomMRS"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.APV_ListAP",
+      "objectType": "VIEW",
+      "columns": [
+        "NomorAPP",
+        "FakturNo",
+        "Nomor",
+        "Status",
+        "Tanggal",
+        "DueDate",
+        "USer_posting",
+        "VendorNonPO"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.BPI_MR",
+      "objectType": "TABLE",
+      "columns": [
+        "NO_MR3",
+        "NO_MR",
+        "NOAC",
+        "QTY",
+        "NOBAR2",
+        "STATUS",
+        "NO_PH",
+        "NOKON",
+        "NOPH",
+        "NOPR"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.ClaimRjkTmp",
+      "objectType": "TABLE",
+      "columns": [
+        "nomor",
+        "tanggal",
+        "MaterialId",
+        "inpDate",
+        "NOMOR_PRS"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.dataHeaderCheckSheet",
+      "objectType": "TABLE",
+      "columns": [
+        "part_number"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.DeliveryClaimRjk",
+      "objectType": "TABLE",
+      "columns": [
+        "nomor",
+        "tanggal",
+        "MaterialId",
+        "inpDate",
+        "NOMOR_PRS"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.FIN_PEMBAYARAN_BDV_DOC",
+      "objectType": "TABLE",
+      "columns": [
+        "Nomor",
+        "Tanggal",
+        "Status",
+        "inp_date",
+        "checked_date",
+        "reviewed_date",
+        "approved_by",
+        "approved_date",
+        "checked_status",
+        "reviewed_status",
+        "approved_status",
+        "approved_keterangan"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.FIN_PEMBAYARAN_STL",
+      "objectType": "TABLE",
+      "columns": [
+        "NoAdvance",
+        "Nominal",
+        "NominalAdvance",
+        "NoFaktur",
+        "NoPO",
+        "Status",
+        "update_by",
+        "update_date",
+        "FakturPajakDate"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.FIN_TANDATERIMA_DOC",
+      "objectType": "TABLE",
+      "columns": [
+        "Nomor",
+        "Tanggal",
+        "VoucherNo",
+        "Status",
+        "DueDate",
+        "NomorAP",
+        "ApproveDate",
+        "ApproveBy",
+        "USer_posting",
+        "Date_posting",
+        "DepartId"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.FINV_ADV_DETAIL",
+      "objectType": "VIEW",
+      "columns": [
+        "NoPO",
+        "Nomor",
+        "NominalAdvance",
+        "Tanggal",
+        "NoPembayaran",
+        "Nominal",
+        "NamaDepartemen"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.FINV_BDV_PAYMENT_OPEN",
+      "objectType": "VIEW",
+      "columns": [
+        "NoPO",
+        "NoRP",
+        "Nomor",
+        "Tanggal",
+        "NomorBDV",
+        "TandaTerimaPPN",
+        "Nominal_PPN",
+        "TandaTerimaPPH",
+        "Nominal_PPH",
+        "TaxNumber",
+        "NamaDepartemen",
+        "IDDepartemen",
+        "NomorTandaTerima",
+        "StatusBdv"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.FINV_LISTAPPROVE_TT",
+      "objectType": "VIEW",
+      "columns": [
+        "Nomor",
+        "Tanggal",
+        "DepartId",
+        "VoucherNo",
+        "Status"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.IT_SYSTEM_REQUEST",
+      "objectType": "TABLE",
+      "columns": [
+        "nama_peminta",
+        "departemen_peminta",
+        "kontak_peminta",
+        "status",
+        "tanggal_permintaan",
+        "tanggal_diproses",
+        "tanggal_selesai",
+        "nip_peminta"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchase-request-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PO_JOIN_ACCESS",
+      "objectType": "VIEW",
+      "columns": [
+        "PRNo",
+        "PRReceivedDate",
+        "BidDate",
+        "PONo",
+        "PODate",
+        "MaterialId",
+        "MaterialName",
+        "PoQty"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PODetail",
+      "objectType": "TABLE",
+      "columns": [
+        "PONo",
+        "POQty"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchase-request-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PRDetail",
+      "objectType": "TABLE",
+      "columns": [
+        "PRNo",
+        "MaterialID",
+        "Material Description",
+        "PRQty",
+        "Status",
+        "MaterialIDP4",
+        "TglStatus",
+        "Status_PR",
+        "Note",
+        "No"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchase-request-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PROJ_JOB",
+      "objectType": "TABLE",
+      "columns": [
+        "ProjectNo",
+        "SPKNo",
+        "Closingdate"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PROJ_MEETING",
+      "objectType": "TABLE",
+      "columns": [
+        "ProjectNo",
+        "OwnerDepart"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PROJ_TASK",
+      "objectType": "TABLE",
+      "columns": [
+        "ProjectNo",
+        "StartDate",
+        "CompletionDate",
+        "AssignUser"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PROJ_TASKBASE",
+      "objectType": "TABLE",
+      "columns": [
+        "Projno",
+        "StartDate",
+        "EndDate",
+        "BaseDate"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PURC_APPROVAL",
+      "objectType": "TABLE",
+      "columns": [
+        "Id_Approve",
+        "Pass_Date",
+        "OTP_DATE"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PURC_APPROVE_LOG",
+      "objectType": "TABLE",
+      "columns": [
+        "BidNo",
+        "Status",
+        "CreatedDate"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PURC_BIDCOMPARE",
+      "objectType": "TABLE",
+      "columns": [
+        "BidNo",
+        "MaterialId",
+        "RFQNo",
+        "Quantity"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PURC_BIDCOMPARE_HISTORY",
+      "objectType": "TABLE",
+      "columns": [
+        "BidNo",
+        "MaterialId",
+        "RFQNo",
+        "Quantity"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PURC_BIDCOMPAREHED",
+      "objectType": "TABLE",
+      "columns": [
+        "BidNo",
+        "BidDate",
+        "Bid_Status",
+        "AppStatus",
+        "AppDate"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PURC_BIDPR",
+      "objectType": "TABLE",
+      "columns": [
+        "BidNo",
+        "PRNo",
+        "PRItemNo",
+        "MaterialId",
+        "Quantity",
+        "PO_Status"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PURC_BIDPR_HISTORY",
+      "objectType": "TABLE",
+      "columns": [
+        "BidNo",
+        "PRNo",
+        "PRItemNo",
+        "MaterialId",
+        "Quantity",
+        "PO_Status"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PURC_CART",
+      "objectType": "TABLE",
+      "columns": [
+        "MaterialId",
+        "inp_date",
+        "prno"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PURC_HISTORY_BID",
+      "objectType": "TABLE",
+      "columns": [
+        "BidNo",
+        "MaterialId"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PURC_LETTER",
+      "objectType": "TABLE",
+      "columns": [],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PURC_PO_ACCESS",
+      "objectType": "TABLE",
+      "columns": [
+        "PRNo",
+        "PRReceivedDate",
+        "BidDate",
+        "PONo",
+        "PODate",
+        "MaterialID",
+        "MaterialName",
+        "POQty"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PURC_PR_CANCEL",
+      "objectType": "TABLE",
+      "columns": [
+        "PRNo",
+        "MaterialId"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PURC_PR_RETURN",
+      "objectType": "TABLE",
+      "columns": [
+        "PRNo",
+        "user_proc",
+        "tgl_update",
+        "status_return"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PURC_PRICE_PO_ACCES",
+      "objectType": "TABLE",
+      "columns": [
+        "PONo",
+        "Date",
+        "MaterialId",
+        "MaterialName",
+        "poqty"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PURC_PURCHASE_REQUEST",
+      "objectType": "TABLE",
+      "columns": [
+        "PRNo",
+        "PRItemNo",
+        "MaterialId",
+        "Qty",
+        "ExpDeliveryDate",
+        "HoldDate",
+        "CancelDate",
+        "Capexno",
+        "PRReceivedDate",
+        "inp_date",
+        "upd_date",
+        "status"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchase-request-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PURC_PURCHREQUEST_HED",
+      "objectType": "TABLE",
+      "columns": [
+        "PRNo",
+        "PRDate",
+        "Requestor",
+        "Req_No",
+        "DepartAloc",
+        "WONo",
+        "CapexNo"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PURC_PURCHREQUEST_TEMP",
+      "objectType": "TABLE",
+      "columns": [
+        "Req_No",
+        "ItemNo",
+        "MaterialId",
+        "MaterialName",
+        "Qty",
+        "ProjectNo",
+        "DepartAloc",
+        "WONo",
+        "CapexNo",
+        "Requestor",
+        "Approval_Date",
+        "Status",
+        "Status_Info",
+        "AppDate",
+        "CDate",
+        "Purpose_Date",
+        "PRNo",
+        "MRPNo",
+        "Approval_ghdate",
+        "Approval_Dhdate",
+        "Approval_Icdate",
+        "Approval_ProcDate"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PURC_QUOTATION",
+      "objectType": "TABLE",
+      "columns": [
+        "RFQNo",
+        "MaterialId",
+        "Quantity",
+        "inp_date",
+        "upd_date"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PURC_REG_MATCATALOG_DETAIL",
+      "objectType": "TABLE",
+      "columns": [
+        "MaterialName",
+        "AccountMaterial",
+        "MaterialId",
+        "TypeMaterial",
+        "TypeMaterialUser",
+        "StatusGudang",
+        "StatusBuyer"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PURC_REG_MATCATALOG_HED",
+      "objectType": "TABLE",
+      "columns": [
+        "Nomor",
+        "Tanggal",
+        "NamaUser",
+        "NoKryn",
+        "DepartID",
+        "StatusApprov",
+        "ApproveBy",
+        "TglApprove",
+        "KetApprove",
+        "JenisMaterial",
+        "Inp_date"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PURC_RFQ_EMAIL_LOG",
+      "objectType": "TABLE",
+      "columns": [
+        "PRNos",
+        "Status"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PURC_SPDPR",
+      "objectType": "TABLE",
+      "columns": [
+        "MaterialId",
+        "Qty"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PURC_SPDPR_HEAD",
+      "objectType": "TABLE",
+      "columns": [
+        "Nomor",
+        "DepartID",
+        "Tanggal",
+        "User_by",
+        "Inp_date",
+        "PRNo",
+        "Approve_user",
+        "TipeMaterial",
+        "Tglapp_user"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PURCH_MRP",
+      "objectType": "TABLE",
+      "columns": [
+        "MRPNo",
+        "DepartId",
+        "Requestor",
+        "MRPDate",
+        "MaterialId",
+        "Qty",
+        "Status",
+        "Status_Info",
+        "Status_By",
+        "Status_Date",
+        "Inp_date",
+        "Approval_Date",
+        "ApprovalMgr_Date",
+        "ApprovalGhFa_Date",
+        "ApprovalIc_Date",
+        "ApprovalProc_Date",
+        "ApprovalDirektur_Date",
+        "ApprovalCfo_Date",
+        "ApprovalPresdir_Date",
+        "MRPDateAkhir",
+        "TotalHargaApproved",
+        "Upd_date",
+        "Approval_ghDate",
+        "Approval_dhDate",
+        "Approval_shDate"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PURCH_MRP_MONTHLY",
+      "objectType": "TABLE",
+      "columns": [
+        "DepartID",
+        "Nov"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PURCH_MRP_NOTE",
+      "objectType": "TABLE",
+      "columns": [
+        "MRPNo",
+        "Note",
+        "DepartID"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PURCH_REQ_INCLUDE_BUDGET",
+      "objectType": "TABLE",
+      "columns": [
+        "DepartId",
+        "MaterialId",
+        "Qty",
+        "DepartPurpose",
+        "Requestor",
+        "Status",
+        "QtyAcc"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PURCH_REVENUE",
+      "objectType": "TABLE",
+      "columns": [],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PURCV_BID_COMP",
+      "objectType": "VIEW",
+      "columns": [
+        "BidNo",
+        "MaterialId",
+        "Quantity",
+        "RFQNo"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PURCV_BID_COMPARE",
+      "objectType": "VIEW",
+      "columns": [
+        "BidNo",
+        "MaterialId",
+        "Quantity",
+        "RFQNo"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PURCV_BP_PR",
+      "objectType": "VIEW",
+      "columns": [
+        "MRPNo",
+        "MaterialId",
+        "MaterialName",
+        "QTYBP",
+        "DepartId",
+        "MonthDate",
+        "status",
+        "PRReceivedDate",
+        "PRNo",
+        "NO_MR",
+        "QtyPr"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PURCV_DASH_ACT",
+      "objectType": "VIEW",
+      "columns": [
+        "BidDate",
+        "AppDate",
+        "BidNo",
+        "PRNo",
+        "QTY"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PURCV_DASH_AVG",
+      "objectType": "VIEW",
+      "columns": [
+        "PRNo",
+        "BidDate"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PURCV_DASH_GRR",
+      "objectType": "VIEW",
+      "columns": [
+        "BidDate",
+        "AppDate",
+        "BidNo",
+        "PRNo",
+        "QTY",
+        "NORES",
+        "TANGGAL"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PURCV_DETIL",
+      "objectType": "VIEW",
+      "columns": [
+        "Requestor",
+        "PRNo",
+        "PRDate",
+        "MaterialName",
+        "PRItemNo",
+        "MaterialId",
+        "Qty",
+        "ExpDeliveryDate",
+        "CancelDate",
+        "Capexno",
+        "PRReceivedDate",
+        "status",
+        "NamaDepartemen",
+        "UserId"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PURCV_DETRECEIVE",
+      "objectType": "VIEW",
+      "columns": [
+        "PONo",
+        "PRNo",
+        "TANGGAL",
+        "NOBAR",
+        "MaterialName",
+        "Materialid",
+        "duedate",
+        "status"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PURCV_GRR",
+      "objectType": "VIEW",
+      "columns": [
+        "PRNo",
+        "PRItemNo",
+        "MaterialId",
+        "MaterialName",
+        "Qty",
+        "PONo",
+        "BidNo",
+        "PODate"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PURCV_GRR_ATK",
+      "objectType": "VIEW",
+      "columns": [
+        "PRNo",
+        "PRItemNo",
+        "MaterialId",
+        "MaterialName",
+        "Qty",
+        "PONo",
+        "BidNo",
+        "PODate"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PURCV_HEAD",
+      "objectType": "VIEW",
+      "columns": [
+        "status",
+        "Requestor",
+        "PRNo",
+        "PRDate",
+        "NamaDepartemen",
+        "PRReceivedDate"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PURCV_HIST_LASTPO",
+      "objectType": "VIEW",
+      "columns": [
+        "PONo",
+        "Date",
+        "MaterialId",
+        "MaterialName",
+        "POQty"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PURCV_PO_BARANG",
+      "objectType": "VIEW",
+      "columns": [
+        "BidDate",
+        "AppDate",
+        "ETADate",
+        "BidNo",
+        "PRNo",
+        "QTY"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PURCV_PO_MAT",
+      "objectType": "VIEW",
+      "columns": [
+        "duedate",
+        "PO_Delivery_Note",
+        "UserName",
+        "PONo",
+        "BidNo",
+        "PODate",
+        "TANGGAL",
+        "PRNo",
+        "PRItemNo",
+        "Materialid",
+        "MaterialName",
+        "Quantity",
+        "STATUS"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PURCV_POSTS",
+      "objectType": "VIEW",
+      "columns": [
+        "PONo",
+        "PODate",
+        "ETADate",
+        "PRNo",
+        "MaterialId",
+        "MaterialName",
+        "POQTY",
+        "POStatus",
+        "Status",
+        "UserName"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PURCV_RFBID",
+      "objectType": "VIEW",
+      "columns": [
+        "BidNo",
+        "BidDate",
+        "MaterialId",
+        "RFQNo",
+        "Quantity",
+        "Bid_Status",
+        "PRNo",
+        "PRItemNo"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.PURCV_UNION_HIST_PO",
+      "objectType": "VIEW",
+      "columns": [
+        "PONo",
+        "PRNo",
+        "PODate",
+        "MaterialId",
+        "MaterialName",
+        "Quantity"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.TRANS1",
+      "objectType": "TABLE",
+      "columns": [
+        "NOMOR",
+        "PROJECTNO",
+        "NOBAR",
+        "NOAC",
+        "NOACM",
+        "TANGGAL",
+        "NOOP",
+        "NOBAR_LAMA",
+        "NORES",
+        "PRNo",
+        "TGL_UPDATE",
+        "UPDATE_BY",
+        "BATCH_NUMBER",
+        "BATCH_DATE",
+        "NOWO",
+        "CANCEL_NOTE",
+        "User_posting",
+        "Date_posting",
+        "noTool",
+        "noKendaraan",
+        "confirmPeminta",
+        "stsApprovedLeader",
+        "leaderApprovedBy",
+        "leaderApprovedDate"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.TRANS1_ACCESS",
+      "objectType": "TABLE",
+      "columns": [
+        "NOMOR",
+        "PROJECTNO",
+        "NOBAR",
+        "NOAC",
+        "NOACM",
+        "TANGGAL",
+        "NOOP",
+        "NOBAR_LAMA",
+        "NORES",
+        "PRNo",
+        "TGL_UPDATE",
+        "UPDATE_BY",
+        "BATCH_NUMBER",
+        "BATCH_DATE",
+        "NOWO",
+        "CANCEL_NOTE",
+        "User_posting",
+        "Date_posting"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.Transaksi_Stok",
+      "objectType": "TABLE",
+      "columns": [
+        "Tanggal",
+        "MaterialId",
+        "No_Inc",
+        "Qty",
+        "RefNo",
+        "CreatedDate",
+        "qty_rmc",
+        "qty_rcs"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.Transaksi_Stok_Brake_Assy",
+      "objectType": "TABLE",
+      "columns": [
+        "Tanggal",
+        "MaterialId",
+        "No_Inc",
+        "Qty",
+        "RefNo",
+        "CreatedDate"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.vw_trans1_Debet_gabungan",
+      "objectType": "VIEW",
+      "columns": [
+        "TANGGAL",
+        "nobar",
+        "Quantity"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.WMS_RETURN",
+      "objectType": "TABLE",
+      "columns": [
+        "RefNo",
+        "ItemNo",
+        "Materialid",
+        "CapexNo",
+        "ProjectNo",
+        "DepartAloc",
+        "WONo",
+        "WarehouseNo",
+        "Quantity",
+        "Inp_Date",
+        "Upd_Date"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    },
+    {
+      "objectName": "dbo.WMSV_MRS",
+      "objectType": "VIEW",
+      "columns": [
+        "TANGGAL",
+        "PRNo",
+        "NOBAR",
+        "MaterialName",
+        "NamaDepartemen"
+      ],
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "purchasing-name-or-column"
+      ]
+    }
+  ],
+  "missingEvidence": [
+    "validated PR header/detail pair",
+    "PR number field",
+    "material join to PURC_MATCATALOG.Materialid",
+    "quantity/date/status semantics",
+    "bounded match-rate validation"
+  ],
+  "promotion": {
+    "header": "dbo.PURC_PURCHREQUEST_HED",
+    "detail": "dbo.PRDetail",
+    "profileEvidence": 34,
+    "relationshipEvidence": 2,
+    "blockers": [
+      "quantity semantics require approved evidence",
+      "date semantics require approved evidence",
+      "status semantics require approved evidence",
+      "header/detail relationship not CONFIRMED_BY_DATA",
+      "material relationship not CONFIRMED_BY_DATA"
+    ]
+  }
+}

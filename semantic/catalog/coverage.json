@@ -1,0 +1,63 @@
+{
+  "generatedAt": "2026-10-01T04:51:14.210Z",
+  "discovered": {
+    "objects": 882,
+    "tables": 661,
+    "views": 221,
+    "columns": 10119
+  },
+  "classified": {
+    "objects": 560,
+    "unknown": 322
+  },
+  "mapped": {
+    "objects": 90,
+    "queryable": 4
+  },
+  "semantic": {
+    "entities": 10,
+    "confirmed": 10,
+    "probable": 2,
+    "unknown": 131,
+    "blocked": 0
+  },
+  "relationships": {
+    "fkConfirmed": 187,
+    "confirmedByData": 0,
+    "probable": 0,
+    "unknown": 0
+  },
+  "policy": {
+    "allowed": 266,
+    "restricted": 237,
+    "blocked": 0,
+    "unclassified": 379
+  },
+  "before": {
+    "entities": 10,
+    "queryable": 4,
+    "confirmed": 10,
+    "probable": 2,
+    "unknown": 131
+  },
+  "after": {
+    "entities": 10,
+    "queryable": 4,
+    "confirmed": 10,
+    "probable": 2,
+    "unknown": 131
+  },
+  "profiled": {
+    "objectsAttempted": 882,
+    "columnsAttempted": 10119,
+    "columnsProfiled": 7384,
+    "columnsSkipped": 2735,
+    "columnsFailed": 0
+  },
+  "queryableEntities": [
+    "customer",
+    "sales_order",
+    "inventory",
+    "material_requirement"
+  ]
+}

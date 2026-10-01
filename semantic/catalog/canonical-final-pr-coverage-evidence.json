@@ -1,0 +1,52 @@
+{
+  "generatedAt": "2026-10-01T06:15:56.956Z",
+  "developerConfirmation": {
+    "relation": "TEMP.PRNo + TEMP.MaterialId = FINAL.PRNo + FINAL.MaterialId",
+    "confidence": "CONFIRMED_BY_HUMAN",
+    "evidenceType": "APPLICATION_DEVELOPER_CONFIRMATION",
+    "finalState": "PURC_PURCHASE_REQUEST represents processed/final PR"
+  },
+  "tempBridge": {
+    "raw_temp": 16027,
+    "bridge_rows": 15777,
+    "coverage_groups": 15383,
+    "one_pr": 14998,
+    "many_pr": 385,
+    "max_pr": 3
+  },
+  "finalPrGroup": {
+    "groups": "13562",
+    "one_physical": 13522,
+    "many_physical": 40,
+    "max_physical": "6",
+    "multiple_uom_groups": 0,
+    "null_qty_groups": 1
+  },
+  "coverage": {
+    "matched_groups": "13077",
+    "groups_with_final": 13077,
+    "max_pr_per_group": 3
+  },
+  "uom": {
+    "rows": "13197",
+    "null_uom": 8,
+    "same_uom": 8462,
+    "different_uom": 4727
+  },
+  "decision": {
+    "finalPrQuantitySource": "dbo.PURC_PURCHASE_REQUEST.Qty",
+    "finalPrQuantityMeaning": "final PR quantity",
+    "finalPrAggregationSafe": false,
+    "bridgeSafe": true,
+    "fanoutControlled": true,
+    "prCreatedQuantityQueryable": false,
+    "runtimeJoinAllowed": false,
+    "nullAsZeroSafe": false,
+    "remainingQuantitySafe": false
+  },
+  "security": {
+    "rawRowsPersisted": false,
+    "databaseMutation": false,
+    "geminiInvolved": false
+  }
+}

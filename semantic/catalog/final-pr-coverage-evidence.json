@@ -1,0 +1,300 @@
+{
+  "generatedAt": "2026-10-01T06:00:46.312Z",
+  "finalPr": {
+    "schema": [
+      {
+        "column_name": "CompCode",
+        "datatype": "char",
+        "max_length": 3,
+        "precision": 0,
+        "scale": 0,
+        "is_nullable": false,
+        "is_pk": 0
+      },
+      {
+        "column_name": "PRNo",
+        "datatype": "char",
+        "max_length": 20,
+        "precision": 0,
+        "scale": 0,
+        "is_nullable": false,
+        "is_pk": 0
+      },
+      {
+        "column_name": "PRItemNo",
+        "datatype": "int",
+        "max_length": 4,
+        "precision": 10,
+        "scale": 0,
+        "is_nullable": false,
+        "is_pk": 0
+      },
+      {
+        "column_name": "MaterialId",
+        "datatype": "char",
+        "max_length": 15,
+        "precision": 0,
+        "scale": 0,
+        "is_nullable": true,
+        "is_pk": 0
+      },
+      {
+        "column_name": "Specification",
+        "datatype": "varchar",
+        "max_length": 120,
+        "precision": 0,
+        "scale": 0,
+        "is_nullable": true,
+        "is_pk": 0
+      },
+      {
+        "column_name": "MatTypeModel",
+        "datatype": "char",
+        "max_length": 30,
+        "precision": 0,
+        "scale": 0,
+        "is_nullable": true,
+        "is_pk": 0
+      },
+      {
+        "column_name": "Brand",
+        "datatype": "varchar",
+        "max_length": 20,
+        "precision": 0,
+        "scale": 0,
+        "is_nullable": true,
+        "is_pk": 0
+      },
+      {
+        "column_name": "ImportLocal",
+        "datatype": "char",
+        "max_length": 1,
+        "precision": 0,
+        "scale": 0,
+        "is_nullable": true,
+        "is_pk": 0
+      },
+      {
+        "column_name": "Purpose",
+        "datatype": "varchar",
+        "max_length": 200,
+        "precision": 0,
+        "scale": 0,
+        "is_nullable": true,
+        "is_pk": 0
+      },
+      {
+        "column_name": "Qty",
+        "datatype": "numeric",
+        "max_length": 9,
+        "precision": 10,
+        "scale": 2,
+        "is_nullable": true,
+        "is_pk": 0
+      },
+      {
+        "column_name": "UoM",
+        "datatype": "char",
+        "max_length": 10,
+        "precision": 0,
+        "scale": 0,
+        "is_nullable": true,
+        "is_pk": 0
+      },
+      {
+        "column_name": "EstUnitPrice",
+        "datatype": "numeric",
+        "max_length": 9,
+        "precision": 17,
+        "scale": 2,
+        "is_nullable": true,
+        "is_pk": 0
+      },
+      {
+        "column_name": "CurrCode",
+        "datatype": "char",
+        "max_length": 3,
+        "precision": 0,
+        "scale": 0,
+        "is_nullable": true,
+        "is_pk": 0
+      },
+      {
+        "column_name": "ExpDeliveryDate",
+        "datatype": "datetime",
+        "max_length": 8,
+        "precision": 23,
+        "scale": 3,
+        "is_nullable": true,
+        "is_pk": 0
+      },
+      {
+        "column_name": "HoldFlag",
+        "datatype": "char",
+        "max_length": 1,
+        "precision": 0,
+        "scale": 0,
+        "is_nullable": true,
+        "is_pk": 0
+      },
+      {
+        "column_name": "CancelFlag",
+        "datatype": "char",
+        "max_length": 1,
+        "precision": 0,
+        "scale": 0,
+        "is_nullable": true,
+        "is_pk": 0
+      },
+      {
+        "column_name": "HoldDate",
+        "datatype": "datetime",
+        "max_length": 8,
+        "precision": 23,
+        "scale": 3,
+        "is_nullable": true,
+        "is_pk": 0
+      },
+      {
+        "column_name": "CancelDate",
+        "datatype": "datetime",
+        "max_length": 8,
+        "precision": 23,
+        "scale": 3,
+        "is_nullable": true,
+        "is_pk": 0
+      },
+      {
+        "column_name": "HoldCancelBy",
+        "datatype": "varchar",
+        "max_length": 30,
+        "precision": 0,
+        "scale": 0,
+        "is_nullable": true,
+        "is_pk": 0
+      },
+      {
+        "column_name": "Capexno",
+        "datatype": "char",
+        "max_length": 15,
+        "precision": 0,
+        "scale": 0,
+        "is_nullable": true,
+        "is_pk": 0
+      },
+      {
+        "column_name": "PRReceivedDate",
+        "datatype": "datetime",
+        "max_length": 8,
+        "precision": 23,
+        "scale": 3,
+        "is_nullable": true,
+        "is_pk": 0
+      },
+      {
+        "column_name": "inp_date",
+        "datatype": "datetime",
+        "max_length": 8,
+        "precision": 23,
+        "scale": 3,
+        "is_nullable": true,
+        "is_pk": 0
+      },
+      {
+        "column_name": "inp_by",
+        "datatype": "char",
+        "max_length": 10,
+        "precision": 0,
+        "scale": 0,
+        "is_nullable": true,
+        "is_pk": 0
+      },
+      {
+        "column_name": "upd_date",
+        "datatype": "datetime",
+        "max_length": 8,
+        "precision": 23,
+        "scale": 3,
+        "is_nullable": true,
+        "is_pk": 0
+      },
+      {
+        "column_name": "upd_by",
+        "datatype": "char",
+        "max_length": 10,
+        "precision": 0,
+        "scale": 0,
+        "is_nullable": true,
+        "is_pk": 0
+      },
+      {
+        "column_name": "status",
+        "datatype": "int",
+        "max_length": 4,
+        "precision": 10,
+        "scale": 0,
+        "is_nullable": true,
+        "is_pk": 0
+      }
+    ],
+    "quality": {
+      "rows": "13606",
+      "qty_present": 13601,
+      "distinct_pr_item": 13563,
+      "distinct_pr_item_material": 13584,
+      "qty_null": 5
+    }
+  },
+  "tempToFinal": {
+    "coarsePrMaterial": {
+      "temp_lines": "15821",
+      "unmatched": 2505,
+      "one_match": 13314,
+      "many_match": 2,
+      "max_match": 2
+    },
+    "linePrItemMaterial": {
+      "temp_lines": "15821",
+      "unmatched": 15821,
+      "one_match": 0,
+      "many_match": 0,
+      "max_match": 0
+    }
+  },
+  "mrpToTemp": {
+    "groups": "37814",
+    "unmatched": 22872,
+    "one_match": 14519,
+    "many_match": 423,
+    "max_match": 15
+  },
+  "mrpDuplicates": {
+    "duplicate_groups": 109,
+    "rows_in_duplicate_groups": "225",
+    "max_multiplicity": "5",
+    "differing_qty_groups": 22
+  },
+  "uom": {
+    "matched_lines": "13197",
+    "same_uom": 8462,
+    "null_uom": 8,
+    "different_uom": 4727
+  },
+  "decisions": {
+    "finalPrQuantitySource": "dbo.PURC_PURCHASE_REQUEST.Qty",
+    "finalPrQuantityConfidence": "PROBABLE",
+    "tempFinalLineMappingValidated": false,
+    "coverageGrainValidated": false,
+    "fanoutControlled": false,
+    "nullAsZeroSafe": false,
+    "uomCompatible": "UNKNOWN",
+    "prCreatedQuantityQueryable": false,
+    "runtimeJoinAllowed": false,
+    "remainingQuantitySafe": false
+  },
+  "security": {
+    "rawRowsPersisted": false,
+    "databaseMutation": false,
+    "geminiInvolved": false
+  }
+}

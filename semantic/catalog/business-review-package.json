@@ -1,0 +1,24 @@
+{
+  "generatedAt": "2026-10-01T00:00:00.000Z",
+  "status": "NEEDS_DOMAIN_REVIEW",
+  "security": {
+    "rawRowsPersisted": false,
+    "databaseMutation": false
+  },
+  "groups": {
+    "MRP / Planning": [
+      "Apakah kolom Qty pada MRP menunjukkan jumlah kebutuhan material?",
+      "Apa fungsi Qty1 sampai Qty5: kebutuhan per periode, planned quantity, atau nilai lain?",
+      "Apa arti QtyPR pada MRP?",
+      "MRPDate menunjukkan tanggal dokumen, tanggal kebutuhan, atau tanggal planning?",
+      "Apa arti masing-masing nilai Status pada MRP?"
+    ],
+    "Purchasing / PR": [
+      "Apakah Dept merupakan departemen peminta atau departemen pemroses?",
+      "Apakah Requestor berisi kode/NIP user atau nama requester?",
+      "Apakah Approval_Info merupakan status approval atau catatan approval?",
+      "Apakah PRReceivedDate berarti tanggal PR diterima Procurement?",
+      "Apakah HoldDate dan CancelDate merepresentasikan status bisnis yang aktif?"
+    ]
+  }
+}

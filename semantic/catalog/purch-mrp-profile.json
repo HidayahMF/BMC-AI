@@ -1,0 +1,256 @@
+{
+  "generatedAt": "2026-10-01T03:27:03.395Z",
+  "source": {
+    "object": "dbo.PURCH_MRP",
+    "type": "TABLE",
+    "rowCount": 37947,
+    "primaryKeys": [],
+    "indexes": [],
+    "foreignKeys": []
+  },
+  "profiles": [
+    {
+      "column": "MRPNo",
+      "datatype": "varchar",
+      "nullable": "YES",
+      "maxLength": 20,
+      "precision": null,
+      "scale": null,
+      "computed": 0,
+      "status": "AVAILABLE",
+      "rowCount": 37947,
+      "nullCount": 47,
+      "distinctCount": 456,
+      "datePresence": {
+        "min23": false,
+        "max23": false,
+        "min103": false,
+        "max103": false,
+        "min112": false,
+        "max112": false
+      }
+    },
+    {
+      "column": "DepartId",
+      "datatype": "varchar",
+      "nullable": "YES",
+      "maxLength": 10,
+      "precision": null,
+      "scale": null,
+      "computed": 0,
+      "status": "AVAILABLE",
+      "rowCount": 37947,
+      "nullCount": 40,
+      "distinctCount": 12,
+      "datePresence": {
+        "min23": false,
+        "max23": false,
+        "min103": false,
+        "max103": false,
+        "min112": false,
+        "max112": false
+      }
+    },
+    {
+      "column": "MRPDate",
+      "datatype": "varchar",
+      "nullable": "YES",
+      "maxLength": 10,
+      "precision": null,
+      "scale": null,
+      "computed": 0,
+      "status": "AVAILABLE",
+      "rowCount": 37947,
+      "nullCount": 47,
+      "distinctCount": 71,
+      "parseDateCount": 1689,
+      "parseDateRate": 0.044509447387145226,
+      "datePresence": {
+        "min23": true,
+        "max23": true,
+        "min103": false,
+        "max103": false,
+        "min112": false,
+        "max112": false
+      }
+    },
+    {
+      "column": "MaterialId",
+      "datatype": "nchar",
+      "nullable": "YES",
+      "maxLength": 15,
+      "precision": null,
+      "scale": null,
+      "computed": 0,
+      "status": "AVAILABLE",
+      "rowCount": 37947,
+      "nullCount": 0,
+      "distinctCount": 7190,
+      "datePresence": {
+        "min23": false,
+        "max23": false,
+        "min103": false,
+        "max103": false,
+        "min112": false,
+        "max112": false
+      }
+    },
+    {
+      "column": "Qty",
+      "datatype": "numeric",
+      "nullable": "YES",
+      "maxLength": null,
+      "precision": 10,
+      "scale": 2,
+      "computed": 0,
+      "status": "AVAILABLE",
+      "rowCount": 37947,
+      "nullCount": 0,
+      "distinctCount": 1163,
+      "numericParseCount": 37947,
+      "numericParseRate": 1,
+      "datePresence": {
+        "min23": false,
+        "max23": false,
+        "min103": false,
+        "max103": false,
+        "min112": false,
+        "max112": false
+      }
+    },
+    {
+      "column": "Status",
+      "datatype": "int",
+      "nullable": "YES",
+      "maxLength": null,
+      "precision": 10,
+      "scale": 0,
+      "computed": 0,
+      "status": "AVAILABLE",
+      "rowCount": 37947,
+      "nullCount": 47,
+      "distinctCount": 5,
+      "numericParseCount": 37900,
+      "numericParseRate": 0.9987614304161067,
+      "datePresence": {
+        "min23": false,
+        "max23": false,
+        "min103": false,
+        "max103": false,
+        "min112": false,
+        "max112": false
+      }
+    },
+    {
+      "column": "Status_Date",
+      "datatype": "datetime",
+      "nullable": "YES",
+      "maxLength": null,
+      "precision": null,
+      "scale": null,
+      "computed": 0,
+      "status": "AVAILABLE",
+      "rowCount": 37947,
+      "nullCount": 414,
+      "distinctCount": 349,
+      "datePresence": {
+        "min23": false,
+        "max23": false,
+        "min103": false,
+        "max103": false,
+        "min112": false,
+        "max112": false
+      }
+    },
+    {
+      "column": "Tipe",
+      "datatype": "varchar",
+      "nullable": "YES",
+      "maxLength": 50,
+      "precision": null,
+      "scale": null,
+      "computed": 0,
+      "status": "AVAILABLE",
+      "rowCount": 37947,
+      "nullCount": 0,
+      "distinctCount": 2,
+      "datePresence": {
+        "min23": false,
+        "max23": false,
+        "min103": false,
+        "max103": false,
+        "min112": false,
+        "max112": false
+      }
+    }
+  ],
+  "codeEvidence": [
+    {
+      "object": "dbo.PURCV_BP_PR",
+      "type": "VIEW",
+      "operations": {
+        "select": true,
+        "insert": false,
+        "update": false,
+        "delete": false,
+        "join": true
+      },
+      "references": [
+        "QTYBP",
+        "QtyPR",
+        "MRPNo",
+        "MRPDate"
+      ]
+    },
+    {
+      "object": "dbo.FIN_DO_MONITOR",
+      "type": "SQL_INLINE_TABLE_VALUED_FUNCTION",
+      "operations": {
+        "select": true,
+        "insert": false,
+        "update": false,
+        "delete": false,
+        "join": true
+      },
+      "references": [
+        "QtyPR"
+      ]
+    }
+  ],
+  "semanticAssessment": {
+    "mrp_number": {
+      "confidence": "PROBABLE",
+      "queryable": false,
+      "reason": "Document/grouping behavior shown in PURCV_BP_PR; field semantics not independently promoted"
+    },
+    "material_code": {
+      "confidence": "PROBABLE",
+      "queryable": false,
+      "reason": "Technical identifier candidate; relationship promotion handled separately"
+    },
+    "material_description": {
+      "confidence": "UNKNOWN",
+      "queryable": false
+    },
+    "quantity": {
+      "confidence": "UNKNOWN",
+      "queryable": false,
+      "reason": "Qty is numeric but business meaning not explicitly proven"
+    },
+    "mrp_date": {
+      "confidence": "PROBABLE",
+      "queryable": false,
+      "reason": "Used as MonthDate in PURCV_BP_PR; exact business meaning unresolved"
+    },
+    "qty_pr": {
+      "confidence": "PROBABLE",
+      "queryable": false,
+      "reason": "Derived from PR-side QTY as QtyPr; coverage meaning unresolved"
+    }
+  },
+  "runtime": {
+    "entityQueryable": false,
+    "databaseMutation": false,
+    "rawRowsPersisted": false
+  }
+}

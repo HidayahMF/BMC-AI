@@ -1,0 +1,16 @@
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { join } from 'node:path';
+import { closeSqlServer, getSqlServerPool } from '../src/config/sqlserver.js';
+
+type Column = { columnName: string; datatype: string; nullable?: string };
+type ObjectRecord = { schemaName: string; objectName: string; objectType: string; columns?: Column[]; keys?: Array<{ columnName: string; constraintType: string }>; indexes?: Array<{ indexName: string; isUnique?: boolean }> };
+const root = join(process.cwd(), '..', 'semantic', 'catalog');
+const schema = JSON.parse(await readFile(join(root, 'schema.json'), 'utf8')) as { objects: ObjectRecord[]; dependencies: Array<Record<string, unknown>>; storedProcedures: Array<Record<string, unknown>> };
+const candidates = schema.objects.filter((object) => /mrp|requirement|planning|forecast|material.?need|production.?plan|schedule/i.test(`${object.objectName} ${(object.columns ?? []).map((column) => column.columnName).join(' ')}`));
+const fieldCandidates = (object: ObjectRecord) => Object.fromEntries((object.columns ?? []).filter((column) => /material|product|qty|quantity|date|period|status|request|plan|require|forecast|need/i.test(column.columnName)).map((column) => [column.columnName, { datatype: column.datatype, nullable: column.nullable ?? null }]));
+const pool = await getSqlServerPool();
+const aggregate = async (object: ObjectRecord) => { const qualified = `[${object.schemaName}].[${object.objectName.replace(/]/g, ']]')}]`; try { const row = (await pool.request().query(`SELECT COUNT_BIG(*) AS rowCount FROM ${qualified}`)).recordset[0] as { rowCount?: number }; return { status: 'AVAILABLE', rowCount: Number(row?.rowCount ?? 0) }; } catch (error) { return { status: 'UNAVAILABLE', errorCode: error instanceof Error ? error.name : 'QUERY_ERROR' }; } };
+try {
+  const report = { generatedAt: new Date().toISOString(), status: 'DISCOVERY_ONLY', queryable: false, entity: 'material_requirement', security: { rawRowsPersisted: false, databaseMutation: false, geminiInvolved: false }, candidates: await Promise.all(candidates.map(async (object) => ({ schema: object.schemaName, object: object.objectName, type: object.objectType, population: await aggregate(object), candidateRole: object.objectName.toUpperCase().includes('MRP') ? 'MRP_OR_PLANNING_CANDIDATE' : 'RELATED_PLANNING_CANDIDATE', fields: fieldCandidates(object), confidence: 'UNKNOWN', evidence: ['schema/catalog name or column pattern only; business semantics not confirmed'] }))), relationships: { material: { status: 'NOT_VALIDATED', runtimeJoinAllowed: false }, inventory: { status: 'NOT_VALIDATED', runtimeJoinAllowed: false }, purchaseRequest: { status: 'NOT_VALIDATED', runtimeJoinAllowed: false } }, blockers: ['No field-level semantic validation completed', 'MRP quantity semantics are unresolved', 'MRP-to-PR relationship is not validated', 'MRP-to-inventory relationship is not validated', 'status/date meanings are unresolved'] };
+  await mkdir(root, { recursive: true }); await writeFile(join(root, 'mrp-investigation.json'), `${JSON.stringify(report, null, 2)}\n`); console.log(JSON.stringify({ entity: report.entity, queryable: report.queryable, candidateCount: report.candidates.length, security: report.security }, null, 2));
+} finally { await closeSqlServer(); }

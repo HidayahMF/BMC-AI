@@ -1,0 +1,113 @@
+{
+  "generatedAt": "2026-10-01T04:51:14.210Z",
+  "domains": {
+    "customer": {
+      "objects": 57,
+      "mapped": 2,
+      "queryable": 0,
+      "unknown": 57
+    },
+    "sales": {
+      "objects": 29,
+      "mapped": 1,
+      "queryable": 1,
+      "unknown": 29
+    },
+    "purchasing": {
+      "objects": 155,
+      "mapped": 21,
+      "queryable": 0,
+      "unknown": 155
+    },
+    "purchase_request": {
+      "objects": 4,
+      "mapped": 1,
+      "queryable": 0,
+      "unknown": 4
+    },
+    "purchase_order": {
+      "objects": 8,
+      "mapped": 3,
+      "queryable": 0,
+      "unknown": 8
+    },
+    "inventory": {
+      "objects": 109,
+      "mapped": 1,
+      "queryable": 1,
+      "unknown": 109
+    },
+    "warehouse": {
+      "objects": 0,
+      "mapped": 0,
+      "queryable": 0,
+      "unknown": 0
+    },
+    "delivery": {
+      "objects": 14,
+      "mapped": 14,
+      "queryable": 0,
+      "unknown": 14
+    },
+    "production": {
+      "objects": 19,
+      "mapped": 19,
+      "queryable": 0,
+      "unknown": 19
+    },
+    "machine": {
+      "objects": 7,
+      "mapped": 7,
+      "queryable": 0,
+      "unknown": 7
+    },
+    "maintenance": {
+      "objects": 6,
+      "mapped": 0,
+      "queryable": 0,
+      "unknown": 6
+    },
+    "quality": {
+      "objects": 2,
+      "mapped": 0,
+      "queryable": 0,
+      "unknown": 2
+    },
+    "finance": {
+      "objects": 61,
+      "mapped": 1,
+      "queryable": 0,
+      "unknown": 61
+    },
+    "hr": {
+      "objects": 52,
+      "mapped": 0,
+      "queryable": 0,
+      "unknown": 52
+    },
+    "material": {
+      "objects": 32,
+      "mapped": 20,
+      "queryable": 0,
+      "unknown": 32
+    },
+    "supplier": {
+      "objects": 0,
+      "mapped": 0,
+      "queryable": 0,
+      "unknown": 0
+    },
+    "master_data": {
+      "objects": 5,
+      "mapped": 0,
+      "queryable": 0,
+      "unknown": 0
+    },
+    "unknown": {
+      "objects": 322,
+      "mapped": 0,
+      "queryable": 0,
+      "unknown": 322
+    }
+  }
+}

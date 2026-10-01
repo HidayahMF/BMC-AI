@@ -1,0 +1,1984 @@
+{
+  "generatedAt": "2026-10-01T03:11:07.804Z",
+  "security": {
+    "rawRowsPersisted": false,
+    "databaseMutation": false,
+    "geminiInvolved": false
+  },
+  "objects": [
+    {
+      "schema": "dbo",
+      "object": "MRP",
+      "type": "TABLE",
+      "metadata": {
+        "status": "AVAILABLE",
+        "objectId": 930870433,
+        "type": "USER_TABLE"
+      },
+      "columns": [
+        {
+          "schemaName": "dbo",
+          "objectName": "MRP",
+          "columnName": "MRPNo",
+          "datatype": "nchar",
+          "maxLength": 20,
+          "precision": null,
+          "scale": null,
+          "nullable": "NO",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "MRP",
+          "columnName": "MRPDate",
+          "datatype": "varchar",
+          "maxLength": 50,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "MRP",
+          "columnName": "MaterialId",
+          "datatype": "nchar",
+          "maxLength": 10,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "MRP",
+          "columnName": "Qty1",
+          "datatype": "nchar",
+          "maxLength": 10,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "MRP",
+          "columnName": "Qty2",
+          "datatype": "nchar",
+          "maxLength": 10,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "MRP",
+          "columnName": "Qty3",
+          "datatype": "nchar",
+          "maxLength": 10,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "MRP",
+          "columnName": "Qty4",
+          "datatype": "nchar",
+          "maxLength": 10,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "MRP",
+          "columnName": "Qty5",
+          "datatype": "nchar",
+          "maxLength": 10,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "MRP",
+          "columnName": "Qty",
+          "datatype": "nchar",
+          "maxLength": 10,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "MRP",
+          "columnName": "QtyPR",
+          "datatype": "nchar",
+          "maxLength": 10,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "MRP",
+          "columnName": "Status",
+          "datatype": "int",
+          "maxLength": null,
+          "precision": 10,
+          "scale": 0,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "MRP",
+          "columnName": "Status_info",
+          "datatype": "nchar",
+          "maxLength": 30,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "MRP",
+          "columnName": "Status_Date",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "MRP",
+          "columnName": "Inp_Date",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "MRP",
+          "columnName": "Approval_Date",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "MRP",
+          "columnName": "ApprovalGh_Date",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "MRP",
+          "columnName": "ApprovalDh_Date",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "MRP",
+          "columnName": "ApprovalIc_Date",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "MRP",
+          "columnName": "ApprovalProc_Date",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "MRP",
+          "columnName": "ApprovalFin_Date",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "MRP",
+          "columnName": "ApprovalDirektur_Date",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "MRP",
+          "columnName": "ApprovalPresDir_Date",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        }
+      ],
+      "primaryKeys": [],
+      "indexes": [],
+      "aggregates": [
+        {
+          "object": "dbo.MRP",
+          "column": "MRPNo",
+          "datatype": "nchar",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 3,
+            "nullCount": 0,
+            "distinctCount": 1
+          }
+        },
+        {
+          "object": "dbo.MRP",
+          "column": "MRPDate",
+          "datatype": "varchar",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 3,
+            "nullCount": 0,
+            "distinctCount": 1,
+            "parseableDateCount": 3
+          }
+        },
+        {
+          "object": "dbo.MRP",
+          "column": "MaterialId",
+          "datatype": "nchar",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 3,
+            "nullCount": 0,
+            "distinctCount": 3
+          }
+        },
+        {
+          "object": "dbo.MRP",
+          "column": "Qty1",
+          "datatype": "nchar",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 3,
+            "nullCount": 0,
+            "distinctCount": 1
+          }
+        },
+        {
+          "object": "dbo.MRP",
+          "column": "Qty2",
+          "datatype": "nchar",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 3,
+            "nullCount": 0,
+            "distinctCount": 1
+          }
+        },
+        {
+          "object": "dbo.MRP",
+          "column": "Qty3",
+          "datatype": "nchar",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 3,
+            "nullCount": 0,
+            "distinctCount": 1
+          }
+        },
+        {
+          "object": "dbo.MRP",
+          "column": "Qty4",
+          "datatype": "nchar",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 3,
+            "nullCount": 0,
+            "distinctCount": 1
+          }
+        },
+        {
+          "object": "dbo.MRP",
+          "column": "Qty5",
+          "datatype": "nchar",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 3,
+            "nullCount": 0,
+            "distinctCount": 1
+          }
+        },
+        {
+          "object": "dbo.MRP",
+          "column": "Qty",
+          "datatype": "nchar",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 3,
+            "nullCount": 0,
+            "distinctCount": 1
+          }
+        },
+        {
+          "object": "dbo.MRP",
+          "column": "QtyPR",
+          "datatype": "nchar",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 3,
+            "nullCount": 0,
+            "distinctCount": 2
+          }
+        },
+        {
+          "object": "dbo.MRP",
+          "column": "Status",
+          "datatype": "int",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 3,
+            "nullCount": 3,
+            "distinctCount": 0,
+            "minValuePresent": false,
+            "maxValuePresent": false
+          }
+        },
+        {
+          "object": "dbo.MRP",
+          "column": "Status_info",
+          "datatype": "nchar",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 3,
+            "nullCount": 3,
+            "distinctCount": 0
+          }
+        },
+        {
+          "object": "dbo.MRP",
+          "column": "Status_Date",
+          "datatype": "datetime",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 3,
+            "nullCount": 3,
+            "distinctCount": 0,
+            "minDatePresent": false,
+            "maxDatePresent": false
+          }
+        },
+        {
+          "object": "dbo.MRP",
+          "column": "Inp_Date",
+          "datatype": "datetime",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 3,
+            "nullCount": 3,
+            "distinctCount": 0,
+            "minDatePresent": false,
+            "maxDatePresent": false
+          }
+        },
+        {
+          "object": "dbo.MRP",
+          "column": "Approval_Date",
+          "datatype": "datetime",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 3,
+            "nullCount": 3,
+            "distinctCount": 0,
+            "minDatePresent": false,
+            "maxDatePresent": false
+          }
+        },
+        {
+          "object": "dbo.MRP",
+          "column": "ApprovalGh_Date",
+          "datatype": "datetime",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 3,
+            "nullCount": 3,
+            "distinctCount": 0,
+            "minDatePresent": false,
+            "maxDatePresent": false
+          }
+        },
+        {
+          "object": "dbo.MRP",
+          "column": "ApprovalDh_Date",
+          "datatype": "datetime",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 3,
+            "nullCount": 0,
+            "distinctCount": 1,
+            "minDatePresent": true,
+            "maxDatePresent": true
+          }
+        },
+        {
+          "object": "dbo.MRP",
+          "column": "ApprovalIc_Date",
+          "datatype": "datetime",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 3,
+            "nullCount": 0,
+            "distinctCount": 1,
+            "minDatePresent": true,
+            "maxDatePresent": true
+          }
+        },
+        {
+          "object": "dbo.MRP",
+          "column": "ApprovalProc_Date",
+          "datatype": "datetime",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 3,
+            "nullCount": 3,
+            "distinctCount": 0,
+            "minDatePresent": false,
+            "maxDatePresent": false
+          }
+        },
+        {
+          "object": "dbo.MRP",
+          "column": "ApprovalFin_Date",
+          "datatype": "datetime",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 3,
+            "nullCount": 3,
+            "distinctCount": 0,
+            "minDatePresent": false,
+            "maxDatePresent": false
+          }
+        },
+        {
+          "object": "dbo.MRP",
+          "column": "ApprovalDirektur_Date",
+          "datatype": "datetime",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 3,
+            "nullCount": 3,
+            "distinctCount": 0,
+            "minDatePresent": false,
+            "maxDatePresent": false
+          }
+        },
+        {
+          "object": "dbo.MRP",
+          "column": "ApprovalPresDir_Date",
+          "datatype": "datetime",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 3,
+            "nullCount": 3,
+            "distinctCount": 0,
+            "minDatePresent": false,
+            "maxDatePresent": false
+          }
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "object": "MRP_TMP",
+      "type": "TABLE",
+      "metadata": {
+        "status": "AVAILABLE",
+        "objectId": 946870490,
+        "type": "USER_TABLE"
+      },
+      "columns": [
+        {
+          "schemaName": "dbo",
+          "objectName": "MRP_TMP",
+          "columnName": "MRPNo",
+          "datatype": "nchar",
+          "maxLength": 20,
+          "precision": null,
+          "scale": null,
+          "nullable": "NO",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "MRP_TMP",
+          "columnName": "MRPDate",
+          "datatype": "varchar",
+          "maxLength": 50,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "MRP_TMP",
+          "columnName": "MaterialId",
+          "datatype": "nchar",
+          "maxLength": 10,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "MRP_TMP",
+          "columnName": "Qty1",
+          "datatype": "nchar",
+          "maxLength": 10,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "MRP_TMP",
+          "columnName": "Qty2",
+          "datatype": "nchar",
+          "maxLength": 10,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "MRP_TMP",
+          "columnName": "Qty3",
+          "datatype": "nchar",
+          "maxLength": 10,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "MRP_TMP",
+          "columnName": "Qty4",
+          "datatype": "nchar",
+          "maxLength": 10,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "MRP_TMP",
+          "columnName": "Qty5",
+          "datatype": "nchar",
+          "maxLength": 10,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "MRP_TMP",
+          "columnName": "Qty",
+          "datatype": "nchar",
+          "maxLength": 10,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "MRP_TMP",
+          "columnName": "QtyPR",
+          "datatype": "nchar",
+          "maxLength": 10,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "MRP_TMP",
+          "columnName": "Status",
+          "datatype": "int",
+          "maxLength": null,
+          "precision": 10,
+          "scale": 0,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "MRP_TMP",
+          "columnName": "Status_info",
+          "datatype": "nchar",
+          "maxLength": 30,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "MRP_TMP",
+          "columnName": "Status_Date",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "MRP_TMP",
+          "columnName": "Inp_Date",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "MRP_TMP",
+          "columnName": "Approval_Date",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "MRP_TMP",
+          "columnName": "ApprovalGh_Date",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "MRP_TMP",
+          "columnName": "ApprovalDh_Date",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "MRP_TMP",
+          "columnName": "ApprovalIc_Date",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "MRP_TMP",
+          "columnName": "ApprovalProc_Date",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "MRP_TMP",
+          "columnName": "ApprovalFin_Date",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "MRP_TMP",
+          "columnName": "ApprovalDirektur_Date",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "MRP_TMP",
+          "columnName": "ApprovalPresDir_Date",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        }
+      ],
+      "primaryKeys": [],
+      "indexes": [],
+      "aggregates": [
+        {
+          "object": "dbo.MRP_TMP",
+          "column": "MRPNo",
+          "datatype": "nchar",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 3,
+            "nullCount": 0,
+            "distinctCount": 3
+          }
+        },
+        {
+          "object": "dbo.MRP_TMP",
+          "column": "MRPDate",
+          "datatype": "varchar",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 3,
+            "nullCount": 0,
+            "distinctCount": 2,
+            "parseableDateCount": 3
+          }
+        },
+        {
+          "object": "dbo.MRP_TMP",
+          "column": "MaterialId",
+          "datatype": "nchar",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 3,
+            "nullCount": 0,
+            "distinctCount": 2
+          }
+        },
+        {
+          "object": "dbo.MRP_TMP",
+          "column": "Qty1",
+          "datatype": "nchar",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 3,
+            "nullCount": 0,
+            "distinctCount": 3
+          }
+        },
+        {
+          "object": "dbo.MRP_TMP",
+          "column": "Qty2",
+          "datatype": "nchar",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 3,
+            "nullCount": 0,
+            "distinctCount": 2
+          }
+        },
+        {
+          "object": "dbo.MRP_TMP",
+          "column": "Qty3",
+          "datatype": "nchar",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 3,
+            "nullCount": 0,
+            "distinctCount": 3
+          }
+        },
+        {
+          "object": "dbo.MRP_TMP",
+          "column": "Qty4",
+          "datatype": "nchar",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 3,
+            "nullCount": 0,
+            "distinctCount": 3
+          }
+        },
+        {
+          "object": "dbo.MRP_TMP",
+          "column": "Qty5",
+          "datatype": "nchar",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 3,
+            "nullCount": 0,
+            "distinctCount": 2
+          }
+        },
+        {
+          "object": "dbo.MRP_TMP",
+          "column": "Qty",
+          "datatype": "nchar",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 3,
+            "nullCount": 0,
+            "distinctCount": 3
+          }
+        },
+        {
+          "object": "dbo.MRP_TMP",
+          "column": "QtyPR",
+          "datatype": "nchar",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 3,
+            "nullCount": 0,
+            "distinctCount": 1
+          }
+        },
+        {
+          "object": "dbo.MRP_TMP",
+          "column": "Status",
+          "datatype": "int",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 3,
+            "nullCount": 3,
+            "distinctCount": 0,
+            "minValuePresent": false,
+            "maxValuePresent": false
+          }
+        },
+        {
+          "object": "dbo.MRP_TMP",
+          "column": "Status_info",
+          "datatype": "nchar",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 3,
+            "nullCount": 3,
+            "distinctCount": 0
+          }
+        },
+        {
+          "object": "dbo.MRP_TMP",
+          "column": "Status_Date",
+          "datatype": "datetime",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 3,
+            "nullCount": 3,
+            "distinctCount": 0,
+            "minDatePresent": false,
+            "maxDatePresent": false
+          }
+        },
+        {
+          "object": "dbo.MRP_TMP",
+          "column": "Inp_Date",
+          "datatype": "datetime",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 3,
+            "nullCount": 3,
+            "distinctCount": 0,
+            "minDatePresent": false,
+            "maxDatePresent": false
+          }
+        },
+        {
+          "object": "dbo.MRP_TMP",
+          "column": "Approval_Date",
+          "datatype": "datetime",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 3,
+            "nullCount": 3,
+            "distinctCount": 0,
+            "minDatePresent": false,
+            "maxDatePresent": false
+          }
+        },
+        {
+          "object": "dbo.MRP_TMP",
+          "column": "ApprovalGh_Date",
+          "datatype": "datetime",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 3,
+            "nullCount": 3,
+            "distinctCount": 0,
+            "minDatePresent": false,
+            "maxDatePresent": false
+          }
+        },
+        {
+          "object": "dbo.MRP_TMP",
+          "column": "ApprovalDh_Date",
+          "datatype": "datetime",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 3,
+            "nullCount": 3,
+            "distinctCount": 0,
+            "minDatePresent": false,
+            "maxDatePresent": false
+          }
+        },
+        {
+          "object": "dbo.MRP_TMP",
+          "column": "ApprovalIc_Date",
+          "datatype": "datetime",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 3,
+            "nullCount": 3,
+            "distinctCount": 0,
+            "minDatePresent": false,
+            "maxDatePresent": false
+          }
+        },
+        {
+          "object": "dbo.MRP_TMP",
+          "column": "ApprovalProc_Date",
+          "datatype": "datetime",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 3,
+            "nullCount": 3,
+            "distinctCount": 0,
+            "minDatePresent": false,
+            "maxDatePresent": false
+          }
+        },
+        {
+          "object": "dbo.MRP_TMP",
+          "column": "ApprovalFin_Date",
+          "datatype": "datetime",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 3,
+            "nullCount": 3,
+            "distinctCount": 0,
+            "minDatePresent": false,
+            "maxDatePresent": false
+          }
+        },
+        {
+          "object": "dbo.MRP_TMP",
+          "column": "ApprovalDirektur_Date",
+          "datatype": "datetime",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 3,
+            "nullCount": 3,
+            "distinctCount": 0,
+            "minDatePresent": false,
+            "maxDatePresent": false
+          }
+        },
+        {
+          "object": "dbo.MRP_TMP",
+          "column": "ApprovalPresDir_Date",
+          "datatype": "datetime",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 3,
+            "nullCount": 3,
+            "distinctCount": 0,
+            "minDatePresent": false,
+            "maxDatePresent": false
+          }
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "object": "PURCH_MRP",
+      "type": "TABLE",
+      "metadata": {
+        "status": "AVAILABLE",
+        "objectId": 31391231,
+        "type": "USER_TABLE"
+      },
+      "columns": [
+        {
+          "schemaName": "dbo",
+          "objectName": "PURCH_MRP",
+          "columnName": "MRPNo",
+          "datatype": "varchar",
+          "maxLength": 20,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURCH_MRP",
+          "columnName": "MRPDate",
+          "datatype": "varchar",
+          "maxLength": 10,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURCH_MRP",
+          "columnName": "MaterialId",
+          "datatype": "nchar",
+          "maxLength": 15,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURCH_MRP",
+          "columnName": "Qty",
+          "datatype": "numeric",
+          "maxLength": null,
+          "precision": 10,
+          "scale": 2,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURCH_MRP",
+          "columnName": "Status",
+          "datatype": "int",
+          "maxLength": null,
+          "precision": 10,
+          "scale": 0,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURCH_MRP",
+          "columnName": "Status_Info",
+          "datatype": "varchar",
+          "maxLength": 120,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURCH_MRP",
+          "columnName": "Status_Date",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURCH_MRP",
+          "columnName": "Inp_date",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURCH_MRP",
+          "columnName": "Approval_Date",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURCH_MRP",
+          "columnName": "ApprovalMgr_Date",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURCH_MRP",
+          "columnName": "ApprovalGhFa_Date",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURCH_MRP",
+          "columnName": "ApprovalIc_Date",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURCH_MRP",
+          "columnName": "ApprovalProc_Date",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURCH_MRP",
+          "columnName": "ApprovalDirektur_Date",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURCH_MRP",
+          "columnName": "ApprovalCfo_Date",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURCH_MRP",
+          "columnName": "ApprovalPresdir_Date",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURCH_MRP",
+          "columnName": "Upd_date",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURCH_MRP",
+          "columnName": "Approval_ghDate",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURCH_MRP",
+          "columnName": "Approval_dhDate",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURCH_MRP",
+          "columnName": "Approval_shDate",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        }
+      ],
+      "primaryKeys": [],
+      "indexes": [],
+      "aggregates": [
+        {
+          "object": "dbo.PURCH_MRP",
+          "column": "MRPNo",
+          "datatype": "varchar",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 37947,
+            "nullCount": 47,
+            "distinctCount": 456
+          }
+        },
+        {
+          "object": "dbo.PURCH_MRP",
+          "column": "MRPDate",
+          "datatype": "varchar",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 37947,
+            "nullCount": 47,
+            "distinctCount": 71,
+            "parseableDateCount": 1689
+          }
+        },
+        {
+          "object": "dbo.PURCH_MRP",
+          "column": "MaterialId",
+          "datatype": "nchar",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 37947,
+            "nullCount": 0,
+            "distinctCount": 7190
+          }
+        },
+        {
+          "object": "dbo.PURCH_MRP",
+          "column": "Qty",
+          "datatype": "numeric",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 37947,
+            "nullCount": 0,
+            "distinctCount": 1163,
+            "minValuePresent": true,
+            "maxValuePresent": true
+          }
+        },
+        {
+          "object": "dbo.PURCH_MRP",
+          "column": "Status",
+          "datatype": "int",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 37947,
+            "nullCount": 47,
+            "distinctCount": 5,
+            "minValuePresent": true,
+            "maxValuePresent": true
+          }
+        },
+        {
+          "object": "dbo.PURCH_MRP",
+          "column": "Status_Info",
+          "datatype": "varchar",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 37947,
+            "nullCount": 47,
+            "distinctCount": 12
+          }
+        },
+        {
+          "object": "dbo.PURCH_MRP",
+          "column": "Status_Date",
+          "datatype": "datetime",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 37947,
+            "nullCount": 414,
+            "distinctCount": 349,
+            "minDatePresent": true,
+            "maxDatePresent": true
+          }
+        },
+        {
+          "object": "dbo.PURCH_MRP",
+          "column": "Inp_date",
+          "datatype": "datetime",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 37947,
+            "nullCount": 0,
+            "distinctCount": 13865,
+            "minDatePresent": true,
+            "maxDatePresent": true
+          }
+        },
+        {
+          "object": "dbo.PURCH_MRP",
+          "column": "Approval_Date",
+          "datatype": "datetime",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 37947,
+            "nullCount": 413,
+            "distinctCount": 350,
+            "minDatePresent": true,
+            "maxDatePresent": true
+          }
+        },
+        {
+          "object": "dbo.PURCH_MRP",
+          "column": "ApprovalMgr_Date",
+          "datatype": "datetime",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 37947,
+            "nullCount": 3977,
+            "distinctCount": 307,
+            "minDatePresent": true,
+            "maxDatePresent": true
+          }
+        },
+        {
+          "object": "dbo.PURCH_MRP",
+          "column": "ApprovalGhFa_Date",
+          "datatype": "datetime",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 37947,
+            "nullCount": 3323,
+            "distinctCount": 160,
+            "minDatePresent": true,
+            "maxDatePresent": true
+          }
+        },
+        {
+          "object": "dbo.PURCH_MRP",
+          "column": "ApprovalIc_Date",
+          "datatype": "datetime",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 37947,
+            "nullCount": 3143,
+            "distinctCount": 280,
+            "minDatePresent": true,
+            "maxDatePresent": true
+          }
+        },
+        {
+          "object": "dbo.PURCH_MRP",
+          "column": "ApprovalProc_Date",
+          "datatype": "datetime",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 37947,
+            "nullCount": 5070,
+            "distinctCount": 262,
+            "minDatePresent": true,
+            "maxDatePresent": true
+          }
+        },
+        {
+          "object": "dbo.PURCH_MRP",
+          "column": "ApprovalDirektur_Date",
+          "datatype": "datetime",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 37947,
+            "nullCount": 36639,
+            "distinctCount": 10,
+            "minDatePresent": true,
+            "maxDatePresent": true
+          }
+        },
+        {
+          "object": "dbo.PURCH_MRP",
+          "column": "ApprovalCfo_Date",
+          "datatype": "datetime",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 37947,
+            "nullCount": 6621,
+            "distinctCount": 167,
+            "minDatePresent": true,
+            "maxDatePresent": true
+          }
+        },
+        {
+          "object": "dbo.PURCH_MRP",
+          "column": "ApprovalPresdir_Date",
+          "datatype": "datetime",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 37947,
+            "nullCount": 36639,
+            "distinctCount": 10,
+            "minDatePresent": true,
+            "maxDatePresent": true
+          }
+        },
+        {
+          "object": "dbo.PURCH_MRP",
+          "column": "Upd_date",
+          "datatype": "datetime",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 37947,
+            "nullCount": 37913,
+            "distinctCount": 3,
+            "minDatePresent": true,
+            "maxDatePresent": true
+          }
+        },
+        {
+          "object": "dbo.PURCH_MRP",
+          "column": "Approval_ghDate",
+          "datatype": "datetime",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 37947,
+            "nullCount": 37942,
+            "distinctCount": 1,
+            "minDatePresent": true,
+            "maxDatePresent": true
+          }
+        },
+        {
+          "object": "dbo.PURCH_MRP",
+          "column": "Approval_dhDate",
+          "datatype": "datetime",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 37947,
+            "nullCount": 37908,
+            "distinctCount": 3,
+            "minDatePresent": true,
+            "maxDatePresent": true
+          }
+        },
+        {
+          "object": "dbo.PURCH_MRP",
+          "column": "Approval_shDate",
+          "datatype": "datetime",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 37947,
+            "nullCount": 31545,
+            "distinctCount": 46,
+            "minDatePresent": true,
+            "maxDatePresent": true
+          }
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "object": "PURCH_MRP_MONTHLY",
+      "type": "TABLE",
+      "metadata": {
+        "status": "AVAILABLE",
+        "objectId": 2050874423,
+        "type": "USER_TABLE"
+      },
+      "columns": [],
+      "primaryKeys": [],
+      "indexes": [],
+      "aggregates": []
+    },
+    {
+      "schema": "dbo",
+      "object": "PURCH_MRP_NOTE",
+      "type": "TABLE",
+      "metadata": {
+        "status": "AVAILABLE",
+        "objectId": 1058870889,
+        "type": "USER_TABLE"
+      },
+      "columns": [
+        {
+          "schemaName": "dbo",
+          "objectName": "PURCH_MRP_NOTE",
+          "columnName": "MRPNo",
+          "datatype": "varchar",
+          "maxLength": 20,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        }
+      ],
+      "primaryKeys": [
+        "Id"
+      ],
+      "indexes": [
+        {
+          "schemaName": "dbo",
+          "objectName": "PURCH_MRP_NOTE",
+          "indexName": "PK_PURCH_MRP_NOTE",
+          "isUnique": true,
+          "indexType": "CLUSTERED"
+        }
+      ],
+      "aggregates": [
+        {
+          "object": "dbo.PURCH_MRP_NOTE",
+          "column": "MRPNo",
+          "datatype": "varchar",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 736,
+            "nullCount": 317,
+            "distinctCount": 379
+          }
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "object": "PURCH_MRP_OVERTIME",
+      "type": "TABLE",
+      "metadata": {
+        "status": "AVAILABLE",
+        "objectId": 279060130,
+        "type": "USER_TABLE"
+      },
+      "columns": [
+        {
+          "schemaName": "dbo",
+          "objectName": "PURCH_MRP_OVERTIME",
+          "columnName": "created_date",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURCH_MRP_OVERTIME",
+          "columnName": "app1_date",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURCH_MRP_OVERTIME",
+          "columnName": "app2_date",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURCH_MRP_OVERTIME",
+          "columnName": "app3_date",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        }
+      ],
+      "primaryKeys": [
+        "id_budget"
+      ],
+      "indexes": [
+        {
+          "schemaName": "dbo",
+          "objectName": "PURCH_MRP_OVERTIME",
+          "indexName": "PK__PURCH_MR__A3E40F3C215CCE77",
+          "isUnique": true,
+          "indexType": "CLUSTERED"
+        }
+      ],
+      "aggregates": [
+        {
+          "object": "dbo.PURCH_MRP_OVERTIME",
+          "column": "created_date",
+          "datatype": "datetime",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 23,
+            "nullCount": 0,
+            "distinctCount": 5,
+            "minDatePresent": true,
+            "maxDatePresent": true
+          }
+        },
+        {
+          "object": "dbo.PURCH_MRP_OVERTIME",
+          "column": "app1_date",
+          "datatype": "datetime",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 23,
+            "nullCount": 23,
+            "distinctCount": 0,
+            "minDatePresent": false,
+            "maxDatePresent": false
+          }
+        },
+        {
+          "object": "dbo.PURCH_MRP_OVERTIME",
+          "column": "app2_date",
+          "datatype": "datetime",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 23,
+            "nullCount": 23,
+            "distinctCount": 0,
+            "minDatePresent": false,
+            "maxDatePresent": false
+          }
+        },
+        {
+          "object": "dbo.PURCH_MRP_OVERTIME",
+          "column": "app3_date",
+          "datatype": "datetime",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 23,
+            "nullCount": 23,
+            "distinctCount": 0,
+            "minDatePresent": false,
+            "maxDatePresent": false
+          }
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "object": "PURCH_MRP_OVERTIMEHEAD",
+      "type": "TABLE",
+      "metadata": {
+        "status": "AVAILABLE",
+        "objectId": 1813685609,
+        "type": "USER_TABLE"
+      },
+      "columns": [],
+      "primaryKeys": [
+        "ID"
+      ],
+      "indexes": [
+        {
+          "schemaName": "dbo",
+          "objectName": "PURCH_MRP_OVERTIMEHEAD",
+          "indexName": "PK__PURCH_MR__3214EC27BCBF56D7",
+          "isUnique": true,
+          "indexType": "CLUSTERED"
+        }
+      ],
+      "aggregates": []
+    },
+    {
+      "schema": "dbo",
+      "object": "PURCH_MRP_TOTAL_GROUPNAME",
+      "type": "TABLE",
+      "metadata": {
+        "status": "AVAILABLE",
+        "objectId": 1858873739,
+        "type": "USER_TABLE"
+      },
+      "columns": [
+        {
+          "schemaName": "dbo",
+          "objectName": "PURCH_MRP_TOTAL_GROUPNAME",
+          "columnName": "MRPNo",
+          "datatype": "varchar",
+          "maxLength": 20,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        }
+      ],
+      "primaryKeys": [],
+      "indexes": [],
+      "aggregates": [
+        {
+          "object": "dbo.PURCH_MRP_TOTAL_GROUPNAME",
+          "column": "MRPNo",
+          "datatype": "varchar",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 2929,
+            "nullCount": 0,
+            "distinctCount": 319
+          }
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "object": "PURCH_MRP_YEAR",
+      "type": "TABLE",
+      "metadata": {
+        "status": "AVAILABLE",
+        "objectId": 1394872086,
+        "type": "USER_TABLE"
+      },
+      "columns": [],
+      "primaryKeys": [],
+      "indexes": [],
+      "aggregates": []
+    },
+    {
+      "schema": "dbo",
+      "object": "forecast",
+      "type": "TABLE",
+      "metadata": {
+        "status": "AVAILABLE",
+        "objectId": 170535741,
+        "type": "USER_TABLE"
+      },
+      "columns": [
+        {
+          "schemaName": "dbo",
+          "objectName": "forecast",
+          "columnName": "QTY",
+          "datatype": "int",
+          "maxLength": null,
+          "precision": 10,
+          "scale": 0,
+          "nullable": "YES",
+          "computed": 0
+        }
+      ],
+      "primaryKeys": [
+        "ID"
+      ],
+      "indexes": [
+        {
+          "schemaName": "dbo",
+          "objectName": "forecast",
+          "indexName": "PK__forecast__3214EC276ED908AF",
+          "isUnique": true,
+          "indexType": "CLUSTERED"
+        }
+      ],
+      "aggregates": [
+        {
+          "object": "dbo.forecast",
+          "column": "QTY",
+          "datatype": "int",
+          "status": "AVAILABLE",
+          "aggregates": {
+            "rowCount": 30,
+            "nullCount": 0,
+            "distinctCount": 16,
+            "minValuePresent": true,
+            "maxValuePresent": true
+          }
+        }
+      ]
+    }
+  ],
+  "codeEvidence": [
+    {
+      "objectName": "PURCV_BP_PR",
+      "type": "VIEW",
+      "references": [
+        "MRP",
+        "QtyPR",
+        "PURC_PURCHREQUEST_TEMP",
+        "PURC_PURCHASE_REQUEST"
+      ]
+    },
+    {
+      "objectName": "PO_JOIN_ACCESS",
+      "type": "VIEW",
+      "references": [
+        "PURC_PURCHASE_REQUEST"
+      ]
+    },
+    {
+      "objectName": "PURCV_AVG",
+      "type": "VIEW",
+      "references": [
+        "PURC_PURCHASE_REQUEST"
+      ]
+    },
+    {
+      "objectName": "PURCV_DETIL",
+      "type": "VIEW",
+      "references": [
+        "PURC_PURCHASE_REQUEST",
+        "Dept",
+        "Requestor"
+      ]
+    },
+    {
+      "objectName": "PURCV_GRR",
+      "type": "VIEW",
+      "references": [
+        "PURC_PURCHASE_REQUEST"
+      ]
+    },
+    {
+      "objectName": "PURCV_GRR_ATK",
+      "type": "VIEW",
+      "references": [
+        "PURC_PURCHASE_REQUEST"
+      ]
+    },
+    {
+      "objectName": "PURCV_HEAD",
+      "type": "VIEW",
+      "references": [
+        "PURC_PURCHASE_REQUEST",
+        "Dept",
+        "Requestor"
+      ]
+    },
+    {
+      "objectName": "PURCV_OUT_MR",
+      "type": "VIEW",
+      "references": [
+        "PURC_PURCHASE_REQUEST"
+      ]
+    }
+  ],
+  "relationships": {
+    "mrpToMaterial": [
+      {
+        "target": "dbo.MAS_MAPPINGMATERIAL.MaterialId",
+        "status": "AVAILABLE",
+        "sampled": 3,
+        "matched": 0,
+        "unmatched": 3,
+        "matchRate": 0,
+        "confidence": "PROBABLE"
+      },
+      {
+        "target": "dbo.PURC_MATCATALOG.MaterialId",
+        "status": "AVAILABLE",
+        "sampled": 3,
+        "matched": 0,
+        "unmatched": 3,
+        "matchRate": 0,
+        "confidence": "PROBABLE"
+      },
+      {
+        "target": "dbo.PURC_MATCATALOG_TEMP.MaterialId",
+        "status": "AVAILABLE",
+        "sampled": 3,
+        "matched": 0,
+        "unmatched": 3,
+        "matchRate": 0,
+        "confidence": "PROBABLE"
+      },
+      {
+        "target": "dbo.MAS_MATERIAL.MaterialId",
+        "status": "ERROR",
+        "error": {
+          "object": "dbo.MAS_MATERIAL",
+          "column": "MaterialId",
+          "errorNumber": 207,
+          "errorCode": "EREQUEST",
+          "errorClass": 16,
+          "errorState": 1,
+          "errorName": "RequestError",
+          "errorMessageClass": "Invalid column name 'MaterialId'."
+        }
+      }
+    ],
+    "mrpToInventory": {
+      "status": "NOT_VALIDATED",
+      "runtimeJoinAllowed": false
+    },
+    "mrpToPurchaseRequest": {
+      "status": "NOT_VALIDATED",
+      "runtimeJoinAllowed": false
+    }
+  },
+  "promotion": {
+    "entity": "material_requirement",
+    "queryable": false,
+    "blockers": [
+      "Quantity semantics unresolved",
+      "MRPDate varchar/date meaning unresolved",
+      "Status meaning unresolved",
+      "MRP-to-PR relationship unresolved",
+      "MRP-to-inventory relationship unresolved"
+    ]
+  }
+}

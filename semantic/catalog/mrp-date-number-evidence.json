@@ -1,0 +1,71 @@
+{
+  "generatedAt": "2026-10-01T03:55:03.371Z",
+  "source": "dbo.PURCH_MRP",
+  "datePatterns": [
+    {
+      "pattern": "OTHER",
+      "rowCount": 36211
+    },
+    {
+      "pattern": "NNNN-NN-NN",
+      "rowCount": 1689
+    },
+    {
+      "pattern": "NULL",
+      "rowCount": 47
+    }
+  ],
+  "mrpNoGrouping": {
+    "documentCount": 456,
+    "minRows": 1,
+    "maxRows": 696,
+    "averageRows": 83.1140350877193,
+    "singleRowDocuments": 65,
+    "multiRowDocuments": 391
+  },
+  "nullMrpNoContext": {
+    "rows": 47,
+    "distinctTipe": 2,
+    "nullStatus": 47,
+    "nullMrpDate": 47,
+    "distinctDepartments": 1
+  },
+  "codeEvidence": [
+    {
+      "object": "PURCV_BP_PR",
+      "type": "VIEW",
+      "operations": {
+        "select": true,
+        "where": true,
+        "groupBy": true,
+        "orderBy": false,
+        "convert": false,
+        "cast": true,
+        "datePart": false
+      },
+      "contextCount": 13
+    }
+  ],
+  "decisions": {
+    "mrpNumber": {
+      "meaning": "business document/group identifier candidate",
+      "confidence": "PROBABLE",
+      "queryable": false
+    },
+    "mrpDate": {
+      "meaning": "UNRESOLVED_DATE_OR_PERIOD",
+      "semanticField": null,
+      "confidence": "UNKNOWN",
+      "queryable": false
+    },
+    "qty": {
+      "meaning": "UNRESOLVED",
+      "queryable": false
+    }
+  },
+  "security": {
+    "rawRowsPersisted": false,
+    "databaseMutation": false,
+    "geminiInvolved": false
+  }
+}

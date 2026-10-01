@@ -1,0 +1,67 @@
+[
+  {
+    "reviewId": "pr-number-v1",
+    "entity": "purchase_request",
+    "semanticField": "pr_number",
+    "physicalSource": "dbo.PR.PRNo",
+    "suggestedMeaning": "purchase request business number",
+    "currentConfidence": "PROBABLE",
+    "evidence": [
+      "PR header context",
+      "PR.PRNo -> PRDetail.PRNo normalized match rate 98.58%"
+    ],
+    "approvedMeaning": "purchase request business number",
+    "confidence": "CONFIRMED_BY_HUMAN",
+    "approvedAt": "2026-09-30T08:41:53.930Z",
+    "approvalReason": "Dikonfirmasi bahwa dbo.PR.PRNo merupakan nomor bisnis Purchase Request yang digunakan pada relasi header/detail PR."
+  },
+  {
+    "reviewId": "pr-date-v1",
+    "entity": "purchase_request",
+    "semanticField": "request_date",
+    "physicalSource": "dbo.PR.PRDate",
+    "suggestedMeaning": "purchase request/document date",
+    "currentConfidence": "PROBABLE",
+    "evidence": [
+      "PR header date context",
+      "date profile available"
+    ],
+    "approvedMeaning": "purchase request/document date",
+    "confidence": "CONFIRMED_BY_HUMAN",
+    "approvedAt": "2026-09-30T08:42:14.603Z",
+    "approvalReason": "Dikonfirmasi bahwa dbo.PR.PRDate merupakan tanggal Purchase Request / tanggal dokumen PR."
+  },
+  {
+    "reviewId": "pr-quantity-v1",
+    "entity": "purchase_request",
+    "semanticField": "quantity",
+    "physicalSource": "dbo.PRDetail.PRQty",
+    "suggestedMeaning": "requested_quantity",
+    "currentConfidence": "PROBABLE",
+    "evidence": [
+      "PR detail context",
+      "numeric field",
+      "candidate name PRQty"
+    ],
+    "approvedMeaning": "requested_quantity",
+    "confidence": "CONFIRMED_BY_HUMAN",
+    "approvedAt": "2026-09-30T08:42:33.750Z",
+    "approvalReason": "Dikonfirmasi bahwa dbo.PRDetail.PRQty merupakan quantity yang diminta pada Purchase Request."
+  },
+  {
+    "reviewId": "pr-description-v1",
+    "entity": "purchase_request",
+    "semanticField": "material_description",
+    "physicalSource": "dbo.PRDetail.[Material Description]",
+    "suggestedMeaning": "material/item display description",
+    "currentConfidence": "PROBABLE",
+    "evidence": [
+      "PR detail context",
+      "direct material description field"
+    ],
+    "approvedMeaning": "material/item display description",
+    "confidence": "CONFIRMED_BY_HUMAN",
+    "approvedAt": "2026-09-30T08:42:51.307Z",
+    "approvalReason": "Dikonfirmasi bahwa dbo.PRDetail.[Material Description] merupakan deskripsi/nama material atau item yang digunakan pada detail Purchase Request."
+  }
+]

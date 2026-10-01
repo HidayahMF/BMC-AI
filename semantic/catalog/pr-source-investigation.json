@@ -1,0 +1,1309 @@
+{
+  "generatedAt": "2026-09-30T09:36:38.944Z",
+  "persisted": "schema-metadata-and-bounded-aggregates-only",
+  "security": {
+    "rawValuesPersisted": false,
+    "rawRowsPersisted": false,
+    "geminiInvolved": false,
+    "databaseMutation": false
+  },
+  "directInspection": {
+    "temp": {
+      "activeWorkflowRowsObserved": true,
+      "searchableDescriptionColumn": "MaterialName",
+      "searchableDescriptionEvidence": "direct database inspection"
+    },
+    "final": {
+      "recentSpecificationNullObserved": true,
+      "recentBrandNullObserved": true,
+      "primaryTextSearchPath": "NOT_SPECIFICATION_OR_BRAND"
+    }
+  },
+  "sources": {
+    "PURC_PURCHREQUEST_TEMP": {
+      "object": "dbo.PURC_PURCHREQUEST_TEMP",
+      "objectType": "TABLE",
+      "columns": [
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Id",
+          "datatype": "int",
+          "maxLength": null,
+          "precision": 10,
+          "scale": 0,
+          "nullable": "NO",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Req_No",
+          "datatype": "nvarchar",
+          "maxLength": 50,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "CompCode",
+          "datatype": "nchar",
+          "maxLength": 10,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "ItemNo",
+          "datatype": "int",
+          "maxLength": null,
+          "precision": 10,
+          "scale": 0,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "MaterialId",
+          "datatype": "nchar",
+          "maxLength": 15,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "MaterialName",
+          "datatype": "varchar",
+          "maxLength": -1,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Qty",
+          "datatype": "numeric",
+          "maxLength": null,
+          "precision": 10,
+          "scale": 2,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "UoM",
+          "datatype": "char",
+          "maxLength": 7,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Purpose",
+          "datatype": "varchar",
+          "maxLength": 200,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "ProjectNo",
+          "datatype": "nchar",
+          "maxLength": 20,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "JobId",
+          "datatype": "int",
+          "maxLength": null,
+          "precision": 10,
+          "scale": 0,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "TaskId",
+          "datatype": "int",
+          "maxLength": null,
+          "precision": 10,
+          "scale": 0,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "DepartAloc",
+          "datatype": "char",
+          "maxLength": 6,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "WONo",
+          "datatype": "char",
+          "maxLength": 20,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "CapexNo",
+          "datatype": "char",
+          "maxLength": 20,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Requestor",
+          "datatype": "nchar",
+          "maxLength": 10,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Dept",
+          "datatype": "nchar",
+          "maxLength": 10,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Approval",
+          "datatype": "nchar",
+          "maxLength": 10,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Approval_Info",
+          "datatype": "varchar",
+          "maxLength": 100,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Approval_Date",
+          "datatype": "nchar",
+          "maxLength": 30,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Status",
+          "datatype": "int",
+          "maxLength": null,
+          "precision": 10,
+          "scale": 0,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Status_Info",
+          "datatype": "nchar",
+          "maxLength": 30,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "AppDate",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Reason",
+          "datatype": "varchar",
+          "maxLength": 500,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "CDate",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Purpose_Date",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "PRNo",
+          "datatype": "varchar",
+          "maxLength": 50,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Need",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Upload",
+          "datatype": "nvarchar",
+          "maxLength": 50,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Info",
+          "datatype": "nvarchar",
+          "maxLength": -1,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Is_Service",
+          "datatype": "int",
+          "maxLength": null,
+          "precision": 10,
+          "scale": 0,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "MRPNo",
+          "datatype": "varchar",
+          "maxLength": 50,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Approval_gh",
+          "datatype": "nchar",
+          "maxLength": 10,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Approval_ghinfo",
+          "datatype": "varchar",
+          "maxLength": 50,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Approval_ghdate",
+          "datatype": "nchar",
+          "maxLength": 30,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Approval_Dh",
+          "datatype": "nchar",
+          "maxLength": 10,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Approval_Dhinfo",
+          "datatype": "varchar",
+          "maxLength": 50,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Approval_Dhdate",
+          "datatype": "nchar",
+          "maxLength": 30,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Approval_Ic",
+          "datatype": "nchar",
+          "maxLength": 10,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Approval_Icinfo",
+          "datatype": "varchar",
+          "maxLength": 50,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Approval_Icdate",
+          "datatype": "nchar",
+          "maxLength": 30,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Approval_Proc",
+          "datatype": "nchar",
+          "maxLength": 10,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Approval_ProcDate",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHREQUEST_TEMP",
+          "columnName": "Approval_ProcNIP",
+          "datatype": "varchar",
+          "maxLength": 4,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        }
+      ],
+      "primaryKey": [],
+      "foreignKeys": [],
+      "indexes": [],
+      "schemaMetadataAvailable": true
+    },
+    "PURC_PURCHASE_REQUEST": {
+      "object": "dbo.PURC_PURCHASE_REQUEST",
+      "objectType": "TABLE",
+      "columns": [
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHASE_REQUEST",
+          "columnName": "CompCode",
+          "datatype": "char",
+          "maxLength": 3,
+          "precision": null,
+          "scale": null,
+          "nullable": "NO",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHASE_REQUEST",
+          "columnName": "PRNo",
+          "datatype": "char",
+          "maxLength": 20,
+          "precision": null,
+          "scale": null,
+          "nullable": "NO",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHASE_REQUEST",
+          "columnName": "PRItemNo",
+          "datatype": "int",
+          "maxLength": null,
+          "precision": 10,
+          "scale": 0,
+          "nullable": "NO",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHASE_REQUEST",
+          "columnName": "MaterialId",
+          "datatype": "char",
+          "maxLength": 15,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHASE_REQUEST",
+          "columnName": "Specification",
+          "datatype": "varchar",
+          "maxLength": 120,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHASE_REQUEST",
+          "columnName": "MatTypeModel",
+          "datatype": "char",
+          "maxLength": 30,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHASE_REQUEST",
+          "columnName": "Brand",
+          "datatype": "varchar",
+          "maxLength": 20,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHASE_REQUEST",
+          "columnName": "ImportLocal",
+          "datatype": "char",
+          "maxLength": 1,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHASE_REQUEST",
+          "columnName": "Purpose",
+          "datatype": "varchar",
+          "maxLength": 200,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHASE_REQUEST",
+          "columnName": "Qty",
+          "datatype": "numeric",
+          "maxLength": null,
+          "precision": 10,
+          "scale": 2,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHASE_REQUEST",
+          "columnName": "UoM",
+          "datatype": "char",
+          "maxLength": 10,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHASE_REQUEST",
+          "columnName": "EstUnitPrice",
+          "datatype": "numeric",
+          "maxLength": null,
+          "precision": 17,
+          "scale": 2,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHASE_REQUEST",
+          "columnName": "CurrCode",
+          "datatype": "char",
+          "maxLength": 3,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHASE_REQUEST",
+          "columnName": "ExpDeliveryDate",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHASE_REQUEST",
+          "columnName": "HoldFlag",
+          "datatype": "char",
+          "maxLength": 1,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHASE_REQUEST",
+          "columnName": "CancelFlag",
+          "datatype": "char",
+          "maxLength": 1,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHASE_REQUEST",
+          "columnName": "HoldDate",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHASE_REQUEST",
+          "columnName": "CancelDate",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHASE_REQUEST",
+          "columnName": "HoldCancelBy",
+          "datatype": "varchar",
+          "maxLength": 30,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHASE_REQUEST",
+          "columnName": "Capexno",
+          "datatype": "char",
+          "maxLength": 15,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHASE_REQUEST",
+          "columnName": "PRReceivedDate",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHASE_REQUEST",
+          "columnName": "inp_date",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHASE_REQUEST",
+          "columnName": "inp_by",
+          "datatype": "char",
+          "maxLength": 10,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHASE_REQUEST",
+          "columnName": "upd_date",
+          "datatype": "datetime",
+          "maxLength": null,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHASE_REQUEST",
+          "columnName": "upd_by",
+          "datatype": "char",
+          "maxLength": 10,
+          "precision": null,
+          "scale": null,
+          "nullable": "YES",
+          "computed": 0
+        },
+        {
+          "schemaName": "dbo",
+          "objectName": "PURC_PURCHASE_REQUEST",
+          "columnName": "status",
+          "datatype": "int",
+          "maxLength": null,
+          "precision": 10,
+          "scale": 0,
+          "nullable": "YES",
+          "computed": 0
+        }
+      ],
+      "primaryKey": [],
+      "foreignKeys": [],
+      "indexes": [],
+      "schemaMetadataAvailable": true
+    }
+  },
+  "populations": {
+    "PURC_PURCHREQUEST_TEMP": {
+      "status": "UNAVAILABLE",
+      "reason": "RequestError"
+    },
+    "PURC_PURCHASE_REQUEST": {
+      "status": "UNAVAILABLE",
+      "reason": "RequestError"
+    }
+  },
+  "dateRanges": {
+    "PURC_PURCHREQUEST_TEMP": {
+      "status": "UNAVAILABLE",
+      "reason": "RequestError"
+    },
+    "PURC_PURCHASE_REQUEST": {
+      "status": "UNAVAILABLE",
+      "reason": "RequestError"
+    }
+  },
+  "dependencies": [
+    {
+      "fromSchema": "dbo",
+      "fromObject": "PURCV_DETIL",
+      "toSchema": null,
+      "toObject": "PURC_PURCHASE_REQUEST"
+    },
+    {
+      "fromSchema": "dbo",
+      "fromObject": "PURCV_HEAD",
+      "toSchema": null,
+      "toObject": "PURC_PURCHASE_REQUEST"
+    },
+    {
+      "fromSchema": "dbo",
+      "fromObject": "PURCV_BP_PR",
+      "toSchema": "dbo",
+      "toObject": "PURC_PURCHASE_REQUEST"
+    },
+    {
+      "fromSchema": "dbo",
+      "fromObject": "PO_JOIN_ACCESS",
+      "toSchema": "dbo",
+      "toObject": "PURC_PURCHASE_REQUEST"
+    },
+    {
+      "fromSchema": "dbo",
+      "fromObject": "PURCV_AVG",
+      "toSchema": "dbo",
+      "toObject": "PURC_PURCHASE_REQUEST"
+    },
+    {
+      "fromSchema": "dbo",
+      "fromObject": "PURCV_GRR",
+      "toSchema": "dbo",
+      "toObject": "PURC_PURCHASE_REQUEST"
+    },
+    {
+      "fromSchema": "dbo",
+      "fromObject": "PURCV_GRR_ATK",
+      "toSchema": "dbo",
+      "toObject": "PURC_PURCHASE_REQUEST"
+    },
+    {
+      "fromSchema": "dbo",
+      "fromObject": "PURCV_OUT_MR",
+      "toSchema": "dbo",
+      "toObject": "PURC_PURCHASE_REQUEST"
+    },
+    {
+      "fromSchema": "dbo",
+      "fromObject": "PURCV_BP_PR",
+      "toSchema": "dbo",
+      "toObject": "PURC_PURCHREQUEST_TEMP"
+    }
+  ],
+  "viewAndProcedureReferences": [],
+  "comparison": {
+    "commonFields": [
+      "CompCode",
+      "MaterialId",
+      "Qty",
+      "UoM",
+      "Purpose",
+      "CapexNo",
+      "Status",
+      "PRNo",
+      "Capexno",
+      "status"
+    ],
+    "uniqueFields": {
+      "PURC_PURCHREQUEST_TEMP": [
+        "Id",
+        "Req_No",
+        "ItemNo",
+        "MaterialName",
+        "ProjectNo",
+        "JobId",
+        "TaskId",
+        "DepartAloc",
+        "WONo",
+        "Requestor",
+        "Dept",
+        "Approval",
+        "Approval_Info",
+        "Approval_Date",
+        "Status_Info",
+        "AppDate",
+        "Reason",
+        "CDate",
+        "Purpose_Date",
+        "Need",
+        "Upload",
+        "Info",
+        "Is_Service",
+        "MRPNo",
+        "Approval_gh",
+        "Approval_ghinfo",
+        "Approval_ghdate",
+        "Approval_Dh",
+        "Approval_Dhinfo",
+        "Approval_Dhdate",
+        "Approval_Ic",
+        "Approval_Icinfo",
+        "Approval_Icdate",
+        "Approval_Proc",
+        "Approval_ProcDate",
+        "Approval_ProcNIP"
+      ],
+      "PURC_PURCHASE_REQUEST": [
+        "PRItemNo",
+        "Specification",
+        "MatTypeModel",
+        "Brand",
+        "ImportLocal",
+        "EstUnitPrice",
+        "CurrCode",
+        "ExpDeliveryDate",
+        "HoldFlag",
+        "CancelFlag",
+        "HoldDate",
+        "CancelDate",
+        "HoldCancelBy",
+        "PRReceivedDate",
+        "inp_date",
+        "inp_by",
+        "upd_date",
+        "upd_by"
+      ]
+    },
+    "lifecycle": {
+      "prNo": {
+        "status": "AVAILABLE",
+        "tempDistinctPrNumbers": 4827,
+        "finalDistinctPrNumbers": 4212,
+        "matched": 4108,
+        "tempOnly": 719,
+        "finalOnly": 104,
+        "matchRate": 0.8510461984669567
+      },
+      "sampledColumnMatch": {
+        "status": "AVAILABLE",
+        "sampleSize": 10000,
+        "matched": 8318,
+        "unmatched": 1682,
+        "matchRate": 0.8318
+      },
+      "reqNoToPrNo": {
+        "status": "NOT_RUN",
+        "reason": "different candidate identifiers; no schema/dependency evidence makes Req_No a validated cross-table key"
+      }
+    }
+  },
+  "roleAssessment": {
+    "temp": {
+      "role": "TEMP_OR_WORKFLOW_SOURCE",
+      "confidence": "PROBABLE",
+      "humanApprovalRequired": true,
+      "evidence": [
+        "approval workflow fields",
+        "requester and department fields",
+        "CDate/AppDate/Purpose_Date fields",
+        "direct active workflow observation"
+      ]
+    },
+    "final": {
+      "role": "FINAL_OR_ACTIVE_LINE_SOURCE_CANDIDATE",
+      "confidence": "PROBABLE",
+      "humanApprovalRequired": true,
+      "evidence": [
+        "PRNo and PRItemNo line identity",
+        "MaterialId and Qty",
+        "inp_date and upd_date",
+        "Specification and Brand null in inspected recent rows"
+      ]
+    },
+    "authoritative": {
+      "status": "NOT_CONFIRMED",
+      "source": null,
+      "reason": "Source role and field mappings still require explicit human approval."
+    }
+  },
+  "candidateSemanticFields": {
+    "PURC_PURCHREQUEST_TEMP": {
+      "pr_number": [
+        "Req_No",
+        "PRNo"
+      ],
+      "request_date": [],
+      "material_code": [
+        "MaterialId"
+      ],
+      "material_description": [
+        "MaterialName",
+        "Purpose",
+        "Purpose_Date"
+      ],
+      "quantity": [
+        "Qty"
+      ],
+      "status": [
+        "Status",
+        "Status_Info"
+      ],
+      "requester": [
+        "Requestor"
+      ],
+      "department": [
+        "DepartAloc",
+        "Dept"
+      ],
+      "approval_status": [
+        "Approval",
+        "Approval_Info",
+        "Approval_Proc",
+        "Approval_ProcDate",
+        "Approval_ProcNIP"
+      ],
+      "approval_date": [
+        "Approval_Date",
+        "AppDate"
+      ],
+      "_knownColumns": [
+        "id",
+        "req_no",
+        "compcode",
+        "itemno",
+        "materialid",
+        "materialname",
+        "qty",
+        "uom",
+        "purpose",
+        "projectno",
+        "jobid",
+        "taskid",
+        "departaloc",
+        "wono",
+        "capexno",
+        "requestor",
+        "dept",
+        "approval",
+        "approval_info",
+        "approval_date",
+        "status",
+        "status_info",
+        "appdate",
+        "reason",
+        "cdate",
+        "purpose_date",
+        "prno",
+        "need",
+        "upload",
+        "info",
+        "is_service",
+        "mrpno",
+        "approval_gh",
+        "approval_ghinfo",
+        "approval_ghdate",
+        "approval_dh",
+        "approval_dhinfo",
+        "approval_dhdate",
+        "approval_ic",
+        "approval_icinfo",
+        "approval_icdate",
+        "approval_proc",
+        "approval_procdate",
+        "approval_procnip"
+      ]
+    },
+    "PURC_PURCHASE_REQUEST": {
+      "pr_number": [
+        "PRNo"
+      ],
+      "request_date": [
+        "inp_date"
+      ],
+      "material_code": [
+        "MaterialId"
+      ],
+      "material_description": [
+        "Specification",
+        "Purpose"
+      ],
+      "quantity": [
+        "Qty"
+      ],
+      "status": [
+        "status"
+      ],
+      "requester": [
+        "inp_by"
+      ],
+      "department": [],
+      "approval_status": [],
+      "approval_date": [],
+      "_knownColumns": [
+        "compcode",
+        "prno",
+        "pritemno",
+        "materialid",
+        "specification",
+        "mattypemodel",
+        "brand",
+        "importlocal",
+        "purpose",
+        "qty",
+        "uom",
+        "estunitprice",
+        "currcode",
+        "expdeliverydate",
+        "holdflag",
+        "cancelflag",
+        "holddate",
+        "canceldate",
+        "holdcancelby",
+        "capexno",
+        "prreceiveddate",
+        "inp_date",
+        "inp_by",
+        "upd_date",
+        "upd_by",
+        "status"
+      ]
+    }
+  },
+  "materialValidation": {
+    "source": "dbo.PURC_PURCHASE_REQUEST.MaterialId",
+    "candidateTargets": [
+      {
+        "target": "dbo.MAS_MAPPINGMATERIAL.MaterialId",
+        "datatype": "varchar"
+      },
+      {
+        "target": "dbo.MATERIAL_NAME.MaterialID",
+        "datatype": "int"
+      },
+      {
+        "target": "dbo.Product Main Data.Product ID",
+        "datatype": "int"
+      },
+      {
+        "target": "dbo.PURC_MATCATALOG.Materialid",
+        "datatype": "char"
+      },
+      {
+        "target": "dbo.PURC_MATCATALOG_TEMP.Materialid",
+        "datatype": "char"
+      },
+      {
+        "target": "dbo.PURC_MATCATALOGSUBCON.MaterialId",
+        "datatype": "varchar"
+      },
+      {
+        "target": "dbo.PURC_REG_MATCATALOG_DETAIL.MaterialId",
+        "datatype": "varchar"
+      },
+      {
+        "target": "dbo.PURC_RFQMATERIAL.MaterialId",
+        "datatype": "char"
+      },
+      {
+        "target": "dbo.WMS_MATERIALPESAN_HISTORY.MATERIALID",
+        "datatype": "varchar"
+      }
+    ],
+    "checks": [
+      {
+        "source": "dbo.PURC_PURCHASE_REQUEST.MaterialId",
+        "target": "dbo.MAS_MAPPINGMATERIAL.MaterialId",
+        "sampleSize": 12901,
+        "matched": 12841,
+        "unmatched": 60,
+        "matchRate": 0.9953491977366096,
+        "confidence": "CONFIRMED_BY_DATA"
+      },
+      {
+        "source": "dbo.PURC_PURCHASE_REQUEST.MaterialId",
+        "target": "dbo.MATERIAL_NAME.MaterialID",
+        "sampleSize": 10000,
+        "matched": 0,
+        "unmatched": 10000,
+        "matchRate": 0,
+        "confidence": "UNKNOWN"
+      },
+      {
+        "source": "dbo.PURC_PURCHASE_REQUEST.MaterialId",
+        "target": "dbo.Product Main Data.Product ID",
+        "sampleSize": 10000,
+        "matched": 0,
+        "unmatched": 10000,
+        "matchRate": 0,
+        "confidence": "UNKNOWN"
+      },
+      {
+        "source": "dbo.PURC_PURCHASE_REQUEST.MaterialId",
+        "target": "dbo.PURC_MATCATALOG.Materialid",
+        "sampleSize": 10000,
+        "matched": 10000,
+        "unmatched": 0,
+        "matchRate": 1,
+        "confidence": "CONFIRMED_BY_DATA"
+      },
+      {
+        "source": "dbo.PURC_PURCHASE_REQUEST.MaterialId",
+        "target": "dbo.PURC_MATCATALOG_TEMP.Materialid",
+        "sampleSize": 10000,
+        "matched": 0,
+        "unmatched": 10000,
+        "matchRate": 0,
+        "confidence": "UNKNOWN"
+      },
+      {
+        "source": "dbo.PURC_PURCHASE_REQUEST.MaterialId",
+        "target": "dbo.PURC_MATCATALOGSUBCON.MaterialId",
+        "sampleSize": 10000,
+        "matched": 0,
+        "unmatched": 10000,
+        "matchRate": 0,
+        "confidence": "UNKNOWN"
+      },
+      {
+        "source": "dbo.PURC_PURCHASE_REQUEST.MaterialId",
+        "target": "dbo.PURC_REG_MATCATALOG_DETAIL.MaterialId",
+        "sampleSize": 10000,
+        "matched": 0,
+        "unmatched": 10000,
+        "matchRate": 0,
+        "confidence": "UNKNOWN"
+      },
+      {
+        "source": "dbo.PURC_PURCHASE_REQUEST.MaterialId",
+        "target": "dbo.PURC_RFQMATERIAL.MaterialId",
+        "sampleSize": 132254,
+        "matched": 132064,
+        "unmatched": 190,
+        "matchRate": 0.9985633704840685,
+        "confidence": "CONFIRMED_BY_DATA"
+      },
+      {
+        "source": "dbo.PURC_PURCHASE_REQUEST.MaterialId",
+        "target": "dbo.WMS_MATERIALPESAN_HISTORY.MATERIALID",
+        "sampleSize": 10000,
+        "matched": 0,
+        "unmatched": 10000,
+        "matchRate": 0,
+        "confidence": "UNKNOWN"
+      }
+    ],
+    "status": "COMPLETED_BOUNDED",
+    "reason": "Aggregate validation only; raw values are not persisted."
+  },
+  "targetQuery": {
+    "question": "No PR laptop ASUS yang qty 5 apa?",
+    "queryable": false,
+    "physicalPath": null,
+    "fields": [
+      "pr_number",
+      "material_description",
+      "quantity"
+    ],
+    "confidence": "UNKNOWN",
+    "reason": "TEMP source role and four TEMP field approvals are not confirmed."
+  },
+  "legacySources": [
+    {
+      "source": "dbo.PR",
+      "status": "LEGACY_OR_ALTERNATE",
+      "reason": "Prior human approvals confirm meaning only; source authority is under re-investigation."
+    },
+    {
+      "source": "dbo.PRDetail",
+      "status": "LEGACY_OR_ALTERNATE",
+      "reason": "Prior human approvals confirm meaning only; source authority is under re-investigation."
+    }
+  ]
+}

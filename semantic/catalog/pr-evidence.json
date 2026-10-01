@@ -1,0 +1,320 @@
+{
+  "generatedAt": "2026-09-30T08:18:26.774Z",
+  "sourceFiles": [
+    {
+      "file": "backend\\docs\\production-source-ranking.md",
+      "categories": [
+        "PR_DETAIL_REFERENCE",
+        "PR_NUMBER_REFERENCE",
+        "QUANTITY_REFERENCE",
+        "DATE_REFERENCE",
+        "MATERIAL_REFERENCE",
+        "REQUESTER_DEPARTMENT_REFERENCE"
+      ]
+    },
+    {
+      "file": "backend\\scripts\\anchor-hino-discovery.ts",
+      "categories": [
+        "PR_DETAIL_REFERENCE",
+        "MATERIAL_REFERENCE"
+      ]
+    },
+    {
+      "file": "backend\\scripts\\enrich-semantic-catalog.ts",
+      "categories": [
+        "PR_DETAIL_REFERENCE",
+        "PURCHREQUEST_HED_REFERENCE",
+        "PR_NUMBER_REFERENCE",
+        "MATERIAL_REFERENCE",
+        "STATUS_REFERENCE",
+        "REQUESTER_DEPARTMENT_REFERENCE"
+      ]
+    },
+    {
+      "file": "backend\\scripts\\extract-pr-evidence.ts",
+      "categories": [
+        "PR_DETAIL_REFERENCE",
+        "PURCHREQUEST_HED_REFERENCE",
+        "PR_NUMBER_REFERENCE",
+        "QUANTITY_REFERENCE",
+        "DATE_REFERENCE",
+        "MATERIAL_REFERENCE",
+        "STATUS_REFERENCE",
+        "REQUESTER_DEPARTMENT_REFERENCE"
+      ]
+    },
+    {
+      "file": "backend\\scripts\\inspect-downstream-semantics.ts",
+      "categories": [
+        "PR_DETAIL_REFERENCE",
+        "MATERIAL_REFERENCE"
+      ]
+    },
+    {
+      "file": "backend\\scripts\\investigate-pr.ts",
+      "categories": [
+        "PR_DETAIL_REFERENCE",
+        "PURCHREQUEST_HED_REFERENCE",
+        "PR_NUMBER_REFERENCE",
+        "QUANTITY_REFERENCE",
+        "DATE_REFERENCE",
+        "MATERIAL_REFERENCE",
+        "STATUS_REFERENCE",
+        "REQUESTER_DEPARTMENT_REFERENCE"
+      ]
+    },
+    {
+      "file": "backend\\scripts\\validate-business-links.ts",
+      "categories": [
+        "PR_DETAIL_REFERENCE",
+        "MATERIAL_REFERENCE",
+        "STATUS_REFERENCE"
+      ]
+    },
+    {
+      "file": "backend\\scripts\\validate-semantic-relationships.ts",
+      "categories": [
+        "PR_DETAIL_REFERENCE",
+        "PURCHREQUEST_HED_REFERENCE",
+        "PR_NUMBER_REFERENCE",
+        "MATERIAL_REFERENCE"
+      ]
+    },
+    {
+      "file": "backend\\src\\repositories\\inventory.repository.ts",
+      "categories": [
+        "MATERIAL_REFERENCE"
+      ]
+    },
+    {
+      "file": "backend\\tests\\pr-investigation.test.ts",
+      "categories": [
+        "PR_DETAIL_REFERENCE",
+        "PR_NUMBER_REFERENCE",
+        "STATUS_REFERENCE"
+      ]
+    },
+    {
+      "file": "docs\\business-link-validation.md",
+      "categories": [
+        "PR_DETAIL_REFERENCE",
+        "QUANTITY_REFERENCE",
+        "MATERIAL_REFERENCE",
+        "STATUS_REFERENCE"
+      ]
+    },
+    {
+      "file": "docs\\data-catalog.md",
+      "categories": [
+        "MATERIAL_REFERENCE",
+        "STATUS_REFERENCE",
+        "REQUESTER_DEPARTMENT_REFERENCE"
+      ]
+    },
+    {
+      "file": "docs\\downstream-semantic-validation.md",
+      "categories": [
+        "PR_DETAIL_REFERENCE",
+        "PR_NUMBER_REFERENCE",
+        "QUANTITY_REFERENCE",
+        "DATE_REFERENCE",
+        "MATERIAL_REFERENCE",
+        "STATUS_REFERENCE",
+        "REQUESTER_DEPARTMENT_REFERENCE"
+      ]
+    },
+    {
+      "file": "docs\\fg-transaction-semantics.md",
+      "categories": [
+        "MATERIAL_REFERENCE",
+        "STATUS_REFERENCE"
+      ]
+    },
+    {
+      "file": "docs\\inventory-data-lineage.md",
+      "categories": [
+        "MATERIAL_REFERENCE"
+      ]
+    },
+    {
+      "file": "docs\\production-data-lineage.md",
+      "categories": [
+        "PR_DETAIL_REFERENCE",
+        "PURCHREQUEST_HED_REFERENCE",
+        "QUANTITY_REFERENCE",
+        "DATE_REFERENCE",
+        "MATERIAL_REFERENCE",
+        "STATUS_REFERENCE",
+        "REQUESTER_DEPARTMENT_REFERENCE"
+      ]
+    },
+    {
+      "file": "docs\\production-source-ranking.md",
+      "categories": [
+        "PR_DETAIL_REFERENCE",
+        "PR_NUMBER_REFERENCE",
+        "QUANTITY_REFERENCE",
+        "DATE_REFERENCE",
+        "MATERIAL_REFERENCE",
+        "STATUS_REFERENCE",
+        "REQUESTER_DEPARTMENT_REFERENCE"
+      ]
+    },
+    {
+      "file": "docs\\relationship-map.md",
+      "categories": [
+        "MATERIAL_REFERENCE",
+        "STATUS_REFERENCE"
+      ]
+    },
+    {
+      "file": "docs\\sales-source-discovery.md",
+      "categories": [
+        "MATERIAL_REFERENCE",
+        "STATUS_REFERENCE",
+        "REQUESTER_DEPARTMENT_REFERENCE"
+      ]
+    }
+  ],
+  "databaseDefinitions": [
+    {
+      "object": "dbo.WMS_PO_MATERIAL",
+      "objectType": "VIEW",
+      "categories": [
+        "MATERIAL_REFERENCE"
+      ]
+    },
+    {
+      "object": "dbo.PURCV_BP_PR",
+      "objectType": "VIEW",
+      "categories": [
+        "MATERIAL_REFERENCE"
+      ]
+    },
+    {
+      "object": "dbo.PURCV_RFBID",
+      "objectType": "VIEW",
+      "categories": [
+        "MATERIAL_REFERENCE"
+      ]
+    },
+    {
+      "object": "dbo.WMSV_MRS",
+      "objectType": "VIEW",
+      "categories": [
+        "MATERIAL_REFERENCE"
+      ]
+    },
+    {
+      "object": "dbo.PURCV_DETRECEIVE",
+      "objectType": "VIEW",
+      "categories": [
+        "MATERIAL_REFERENCE"
+      ]
+    },
+    {
+      "object": "dbo.PURCV_POSTS",
+      "objectType": "VIEW",
+      "categories": [
+        "MATERIAL_REFERENCE"
+      ]
+    },
+    {
+      "object": "dbo.PO_JOIN_ACCESS",
+      "objectType": "VIEW",
+      "categories": [
+        "PR_NUMBER_JOIN_OR_REFERENCE",
+        "MATERIAL_REFERENCE"
+      ]
+    },
+    {
+      "object": "dbo.PURCV_PO_MAT",
+      "objectType": "VIEW",
+      "categories": [
+        "MATERIAL_REFERENCE"
+      ]
+    },
+    {
+      "object": "dbo.PURCV_AVG",
+      "objectType": "VIEW",
+      "categories": []
+    },
+    {
+      "object": "dbo.PURCV_DASH_VEND",
+      "objectType": "VIEW",
+      "categories": [
+        "DATE_REFERENCE"
+      ]
+    },
+    {
+      "object": "dbo.PURCV_DETIL",
+      "objectType": "VIEW",
+      "categories": [
+        "DATE_REFERENCE",
+        "MATERIAL_REFERENCE"
+      ]
+    },
+    {
+      "object": "dbo.PURCV_GRR",
+      "objectType": "VIEW",
+      "categories": [
+        "MATERIAL_REFERENCE"
+      ]
+    },
+    {
+      "object": "dbo.PURCV_GRR_ATK",
+      "objectType": "VIEW",
+      "categories": [
+        "MATERIAL_REFERENCE"
+      ]
+    },
+    {
+      "object": "dbo.PURCV_HEAD",
+      "objectType": "VIEW",
+      "categories": [
+        "DATE_REFERENCE"
+      ]
+    },
+    {
+      "object": "dbo.PURCV_UNION_HIST_PO",
+      "objectType": "VIEW",
+      "categories": [
+        "MATERIAL_REFERENCE"
+      ]
+    },
+    {
+      "object": "dbo.PURCV_PO_BARANG",
+      "objectType": "VIEW",
+      "categories": []
+    },
+    {
+      "object": "dbo.PURCV_DASH_GRR",
+      "objectType": "VIEW",
+      "categories": []
+    },
+    {
+      "object": "dbo.PURCV_DASH_ACT",
+      "objectType": "VIEW",
+      "categories": []
+    },
+    {
+      "object": "dbo.PURCV_DASH_AVG",
+      "objectType": "VIEW",
+      "categories": []
+    }
+  ],
+  "legacySourceAvailable": false,
+  "evidenceSummary": {
+    "codeConfirmedJoin": false,
+    "prNumber": "PROBABLE",
+    "requestDate": "PROBABLE",
+    "quantity": "PROBABLE",
+    "materialDescription": "PROBABLE",
+    "status": "UNKNOWN",
+    "requester": "UNKNOWN",
+    "department": "UNKNOWN"
+  },
+  "rawValuesPersisted": false,
+  "rawDefinitionsPersisted": false,
+  "geminiInvolved": false
+}

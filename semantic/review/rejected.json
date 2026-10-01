@@ -1,0 +1,17 @@
+[
+  {
+    "reviewId": "pr-detail-number-v1",
+    "entity": "purchase_request",
+    "semanticField": "pr_number",
+    "physicalSource": "dbo.PRDetail.PRNo",
+    "suggestedMeaning": "Purchase Request business number stored on PR detail",
+    "currentConfidence": "PROBABLE",
+    "evidence": [
+      "PR detail context",
+      "98.58% normalized match with PR.PRNo",
+      "repeated detail rows per PR number"
+    ],
+    "rejectedAt": "2026-09-30T08:59:35.345Z",
+    "rejectionReason": "bukan"
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "status": "NEEDS_DOMAIN_REVIEW",
+  "domain": "MRP / Planning",
+  "evidenceTypeOptions": ["BUSINESS_OWNER_CONFIRMATION", "BUSINESS_UI_VERIFICATION"],
+  "outcomeOptions": ["APPROVED", "REJECTED", "UNKNOWN", "NEEDS_DOMAIN_REVIEW"],
+  "questions": [
+    {"id": "mrp-qty-meaning", "field": "dbo.PURCH_MRP.Qty", "question": "Pada data MRP, kolom jumlah/Qty menunjukkan jumlah apa?", "outcome": "UNKNOWN"},
+    {"id": "mrp-qtypr-meaning", "field": "QtyPR", "question": "Dalam laporan MRP vs PR, nilai Qty PR menunjukkan apa?", "outcome": "UNKNOWN"},
+    {"id": "mrp-date-meaning", "field": "dbo.PURCH_MRP.MRPDate", "question": "MRP Date / Month Date pada laporan menunjukkan periode/tanggal apa?", "outcome": "UNKNOWN"},
+    {"id": "mrp-tipe-meaning", "field": "dbo.PURCH_MRP.Tipe", "question": "Apa arti masing-masing tipe MRP yang digunakan sistem?", "outcome": "UNKNOWN"},
+    {"id": "mrp-status-meaning", "field": "dbo.PURCH_MRP.Status", "question": "Apa arti masing-masing status MRP?", "outcome": "UNKNOWN"}
+  ],
+  "auditFields": ["approverRole", "domain", "timestamp", "reason", "evidenceType"]
+}

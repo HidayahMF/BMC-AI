@@ -1,0 +1,55 @@
+{
+  "domain": "MRP",
+  "approverRole": "MRP / Procurement domain user",
+  "evidenceType": "BUSINESS_OWNER_CONFIRMATION",
+  "answers": [
+    {
+      "id": "mrp-number-confirmation",
+      "semanticField": "mrp_number",
+      "physicalSource": "dbo.PURCH_MRP.MRPNo",
+      "decision": "APPROVED",
+      "meaning": "Nomor dokumen MRP yang digunakan untuk mengelompokkan material",
+      "reason": "Dikonfirmasi oleh user yang memahami proses MRP bahwa No MRP berasal dari tabel PURCH_MRP"
+    },
+    {
+      "id": "mrp-planned-purchase-quantity-confirmation",
+      "semanticField": "planned_purchase_quantity",
+      "physicalSource": "dbo.PURCH_MRP.Qty",
+      "decision": "APPROVED",
+      "meaning": "Quantity planning material yang akan dibeli pada bulan berikutnya",
+      "reason": "Dikonfirmasi oleh user yang memahami proses MRP"
+    },
+    {
+      "id": "mrp-created-date-confirmation",
+      "semanticField": "mrp_created_date",
+      "physicalSource": "dbo.PURCH_MRP.MRPDate",
+      "decision": "APPROVED",
+      "meaning": "Tanggal MRP dibuat",
+      "reason": "Dikonfirmasi oleh user yang memahami proses MRP"
+    },
+    {
+      "id": "mrp-pr-created-quantity-confirmation",
+      "semanticField": "pr_created_quantity",
+      "physicalSource": "dbo.PURCV_BP_PR.QtyPr",
+      "decision": "APPROVED",
+      "meaning": "Quantity planning MRP yang sudah dibuat Purchase Request",
+      "reason": "Dikonfirmasi oleh user yang memahami proses MRP"
+    },
+    {
+      "id": "mrp-status-new-confirmation",
+      "semanticField": "status",
+      "physicalSource": "dbo.PURCH_MRP.Status",
+      "decision": "APPROVED",
+      "meaning": "0 = NEW / Baru dibuat",
+      "reason": "Dikonfirmasi oleh user yang memahami proses MRP"
+    },
+    {
+      "id": "mrp-status-approved-manager-confirmation",
+      "semanticField": "status",
+      "physicalSource": "dbo.PURCH_MRP.Status",
+      "decision": "APPROVED",
+      "meaning": "3 = APPROVED_BY_MANAGER / Sudah di-approved oleh manager",
+      "reason": "Dikonfirmasi oleh user yang memahami proses MRP"
+    }
+  ]
+}

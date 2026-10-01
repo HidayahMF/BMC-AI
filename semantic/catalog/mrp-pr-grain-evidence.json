@@ -1,0 +1,49 @@
+{
+  "generatedAt": "2026-10-01T05:41:56.502Z",
+  "source": "dbo.PURCV_BP_PR",
+  "viewAggregate": {
+    "view_rows": 35680,
+    "distinct_mrp_material": 35302,
+    "distinct_mrp_material_pr": 35617,
+    "distinct_with_qtypr": 35620,
+    "null_both": 21281,
+    "null_qtypr_pr_present": 0,
+    "qtypr_present_pr_null": 1640,
+    "both_present": 12759
+  },
+  "mrpPrFanout": {
+    "groups": 35302,
+    "min_matches": 1,
+    "max_matches": 4,
+    "average_matches": 1.0107076086340718,
+    "one_match": 34935,
+    "multiple_matches": 367
+  },
+  "prLineFanout": {
+    "groups": 12743,
+    "max_matches": 2,
+    "duplicate_groups": 16
+  },
+  "mrpGrain": {
+    "rows": 37947,
+    "distinct_mrp_material": 37812,
+    "distinct_mrp_material_depart": 37814,
+    "distinct_mrp_material_depart_tipe": 37814
+  },
+  "decisions": {
+    "prCreatedQuantity": {
+      "rowLevelSafe": false,
+      "aggregatePerMrpLineSafe": false,
+      "queryable": false,
+      "runtimeJoinAllowed": false
+    },
+    "nullAsZeroSafe": false,
+    "remainingQuantitySafe": false,
+    "reason": "View groups PR-side rows at a finer grain than the outer MRPNo+MaterialId join and exhibits fanout/null ambiguity."
+  },
+  "security": {
+    "rawRowsPersisted": false,
+    "databaseMutation": false,
+    "geminiInvolved": false
+  }
+}

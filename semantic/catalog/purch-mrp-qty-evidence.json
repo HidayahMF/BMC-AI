@@ -1,0 +1,126 @@
+{
+  "generatedAt": "2026-10-01T03:50:18.772Z",
+  "source": "dbo.PURCH_MRP",
+  "security": {
+    "rawRowsPersisted": false,
+    "databaseMutation": false,
+    "geminiInvolved": false
+  },
+  "quality": {
+    "rowCount": 37947,
+    "nullCount": 0,
+    "distinctCount": 1163,
+    "min": -2,
+    "max": 275000,
+    "zeroCount": 157,
+    "negativeCount": 4,
+    "positiveCount": 37786,
+    "distinctMrpMaterial": 37812,
+    "distinctMrpMaterialDepart": 37814,
+    "distinctMaterial": 7190,
+    "distinctMrpNo": 456,
+    "distinctTipe": 2
+  },
+  "byType": [
+    {
+      "tipe": "present",
+      "rowCount": 37479,
+      "distinctMrpNo": 344,
+      "distinctMaterial": 6906,
+      "totalQtyPresent": true
+    },
+    {
+      "tipe": "present",
+      "rowCount": 468,
+      "distinctMrpNo": 116,
+      "distinctMaterial": 419,
+      "totalQtyPresent": true
+    }
+  ],
+  "qtyPrView": {
+    "rowCount": 35680,
+    "distinctMrpNo": 303,
+    "distinctMaterial": 6431,
+    "nullQtyPr": 21289
+  },
+  "codeEvidence": [
+    {
+      "object": "dbo.PURCV_BP_PR",
+      "type": "VIEW",
+      "operations": {
+        "select": true,
+        "insert": false,
+        "update": false,
+        "delete": false,
+        "join": true,
+        "case": true,
+        "arithmetic": false
+      },
+      "qtyContexts": [
+        "QTYBP",
+        "QtyPr, CASE WHEN LEN(x.MonthDate) = 6 THEN RIGHT(x.MonthDate, 1) ELSE RIGHT(x.MonthDate, 2) END AS BULAN, LEFT(x.MonthDate, 4) AS TAHUN, prtemp.Reason",
+        "QTYBP",
+        "QTYBP",
+        "QTYBP",
+        "QtyPr",
+        "QtyPr, aa.TERIMA, aa.TGL, aa.KET, aa.MINTA, aa.TGL_BUTUH, aa.DIVISI, bb.Status",
+        "QtyPr) AS y ON x.MRPNo = y.MRPNo AND x.MaterialId = y.MaterialId LEFT OUTER JOIN"
+      ],
+      "insertQtyContexts": [],
+      "updateQtyContexts": [],
+      "tipeContexts": [
+        "Tipe = 'AB') AND (c.MRPNo IS NOT NULL)"
+      ],
+      "mrpNoContexts": [
+        "SELECT DISTINCT x.MRPNo, x.MaterialId, LEFT(pm.MaterialName, 50) AS MaterialName, pm.UoM, x.QTYBP, x.DepartId, x.MonthDate, y.status, y.prsts, y.PRReceivedDate, y.TERIMA, y.PRNo, y.NO_MR, y.TGL, y.KET, y.MINTA, y.TGL_BUTUH, y.DIVISI, y.QtyPr, CASE WHEN LEN(x.MonthDate) = 6 THEN RIGHT(x.MonthDate, 1) ELSE RIGHT(x.MonthDate, 2) END AS BULAN, LEFT(x.MonthDate, 4) AS TAHUN, prtemp.Rea",
+        "FROM (SELECT b.MRPNo, b.MaterialId, b.Qty AS QTYBP, b.DepartId, b.MRPDate AS MonthDate",
+        "dbo.PURCH_MRP AS b ON a.MRPNo = b.MRPNo AND a.DepartID = b.DepartId",
+        "GROUP BY b.MRPNo, b.DepartId, b.MRPDate, b.MaterialId, b.Qty",
+        "SELECT c.MRPNo, a.MaterialId, c.Qty AS QTYBP, c.DepartId, c.MRPDate",
+        "WHERE (c.Status = '4') AND (c.Tipe = 'AB') AND (c.MRPNo IS NOT NULL)",
+        "GROUP BY c.MRPNo, b.NamaGrouping, c.MRPDate, c.MRPNo, c.DepartId, a.MaterialId, c.Qty",
+        "SELECT c_1.Nomor AS MRPNo, a.MaterialId, c_1.Qty AS QTYBP, c_1.DepartID, c_1.MRPDate",
+        "(SELECT B_1.status, A_1.Status AS prsts, B_1.PRReceivedDate, A_1.TERIMA, B_1.PRNo, A_1.NO_MR, A_1.TGL, A_1.KET, A_1.MINTA, A_1.TGL_BUTUH, A_1.DIVISI, A_1.MRPNo, A_1.MaterialId, A_1.QtyPr",
+        "FROM (SELECT bb.MRPNo, aa.NO_MR, aa.KD_BARANG AS MaterialId, aa.QTY AS QtyPr, aa.TERIMA, aa.TGL, aa.KET, aa.MINTA, aa.TGL_BUTUH, aa.DIVISI, bb.Status",
+        "WHERE (bb.Status <> '2') AND (bb.Status <> '3') AND (bb.MRPNo IS NOT NULL)) AS A_1 LEFT OUTER JOIN",
+        "WHERE (A_1.MRPNo IS NOT NULL)"
+      ]
+    },
+    {
+      "object": "dbo.FIN_DO_MONITOR",
+      "type": "SQL_INLINE_TABLE_VALUED_FUNCTION",
+      "operations": {
+        "select": true,
+        "insert": false,
+        "update": false,
+        "delete": false,
+        "join": true,
+        "case": true,
+        "arithmetic": false
+      },
+      "qtyContexts": [
+        "QtyPros,0)) as QTYinvoiceProses,",
+        "QtyPros='0',invamountpros='0',invQtykirim='0',invamountkirim='0'",
+        "QtyPros='0',invamountpros='0',invQtykirim='0',invamountkirim='0'",
+        "QtyPros='0',invamountpros='0',invQtykirim='0',invamountkirim='0'",
+        "QtyPros ,a.amount invamountpros,invQtykirim='0',invamountkirim='0'",
+        "QtyPros='0',invamountpros='0',a.Qty invQtykirim,a.amount invamountkirim"
+      ],
+      "insertQtyContexts": [],
+      "updateQtyContexts": [],
+      "tipeContexts": [],
+      "mrpNoContexts": []
+    }
+  ],
+  "semanticDecision": {
+    "meaning": "UNRESOLVED",
+    "confidence": "UNKNOWN",
+    "semanticField": null,
+    "queryable": false,
+    "missingEvidence": [
+      "Explicit code lineage proving whether PURCH_MRP.Qty is requirement/planned/demand quantity",
+      "Validated row grain and duplicate policy before enabling SUM",
+      "Clear business distinction from QtyPR/PR quantity"
+    ]
+  }
+}

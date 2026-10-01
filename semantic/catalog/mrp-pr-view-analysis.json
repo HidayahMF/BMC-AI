@@ -1,0 +1,2516 @@
+{
+  "generatedAt": "2026-10-01T03:20:03.460Z",
+  "connection": {
+    "status": "PASS",
+    "database": "BMC",
+    "serverReachable": true
+  },
+  "security": {
+    "rawRowsPersisted": false,
+    "databaseMutation": false,
+    "geminiInvolved": false
+  },
+  "PURCV_BP_PR": {
+    "definitionInspected": true,
+    "definition": {
+      "object": "dbo.PURCV_BP_PR",
+      "type": "VIEW",
+      "operations": {
+        "select": true,
+        "insert": false,
+        "update": false,
+        "delete": false,
+        "join": true,
+        "case": true,
+        "arithmeticQty": true
+      },
+      "references": [
+        "MRP",
+        "PURCH_MRP",
+        "QtyPR",
+        "PURC_PURCHREQUEST_TEMP",
+        "PURC_PURCHASE_REQUEST",
+        "MRPNo",
+        "MaterialId"
+      ],
+      "qtyPrContexts": [
+        "ame, 50) AS MaterialName, pm.UoM, x.QTYBP, x.DepartId, x.MonthDate, y.status, y.prsts, y.PRReceivedDate, y.TERIMA, y.PRNo, y.NO_MR, y.TGL, y.KET, y.MINTA, y.TGL_BUTUH, y.DIVISI, y.QtyPr, CASE WHEN LEN(x.MonthDate) = 6 THEN RIGHT(x.MonthDate, 1) ELSE RIGHT(x.MonthDate, 2) END AS BULAN, LEFT(x.MonthDate, 4) AS TAHUN, prtemp.Reason",
+        "SELECT B_1.status, A_1.Status AS prsts, B_1.PRReceivedDate, A_1.TERIMA, B_1.PRNo, A_1.NO_MR, A_1.TGL, A_1.KET, A_1.MINTA, A_1.TGL_BUTUH, A_1.DIVISI, A_1.MRPNo, A_1.MaterialId, A_1.QtyPr",
+        "FROM (SELECT bb.MRPNo, aa.NO_MR, aa.KD_BARANG AS MaterialId, aa.QTY AS QtyPr, aa.TERIMA, aa.TGL, aa.KET, aa.MINTA, aa.TGL_BUTUH, aa.DIVISI, bb.Status",
+        "GROUP BY B_1.PRNo, A_1.NO_MR, A_1.TGL, A_1.KET, A_1.MINTA, A_1.TGL_BUTUH, A_1.DIVISI, A_1.TERIMA, B_1.status, A_1.Status, B_1.PRReceivedDate, A_1.MRPNo, A_1.MaterialId, A_1.QtyPr) AS y ON x.MRPNo = y.MRPNo AND x.MaterialId = y.MaterialId LEFT OUTER JOIN"
+      ],
+      "mrpNoContexts": [
+        "SELECT DISTINCT x.MRPNo, x.MaterialId, LEFT(pm.MaterialName, 50) AS MaterialName, pm.UoM, x.QTYBP, x.DepartId, x.MonthDate, y.status, y.prsts, y.PRReceivedDate, y.TERIMA, y.PRNo, y.NO_MR, y.TGL, y.KET, y.MINTA, y.TGL_BUTUH, y.DIVISI, y.QtyPr, CASE WHEN LEN(x.MonthDate) = 6 THEN RIGH",
+        "FROM (SELECT b.MRPNo, b.MaterialId, b.Qty AS QTYBP, b.DepartId, b.MRPDate AS MonthDate",
+        "dbo.PURCH_MRP AS b ON a.MRPNo = b.MRPNo AND a.DepartID = b.DepartId",
+        "GROUP BY b.MRPNo, b.DepartId, b.MRPDate, b.MaterialId, b.Qty",
+        "SELECT c.MRPNo, a.MaterialId, c.Qty AS QTYBP, c.DepartId, c.MRPDate",
+        "WHERE (c.Status = '4') AND (c.Tipe = 'AB') AND (c.MRPNo IS NOT NULL)",
+        "GROUP BY c.MRPNo, b.NamaGrouping, c.MRPDate, c.MRPNo, c.DepartId, a.MaterialId, c.Qty",
+        "SELECT c_1.Nomor AS MRPNo, a.MaterialId, c_1.Qty AS QTYBP, c_1.DepartID, c_1.MRPDate",
+        "(SELECT B_1.status, A_1.Status AS prsts, B_1.PRReceivedDate, A_1.TERIMA, B_1.PRNo, A_1.NO_MR, A_1.TGL, A_1.KET, A_1.MINTA, A_1.TGL_BUTUH, A_1.DIVISI, A_1.MRPNo, A_1.MaterialId, A_1.QtyPr",
+        "FROM (SELECT bb.MRPNo, aa.NO_MR, aa.KD_BARANG AS MaterialId, aa.QTY AS QtyPr, aa.TERIMA, aa.TGL, aa.KET, aa.MINTA, aa.TGL_BUTUH, aa.DIVISI, bb.Status"
+      ],
+      "relevantLogic": [
+        "SELECT DISTINCT x.MRPNo, x.MaterialId, LEFT(pm.MaterialName, 50) AS MaterialName, pm.UoM, x.QTYBP, x.DepartId, x.MonthDate, y.status, y.prsts, y.PRReceivedDate, y.TERIMA, y.PRNo, y.NO_MR, y.TGL, y.KET, y.MINTA, y.TGL_BUTUH, y.DIVISI, y.QtyPr, CASE WHEN LEN(x.MonthDate) = 6 THEN RI",
+        "FROM (SELECT b.MRPNo, b.MaterialId, b.Qty AS QTYBP, b.DepartId, b.MRPDate AS MonthDate",
+        "FROM dbo.PURCH_MRP_TOTAL_GROUPNAME AS a LEFT OUTER JOIN",
+        "dbo.PURCH_MRP AS b ON a.MRPNo = b.MRPNo AND a.DepartID = b.DepartId",
+        "GROUP BY b.MRPNo, b.DepartId, b.MRPDate, b.MaterialId, b.Qty",
+        "SELECT c.MRPNo, a.MaterialId, c.Qty AS QTYBP, c.DepartId, c.MRPDate",
+        "dbo.PURCH_MRP AS c ON c.MaterialId = a.MaterialId AND c.DepartId = a.DepartId AND c.MaterialId = a.MaterialId",
+        "WHERE (c.Status = '4') AND (c.Tipe = 'AB') AND (c.MRPNo IS NOT NULL)",
+        "GROUP BY c.MRPNo, b.NamaGrouping, c.MRPDate, c.MRPNo, c.DepartId, a.MaterialId, c.Qty",
+        "SELECT c_1.Nomor AS MRPNo, a.MaterialId, c_1.Qty AS QTYBP, c_1.DepartID, c_1.MRPDate"
+      ]
+    },
+    "whatItProves": [
+      "MRP",
+      "PURCH_MRP",
+      "QtyPR",
+      "PURC_PURCHREQUEST_TEMP",
+      "PURC_PURCHASE_REQUEST",
+      "MRPNo",
+      "MaterialId"
+    ],
+    "whatItDoesNotProve": [
+      "Field business meanings are not promoted from references alone",
+      "MRP-to-PR runtime join remains blocked without validated key/rule"
+    ]
+  },
+  "definitions": [
+    {
+      "object": "dbo.PURCV_BP_PR",
+      "type": "VIEW",
+      "operations": {
+        "select": true,
+        "insert": false,
+        "update": false,
+        "delete": false,
+        "join": true,
+        "case": true,
+        "arithmeticQty": true
+      },
+      "references": [
+        "MRP",
+        "PURCH_MRP",
+        "QtyPR",
+        "PURC_PURCHREQUEST_TEMP",
+        "PURC_PURCHASE_REQUEST",
+        "MRPNo",
+        "MaterialId"
+      ],
+      "qtyPrContexts": [
+        "ame, 50) AS MaterialName, pm.UoM, x.QTYBP, x.DepartId, x.MonthDate, y.status, y.prsts, y.PRReceivedDate, y.TERIMA, y.PRNo, y.NO_MR, y.TGL, y.KET, y.MINTA, y.TGL_BUTUH, y.DIVISI, y.QtyPr, CASE WHEN LEN(x.MonthDate) = 6 THEN RIGHT(x.MonthDate, 1) ELSE RIGHT(x.MonthDate, 2) END AS BULAN, LEFT(x.MonthDate, 4) AS TAHUN, prtemp.Reason",
+        "SELECT B_1.status, A_1.Status AS prsts, B_1.PRReceivedDate, A_1.TERIMA, B_1.PRNo, A_1.NO_MR, A_1.TGL, A_1.KET, A_1.MINTA, A_1.TGL_BUTUH, A_1.DIVISI, A_1.MRPNo, A_1.MaterialId, A_1.QtyPr",
+        "FROM (SELECT bb.MRPNo, aa.NO_MR, aa.KD_BARANG AS MaterialId, aa.QTY AS QtyPr, aa.TERIMA, aa.TGL, aa.KET, aa.MINTA, aa.TGL_BUTUH, aa.DIVISI, bb.Status",
+        "GROUP BY B_1.PRNo, A_1.NO_MR, A_1.TGL, A_1.KET, A_1.MINTA, A_1.TGL_BUTUH, A_1.DIVISI, A_1.TERIMA, B_1.status, A_1.Status, B_1.PRReceivedDate, A_1.MRPNo, A_1.MaterialId, A_1.QtyPr) AS y ON x.MRPNo = y.MRPNo AND x.MaterialId = y.MaterialId LEFT OUTER JOIN"
+      ],
+      "mrpNoContexts": [
+        "SELECT DISTINCT x.MRPNo, x.MaterialId, LEFT(pm.MaterialName, 50) AS MaterialName, pm.UoM, x.QTYBP, x.DepartId, x.MonthDate, y.status, y.prsts, y.PRReceivedDate, y.TERIMA, y.PRNo, y.NO_MR, y.TGL, y.KET, y.MINTA, y.TGL_BUTUH, y.DIVISI, y.QtyPr, CASE WHEN LEN(x.MonthDate) = 6 THEN RIGH",
+        "FROM (SELECT b.MRPNo, b.MaterialId, b.Qty AS QTYBP, b.DepartId, b.MRPDate AS MonthDate",
+        "dbo.PURCH_MRP AS b ON a.MRPNo = b.MRPNo AND a.DepartID = b.DepartId",
+        "GROUP BY b.MRPNo, b.DepartId, b.MRPDate, b.MaterialId, b.Qty",
+        "SELECT c.MRPNo, a.MaterialId, c.Qty AS QTYBP, c.DepartId, c.MRPDate",
+        "WHERE (c.Status = '4') AND (c.Tipe = 'AB') AND (c.MRPNo IS NOT NULL)",
+        "GROUP BY c.MRPNo, b.NamaGrouping, c.MRPDate, c.MRPNo, c.DepartId, a.MaterialId, c.Qty",
+        "SELECT c_1.Nomor AS MRPNo, a.MaterialId, c_1.Qty AS QTYBP, c_1.DepartID, c_1.MRPDate",
+        "(SELECT B_1.status, A_1.Status AS prsts, B_1.PRReceivedDate, A_1.TERIMA, B_1.PRNo, A_1.NO_MR, A_1.TGL, A_1.KET, A_1.MINTA, A_1.TGL_BUTUH, A_1.DIVISI, A_1.MRPNo, A_1.MaterialId, A_1.QtyPr",
+        "FROM (SELECT bb.MRPNo, aa.NO_MR, aa.KD_BARANG AS MaterialId, aa.QTY AS QtyPr, aa.TERIMA, aa.TGL, aa.KET, aa.MINTA, aa.TGL_BUTUH, aa.DIVISI, bb.Status"
+      ],
+      "relevantLogic": [
+        "SELECT DISTINCT x.MRPNo, x.MaterialId, LEFT(pm.MaterialName, 50) AS MaterialName, pm.UoM, x.QTYBP, x.DepartId, x.MonthDate, y.status, y.prsts, y.PRReceivedDate, y.TERIMA, y.PRNo, y.NO_MR, y.TGL, y.KET, y.MINTA, y.TGL_BUTUH, y.DIVISI, y.QtyPr, CASE WHEN LEN(x.MonthDate) = 6 THEN RI",
+        "FROM (SELECT b.MRPNo, b.MaterialId, b.Qty AS QTYBP, b.DepartId, b.MRPDate AS MonthDate",
+        "FROM dbo.PURCH_MRP_TOTAL_GROUPNAME AS a LEFT OUTER JOIN",
+        "dbo.PURCH_MRP AS b ON a.MRPNo = b.MRPNo AND a.DepartID = b.DepartId",
+        "GROUP BY b.MRPNo, b.DepartId, b.MRPDate, b.MaterialId, b.Qty",
+        "SELECT c.MRPNo, a.MaterialId, c.Qty AS QTYBP, c.DepartId, c.MRPDate",
+        "dbo.PURCH_MRP AS c ON c.MaterialId = a.MaterialId AND c.DepartId = a.DepartId AND c.MaterialId = a.MaterialId",
+        "WHERE (c.Status = '4') AND (c.Tipe = 'AB') AND (c.MRPNo IS NOT NULL)",
+        "GROUP BY c.MRPNo, b.NamaGrouping, c.MRPDate, c.MRPNo, c.DepartId, a.MaterialId, c.Qty",
+        "SELECT c_1.Nomor AS MRPNo, a.MaterialId, c_1.Qty AS QTYBP, c_1.DepartID, c_1.MRPDate"
+      ]
+    },
+    {
+      "object": "dbo.FIN_DO_MONITOR",
+      "type": "SQL_INLINE_TABLE_VALUED_FUNCTION",
+      "operations": {
+        "select": true,
+        "insert": false,
+        "update": false,
+        "delete": false,
+        "join": true,
+        "case": true,
+        "arithmeticQty": true
+      },
+      "references": [
+        "QtyPR"
+      ],
+      "qtyPrContexts": [
+        "sum(ISNULL(y.invQtyPros,0)) as QTYinvoiceProses,",
+        "sum(a.Qty) qtydoall, sum(a.amount) amountdoall,qtyDOUnback='0', a.UnitPrice,amountdounback='0',doback='0',amountdoback='0',invQtyPros='0',invamountpros='0',invQtykirim='0',invamountkirim='0'",
+        "qtydoall='0',amountdoall='0',sum(isnull(a.Qty,0)) qtyDOUnback,a.UnitPrice,sum(isnull(a.amount,0))amountamountdounback,doback='0',amountdoback='0',invQtyPros='0',invamountpros='0',invQtykirim='0',invamountkirim='0'",
+        "qtydoall='0',amountdoall='0',qtyDOUnback='0',a.UnitPrice,amountdounback='0',sum(isnull(a.Qty,0)) doback,sum(isnull(a.amount,0)) amountdoback,invQtyPros='0',invamountpros='0',invQtykirim='0',invamountkirim='0'",
+        "qtydoall='0',amountdoall='0',qtyDOUnback='0',a.Price UnitPrice,amountdounback='0',doback='0',amountdoback='0',a.Qty invQtyPros ,a.amount invamountpros,invQtykirim='0',invamountkirim='0'",
+        "qtydoall='0',amountdoall='0',qtyDOUnback='0',a.Price UnitPrice,amountdounback='0',doback='0',amountdoback='0',invQtyPros='0',invamountpros='0',a.Qty invQtykirim,a.amount invamountkirim"
+      ],
+      "mrpNoContexts": [],
+      "relevantLogic": []
+    },
+    {
+      "object": "dbo.PO_JOIN_ACCESS",
+      "type": "VIEW",
+      "operations": {
+        "select": true,
+        "insert": false,
+        "update": false,
+        "delete": false,
+        "join": true,
+        "case": false,
+        "arithmeticQty": true
+      },
+      "references": [
+        "PURC_PURCHASE_REQUEST",
+        "MaterialId"
+      ],
+      "qtyPrContexts": [],
+      "mrpNoContexts": [],
+      "relevantLogic": []
+    },
+    {
+      "object": "dbo.PURCV_AVG",
+      "type": "VIEW",
+      "operations": {
+        "select": true,
+        "insert": false,
+        "update": false,
+        "delete": false,
+        "join": false,
+        "case": false,
+        "arithmeticQty": false
+      },
+      "references": [
+        "PURC_PURCHASE_REQUEST"
+      ],
+      "qtyPrContexts": [],
+      "mrpNoContexts": [],
+      "relevantLogic": []
+    },
+    {
+      "object": "dbo.PURCV_DETIL",
+      "type": "VIEW",
+      "operations": {
+        "select": true,
+        "insert": false,
+        "update": false,
+        "delete": false,
+        "join": true,
+        "case": false,
+        "arithmeticQty": true
+      },
+      "references": [
+        "PURC_PURCHASE_REQUEST",
+        "MaterialId",
+        "Dept",
+        "Requestor"
+      ],
+      "qtyPrContexts": [],
+      "mrpNoContexts": [],
+      "relevantLogic": []
+    },
+    {
+      "object": "dbo.PURCV_GRR",
+      "type": "VIEW",
+      "operations": {
+        "select": true,
+        "insert": false,
+        "update": false,
+        "delete": false,
+        "join": true,
+        "case": false,
+        "arithmeticQty": true
+      },
+      "references": [
+        "PURC_PURCHASE_REQUEST",
+        "MaterialId"
+      ],
+      "qtyPrContexts": [],
+      "mrpNoContexts": [],
+      "relevantLogic": []
+    },
+    {
+      "object": "dbo.PURCV_GRR_ATK",
+      "type": "VIEW",
+      "operations": {
+        "select": true,
+        "insert": false,
+        "update": false,
+        "delete": false,
+        "join": true,
+        "case": false,
+        "arithmeticQty": true
+      },
+      "references": [
+        "PURC_PURCHASE_REQUEST",
+        "MaterialId"
+      ],
+      "qtyPrContexts": [],
+      "mrpNoContexts": [],
+      "relevantLogic": []
+    },
+    {
+      "object": "dbo.PURCV_HEAD",
+      "type": "VIEW",
+      "operations": {
+        "select": true,
+        "insert": false,
+        "update": false,
+        "delete": false,
+        "join": true,
+        "case": false,
+        "arithmeticQty": false
+      },
+      "references": [
+        "PURC_PURCHASE_REQUEST",
+        "Dept",
+        "Requestor"
+      ],
+      "qtyPrContexts": [],
+      "mrpNoContexts": [],
+      "relevantLogic": []
+    },
+    {
+      "object": "dbo.PURCV_OUT_MR",
+      "type": "VIEW",
+      "operations": {
+        "select": true,
+        "insert": false,
+        "update": false,
+        "delete": false,
+        "join": true,
+        "case": false,
+        "arithmeticQty": false
+      },
+      "references": [
+        "PURC_PURCHASE_REQUEST",
+        "MaterialId"
+      ],
+      "qtyPrContexts": [],
+      "mrpNoContexts": [],
+      "relevantLogic": []
+    }
+  ],
+  "sourceRanking": [
+    {
+      "object": "dbo.forecast",
+      "type": "TABLE",
+      "population": {
+        "status": "AVAILABLE",
+        "rowCount": 30
+      },
+      "codeReferenceCount": 0,
+      "candidateRole": "MRP_OR_PLANNING_CANDIDATE"
+    },
+    {
+      "object": "dbo.MRP",
+      "type": "TABLE",
+      "population": {
+        "status": "AVAILABLE",
+        "rowCount": 3
+      },
+      "codeReferenceCount": 1,
+      "candidateRole": "MRP_OR_PLANNING_CANDIDATE"
+    },
+    {
+      "object": "dbo.MRP_TMP",
+      "type": "TABLE",
+      "population": {
+        "status": "AVAILABLE",
+        "rowCount": 3
+      },
+      "codeReferenceCount": 0,
+      "candidateRole": "TEMP_WORKFLOW"
+    },
+    {
+      "object": "dbo.PURCH_MRP",
+      "type": "TABLE",
+      "population": {
+        "status": "AVAILABLE",
+        "rowCount": 37947
+      },
+      "codeReferenceCount": 1,
+      "candidateRole": "MRP_OR_PLANNING_CANDIDATE"
+    },
+    {
+      "object": "dbo.PURCH_MRP_MONTHLY",
+      "type": "TABLE",
+      "population": {
+        "status": "AVAILABLE",
+        "rowCount": 6
+      },
+      "codeReferenceCount": 0,
+      "candidateRole": "MONTHLY_AGGREGATE"
+    },
+    {
+      "object": "dbo.PURCH_MRP_NOTE",
+      "type": "TABLE",
+      "population": {
+        "status": "AVAILABLE",
+        "rowCount": 736
+      },
+      "codeReferenceCount": 0,
+      "candidateRole": "NOTE"
+    },
+    {
+      "object": "dbo.PURCH_MRP_OVERTIME",
+      "type": "TABLE",
+      "population": {
+        "status": "AVAILABLE",
+        "rowCount": 23
+      },
+      "codeReferenceCount": 0,
+      "candidateRole": "OVERTIME"
+    },
+    {
+      "object": "dbo.PURCH_MRP_OVERTIMEHEAD",
+      "type": "TABLE",
+      "population": {
+        "status": "AVAILABLE",
+        "rowCount": 8
+      },
+      "codeReferenceCount": 0,
+      "candidateRole": "OVERTIME"
+    },
+    {
+      "object": "dbo.PURCH_MRP_TOTAL_GROUPNAME",
+      "type": "TABLE",
+      "population": {
+        "status": "AVAILABLE",
+        "rowCount": 2929
+      },
+      "codeReferenceCount": 0,
+      "candidateRole": "MRP_OR_PLANNING_CANDIDATE"
+    },
+    {
+      "object": "dbo.PURCH_MRP_YEAR",
+      "type": "TABLE",
+      "population": {
+        "status": "AVAILABLE",
+        "rowCount": 0
+      },
+      "codeReferenceCount": 0,
+      "candidateRole": "YEARLY_AGGREGATE"
+    }
+  ],
+  "materialColumnCandidates": [
+    {
+      "schema": "dbo",
+      "object": "ACC_MapDivCatAccountBiaya",
+      "column": "MaterialId",
+      "datatype": "nvarchar",
+      "nullable": false
+    },
+    {
+      "schema": "dbo",
+      "object": "ACC_MapDivCatAccountBiaya__",
+      "column": "MaterialId",
+      "datatype": "nvarchar",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "ACC_MapDivJasaAccountBiaya",
+      "column": "MaterialId",
+      "datatype": "nvarchar",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "acc_sourcejurnaladjustment",
+      "column": "MatId",
+      "datatype": "nvarchar",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "ACCV_JurnalPembelian",
+      "column": "MaterialId",
+      "datatype": "char",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "BANTU",
+      "column": "MaterialId",
+      "datatype": "varchar",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "ClaimRjkTmp",
+      "column": "MaterialId",
+      "datatype": "varchar",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "DeliveryClaimRjk",
+      "column": "MaterialId",
+      "datatype": "varchar",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "FIN_ADJUSTMENT_INVENTORY_ACC",
+      "column": "MaterialId",
+      "datatype": "varchar",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "FINV_GETSelisihInventory",
+      "column": "MaterialId",
+      "datatype": "char",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "FNAT_PROJECTEXPENSES",
+      "column": "MaterialID",
+      "datatype": "int",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "MAS_BOM",
+      "column": "MATERIALID",
+      "datatype": "varchar",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "MAS_KATALOG_SALES",
+      "column": "MATERIALIDHED",
+      "datatype": "varchar",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "MAS_MAPPINGMATERIAL",
+      "column": "MaterialId",
+      "datatype": "varchar",
+      "nullable": false
+    },
+    {
+      "schema": "dbo",
+      "object": "MATERIAL_NAME",
+      "column": "MaterialID",
+      "datatype": "int",
+      "nullable": false
+    },
+    {
+      "schema": "dbo",
+      "object": "MRP",
+      "column": "MaterialId",
+      "datatype": "nchar",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "MRP_TMP",
+      "column": "MaterialId",
+      "datatype": "nchar",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "mst_pallet_standard_history",
+      "column": "MaterialId",
+      "datatype": "varchar",
+      "nullable": false
+    },
+    {
+      "schema": "dbo",
+      "object": "PO_JOIN_ACCESS",
+      "column": "MaterialId",
+      "datatype": "nvarchar",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "PRDetail",
+      "column": "MaterialID",
+      "datatype": "int",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "PRDetail",
+      "column": "MaterialIDP4",
+      "datatype": "nvarchar",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "PURC_BIDCOMPARE",
+      "column": "MaterialId",
+      "datatype": "char",
+      "nullable": false
+    },
+    {
+      "schema": "dbo",
+      "object": "PURC_BIDCOMPARE_HISTORY",
+      "column": "MaterialId",
+      "datatype": "char",
+      "nullable": false
+    },
+    {
+      "schema": "dbo",
+      "object": "PURC_BIDPR",
+      "column": "MaterialId",
+      "datatype": "char",
+      "nullable": false
+    },
+    {
+      "schema": "dbo",
+      "object": "PURC_BIDPR_HISTORY",
+      "column": "MaterialId",
+      "datatype": "char",
+      "nullable": false
+    },
+    {
+      "schema": "dbo",
+      "object": "PURC_CART",
+      "column": "MaterialId",
+      "datatype": "char",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "PURC_HISTORY_BID",
+      "column": "MaterialId",
+      "datatype": "char",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "PURC_MATCATALOG",
+      "column": "Materialid",
+      "datatype": "char",
+      "nullable": false
+    },
+    {
+      "schema": "dbo",
+      "object": "PURC_MATCATALOG",
+      "column": "MatIdOld",
+      "datatype": "text",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "PURC_MATCATALOG_TEMP",
+      "column": "Materialid",
+      "datatype": "char",
+      "nullable": false
+    },
+    {
+      "schema": "dbo",
+      "object": "PURC_MATCATALOGSUBCON",
+      "column": "MaterialId",
+      "datatype": "varchar",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "PURC_PO_ACCESS",
+      "column": "MaterialID",
+      "datatype": "nvarchar",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "PURC_PR_CANCEL",
+      "column": "MaterialId",
+      "datatype": "varchar",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "PURC_PRICE_PO_ACCES",
+      "column": "MaterialId",
+      "datatype": "int",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "PURC_PURCHASE_ORDER",
+      "column": "MaterialId",
+      "datatype": "char",
+      "nullable": false
+    },
+    {
+      "schema": "dbo",
+      "object": "PURC_PURCHASE_ORDER_HISTORY",
+      "column": "MaterialId",
+      "datatype": "char",
+      "nullable": false
+    },
+    {
+      "schema": "dbo",
+      "object": "PURC_PURCHASE_REQUEST",
+      "column": "MaterialId",
+      "datatype": "char",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "PURC_PURCHREQUEST_TEMP",
+      "column": "MaterialId",
+      "datatype": "nchar",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "PURC_QUOTATION",
+      "column": "MaterialId",
+      "datatype": "char",
+      "nullable": false
+    },
+    {
+      "schema": "dbo",
+      "object": "PURC_REG_MATCATALOG_DETAIL",
+      "column": "MaterialId",
+      "datatype": "varchar",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "PURC_RFQMATERIAL",
+      "column": "MaterialId",
+      "datatype": "char",
+      "nullable": false
+    },
+    {
+      "schema": "dbo",
+      "object": "PURC_SPDPR",
+      "column": "MaterialId",
+      "datatype": "varchar",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "PURC_VENDOR_SUPPLIES",
+      "column": "MaterialId",
+      "datatype": "char",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "PURCH_MRP",
+      "column": "MaterialId",
+      "datatype": "nchar",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "PURCH_REQ_INCLUDE_BUDGET",
+      "column": "MaterialId",
+      "datatype": "varchar",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "PURCV_BANK_PRICE",
+      "column": "MaterialId",
+      "datatype": "char",
+      "nullable": false
+    },
+    {
+      "schema": "dbo",
+      "object": "PURCV_BID_COMP",
+      "column": "MaterialId",
+      "datatype": "char",
+      "nullable": false
+    },
+    {
+      "schema": "dbo",
+      "object": "PURCV_BID_COMPARE",
+      "column": "MaterialId",
+      "datatype": "char",
+      "nullable": false
+    },
+    {
+      "schema": "dbo",
+      "object": "PURCV_BP_PR",
+      "column": "MaterialId",
+      "datatype": "nvarchar",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "PURCV_DETIL",
+      "column": "MaterialId",
+      "datatype": "char",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "PURCV_DETRECEIVE",
+      "column": "Materialid",
+      "datatype": "char",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "PURCV_GRR",
+      "column": "MaterialId",
+      "datatype": "char",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "PURCV_GRR_ATK",
+      "column": "MaterialId",
+      "datatype": "char",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "PURCV_HARGAPO",
+      "column": "MaterialId",
+      "datatype": "char",
+      "nullable": false
+    },
+    {
+      "schema": "dbo",
+      "object": "PURCV_HIST_LASTPO",
+      "column": "MaterialId",
+      "datatype": "int",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "PURCV_OUT_MR",
+      "column": "MaterialId",
+      "datatype": "char",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "PURCV_PO_MAT",
+      "column": "Materialid",
+      "datatype": "char",
+      "nullable": false
+    },
+    {
+      "schema": "dbo",
+      "object": "PURCV_POSTS",
+      "column": "MaterialId",
+      "datatype": "char",
+      "nullable": false
+    },
+    {
+      "schema": "dbo",
+      "object": "PURCV_RFBID",
+      "column": "MaterialId",
+      "datatype": "char",
+      "nullable": false
+    },
+    {
+      "schema": "dbo",
+      "object": "PURCV_UNION_HIST_PO",
+      "column": "MaterialId",
+      "datatype": "varchar",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "PURCV_VENDOR_SUPPLIES",
+      "column": "MaterialId",
+      "datatype": "char",
+      "nullable": false
+    },
+    {
+      "schema": "dbo",
+      "object": "realokasi",
+      "column": "Materialid",
+      "datatype": "char",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "ReplacementReject_Det",
+      "column": "MaterialId",
+      "datatype": "varchar",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "selisih_inventory",
+      "column": "MaterialId",
+      "datatype": "char",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "StockPerLocation",
+      "column": "Materialid",
+      "datatype": "char",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "SumMatStock",
+      "column": "Materialid",
+      "datatype": "char",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "SumMatStock1",
+      "column": "Materialid",
+      "datatype": "char",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "SumMatStock2",
+      "column": "Materialid",
+      "datatype": "char",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "SumOwnMatStock",
+      "column": "Materialid",
+      "datatype": "char",
+      "nullable": false
+    },
+    {
+      "schema": "dbo",
+      "object": "TABEL_BANTU2",
+      "column": "MaterialId",
+      "datatype": "varchar",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "TB_Bantu",
+      "column": "MaterialId",
+      "datatype": "varchar",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "Transaksi_Stok",
+      "column": "MaterialId",
+      "datatype": "varchar",
+      "nullable": false
+    },
+    {
+      "schema": "dbo",
+      "object": "Transaksi_Stok_Brake_Assy",
+      "column": "MaterialId",
+      "datatype": "varchar",
+      "nullable": false
+    },
+    {
+      "schema": "dbo",
+      "object": "vw_wmssumstok",
+      "column": "Materialid",
+      "datatype": "char",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "WMS_ADJUSTMENT",
+      "column": "Materialid",
+      "datatype": "char",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "WMS_ADJUSTMENT_ACC",
+      "column": "Materialid",
+      "datatype": "nvarchar",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "WMS_AMOUNT_TRANSAKSI",
+      "column": "MaterialId",
+      "datatype": "char",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "WMS_KDQR_TO_QC",
+      "column": "MaterialId",
+      "datatype": "varchar",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "WMS_MAPPING_PART_DELIVERY_PRD",
+      "column": "MaterialIdRaw",
+      "datatype": "varchar",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "WMS_MAPPING_PART_DELIVERY_PRD",
+      "column": "MaterialIdSub",
+      "datatype": "varchar",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "WMS_MappingPartSubcont",
+      "column": "MaterialIdRaw",
+      "datatype": "varchar",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "WMS_MappingPartSubcont",
+      "column": "MaterialIdFinish",
+      "datatype": "varchar",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "WMS_MATERIALPESAN_HISTORY",
+      "column": "MATERIALID",
+      "datatype": "varchar",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "WMS_MatListStockHarian",
+      "column": "MatId",
+      "datatype": "nchar",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "WMS_MatStock",
+      "column": "Materialid",
+      "datatype": "char",
+      "nullable": false
+    },
+    {
+      "schema": "dbo",
+      "object": "WMS_MatStock2",
+      "column": "Materialid",
+      "datatype": "char",
+      "nullable": false
+    },
+    {
+      "schema": "dbo",
+      "object": "WMS_MatStock2026",
+      "column": "Materialid",
+      "datatype": "char",
+      "nullable": false
+    },
+    {
+      "schema": "dbo",
+      "object": "WMS_MatStockBA",
+      "column": "Materialid",
+      "datatype": "char",
+      "nullable": false
+    },
+    {
+      "schema": "dbo",
+      "object": "WMS_MatStockBAP",
+      "column": "Materialid",
+      "datatype": "varchar",
+      "nullable": false
+    },
+    {
+      "schema": "dbo",
+      "object": "WMS_MatStockBMC",
+      "column": "Materialid",
+      "datatype": "varchar",
+      "nullable": false
+    },
+    {
+      "schema": "dbo",
+      "object": "WMS_MatStockCasting",
+      "column": "Materialid",
+      "datatype": "char",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "WMS_MatStockLawas",
+      "column": "Materialid",
+      "datatype": "char",
+      "nullable": false
+    },
+    {
+      "schema": "dbo",
+      "object": "WMS_MatStockReject",
+      "column": "Materialid",
+      "datatype": "char",
+      "nullable": false
+    },
+    {
+      "schema": "dbo",
+      "object": "WMS_MUTATION",
+      "column": "Materialid",
+      "datatype": "char",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "WMS_PO_MATERIAL",
+      "column": "MaterialId",
+      "datatype": "char",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "WMS_REALOCATION",
+      "column": "Materialid",
+      "datatype": "char",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "WMS_RETURN",
+      "column": "Materialid",
+      "datatype": "char",
+      "nullable": false
+    },
+    {
+      "schema": "dbo",
+      "object": "WMS_WRITEOFF",
+      "column": "Materialid",
+      "datatype": "char",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "WMSV_ADJST",
+      "column": "Materialid",
+      "datatype": "char",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "WMSV_LOCATION_STOCK",
+      "column": "Materialid",
+      "datatype": "char",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "WMSV_RAW_UNION",
+      "column": "Materialid",
+      "datatype": "varchar",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "WMSV_RETURN",
+      "column": "Materialid",
+      "datatype": "char",
+      "nullable": false
+    },
+    {
+      "schema": "dbo",
+      "object": "WMSV_SC1",
+      "column": "Materialid",
+      "datatype": "varchar",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "WMSV_SC4",
+      "column": "Materialid",
+      "datatype": "char",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "WMSV_SC5",
+      "column": "Materialid",
+      "datatype": "varchar",
+      "nullable": false
+    },
+    {
+      "schema": "dbo",
+      "object": "WMSV_SGLOK_SUM",
+      "column": "Materialid",
+      "datatype": "char",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "WMSV_SLOWSTOCK",
+      "column": "Materialid",
+      "datatype": "char",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "WMSV_SLOWSTOCK_INFO",
+      "column": "Materialid",
+      "datatype": "char",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "WMSV_SLOWSTOCKSUM",
+      "column": "Materialid",
+      "datatype": "char",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "WMSV_STO_RAW_INFO",
+      "column": "Materialid",
+      "datatype": "varchar",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "WMSV_STO_RAW_SUM",
+      "column": "Materialid",
+      "datatype": "varchar",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "WMSV_STO_RAWMAT",
+      "column": "Materialid",
+      "datatype": "varchar",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "WMSV_STO0110",
+      "column": "Materialid",
+      "datatype": "varchar",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "WMSV_STO0110_INFO",
+      "column": "Materialid",
+      "datatype": "char",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "WMSV_STO0110_INFO_RM",
+      "column": "MaterialId",
+      "datatype": "varchar",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "WMSV_STO0110Sum",
+      "column": "Materialid",
+      "datatype": "varchar",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "WMSV_StockMaterial",
+      "column": "Materialid",
+      "datatype": "char",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "WMSV_StockPerLocation",
+      "column": "Materialid",
+      "datatype": "char",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "WMSV_STOEndingInfo",
+      "column": "Materialid",
+      "datatype": "char",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "WMSV_STOEndSumOwner",
+      "column": "Materialid",
+      "datatype": "char",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "WMSV_STOEndTotal",
+      "column": "Materialid",
+      "datatype": "char",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "WMSV_STOEndTotalSum",
+      "column": "MatId",
+      "datatype": "varchar",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "WMSV_StoGdLkOwKt",
+      "column": "Materialid",
+      "datatype": "char",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "WMSV_STOPERIODE",
+      "column": "Materialid",
+      "datatype": "char",
+      "nullable": true
+    },
+    {
+      "schema": "dbo",
+      "object": "WMSV_TotStockListHarian",
+      "column": "MatId",
+      "datatype": "char",
+      "nullable": true
+    }
+  ],
+  "mrpMaterialColumns": [
+    {
+      "object": "dbo.MRP",
+      "column": "MaterialId"
+    },
+    {
+      "object": "dbo.MRP_TMP",
+      "column": "MaterialId"
+    },
+    {
+      "object": "dbo.PURCH_MRP",
+      "column": "MaterialId"
+    }
+  ],
+  "materialRelationships": [
+    {
+      "source": "dbo.MRP.MaterialId",
+      "target": "dbo.ACC_MapDivCatAccountBiaya.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP.MaterialId",
+      "target": "dbo.ACC_MapDivCatAccountBiaya__.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP.MaterialId",
+      "target": "dbo.ACC_MapDivJasaAccountBiaya.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP.MaterialId",
+      "target": "dbo.acc_sourcejurnaladjustment.MatId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP.MaterialId",
+      "target": "dbo.ACCV_JurnalPembelian.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP.MaterialId",
+      "target": "dbo.BANTU.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP.MaterialId",
+      "target": "dbo.ClaimRjkTmp.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP.MaterialId",
+      "target": "dbo.DeliveryClaimRjk.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP.MaterialId",
+      "target": "dbo.FIN_ADJUSTMENT_INVENTORY_ACC.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP.MaterialId",
+      "target": "dbo.FINV_GETSelisihInventory.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP.MaterialId",
+      "target": "dbo.FNAT_PROJECTEXPENSES.MaterialID",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP.MaterialId",
+      "target": "dbo.MAS_BOM.MATERIALID",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP.MaterialId",
+      "target": "dbo.MAS_KATALOG_SALES.MATERIALIDHED",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP.MaterialId",
+      "target": "dbo.MAS_MAPPINGMATERIAL.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP.MaterialId",
+      "target": "dbo.MATERIAL_NAME.MaterialID",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP.MaterialId",
+      "target": "dbo.MRP_TMP.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 1,
+      "unmatched": 2,
+      "matchRate": 0.3333333333333333,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP.MaterialId",
+      "target": "dbo.mst_pallet_standard_history.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP.MaterialId",
+      "target": "dbo.PO_JOIN_ACCESS.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP.MaterialId",
+      "target": "dbo.PRDetail.MaterialID",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP.MaterialId",
+      "target": "dbo.PRDetail.MaterialIDP4",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP.MaterialId",
+      "target": "dbo.PURC_BIDCOMPARE.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP.MaterialId",
+      "target": "dbo.PURC_BIDCOMPARE_HISTORY.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP.MaterialId",
+      "target": "dbo.PURC_BIDPR.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP.MaterialId",
+      "target": "dbo.PURC_BIDPR_HISTORY.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP.MaterialId",
+      "target": "dbo.PURC_CART.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP.MaterialId",
+      "target": "dbo.PURC_HISTORY_BID.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP.MaterialId",
+      "target": "dbo.PURC_MATCATALOG.Materialid",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP.MaterialId",
+      "target": "dbo.PURC_MATCATALOG.MatIdOld",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP.MaterialId",
+      "target": "dbo.PURC_MATCATALOG_TEMP.Materialid",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP.MaterialId",
+      "target": "dbo.PURC_MATCATALOGSUBCON.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP.MaterialId",
+      "target": "dbo.PURC_PO_ACCESS.MaterialID",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP.MaterialId",
+      "target": "dbo.PURC_PR_CANCEL.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP.MaterialId",
+      "target": "dbo.PURC_PRICE_PO_ACCES.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP.MaterialId",
+      "target": "dbo.PURC_PURCHASE_ORDER.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP.MaterialId",
+      "target": "dbo.PURC_PURCHASE_ORDER_HISTORY.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP.MaterialId",
+      "target": "dbo.PURC_PURCHASE_REQUEST.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP.MaterialId",
+      "target": "dbo.PURC_PURCHREQUEST_TEMP.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP.MaterialId",
+      "target": "dbo.PURC_QUOTATION.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP.MaterialId",
+      "target": "dbo.PURC_REG_MATCATALOG_DETAIL.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP.MaterialId",
+      "target": "dbo.PURC_RFQMATERIAL.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP_TMP.MaterialId",
+      "target": "dbo.ACC_MapDivCatAccountBiaya.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP_TMP.MaterialId",
+      "target": "dbo.ACC_MapDivCatAccountBiaya__.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP_TMP.MaterialId",
+      "target": "dbo.ACC_MapDivJasaAccountBiaya.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP_TMP.MaterialId",
+      "target": "dbo.acc_sourcejurnaladjustment.MatId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP_TMP.MaterialId",
+      "target": "dbo.ACCV_JurnalPembelian.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP_TMP.MaterialId",
+      "target": "dbo.BANTU.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP_TMP.MaterialId",
+      "target": "dbo.ClaimRjkTmp.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP_TMP.MaterialId",
+      "target": "dbo.DeliveryClaimRjk.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP_TMP.MaterialId",
+      "target": "dbo.FIN_ADJUSTMENT_INVENTORY_ACC.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP_TMP.MaterialId",
+      "target": "dbo.FINV_GETSelisihInventory.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP_TMP.MaterialId",
+      "target": "dbo.FNAT_PROJECTEXPENSES.MaterialID",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP_TMP.MaterialId",
+      "target": "dbo.MAS_BOM.MATERIALID",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP_TMP.MaterialId",
+      "target": "dbo.MAS_KATALOG_SALES.MATERIALIDHED",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP_TMP.MaterialId",
+      "target": "dbo.MAS_MAPPINGMATERIAL.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP_TMP.MaterialId",
+      "target": "dbo.MATERIAL_NAME.MaterialID",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP_TMP.MaterialId",
+      "target": "dbo.MRP.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 2,
+      "unmatched": 1,
+      "matchRate": 0.6666666666666666,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP_TMP.MaterialId",
+      "target": "dbo.mst_pallet_standard_history.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP_TMP.MaterialId",
+      "target": "dbo.PO_JOIN_ACCESS.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP_TMP.MaterialId",
+      "target": "dbo.PRDetail.MaterialID",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP_TMP.MaterialId",
+      "target": "dbo.PRDetail.MaterialIDP4",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP_TMP.MaterialId",
+      "target": "dbo.PURC_BIDCOMPARE.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP_TMP.MaterialId",
+      "target": "dbo.PURC_BIDCOMPARE_HISTORY.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP_TMP.MaterialId",
+      "target": "dbo.PURC_BIDPR.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP_TMP.MaterialId",
+      "target": "dbo.PURC_BIDPR_HISTORY.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP_TMP.MaterialId",
+      "target": "dbo.PURC_CART.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP_TMP.MaterialId",
+      "target": "dbo.PURC_HISTORY_BID.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP_TMP.MaterialId",
+      "target": "dbo.PURC_MATCATALOG.Materialid",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP_TMP.MaterialId",
+      "target": "dbo.PURC_MATCATALOG.MatIdOld",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP_TMP.MaterialId",
+      "target": "dbo.PURC_MATCATALOG_TEMP.Materialid",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP_TMP.MaterialId",
+      "target": "dbo.PURC_MATCATALOGSUBCON.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP_TMP.MaterialId",
+      "target": "dbo.PURC_PO_ACCESS.MaterialID",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP_TMP.MaterialId",
+      "target": "dbo.PURC_PR_CANCEL.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP_TMP.MaterialId",
+      "target": "dbo.PURC_PRICE_PO_ACCES.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP_TMP.MaterialId",
+      "target": "dbo.PURC_PURCHASE_ORDER.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP_TMP.MaterialId",
+      "target": "dbo.PURC_PURCHASE_ORDER_HISTORY.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP_TMP.MaterialId",
+      "target": "dbo.PURC_PURCHASE_REQUEST.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP_TMP.MaterialId",
+      "target": "dbo.PURC_PURCHREQUEST_TEMP.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP_TMP.MaterialId",
+      "target": "dbo.PURC_QUOTATION.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP_TMP.MaterialId",
+      "target": "dbo.PURC_REG_MATCATALOG_DETAIL.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.MRP_TMP.MaterialId",
+      "target": "dbo.PURC_RFQMATERIAL.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 3,
+      "matched": 0,
+      "unmatched": 3,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.PURCH_MRP.MaterialId",
+      "target": "dbo.ACC_MapDivCatAccountBiaya.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 10000,
+      "matched": 6657,
+      "unmatched": 3343,
+      "matchRate": 0.6657,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.PURCH_MRP.MaterialId",
+      "target": "dbo.ACC_MapDivCatAccountBiaya__.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 10000,
+      "matched": 5425,
+      "unmatched": 4575,
+      "matchRate": 0.5425,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.PURCH_MRP.MaterialId",
+      "target": "dbo.ACC_MapDivJasaAccountBiaya.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 10000,
+      "matched": 525,
+      "unmatched": 9475,
+      "matchRate": 0.0525,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.PURCH_MRP.MaterialId",
+      "target": "dbo.acc_sourcejurnaladjustment.MatId",
+      "status": "AVAILABLE",
+      "sampled": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.PURCH_MRP.MaterialId",
+      "target": "dbo.ACCV_JurnalPembelian.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 10000,
+      "matched": 7919,
+      "unmatched": 2081,
+      "matchRate": 0.7919,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.PURCH_MRP.MaterialId",
+      "target": "dbo.BANTU.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 10000,
+      "matched": 126,
+      "unmatched": 9874,
+      "matchRate": 0.0126,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.PURCH_MRP.MaterialId",
+      "target": "dbo.ClaimRjkTmp.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.PURCH_MRP.MaterialId",
+      "target": "dbo.DeliveryClaimRjk.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.PURCH_MRP.MaterialId",
+      "target": "dbo.FIN_ADJUSTMENT_INVENTORY_ACC.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.PURCH_MRP.MaterialId",
+      "target": "dbo.FINV_GETSelisihInventory.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 10000,
+      "matched": 2007,
+      "unmatched": 7993,
+      "matchRate": 0.2007,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.PURCH_MRP.MaterialId",
+      "target": "dbo.FNAT_PROJECTEXPENSES.MaterialID",
+      "status": "AVAILABLE",
+      "sampled": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.PURCH_MRP.MaterialId",
+      "target": "dbo.MAS_BOM.MATERIALID",
+      "status": "AVAILABLE",
+      "sampled": 10000,
+      "matched": 10,
+      "unmatched": 9990,
+      "matchRate": 0.001,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.PURCH_MRP.MaterialId",
+      "target": "dbo.MAS_KATALOG_SALES.MATERIALIDHED",
+      "status": "AVAILABLE",
+      "sampled": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.PURCH_MRP.MaterialId",
+      "target": "dbo.MAS_MAPPINGMATERIAL.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 10000,
+      "matched": 9969,
+      "unmatched": 31,
+      "matchRate": 0.9969,
+      "confidence": "CONFIRMED_BY_DATA"
+    },
+    {
+      "source": "dbo.PURCH_MRP.MaterialId",
+      "target": "dbo.MATERIAL_NAME.MaterialID",
+      "status": "AVAILABLE",
+      "sampled": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.PURCH_MRP.MaterialId",
+      "target": "dbo.MRP.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.PURCH_MRP.MaterialId",
+      "target": "dbo.MRP_TMP.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.PURCH_MRP.MaterialId",
+      "target": "dbo.mst_pallet_standard_history.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 10000,
+      "matched": 1568,
+      "unmatched": 8432,
+      "matchRate": 0.1568,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.PURCH_MRP.MaterialId",
+      "target": "dbo.PO_JOIN_ACCESS.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 10000,
+      "matched": 8511,
+      "unmatched": 1489,
+      "matchRate": 0.8511,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.PURCH_MRP.MaterialId",
+      "target": "dbo.PRDetail.MaterialID",
+      "status": "AVAILABLE",
+      "sampled": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.PURCH_MRP.MaterialId",
+      "target": "dbo.PRDetail.MaterialIDP4",
+      "status": "AVAILABLE",
+      "sampled": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.PURCH_MRP.MaterialId",
+      "target": "dbo.PURC_BIDCOMPARE.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 10000,
+      "matched": 8512,
+      "unmatched": 1488,
+      "matchRate": 0.8512,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.PURCH_MRP.MaterialId",
+      "target": "dbo.PURC_BIDCOMPARE_HISTORY.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 10000,
+      "matched": 2913,
+      "unmatched": 7087,
+      "matchRate": 0.2913,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.PURCH_MRP.MaterialId",
+      "target": "dbo.PURC_BIDPR.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 10000,
+      "matched": 8505,
+      "unmatched": 1495,
+      "matchRate": 0.8505,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.PURCH_MRP.MaterialId",
+      "target": "dbo.PURC_BIDPR_HISTORY.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 10000,
+      "matched": 2909,
+      "unmatched": 7091,
+      "matchRate": 0.2909,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.PURCH_MRP.MaterialId",
+      "target": "dbo.PURC_CART.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 10000,
+      "matched": 120,
+      "unmatched": 9880,
+      "matchRate": 0.012,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.PURCH_MRP.MaterialId",
+      "target": "dbo.PURC_HISTORY_BID.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 10000,
+      "matched": 4824,
+      "unmatched": 5176,
+      "matchRate": 0.4824,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.PURCH_MRP.MaterialId",
+      "target": "dbo.PURC_MATCATALOG.Materialid",
+      "status": "AVAILABLE",
+      "sampled": 10000,
+      "matched": 9995,
+      "unmatched": 5,
+      "matchRate": 0.9995,
+      "confidence": "CONFIRMED_BY_DATA"
+    },
+    {
+      "source": "dbo.PURCH_MRP.MaterialId",
+      "target": "dbo.PURC_MATCATALOG.MatIdOld",
+      "status": "AVAILABLE",
+      "sampled": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.PURCH_MRP.MaterialId",
+      "target": "dbo.PURC_MATCATALOG_TEMP.Materialid",
+      "status": "AVAILABLE",
+      "sampled": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.PURCH_MRP.MaterialId",
+      "target": "dbo.PURC_MATCATALOGSUBCON.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.PURCH_MRP.MaterialId",
+      "target": "dbo.PURC_PO_ACCESS.MaterialID",
+      "status": "AVAILABLE",
+      "sampled": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.PURCH_MRP.MaterialId",
+      "target": "dbo.PURC_PR_CANCEL.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 10000,
+      "matched": 577,
+      "unmatched": 9423,
+      "matchRate": 0.0577,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.PURCH_MRP.MaterialId",
+      "target": "dbo.PURC_PRICE_PO_ACCES.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.PURCH_MRP.MaterialId",
+      "target": "dbo.PURC_PURCHASE_ORDER.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 10000,
+      "matched": 8512,
+      "unmatched": 1488,
+      "matchRate": 0.8512,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.PURCH_MRP.MaterialId",
+      "target": "dbo.PURC_PURCHASE_ORDER_HISTORY.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 10000,
+      "matched": 2885,
+      "unmatched": 7115,
+      "matchRate": 0.2885,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.PURCH_MRP.MaterialId",
+      "target": "dbo.PURC_PURCHASE_REQUEST.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 10000,
+      "matched": 8720,
+      "unmatched": 1280,
+      "matchRate": 0.872,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.PURCH_MRP.MaterialId",
+      "target": "dbo.PURC_PURCHREQUEST_TEMP.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 10000,
+      "matched": 9292,
+      "unmatched": 708,
+      "matchRate": 0.9292,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.PURCH_MRP.MaterialId",
+      "target": "dbo.PURC_QUOTATION.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 10000,
+      "matched": 8515,
+      "unmatched": 1485,
+      "matchRate": 0.8515,
+      "confidence": "UNKNOWN"
+    },
+    {
+      "source": "dbo.PURCH_MRP.MaterialId",
+      "target": "dbo.PURC_REG_MATCATALOG_DETAIL.MaterialId",
+      "status": "AVAILABLE",
+      "sampled": 10000,
+      "matched": 0,
+      "unmatched": 10000,
+      "matchRate": 0,
+      "confidence": "UNKNOWN"
+    }
+  ],
+  "MRPNo": {
+    "status": "CODE_REFERENCES_COLLECTED",
+    "directValidatedRelationship": false
+  },
+  "QtyPR": {
+    "status": "REFERENCES_FOUND_MEANING_UNRESOLVED",
+    "arithmeticEvidence": true
+  },
+  "promotion": {
+    "entity": "material_requirement",
+    "queryable": false,
+    "blockers": [
+      "Quantity semantics unresolved",
+      "MRPDate business meaning unresolved",
+      "MRP-to-PR relationship unresolved",
+      "MRP-to-inventory relationship unresolved"
+    ]
+  }
+}

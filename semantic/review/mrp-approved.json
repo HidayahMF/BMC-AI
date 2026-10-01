@@ -1,0 +1,95 @@
+[
+  {
+    "id": "mrp-number-business-confirmation",
+    "entity": "material_requirement",
+    "semanticField": "mrp_number",
+    "physicalSource": "dbo.PURCH_MRP.MRPNo",
+    "decision": "APPROVED",
+    "meaning": "business MRP document number",
+    "confidence": "CONFIRMED_BY_HUMAN",
+    "approverRole": "MRP / Procurement User - Role Not Specified",
+    "domain": "MRP",
+    "evidenceType": "BUSINESS_OWNER_CONFIRMATION",
+    "approvedAt": "2026-10-01T00:00:00.000Z",
+    "reason": "Nomor MRP dari tabel PURCH_MRP; nomor dokumen MRP yang digunakan untuk mengelompokkan material."
+  },
+  {
+    "id": "mrp-planned-quantity-confirmation",
+    "entity": "material_requirement",
+    "semanticField": "planned_purchase_quantity",
+    "physicalSource": "dbo.PURCH_MRP.Qty",
+    "decision": "APPROVED",
+    "meaning": "quantity planned to be purchased for the following month",
+    "confidence": "CONFIRMED_BY_HUMAN",
+    "approverRole": "MRP / Procurement User - Role Not Specified",
+    "domain": "MRP",
+    "evidenceType": "BUSINESS_OWNER_CONFIRMATION",
+    "approvedAt": "2026-10-01T00:00:00.000Z",
+    "reason": "QTY pada MRP menunjukkan quantity planning material yang akan dibeli pada bulan berikutnya."
+  },
+  {
+    "id": "mrp-created-date-confirmation",
+    "entity": "material_requirement",
+    "semanticField": "mrp_created_date",
+    "physicalSource": "dbo.PURCH_MRP.MRPDate",
+    "decision": "APPROVED",
+    "meaning": "date on which the MRP record/document was created",
+    "confidence": "CONFIRMED_BY_HUMAN",
+    "approverRole": "MRP / Procurement User - Role Not Specified",
+    "domain": "MRP",
+    "evidenceType": "BUSINESS_OWNER_CONFIRMATION",
+    "approvedAt": "2026-10-01T00:00:00.000Z",
+    "reason": "MRP Date / Month Date adalah tanggal MRP dibuat."
+  },
+  {
+    "id": "mrp-pr-created-quantity-confirmation",
+    "entity": "material_requirement",
+    "semanticField": "pr_created_quantity",
+    "physicalSource": "dbo.PURCV_BP_PR.QtyPr",
+    "decision": "APPROVED",
+    "meaning": "quantity from MRP planning already made into Purchase Request",
+    "confidence": "CONFIRMED_BY_HUMAN",
+    "approverRole": "MRP / Procurement User - Role Not Specified",
+    "domain": "MRP",
+    "evidenceType": "BUSINESS_OWNER_CONFIRMATION",
+    "approvedAt": "2026-10-01T00:00:00.000Z",
+    "reason": "Quantity yang sudah dibuat PR based on Planning / MRP."
+  },
+  {
+    "id": "mrp-status-enum-confirmation",
+    "entity": "material_requirement",
+    "semanticField": "status",
+    "physicalSource": "dbo.PURCH_MRP.Status",
+    "decision": "APPROVED",
+    "meaning": "confirmed status enum values 0=NEW and 3=APPROVED_BY_MANAGER",
+    "confidence": "CONFIRMED_BY_HUMAN",
+    "approverRole": "MRP / Procurement User - Role Not Specified",
+    "domain": "MRP",
+    "evidenceType": "BUSINESS_OWNER_CONFIRMATION",
+    "approvedAt": "2026-10-01T00:00:00.000Z",
+    "enumMapping": {
+      "0": { "key": "NEW", "label": "Baru dibuat" },
+      "3": { "key": "APPROVED_BY_MANAGER", "label": "Sudah di-approved oleh manager" }
+    },
+    "reason": "Hanya status 0 dan 3 yang dikonfirmasi; status lain tetap UNKNOWN."
+  }
+  ,{
+    "id": "mrp-pr-lifecycle-status-confirmation",
+    "entity": "material_requirement",
+    "semanticField": "pr_creation_status",
+    "physicalSource": "dbo.PURC_PURCHREQUEST_TEMP.PRNo + dbo.PURC_PURCHREQUEST_TEMP.MaterialId -> dbo.PURC_PURCHASE_REQUEST.PRNo + dbo.PURC_PURCHASE_REQUEST.MaterialId",
+    "decision": "APPROVED",
+    "meaning": "three-state FINAL PR lifecycle status at MRPNo + MaterialId grain",
+    "confidence": "CONFIRMED_BY_HUMAN",
+    "approverRole": "MRP / Procurement User - Role Not Specified",
+    "domain": "MRP",
+    "evidenceType": "BUSINESS_OWNER_CONFIRMATION",
+    "approvedAt": "2026-10-01T00:00:00.000Z",
+    "enumMapping": {
+      "BELUM_DIBUAT_PR": { "key": "BELUM_DIBUAT_PR", "label": "Belum Dibuat PR" },
+      "SEBAGIAN_DIBUAT_PR": { "key": "SEBAGIAN_DIBUAT_PR", "label": "Sebagian Dibuat PR" },
+      "SUDAH_DIBUAT_PR": { "key": "SUDAH_DIBUAT_PR", "label": "Sudah Dibuat PR" }
+    },
+    "reason": "No final PR, partial final PR, and all released PRs final are distinct business lifecycle states."
+  }
+]

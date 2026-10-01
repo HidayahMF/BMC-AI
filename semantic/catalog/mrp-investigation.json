@@ -1,0 +1,878 @@
+{
+  "generatedAt": "2026-10-01T03:02:23.605Z",
+  "status": "DISCOVERY_ONLY",
+  "queryable": false,
+  "entity": "material_requirement",
+  "security": {
+    "rawRowsPersisted": false,
+    "databaseMutation": false,
+    "geminiInvolved": false
+  },
+  "candidates": [
+    {
+      "schema": "dbo",
+      "object": "forecast",
+      "type": "TABLE",
+      "population": {
+        "status": "UNAVAILABLE",
+        "errorCode": "RequestError"
+      },
+      "candidateRole": "RELATED_PLANNING_CANDIDATE",
+      "fields": {
+        "QTY": {
+          "datatype": "int",
+          "nullable": "YES"
+        },
+        "QTY_PLAN": {
+          "datatype": "int",
+          "nullable": "YES"
+        },
+        "PERIODE": {
+          "datatype": "varchar",
+          "nullable": "YES"
+        }
+      },
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "schema/catalog name or column pattern only; business semantics not confirmed"
+      ]
+    },
+    {
+      "schema": "dbo",
+      "object": "inventory_barang",
+      "type": "TABLE",
+      "population": {
+        "status": "UNAVAILABLE",
+        "errorCode": "RequestError"
+      },
+      "candidateRole": "RELATED_PLANNING_CANDIDATE",
+      "fields": {
+        "qty": {
+          "datatype": "int",
+          "nullable": "YES"
+        },
+        "status": {
+          "datatype": "varchar",
+          "nullable": "NO"
+        },
+        "updated_at": {
+          "datatype": "datetime",
+          "nullable": "NO"
+        },
+        "material_id": {
+          "datatype": "nchar",
+          "nullable": "YES"
+        }
+      },
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "schema/catalog name or column pattern only; business semantics not confirmed"
+      ]
+    },
+    {
+      "schema": "dbo",
+      "object": "inventory_barang_backup_20260716",
+      "type": "TABLE",
+      "population": {
+        "status": "UNAVAILABLE",
+        "errorCode": "RequestError"
+      },
+      "candidateRole": "RELATED_PLANNING_CANDIDATE",
+      "fields": {
+        "qty": {
+          "datatype": "int",
+          "nullable": "YES"
+        },
+        "status": {
+          "datatype": "varchar",
+          "nullable": "NO"
+        },
+        "updated_at": {
+          "datatype": "datetime",
+          "nullable": "NO"
+        }
+      },
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "schema/catalog name or column pattern only; business semantics not confirmed"
+      ]
+    },
+    {
+      "schema": "dbo",
+      "object": "message_jobs",
+      "type": "TABLE",
+      "population": {
+        "status": "UNAVAILABLE",
+        "errorCode": "RequestError"
+      },
+      "candidateRole": "RELATED_PLANNING_CANDIDATE",
+      "fields": {
+        "status": {
+          "datatype": "nvarchar",
+          "nullable": "NO"
+        }
+      },
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "schema/catalog name or column pattern only; business semantics not confirmed"
+      ]
+    },
+    {
+      "schema": "dbo",
+      "object": "MRP",
+      "type": "TABLE",
+      "population": {
+        "status": "UNAVAILABLE",
+        "errorCode": "RequestError"
+      },
+      "candidateRole": "MRP_OR_PLANNING_CANDIDATE",
+      "fields": {
+        "Requestor": {
+          "datatype": "nchar",
+          "nullable": "YES"
+        },
+        "MRPDate": {
+          "datatype": "varchar",
+          "nullable": "YES"
+        },
+        "MaterialId": {
+          "datatype": "nchar",
+          "nullable": "YES"
+        },
+        "Qty1": {
+          "datatype": "nchar",
+          "nullable": "YES"
+        },
+        "Qty2": {
+          "datatype": "nchar",
+          "nullable": "YES"
+        },
+        "Qty3": {
+          "datatype": "nchar",
+          "nullable": "YES"
+        },
+        "Qty4": {
+          "datatype": "nchar",
+          "nullable": "YES"
+        },
+        "Qty5": {
+          "datatype": "nchar",
+          "nullable": "YES"
+        },
+        "Qty": {
+          "datatype": "nchar",
+          "nullable": "YES"
+        },
+        "QtyPR": {
+          "datatype": "nchar",
+          "nullable": "YES"
+        },
+        "Status": {
+          "datatype": "int",
+          "nullable": "YES"
+        },
+        "Status_info": {
+          "datatype": "nchar",
+          "nullable": "YES"
+        },
+        "Status_By": {
+          "datatype": "varchar",
+          "nullable": "YES"
+        },
+        "Status_Date": {
+          "datatype": "datetime",
+          "nullable": "YES"
+        },
+        "Inp_Date": {
+          "datatype": "datetime",
+          "nullable": "YES"
+        },
+        "Approval_Date": {
+          "datatype": "datetime",
+          "nullable": "YES"
+        },
+        "ApprovalGh_Date": {
+          "datatype": "datetime",
+          "nullable": "YES"
+        },
+        "ApprovalDh_Date": {
+          "datatype": "datetime",
+          "nullable": "YES"
+        },
+        "ApprovalIc_Date": {
+          "datatype": "datetime",
+          "nullable": "YES"
+        },
+        "ApprovalProc_Date": {
+          "datatype": "datetime",
+          "nullable": "YES"
+        },
+        "ApprovalFin_Date": {
+          "datatype": "datetime",
+          "nullable": "YES"
+        },
+        "ApprovalDirektur_Date": {
+          "datatype": "datetime",
+          "nullable": "YES"
+        },
+        "ApprovalPresDir_Date": {
+          "datatype": "datetime",
+          "nullable": "YES"
+        }
+      },
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "schema/catalog name or column pattern only; business semantics not confirmed"
+      ]
+    },
+    {
+      "schema": "dbo",
+      "object": "MRP_TMP",
+      "type": "TABLE",
+      "population": {
+        "status": "UNAVAILABLE",
+        "errorCode": "RequestError"
+      },
+      "candidateRole": "MRP_OR_PLANNING_CANDIDATE",
+      "fields": {
+        "Requestor": {
+          "datatype": "nchar",
+          "nullable": "YES"
+        },
+        "MRPDate": {
+          "datatype": "varchar",
+          "nullable": "YES"
+        },
+        "MaterialId": {
+          "datatype": "nchar",
+          "nullable": "YES"
+        },
+        "Qty1": {
+          "datatype": "nchar",
+          "nullable": "YES"
+        },
+        "Qty2": {
+          "datatype": "nchar",
+          "nullable": "YES"
+        },
+        "Qty3": {
+          "datatype": "nchar",
+          "nullable": "YES"
+        },
+        "Qty4": {
+          "datatype": "nchar",
+          "nullable": "YES"
+        },
+        "Qty5": {
+          "datatype": "nchar",
+          "nullable": "YES"
+        },
+        "Qty": {
+          "datatype": "nchar",
+          "nullable": "YES"
+        },
+        "QtyPR": {
+          "datatype": "nchar",
+          "nullable": "YES"
+        },
+        "Status": {
+          "datatype": "int",
+          "nullable": "YES"
+        },
+        "Status_info": {
+          "datatype": "nchar",
+          "nullable": "YES"
+        },
+        "Status_By": {
+          "datatype": "varchar",
+          "nullable": "YES"
+        },
+        "Status_Date": {
+          "datatype": "datetime",
+          "nullable": "YES"
+        },
+        "Inp_Date": {
+          "datatype": "datetime",
+          "nullable": "YES"
+        },
+        "Approval_Date": {
+          "datatype": "datetime",
+          "nullable": "YES"
+        },
+        "ApprovalGh_Date": {
+          "datatype": "datetime",
+          "nullable": "YES"
+        },
+        "ApprovalDh_Date": {
+          "datatype": "datetime",
+          "nullable": "YES"
+        },
+        "ApprovalIc_Date": {
+          "datatype": "datetime",
+          "nullable": "YES"
+        },
+        "ApprovalProc_Date": {
+          "datatype": "datetime",
+          "nullable": "YES"
+        },
+        "ApprovalFin_Date": {
+          "datatype": "datetime",
+          "nullable": "YES"
+        },
+        "ApprovalDirektur_Date": {
+          "datatype": "datetime",
+          "nullable": "YES"
+        },
+        "ApprovalPresDir_Date": {
+          "datatype": "datetime",
+          "nullable": "YES"
+        }
+      },
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "schema/catalog name or column pattern only; business semantics not confirmed"
+      ]
+    },
+    {
+      "schema": "dbo",
+      "object": "POV",
+      "type": "TABLE",
+      "population": {
+        "status": "UNAVAILABLE",
+        "errorCode": "RequestError"
+      },
+      "candidateRole": "RELATED_PLANNING_CANDIDATE",
+      "fields": {
+        "Date": {
+          "datatype": "datetime",
+          "nullable": "YES"
+        },
+        "CreateDate": {
+          "datatype": "datetime",
+          "nullable": "YES"
+        },
+        "ApproveDate": {
+          "datatype": "datetime",
+          "nullable": "YES"
+        }
+      },
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "schema/catalog name or column pattern only; business semantics not confirmed"
+      ]
+    },
+    {
+      "schema": "dbo",
+      "object": "PROJ_FORM",
+      "type": "TABLE",
+      "population": {
+        "status": "UNAVAILABLE",
+        "errorCode": "RequestError"
+      },
+      "candidateRole": "RELATED_PLANNING_CANDIDATE",
+      "fields": {
+        "Requirement": {
+          "datatype": "varchar",
+          "nullable": "NO"
+        }
+      },
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "schema/catalog name or column pattern only; business semantics not confirmed"
+      ]
+    },
+    {
+      "schema": "dbo",
+      "object": "PURC_PURCHREQUEST_TEMP",
+      "type": "TABLE",
+      "population": {
+        "status": "UNAVAILABLE",
+        "errorCode": "RequestError"
+      },
+      "candidateRole": "RELATED_PLANNING_CANDIDATE",
+      "fields": {
+        "MaterialId": {
+          "datatype": "nchar",
+          "nullable": "YES"
+        },
+        "MaterialName": {
+          "datatype": "varchar",
+          "nullable": "YES"
+        },
+        "Qty": {
+          "datatype": "numeric",
+          "nullable": "YES"
+        },
+        "Requestor": {
+          "datatype": "nchar",
+          "nullable": "YES"
+        },
+        "Approval_Date": {
+          "datatype": "nchar",
+          "nullable": "YES"
+        },
+        "Status": {
+          "datatype": "int",
+          "nullable": "YES"
+        },
+        "Status_Info": {
+          "datatype": "nchar",
+          "nullable": "YES"
+        },
+        "AppDate": {
+          "datatype": "datetime",
+          "nullable": "YES"
+        },
+        "CDate": {
+          "datatype": "datetime",
+          "nullable": "YES"
+        },
+        "Purpose_Date": {
+          "datatype": "datetime",
+          "nullable": "YES"
+        },
+        "Need": {
+          "datatype": "datetime",
+          "nullable": "YES"
+        },
+        "Approval_ghdate": {
+          "datatype": "nchar",
+          "nullable": "YES"
+        },
+        "Approval_Dhdate": {
+          "datatype": "nchar",
+          "nullable": "YES"
+        },
+        "Approval_Icdate": {
+          "datatype": "nchar",
+          "nullable": "YES"
+        },
+        "Approval_ProcDate": {
+          "datatype": "datetime",
+          "nullable": "YES"
+        }
+      },
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "schema/catalog name or column pattern only; business semantics not confirmed"
+      ]
+    },
+    {
+      "schema": "dbo",
+      "object": "PURCH_BUDGET_GROUP",
+      "type": "TABLE",
+      "population": {
+        "status": "UNAVAILABLE",
+        "errorCode": "RequestError"
+      },
+      "candidateRole": "RELATED_PLANNING_CANDIDATE",
+      "fields": {
+        "statusMrp": {
+          "datatype": "varchar",
+          "nullable": "YES"
+        }
+      },
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "schema/catalog name or column pattern only; business semantics not confirmed"
+      ]
+    },
+    {
+      "schema": "dbo",
+      "object": "PURCH_BULK",
+      "type": "TABLE",
+      "population": {
+        "status": "UNAVAILABLE",
+        "errorCode": "RequestError"
+      },
+      "candidateRole": "RELATED_PLANNING_CANDIDATE",
+      "fields": {
+        "PoStatus": {
+          "datatype": "int",
+          "nullable": "YES"
+        },
+        "Del_Date": {
+          "datatype": "datetime",
+          "nullable": "YES"
+        }
+      },
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "schema/catalog name or column pattern only; business semantics not confirmed"
+      ]
+    },
+    {
+      "schema": "dbo",
+      "object": "PURCH_MRP",
+      "type": "TABLE",
+      "population": {
+        "status": "UNAVAILABLE",
+        "errorCode": "RequestError"
+      },
+      "candidateRole": "MRP_OR_PLANNING_CANDIDATE",
+      "fields": {
+        "Requestor": {
+          "datatype": "varchar",
+          "nullable": "YES"
+        },
+        "MRPDate": {
+          "datatype": "varchar",
+          "nullable": "YES"
+        },
+        "MaterialId": {
+          "datatype": "nchar",
+          "nullable": "YES"
+        },
+        "Qty": {
+          "datatype": "numeric",
+          "nullable": "YES"
+        },
+        "Status": {
+          "datatype": "int",
+          "nullable": "YES"
+        },
+        "Status_Info": {
+          "datatype": "varchar",
+          "nullable": "YES"
+        },
+        "Status_By": {
+          "datatype": "varchar",
+          "nullable": "YES"
+        },
+        "Status_Date": {
+          "datatype": "datetime",
+          "nullable": "YES"
+        },
+        "Inp_date": {
+          "datatype": "datetime",
+          "nullable": "YES"
+        },
+        "Approval_Date": {
+          "datatype": "datetime",
+          "nullable": "YES"
+        },
+        "ApprovalMgr_Date": {
+          "datatype": "datetime",
+          "nullable": "YES"
+        },
+        "ApprovalGhFa_Date": {
+          "datatype": "datetime",
+          "nullable": "YES"
+        },
+        "ApprovalIc_Date": {
+          "datatype": "datetime",
+          "nullable": "YES"
+        },
+        "ApprovalProc_Date": {
+          "datatype": "datetime",
+          "nullable": "YES"
+        },
+        "ApprovalDirektur_Date": {
+          "datatype": "datetime",
+          "nullable": "YES"
+        },
+        "ApprovalCfo_Date": {
+          "datatype": "datetime",
+          "nullable": "YES"
+        },
+        "ApprovalPresdir_Date": {
+          "datatype": "datetime",
+          "nullable": "YES"
+        },
+        "MRPDateAkhir": {
+          "datatype": "varchar",
+          "nullable": "YES"
+        },
+        "Upd_date": {
+          "datatype": "datetime",
+          "nullable": "YES"
+        },
+        "Approval_ghDate": {
+          "datatype": "datetime",
+          "nullable": "YES"
+        },
+        "Approval_dhDate": {
+          "datatype": "datetime",
+          "nullable": "YES"
+        },
+        "Approval_shDate": {
+          "datatype": "datetime",
+          "nullable": "YES"
+        }
+      },
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "schema/catalog name or column pattern only; business semantics not confirmed"
+      ]
+    },
+    {
+      "schema": "dbo",
+      "object": "PURCH_MRP_MONTHLY",
+      "type": "TABLE",
+      "population": {
+        "status": "UNAVAILABLE",
+        "errorCode": "RequestError"
+      },
+      "candidateRole": "MRP_OR_PLANNING_CANDIDATE",
+      "fields": {},
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "schema/catalog name or column pattern only; business semantics not confirmed"
+      ]
+    },
+    {
+      "schema": "dbo",
+      "object": "PURCH_MRP_NOTE",
+      "type": "TABLE",
+      "population": {
+        "status": "UNAVAILABLE",
+        "errorCode": "RequestError"
+      },
+      "candidateRole": "MRP_OR_PLANNING_CANDIDATE",
+      "fields": {},
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "schema/catalog name or column pattern only; business semantics not confirmed"
+      ]
+    },
+    {
+      "schema": "dbo",
+      "object": "PURCH_MRP_OVERTIME",
+      "type": "TABLE",
+      "population": {
+        "status": "UNAVAILABLE",
+        "errorCode": "RequestError"
+      },
+      "candidateRole": "MRP_OR_PLANNING_CANDIDATE",
+      "fields": {
+        "id_periode": {
+          "datatype": "varchar",
+          "nullable": "YES"
+        },
+        "created_date": {
+          "datatype": "datetime",
+          "nullable": "YES"
+        },
+        "app_status": {
+          "datatype": "int",
+          "nullable": "YES"
+        },
+        "app1_date": {
+          "datatype": "datetime",
+          "nullable": "YES"
+        },
+        "app2_date": {
+          "datatype": "datetime",
+          "nullable": "YES"
+        },
+        "app3_date": {
+          "datatype": "datetime",
+          "nullable": "YES"
+        }
+      },
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "schema/catalog name or column pattern only; business semantics not confirmed"
+      ]
+    },
+    {
+      "schema": "dbo",
+      "object": "PURCH_MRP_OVERTIMEHEAD",
+      "type": "TABLE",
+      "population": {
+        "status": "UNAVAILABLE",
+        "errorCode": "RequestError"
+      },
+      "candidateRole": "MRP_OR_PLANNING_CANDIDATE",
+      "fields": {
+        "PERIODE": {
+          "datatype": "varchar",
+          "nullable": "NO"
+        },
+        "DAYPERIODE": {
+          "datatype": "varchar",
+          "nullable": "NO"
+        },
+        "PLANBUDGET": {
+          "datatype": "decimal",
+          "nullable": "YES"
+        }
+      },
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "schema/catalog name or column pattern only; business semantics not confirmed"
+      ]
+    },
+    {
+      "schema": "dbo",
+      "object": "PURCH_MRP_TOTAL_GROUPNAME",
+      "type": "TABLE",
+      "population": {
+        "status": "UNAVAILABLE",
+        "errorCode": "RequestError"
+      },
+      "candidateRole": "MRP_OR_PLANNING_CANDIDATE",
+      "fields": {},
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "schema/catalog name or column pattern only; business semantics not confirmed"
+      ]
+    },
+    {
+      "schema": "dbo",
+      "object": "PURCH_MRP_YEAR",
+      "type": "TABLE",
+      "population": {
+        "status": "UNAVAILABLE",
+        "errorCode": "RequestError"
+      },
+      "candidateRole": "MRP_OR_PLANNING_CANDIDATE",
+      "fields": {},
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "schema/catalog name or column pattern only; business semantics not confirmed"
+      ]
+    },
+    {
+      "schema": "dbo",
+      "object": "PURCH_REVENUE",
+      "type": "TABLE",
+      "population": {
+        "status": "UNAVAILABLE",
+        "errorCode": "RequestError"
+      },
+      "candidateRole": "RELATED_PLANNING_CANDIDATE",
+      "fields": {
+        "periode": {
+          "datatype": "text",
+          "nullable": "NO"
+        }
+      },
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "schema/catalog name or column pattern only; business semantics not confirmed"
+      ]
+    },
+    {
+      "schema": "dbo",
+      "object": "PURCV_BP_PR",
+      "type": "VIEW",
+      "population": {
+        "status": "UNAVAILABLE",
+        "errorCode": "RequestError"
+      },
+      "candidateRole": "RELATED_PLANNING_CANDIDATE",
+      "fields": {
+        "MaterialId": {
+          "datatype": "nvarchar",
+          "nullable": "YES"
+        },
+        "MaterialName": {
+          "datatype": "varchar",
+          "nullable": "YES"
+        },
+        "QTYBP": {
+          "datatype": "numeric",
+          "nullable": "YES"
+        },
+        "MonthDate": {
+          "datatype": "varchar",
+          "nullable": "YES"
+        },
+        "status": {
+          "datatype": "int",
+          "nullable": "YES"
+        },
+        "PRReceivedDate": {
+          "datatype": "datetime",
+          "nullable": "YES"
+        },
+        "QtyPr": {
+          "datatype": "numeric",
+          "nullable": "YES"
+        }
+      },
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "schema/catalog name or column pattern only; business semantics not confirmed"
+      ]
+    },
+    {
+      "schema": "dbo",
+      "object": "scheduled_messages",
+      "type": "TABLE",
+      "population": {
+        "status": "UNAVAILABLE",
+        "errorCode": "RequestError"
+      },
+      "candidateRole": "RELATED_PLANNING_CANDIDATE",
+      "fields": {
+        "updated_at": {
+          "datatype": "datetime",
+          "nullable": "NO"
+        }
+      },
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "schema/catalog name or column pattern only; business semantics not confirmed"
+      ]
+    },
+    {
+      "schema": "dbo",
+      "object": "SLS_SALESORDER_HED",
+      "type": "TABLE",
+      "population": {
+        "status": "UNAVAILABLE",
+        "errorCode": "RequestError"
+      },
+      "candidateRole": "RELATED_PLANNING_CANDIDATE",
+      "fields": {
+        "PODate": {
+          "datatype": "date",
+          "nullable": "YES"
+        },
+        "status": {
+          "datatype": "int",
+          "nullable": "YES"
+        },
+        "approval_date": {
+          "datatype": "datetime",
+          "nullable": "YES"
+        },
+        "inp_date": {
+          "datatype": "datetime",
+          "nullable": "YES"
+        },
+        "NoForecast": {
+          "datatype": "varchar",
+          "nullable": "YES"
+        }
+      },
+      "confidence": "UNKNOWN",
+      "evidence": [
+        "schema/catalog name or column pattern only; business semantics not confirmed"
+      ]
+    }
+  ],
+  "relationships": {
+    "material": {
+      "status": "NOT_VALIDATED",
+      "runtimeJoinAllowed": false
+    },
+    "inventory": {
+      "status": "NOT_VALIDATED",
+      "runtimeJoinAllowed": false
+    },
+    "purchaseRequest": {
+      "status": "NOT_VALIDATED",
+      "runtimeJoinAllowed": false
+    }
+  },
+  "blockers": [
+    "No field-level semantic validation completed",
+    "MRP quantity semantics are unresolved",
+    "MRP-to-PR relationship is not validated",
+    "MRP-to-inventory relationship is not validated",
+    "status/date meanings are unresolved"
+  ]
+}

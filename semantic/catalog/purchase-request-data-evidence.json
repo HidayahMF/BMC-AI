@@ -1,0 +1,49 @@
+{
+  "generatedAt": "2026-10-01T04:51:15.894Z",
+  "object": "dbo.PURC_PURCHREQUEST_TEMP",
+  "aggregate": {
+    "totalRows": 16014,
+    "blankMaterialName": 8,
+    "nullQty": 1,
+    "blankPRNo": 2,
+    "distinctPRNumbers": 4832,
+    "matchedToFinalPRNumbers": 4108,
+    "tempToFinalDistinctMatchRate": 0.850166
+  },
+  "fields": {
+    "pr_number": {
+      "confidence": "CONFIRMED_BY_DATA",
+      "populatedRateAtLeast": 0.9998,
+      "repeatedDocumentIdentifier": true
+    },
+    "material_description": {
+      "confidence": "CONFIRMED_BY_DATA",
+      "populatedRateApproximately": 0.9995
+    },
+    "quantity": {
+      "confidence": "CONFIRMED_BY_DATA",
+      "meaning": "line_item_quantity"
+    },
+    "material_code": {
+      "confidence": "CONFIRMED_BY_DATA"
+    }
+  },
+  "relationship": {
+    "source": "dbo.PURC_PURCHREQUEST_TEMP.MaterialId",
+    "target": "dbo.MAS_MAPPINGMATERIAL.MaterialId",
+    "sampled": 12717,
+    "matched": 12642,
+    "matchRate": 0.9941023826,
+    "confidence": "CONFIRMED_BY_DATA",
+    "runtimeJoinAllowed": false
+  },
+  "tempToFinal": {
+    "matchRate": 0.850166,
+    "confidence": "PROBABLE",
+    "runtimeJoinAllowed": false
+  },
+  "security": {
+    "rawRowsPersisted": false,
+    "databaseMutation": false
+  }
+}

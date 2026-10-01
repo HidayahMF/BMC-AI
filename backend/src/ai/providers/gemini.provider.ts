@@ -1,46 +1,47 @@
-import type { AIProvider, ToolResult } from './provider.js';
+import { aiEnv } from '../config/env.js';
 import { AIProviderError } from './provider-error.js';
-import { env } from '../../config/env.js';
-import { executeTool } from '../tools/executor.js';
-import { toolDefinitions } from '../tools/registry.js';
+import { parseIntent } from '../intents/parser.js';
+import type { Intent } from '../intents/schema.js';
+import type { IntentProvider } from './intent-provider.js';
+import { semanticPlanSchema, type SemanticPlan } from '../../semantic/schema.js';
+import { deterministicSemanticPlan } from '../../semantic/deterministic-plan.js';
 
-let activeRequests = 0; const waiters: Array<() => void> = [];
-async function acquire() { while (activeRequests >= env.AI_MAX_CONCURRENCY) await new Promise<void>((resolve) => waiters.push(resolve)); activeRequests += 1; }
-function release() { activeRequests -= 1; waiters.shift()?.(); }
+const instruction = 'You are a BMC intent parser. Return JSON only with intent and parameters. Never request, infer, or receive database rows. Live data intents are executed by the backend. Knowledge questions may be answered only from supplied approved documentation excerpts. Use SEMANTIC_QUERY for generic live business questions that are not specialized fixed workflows. Allowed intents: SEARCH_CUSTOMER, GET_CUSTOMER_ORDERS, SEARCH_ORDER, GET_ORDER_DETAILS, GET_LATEST_CUSTOMER_ORDERS, GET_DELIVERY_LOOKUP, GET_STOCK_STATUS, SEMANTIC_QUERY, KNOWLEDGE_QUERY, UNSUPPORTED.';
+type GeminiErrorBody = { error?: { status?: string; reason?: string; details?: Array<{ reason?: string; retryDelay?: string }> } };
 const transient = new Set([408, 429, 500, 502, 503, 504]);
-const instruction = 'You are BMC AI. Use approved tools for every business fact. Never invent orders, quantities, delivery, stock, production, dates, or customer data. If a tool says not found, say data tidak ditemukan. Do not generate SQL. Distinguish database facts from backend calculations. If customer search is ambiguous, ask the user to select a candidate and do not choose one yourself.';
+function safeError(response: Response, body: GeminiErrorBody) { const status = body.error?.status ?? (response.status === 429 ? 'RESOURCE_EXHAUSTED' : undefined); return new AIProviderError({ provider: 'gemini', statusCode: response.status, providerStatus: status, reason: body.error?.reason ?? status ?? 'PROVIDER_ERROR', retryable: transient.has(response.status), safeMessage: response.status === 429 ? 'BMC AI sedang mencapai batas permintaan AI. Coba lagi beberapa saat.' : 'Layanan AI sementara tidak dapat memproses permintaan.' }); }
 
-type GeminiErrorBody = { error?: { status?: string; message?: string; reason?: string; details?: Array<{ reason?: string; retryDelay?: string }> } };
-function retryDelayMs(response: Response, body: GeminiErrorBody) { const header = response.headers.get('retry-after'); if (header && /^\d+(\.\d+)?$/.test(header)) return Math.round(Number(header) * 1000); const value = body.error?.details?.find((item) => item.retryDelay)?.retryDelay; const match = value?.match(/^(\d+(?:\.\d+)?)s$/); return match ? Math.round(Number(match[1]) * 1000) : undefined; }
-function safeError(response: Response, body: GeminiErrorBody) { const status = body.error?.status ?? (response.status === 429 ? 'RESOURCE_EXHAUSTED' : undefined); const reason = body.error?.reason ?? body.error?.details?.find((item) => item.reason)?.reason ?? (response.status === 429 ? 'RESOURCE_EXHAUSTED_UNKNOWN' : status ?? 'PROVIDER_ERROR'); const retryable = transient.has(response.status); const safeMessage = response.status === 429 ? 'BMC AI sedang mencapai batas permintaan AI. Coba lagi beberapa saat.' : response.status >= 500 ? 'Layanan AI sedang sibuk. Silakan coba lagi sebentar.' : 'Layanan AI sementara tidak dapat memproses permintaan.'; return new AIProviderError({ provider: 'gemini', statusCode: response.status, providerStatus: status, reason, retryable, retryAfterMs: retryDelayMs(response, body), safeMessage }); }
-
-export class GeminiProvider implements AIProvider {
-  async generate({ message }: { message: string; context?: unknown }): Promise<ToolResult> {
-    if (!env.GEMINI_API_KEY) throw new AIProviderError({ provider: 'gemini', reason: 'NOT_CONFIGURED', retryable: false, safeMessage: 'Layanan AI belum dikonfigurasi.' });
-    await acquire(); const controller = new AbortController(); const timer = setTimeout(() => controller.abort(), env.AI_TIMEOUT_MS);
+export class GeminiProvider implements IntentProvider {
+  async parseIntent(message: string): Promise<Intent> {
+    if (!aiEnv.GEMINI_API_KEY) return parseIntent(undefined, message);
+    const controller = new AbortController(); const timer = setTimeout(() => controller.abort(), aiEnv.AI_TIMEOUT_MS);
     try {
-      const contents: Array<Record<string, unknown>> = [{ role: 'user', parts: [{ text: message }] }]; const toolsUsed: string[] = []; let lastData: unknown = null; let sources: string[] = [];
-      for (let step = 0; step < env.AI_MAX_TOOL_STEPS; step += 1) {
-        const payload = { contents, systemInstruction: { parts: [{ text: instruction }] }, tools: [{ functionDeclarations: toolDefinitions }], generationConfig: { temperature: 0.1 } };
-        let response: Response | undefined; let body: GeminiErrorBody = {};
-        for (let attempt = 1; attempt <= env.AI_RETRY_MAX_ATTEMPTS; attempt += 1) {
-          response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(env.AI_MODEL)}:generateContent?key=${encodeURIComponent(env.GEMINI_API_KEY)}`, { method: 'POST', headers: { 'content-type': 'application/json' }, signal: controller.signal, body: JSON.stringify(payload) });
-          if (response.ok) break;
-          try { body = await response.clone().json() as GeminiErrorBody; } catch { body = {}; }
-          const error = safeError(response, body); console.info(JSON.stringify({ provider: 'gemini', model: env.AI_MODEL, attempt, status: error.details.statusCode, reason: error.details.reason, retryable: error.details.retryable }));
-          if (!error.details.retryable || attempt === env.AI_RETRY_MAX_ATTEMPTS) throw error;
-          const delay = error.details.retryAfterMs ?? Math.min(env.AI_RETRY_MAX_DELAY_MS, env.AI_RETRY_BASE_DELAY_MS * 2 ** (attempt - 1)) + Math.floor(Math.random() * 250);
-          await new Promise((resolve) => setTimeout(resolve, delay));
-        }
-        const result = await response!.json() as { candidates?: Array<{ content?: { parts?: Array<{ text?: string; functionCall?: { name: string; args?: unknown } }> } }> };
-        const parts = result.candidates?.[0]?.content?.parts ?? []; const call = parts.find((part) => part.functionCall)?.functionCall;
-        if (!call) { const answer = parts.map((part) => part.text ?? '').join('').trim(); if (!answer) throw new AIProviderError({ provider: 'gemini', reason: 'EMPTY_RESPONSE', retryable: false, safeMessage: 'Layanan AI memberikan respons kosong.' }); return { answer, data: lastData, sources, toolsUsed }; }
-        const toolStart = Date.now(); const toolResult = await executeTool(call.name, call.args ?? {}); console.info(JSON.stringify({ provider: 'gemini', model: env.AI_MODEL, tool: call.name, durationMs: Date.now() - toolStart, success: toolResult.ok })); toolsUsed.push(call.name); lastData = toolResult.data ?? { error: toolResult.error }; if (toolResult.ok && Array.isArray(toolResult.data)) sources = sources.length ? sources : [`SQLSERVER.approved-tool:${call.name}`];
-        if (call.name === 'search_customer' && toolResult.ok && Array.isArray(toolResult.data) && toolResult.data.length > 1) return { answer: 'Saya menemukan beberapa customer yang cocok. Mohon pilih customer yang dimaksud.', data: { customers: toolResult.data, needsUserSelection: true }, sources, toolsUsed };
-        contents.push({ role: 'model', parts }); contents.push({ role: 'user', parts: [{ functionResponse: { name: call.name, response: toolResult } }] });
-      }
-      throw new AIProviderError({ provider: 'gemini', reason: 'TOOL_STEP_LIMIT', retryable: false, safeMessage: 'Permintaan AI membutuhkan terlalu banyak langkah.' });
-    } finally { clearTimeout(timer); release(); }
+      const payload = { contents: [{ role: 'user', parts: [{ text: message }] }], systemInstruction: { parts: [{ text: instruction }] }, generationConfig: { temperature: 0, responseMimeType: 'application/json' } };
+      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(aiEnv.AI_MODEL)}:generateContent?key=${encodeURIComponent(aiEnv.GEMINI_API_KEY)}`, { method: 'POST', headers: { 'content-type': 'application/json' }, signal: controller.signal, body: JSON.stringify(payload) });
+      if (!response.ok) { let body: GeminiErrorBody = {}; try { body = await response.json() as GeminiErrorBody; } catch {} throw safeError(response, body); }
+      const result = await response.json() as { candidates?: Array<{ content?: { parts?: Array<{ text?: string }> } }> };
+      const text = result.candidates?.[0]?.content?.parts?.map((part) => part.text ?? '').join('').trim() ?? '';
+      let value: unknown; try { value = JSON.parse(text.replace(/^```json\s*|\s*```$/g, '')); } catch { value = undefined; }
+      return parseIntent(value, message);
+    } finally { clearTimeout(timer); }
   }
-  async *stream(input: { message: string; context?: unknown }) { yield (await this.generate(input)).answer; }
+
+  async answerKnowledge(message: string, excerpts: string[]) {
+    if (!aiEnv.GEMINI_API_KEY) return excerpts.length ? `Knowledge approved ditemukan untuk: ${message}.\n\n${excerpts.join('\n\n')}` : 'Knowledge approved tidak ditemukan.';
+    const controller = new AbortController(); const timer = setTimeout(() => controller.abort(), aiEnv.AI_TIMEOUT_MS);
+    try {
+      const payload = { contents: [{ role: 'user', parts: [{ text: `Pertanyaan: ${message}\n\nApproved documentation:\n${excerpts.join('\n\n')}` }] }], systemInstruction: { parts: [{ text: 'Jawab hanya berdasarkan approved documentation. Jangan mengklaim data live, jangan membuat SQL, dan jangan menyebut atau meminta database rows.' }] }, generationConfig: { temperature: 0.1 } };
+      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(aiEnv.AI_MODEL)}:generateContent?key=${encodeURIComponent(aiEnv.GEMINI_API_KEY)}`, { method: 'POST', headers: { 'content-type': 'application/json' }, signal: controller.signal, body: JSON.stringify(payload) });
+      if (!response.ok) { let body: GeminiErrorBody = {}; try { body = await response.json() as GeminiErrorBody; } catch {} throw safeError(response, body); }
+      const result = await response.json() as { candidates?: Array<{ content?: { parts?: Array<{ text?: string }> } }> };
+      return result.candidates?.[0]?.content?.parts?.map((part) => part.text ?? '').join('').trim() || 'Knowledge response kosong.';
+    } finally { clearTimeout(timer); }
+  }
+
+  async parseSemanticPlan(message: string, metadata: unknown): Promise<SemanticPlan> {
+    const fallback = deterministicSemanticPlan(message);
+    if (!aiEnv.GEMINI_API_KEY) { if (fallback) return fallback; throw new AIProviderError({ provider: 'gemini', reason: 'NOT_CONFIGURED', retryable: false, safeMessage: 'Layanan AI belum dikonfigurasi.' }); }
+    const controller = new AbortController(); const timer = setTimeout(() => controller.abort(), aiEnv.AI_TIMEOUT_MS);
+    try { const payload = { contents: [{ role: 'user', parts: [{ text: `Question: ${message}\nRelevant approved semantic metadata:\n${JSON.stringify(metadata)}` }] }], systemInstruction: { parts: [{ text: 'Return JSON only matching semantic query plan. Use entity and fields only from metadata. Never output SQL, physical table names, or database values.' }] }, generationConfig: { temperature: 0, responseMimeType: 'application/json' } }; const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(aiEnv.AI_MODEL)}:generateContent?key=${encodeURIComponent(aiEnv.GEMINI_API_KEY)}`, { method: 'POST', headers: { 'content-type': 'application/json' }, signal: controller.signal, body: JSON.stringify(payload) }); if (!response.ok) throw safeError(response, {}); const result = await response.json() as { candidates?: Array<{ content?: { parts?: Array<{ text?: string }> } }> }; const text = result.candidates?.[0]?.content?.parts?.map((part) => part.text ?? '').join('').trim() ?? ''; return semanticPlanSchema.parse(JSON.parse(text.replace(/^```json\s*|\s*```$/g, ''))); } catch (error) { if (fallback) return fallback; throw error; } finally { clearTimeout(timer); }
+  }
 }

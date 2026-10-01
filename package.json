@@ -23,7 +23,17 @@
     "load:test:sql": "npm run load:test:sql --workspace backend",
     "load:test": "npm run load:test --workspace backend",
     "validate:sales": "npm run validate:sales --workspace backend"
-    ,"validate:delivery-grouping": "npm run validate:delivery-grouping --workspace backend"
+     ,"validate:delivery-grouping": "npm run validate:delivery-grouping --workspace backend",
+    "discover:semantic": "npm run discover:semantic --workspace backend",
+    "semantic:enrich": "npm run semantic:enrich --workspace backend",
+    "semantic:profile": "npm run semantic:profile --workspace backend",
+    "semantic:validate": "npm run semantic:validate --workspace backend",
+    "semantic:investigate-pr": "npm run semantic:investigate-pr --workspace backend",
+    "semantic:investigate-pr-sources": "npm run semantic:investigate-pr-sources --workspace backend",
+    "semantic:evidence": "npm run semantic:evidence --workspace backend",
+    "semantic:review": "npm run semantic:review --workspace backend",
+    "semantic:validate-pr-creation-status": "npm run semantic:validate-pr-creation-status --workspace backend",
+    "semantic:test-pr-creation-status": "npm run semantic:test-pr-creation-status --workspace backend"
   },
   "devDependencies": { "concurrently": "^9.1.2" }
 }
